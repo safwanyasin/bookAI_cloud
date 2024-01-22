@@ -28,3 +28,39 @@ Either<ValueFailure<String>, String> validatePassword(String input) {
     return right(input);
   }
 }
+
+Either<ValueFailure<String>, String> validateFullName(String input) {
+  if (input.isEmpty) {
+    return left(ValueFailure<String>.empty(failedValue: input));
+  } else if (input.length < 2) {
+    return left(ValueFailure<String>.shortLength(failedValue: input));
+  } else if (!RegExp(r"^[a-zA-Z ]+$").hasMatch(input)) {
+    return left(ValueFailure<String>.invalidCharacters(failedValue: input));
+  } else {
+    return right(input);
+  }
+}
+
+Either<ValueFailure<String>, String> validateParameterInput(String input) {
+  if (input.length == 1 || input.length == 2) {
+    return left(ValueFailure<String>.shortLength(failedValue: input));
+  } else if (!RegExp(r"^[a-zA-Z ]+$").hasMatch(input)) {
+    return left(ValueFailure<String>.invalidCharacters(failedValue: input));
+  } else {
+    return right(input);
+  }
+}
+
+Either<ValueFailure<String>, String> validateOpenApiKey(String input) {
+  // Implement your validation logic for OpenAI API key
+  // You can check for length, special characters, or any specific format
+  // Example:
+  if (input.isEmpty) {
+    return left(ValueFailure<String>.empty(failedValue: input));
+  } else if (input.length != 64) {
+    return left(ValueFailure<String>.incorrectLength(failedValue: input));
+  } else {
+    return right(input);
+  }
+}
+  

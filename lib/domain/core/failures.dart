@@ -32,4 +32,20 @@ abstract class ValueFailure<T> with _$ValueFailure<T> {
   const factory ValueFailure.noSpecialCharacter({
     required T failedValue,
   }) = NoSpecialCharacter<T>;
+
+  const factory ValueFailure.empty({
+    required T failedValue,
+  }) = Empty<T>;
+
+  const factory ValueFailure.shortLength({
+    required T failedValue,
+  }) = ShortLength<T>;
+
+  const factory ValueFailure.invalidCharacters({
+    required T failedValue,
+  }) = InvalidCharacters<T>;
+
+  const factory ValueFailure.incorrectLength({
+    required T failedValue,
+  }) = IncorrectLength<T>;
 }

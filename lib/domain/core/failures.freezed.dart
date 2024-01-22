@@ -26,6 +26,10 @@ mixin _$ValueFailure<T> {
     required TResult Function(T failedValue) noLowercase,
     required TResult Function(T failedValue) noNumeric,
     required TResult Function(T failedValue) noSpecialCharacter,
+    required TResult Function(T failedValue) empty,
+    required TResult Function(T failedValue) shortLength,
+    required TResult Function(T failedValue) invalidCharacters,
+    required TResult Function(T failedValue) incorrectLength,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -37,6 +41,10 @@ mixin _$ValueFailure<T> {
     TResult? Function(T failedValue)? noLowercase,
     TResult? Function(T failedValue)? noNumeric,
     TResult? Function(T failedValue)? noSpecialCharacter,
+    TResult? Function(T failedValue)? empty,
+    TResult? Function(T failedValue)? shortLength,
+    TResult? Function(T failedValue)? invalidCharacters,
+    TResult? Function(T failedValue)? incorrectLength,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -48,6 +56,10 @@ mixin _$ValueFailure<T> {
     TResult Function(T failedValue)? noLowercase,
     TResult Function(T failedValue)? noNumeric,
     TResult Function(T failedValue)? noSpecialCharacter,
+    TResult Function(T failedValue)? empty,
+    TResult Function(T failedValue)? shortLength,
+    TResult Function(T failedValue)? invalidCharacters,
+    TResult Function(T failedValue)? incorrectLength,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -60,6 +72,10 @@ mixin _$ValueFailure<T> {
     required TResult Function(NoLowercase<T> value) noLowercase,
     required TResult Function(NoNumeric<T> value) noNumeric,
     required TResult Function(NoSpecialCharacter<T> value) noSpecialCharacter,
+    required TResult Function(Empty<T> value) empty,
+    required TResult Function(ShortLength<T> value) shortLength,
+    required TResult Function(InvalidCharacters<T> value) invalidCharacters,
+    required TResult Function(IncorrectLength<T> value) incorrectLength,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -71,6 +87,10 @@ mixin _$ValueFailure<T> {
     TResult? Function(NoLowercase<T> value)? noLowercase,
     TResult? Function(NoNumeric<T> value)? noNumeric,
     TResult? Function(NoSpecialCharacter<T> value)? noSpecialCharacter,
+    TResult? Function(Empty<T> value)? empty,
+    TResult? Function(ShortLength<T> value)? shortLength,
+    TResult? Function(InvalidCharacters<T> value)? invalidCharacters,
+    TResult? Function(IncorrectLength<T> value)? incorrectLength,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -82,6 +102,10 @@ mixin _$ValueFailure<T> {
     TResult Function(NoLowercase<T> value)? noLowercase,
     TResult Function(NoNumeric<T> value)? noNumeric,
     TResult Function(NoSpecialCharacter<T> value)? noSpecialCharacter,
+    TResult Function(Empty<T> value)? empty,
+    TResult Function(ShortLength<T> value)? shortLength,
+    TResult Function(InvalidCharacters<T> value)? invalidCharacters,
+    TResult Function(IncorrectLength<T> value)? incorrectLength,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -210,6 +234,10 @@ class _$InvalidEmailImpl<T>
     required TResult Function(T failedValue) noLowercase,
     required TResult Function(T failedValue) noNumeric,
     required TResult Function(T failedValue) noSpecialCharacter,
+    required TResult Function(T failedValue) empty,
+    required TResult Function(T failedValue) shortLength,
+    required TResult Function(T failedValue) invalidCharacters,
+    required TResult Function(T failedValue) incorrectLength,
   }) {
     return invalidEmail(failedValue);
   }
@@ -224,6 +252,10 @@ class _$InvalidEmailImpl<T>
     TResult? Function(T failedValue)? noLowercase,
     TResult? Function(T failedValue)? noNumeric,
     TResult? Function(T failedValue)? noSpecialCharacter,
+    TResult? Function(T failedValue)? empty,
+    TResult? Function(T failedValue)? shortLength,
+    TResult? Function(T failedValue)? invalidCharacters,
+    TResult? Function(T failedValue)? incorrectLength,
   }) {
     return invalidEmail?.call(failedValue);
   }
@@ -238,6 +270,10 @@ class _$InvalidEmailImpl<T>
     TResult Function(T failedValue)? noLowercase,
     TResult Function(T failedValue)? noNumeric,
     TResult Function(T failedValue)? noSpecialCharacter,
+    TResult Function(T failedValue)? empty,
+    TResult Function(T failedValue)? shortLength,
+    TResult Function(T failedValue)? invalidCharacters,
+    TResult Function(T failedValue)? incorrectLength,
     required TResult orElse(),
   }) {
     if (invalidEmail != null) {
@@ -256,6 +292,10 @@ class _$InvalidEmailImpl<T>
     required TResult Function(NoLowercase<T> value) noLowercase,
     required TResult Function(NoNumeric<T> value) noNumeric,
     required TResult Function(NoSpecialCharacter<T> value) noSpecialCharacter,
+    required TResult Function(Empty<T> value) empty,
+    required TResult Function(ShortLength<T> value) shortLength,
+    required TResult Function(InvalidCharacters<T> value) invalidCharacters,
+    required TResult Function(IncorrectLength<T> value) incorrectLength,
   }) {
     return invalidEmail(this);
   }
@@ -270,6 +310,10 @@ class _$InvalidEmailImpl<T>
     TResult? Function(NoLowercase<T> value)? noLowercase,
     TResult? Function(NoNumeric<T> value)? noNumeric,
     TResult? Function(NoSpecialCharacter<T> value)? noSpecialCharacter,
+    TResult? Function(Empty<T> value)? empty,
+    TResult? Function(ShortLength<T> value)? shortLength,
+    TResult? Function(InvalidCharacters<T> value)? invalidCharacters,
+    TResult? Function(IncorrectLength<T> value)? incorrectLength,
   }) {
     return invalidEmail?.call(this);
   }
@@ -284,6 +328,10 @@ class _$InvalidEmailImpl<T>
     TResult Function(NoLowercase<T> value)? noLowercase,
     TResult Function(NoNumeric<T> value)? noNumeric,
     TResult Function(NoSpecialCharacter<T> value)? noSpecialCharacter,
+    TResult Function(Empty<T> value)? empty,
+    TResult Function(ShortLength<T> value)? shortLength,
+    TResult Function(InvalidCharacters<T> value)? invalidCharacters,
+    TResult Function(IncorrectLength<T> value)? incorrectLength,
     required TResult orElse(),
   }) {
     if (invalidEmail != null) {
@@ -392,6 +440,10 @@ class _$EmailAlreadyInUseImpl<T>
     required TResult Function(T failedValue) noLowercase,
     required TResult Function(T failedValue) noNumeric,
     required TResult Function(T failedValue) noSpecialCharacter,
+    required TResult Function(T failedValue) empty,
+    required TResult Function(T failedValue) shortLength,
+    required TResult Function(T failedValue) invalidCharacters,
+    required TResult Function(T failedValue) incorrectLength,
   }) {
     return emailAlreadyInUse(failedValue);
   }
@@ -406,6 +458,10 @@ class _$EmailAlreadyInUseImpl<T>
     TResult? Function(T failedValue)? noLowercase,
     TResult? Function(T failedValue)? noNumeric,
     TResult? Function(T failedValue)? noSpecialCharacter,
+    TResult? Function(T failedValue)? empty,
+    TResult? Function(T failedValue)? shortLength,
+    TResult? Function(T failedValue)? invalidCharacters,
+    TResult? Function(T failedValue)? incorrectLength,
   }) {
     return emailAlreadyInUse?.call(failedValue);
   }
@@ -420,6 +476,10 @@ class _$EmailAlreadyInUseImpl<T>
     TResult Function(T failedValue)? noLowercase,
     TResult Function(T failedValue)? noNumeric,
     TResult Function(T failedValue)? noSpecialCharacter,
+    TResult Function(T failedValue)? empty,
+    TResult Function(T failedValue)? shortLength,
+    TResult Function(T failedValue)? invalidCharacters,
+    TResult Function(T failedValue)? incorrectLength,
     required TResult orElse(),
   }) {
     if (emailAlreadyInUse != null) {
@@ -438,6 +498,10 @@ class _$EmailAlreadyInUseImpl<T>
     required TResult Function(NoLowercase<T> value) noLowercase,
     required TResult Function(NoNumeric<T> value) noNumeric,
     required TResult Function(NoSpecialCharacter<T> value) noSpecialCharacter,
+    required TResult Function(Empty<T> value) empty,
+    required TResult Function(ShortLength<T> value) shortLength,
+    required TResult Function(InvalidCharacters<T> value) invalidCharacters,
+    required TResult Function(IncorrectLength<T> value) incorrectLength,
   }) {
     return emailAlreadyInUse(this);
   }
@@ -452,6 +516,10 @@ class _$EmailAlreadyInUseImpl<T>
     TResult? Function(NoLowercase<T> value)? noLowercase,
     TResult? Function(NoNumeric<T> value)? noNumeric,
     TResult? Function(NoSpecialCharacter<T> value)? noSpecialCharacter,
+    TResult? Function(Empty<T> value)? empty,
+    TResult? Function(ShortLength<T> value)? shortLength,
+    TResult? Function(InvalidCharacters<T> value)? invalidCharacters,
+    TResult? Function(IncorrectLength<T> value)? incorrectLength,
   }) {
     return emailAlreadyInUse?.call(this);
   }
@@ -466,6 +534,10 @@ class _$EmailAlreadyInUseImpl<T>
     TResult Function(NoLowercase<T> value)? noLowercase,
     TResult Function(NoNumeric<T> value)? noNumeric,
     TResult Function(NoSpecialCharacter<T> value)? noSpecialCharacter,
+    TResult Function(Empty<T> value)? empty,
+    TResult Function(ShortLength<T> value)? shortLength,
+    TResult Function(InvalidCharacters<T> value)? invalidCharacters,
+    TResult Function(IncorrectLength<T> value)? incorrectLength,
     required TResult orElse(),
   }) {
     if (emailAlreadyInUse != null) {
@@ -573,6 +645,10 @@ class _$ShortPasswordImpl<T>
     required TResult Function(T failedValue) noLowercase,
     required TResult Function(T failedValue) noNumeric,
     required TResult Function(T failedValue) noSpecialCharacter,
+    required TResult Function(T failedValue) empty,
+    required TResult Function(T failedValue) shortLength,
+    required TResult Function(T failedValue) invalidCharacters,
+    required TResult Function(T failedValue) incorrectLength,
   }) {
     return shortPassword(failedValue);
   }
@@ -587,6 +663,10 @@ class _$ShortPasswordImpl<T>
     TResult? Function(T failedValue)? noLowercase,
     TResult? Function(T failedValue)? noNumeric,
     TResult? Function(T failedValue)? noSpecialCharacter,
+    TResult? Function(T failedValue)? empty,
+    TResult? Function(T failedValue)? shortLength,
+    TResult? Function(T failedValue)? invalidCharacters,
+    TResult? Function(T failedValue)? incorrectLength,
   }) {
     return shortPassword?.call(failedValue);
   }
@@ -601,6 +681,10 @@ class _$ShortPasswordImpl<T>
     TResult Function(T failedValue)? noLowercase,
     TResult Function(T failedValue)? noNumeric,
     TResult Function(T failedValue)? noSpecialCharacter,
+    TResult Function(T failedValue)? empty,
+    TResult Function(T failedValue)? shortLength,
+    TResult Function(T failedValue)? invalidCharacters,
+    TResult Function(T failedValue)? incorrectLength,
     required TResult orElse(),
   }) {
     if (shortPassword != null) {
@@ -619,6 +703,10 @@ class _$ShortPasswordImpl<T>
     required TResult Function(NoLowercase<T> value) noLowercase,
     required TResult Function(NoNumeric<T> value) noNumeric,
     required TResult Function(NoSpecialCharacter<T> value) noSpecialCharacter,
+    required TResult Function(Empty<T> value) empty,
+    required TResult Function(ShortLength<T> value) shortLength,
+    required TResult Function(InvalidCharacters<T> value) invalidCharacters,
+    required TResult Function(IncorrectLength<T> value) incorrectLength,
   }) {
     return shortPassword(this);
   }
@@ -633,6 +721,10 @@ class _$ShortPasswordImpl<T>
     TResult? Function(NoLowercase<T> value)? noLowercase,
     TResult? Function(NoNumeric<T> value)? noNumeric,
     TResult? Function(NoSpecialCharacter<T> value)? noSpecialCharacter,
+    TResult? Function(Empty<T> value)? empty,
+    TResult? Function(ShortLength<T> value)? shortLength,
+    TResult? Function(InvalidCharacters<T> value)? invalidCharacters,
+    TResult? Function(IncorrectLength<T> value)? incorrectLength,
   }) {
     return shortPassword?.call(this);
   }
@@ -647,6 +739,10 @@ class _$ShortPasswordImpl<T>
     TResult Function(NoLowercase<T> value)? noLowercase,
     TResult Function(NoNumeric<T> value)? noNumeric,
     TResult Function(NoSpecialCharacter<T> value)? noSpecialCharacter,
+    TResult Function(Empty<T> value)? empty,
+    TResult Function(ShortLength<T> value)? shortLength,
+    TResult Function(InvalidCharacters<T> value)? invalidCharacters,
+    TResult Function(IncorrectLength<T> value)? incorrectLength,
     required TResult orElse(),
   }) {
     if (shortPassword != null) {
@@ -754,6 +850,10 @@ class _$NoUppercaseImpl<T>
     required TResult Function(T failedValue) noLowercase,
     required TResult Function(T failedValue) noNumeric,
     required TResult Function(T failedValue) noSpecialCharacter,
+    required TResult Function(T failedValue) empty,
+    required TResult Function(T failedValue) shortLength,
+    required TResult Function(T failedValue) invalidCharacters,
+    required TResult Function(T failedValue) incorrectLength,
   }) {
     return noUppercase(failedValue);
   }
@@ -768,6 +868,10 @@ class _$NoUppercaseImpl<T>
     TResult? Function(T failedValue)? noLowercase,
     TResult? Function(T failedValue)? noNumeric,
     TResult? Function(T failedValue)? noSpecialCharacter,
+    TResult? Function(T failedValue)? empty,
+    TResult? Function(T failedValue)? shortLength,
+    TResult? Function(T failedValue)? invalidCharacters,
+    TResult? Function(T failedValue)? incorrectLength,
   }) {
     return noUppercase?.call(failedValue);
   }
@@ -782,6 +886,10 @@ class _$NoUppercaseImpl<T>
     TResult Function(T failedValue)? noLowercase,
     TResult Function(T failedValue)? noNumeric,
     TResult Function(T failedValue)? noSpecialCharacter,
+    TResult Function(T failedValue)? empty,
+    TResult Function(T failedValue)? shortLength,
+    TResult Function(T failedValue)? invalidCharacters,
+    TResult Function(T failedValue)? incorrectLength,
     required TResult orElse(),
   }) {
     if (noUppercase != null) {
@@ -800,6 +908,10 @@ class _$NoUppercaseImpl<T>
     required TResult Function(NoLowercase<T> value) noLowercase,
     required TResult Function(NoNumeric<T> value) noNumeric,
     required TResult Function(NoSpecialCharacter<T> value) noSpecialCharacter,
+    required TResult Function(Empty<T> value) empty,
+    required TResult Function(ShortLength<T> value) shortLength,
+    required TResult Function(InvalidCharacters<T> value) invalidCharacters,
+    required TResult Function(IncorrectLength<T> value) incorrectLength,
   }) {
     return noUppercase(this);
   }
@@ -814,6 +926,10 @@ class _$NoUppercaseImpl<T>
     TResult? Function(NoLowercase<T> value)? noLowercase,
     TResult? Function(NoNumeric<T> value)? noNumeric,
     TResult? Function(NoSpecialCharacter<T> value)? noSpecialCharacter,
+    TResult? Function(Empty<T> value)? empty,
+    TResult? Function(ShortLength<T> value)? shortLength,
+    TResult? Function(InvalidCharacters<T> value)? invalidCharacters,
+    TResult? Function(IncorrectLength<T> value)? incorrectLength,
   }) {
     return noUppercase?.call(this);
   }
@@ -828,6 +944,10 @@ class _$NoUppercaseImpl<T>
     TResult Function(NoLowercase<T> value)? noLowercase,
     TResult Function(NoNumeric<T> value)? noNumeric,
     TResult Function(NoSpecialCharacter<T> value)? noSpecialCharacter,
+    TResult Function(Empty<T> value)? empty,
+    TResult Function(ShortLength<T> value)? shortLength,
+    TResult Function(InvalidCharacters<T> value)? invalidCharacters,
+    TResult Function(IncorrectLength<T> value)? incorrectLength,
     required TResult orElse(),
   }) {
     if (noUppercase != null) {
@@ -935,6 +1055,10 @@ class _$NoLowercaseImpl<T>
     required TResult Function(T failedValue) noLowercase,
     required TResult Function(T failedValue) noNumeric,
     required TResult Function(T failedValue) noSpecialCharacter,
+    required TResult Function(T failedValue) empty,
+    required TResult Function(T failedValue) shortLength,
+    required TResult Function(T failedValue) invalidCharacters,
+    required TResult Function(T failedValue) incorrectLength,
   }) {
     return noLowercase(failedValue);
   }
@@ -949,6 +1073,10 @@ class _$NoLowercaseImpl<T>
     TResult? Function(T failedValue)? noLowercase,
     TResult? Function(T failedValue)? noNumeric,
     TResult? Function(T failedValue)? noSpecialCharacter,
+    TResult? Function(T failedValue)? empty,
+    TResult? Function(T failedValue)? shortLength,
+    TResult? Function(T failedValue)? invalidCharacters,
+    TResult? Function(T failedValue)? incorrectLength,
   }) {
     return noLowercase?.call(failedValue);
   }
@@ -963,6 +1091,10 @@ class _$NoLowercaseImpl<T>
     TResult Function(T failedValue)? noLowercase,
     TResult Function(T failedValue)? noNumeric,
     TResult Function(T failedValue)? noSpecialCharacter,
+    TResult Function(T failedValue)? empty,
+    TResult Function(T failedValue)? shortLength,
+    TResult Function(T failedValue)? invalidCharacters,
+    TResult Function(T failedValue)? incorrectLength,
     required TResult orElse(),
   }) {
     if (noLowercase != null) {
@@ -981,6 +1113,10 @@ class _$NoLowercaseImpl<T>
     required TResult Function(NoLowercase<T> value) noLowercase,
     required TResult Function(NoNumeric<T> value) noNumeric,
     required TResult Function(NoSpecialCharacter<T> value) noSpecialCharacter,
+    required TResult Function(Empty<T> value) empty,
+    required TResult Function(ShortLength<T> value) shortLength,
+    required TResult Function(InvalidCharacters<T> value) invalidCharacters,
+    required TResult Function(IncorrectLength<T> value) incorrectLength,
   }) {
     return noLowercase(this);
   }
@@ -995,6 +1131,10 @@ class _$NoLowercaseImpl<T>
     TResult? Function(NoLowercase<T> value)? noLowercase,
     TResult? Function(NoNumeric<T> value)? noNumeric,
     TResult? Function(NoSpecialCharacter<T> value)? noSpecialCharacter,
+    TResult? Function(Empty<T> value)? empty,
+    TResult? Function(ShortLength<T> value)? shortLength,
+    TResult? Function(InvalidCharacters<T> value)? invalidCharacters,
+    TResult? Function(IncorrectLength<T> value)? incorrectLength,
   }) {
     return noLowercase?.call(this);
   }
@@ -1009,6 +1149,10 @@ class _$NoLowercaseImpl<T>
     TResult Function(NoLowercase<T> value)? noLowercase,
     TResult Function(NoNumeric<T> value)? noNumeric,
     TResult Function(NoSpecialCharacter<T> value)? noSpecialCharacter,
+    TResult Function(Empty<T> value)? empty,
+    TResult Function(ShortLength<T> value)? shortLength,
+    TResult Function(InvalidCharacters<T> value)? invalidCharacters,
+    TResult Function(IncorrectLength<T> value)? incorrectLength,
     required TResult orElse(),
   }) {
     if (noLowercase != null) {
@@ -1113,6 +1257,10 @@ class _$NoNumericImpl<T> with DiagnosticableTreeMixin implements NoNumeric<T> {
     required TResult Function(T failedValue) noLowercase,
     required TResult Function(T failedValue) noNumeric,
     required TResult Function(T failedValue) noSpecialCharacter,
+    required TResult Function(T failedValue) empty,
+    required TResult Function(T failedValue) shortLength,
+    required TResult Function(T failedValue) invalidCharacters,
+    required TResult Function(T failedValue) incorrectLength,
   }) {
     return noNumeric(failedValue);
   }
@@ -1127,6 +1275,10 @@ class _$NoNumericImpl<T> with DiagnosticableTreeMixin implements NoNumeric<T> {
     TResult? Function(T failedValue)? noLowercase,
     TResult? Function(T failedValue)? noNumeric,
     TResult? Function(T failedValue)? noSpecialCharacter,
+    TResult? Function(T failedValue)? empty,
+    TResult? Function(T failedValue)? shortLength,
+    TResult? Function(T failedValue)? invalidCharacters,
+    TResult? Function(T failedValue)? incorrectLength,
   }) {
     return noNumeric?.call(failedValue);
   }
@@ -1141,6 +1293,10 @@ class _$NoNumericImpl<T> with DiagnosticableTreeMixin implements NoNumeric<T> {
     TResult Function(T failedValue)? noLowercase,
     TResult Function(T failedValue)? noNumeric,
     TResult Function(T failedValue)? noSpecialCharacter,
+    TResult Function(T failedValue)? empty,
+    TResult Function(T failedValue)? shortLength,
+    TResult Function(T failedValue)? invalidCharacters,
+    TResult Function(T failedValue)? incorrectLength,
     required TResult orElse(),
   }) {
     if (noNumeric != null) {
@@ -1159,6 +1315,10 @@ class _$NoNumericImpl<T> with DiagnosticableTreeMixin implements NoNumeric<T> {
     required TResult Function(NoLowercase<T> value) noLowercase,
     required TResult Function(NoNumeric<T> value) noNumeric,
     required TResult Function(NoSpecialCharacter<T> value) noSpecialCharacter,
+    required TResult Function(Empty<T> value) empty,
+    required TResult Function(ShortLength<T> value) shortLength,
+    required TResult Function(InvalidCharacters<T> value) invalidCharacters,
+    required TResult Function(IncorrectLength<T> value) incorrectLength,
   }) {
     return noNumeric(this);
   }
@@ -1173,6 +1333,10 @@ class _$NoNumericImpl<T> with DiagnosticableTreeMixin implements NoNumeric<T> {
     TResult? Function(NoLowercase<T> value)? noLowercase,
     TResult? Function(NoNumeric<T> value)? noNumeric,
     TResult? Function(NoSpecialCharacter<T> value)? noSpecialCharacter,
+    TResult? Function(Empty<T> value)? empty,
+    TResult? Function(ShortLength<T> value)? shortLength,
+    TResult? Function(InvalidCharacters<T> value)? invalidCharacters,
+    TResult? Function(IncorrectLength<T> value)? incorrectLength,
   }) {
     return noNumeric?.call(this);
   }
@@ -1187,6 +1351,10 @@ class _$NoNumericImpl<T> with DiagnosticableTreeMixin implements NoNumeric<T> {
     TResult Function(NoLowercase<T> value)? noLowercase,
     TResult Function(NoNumeric<T> value)? noNumeric,
     TResult Function(NoSpecialCharacter<T> value)? noSpecialCharacter,
+    TResult Function(Empty<T> value)? empty,
+    TResult Function(ShortLength<T> value)? shortLength,
+    TResult Function(InvalidCharacters<T> value)? invalidCharacters,
+    TResult Function(IncorrectLength<T> value)? incorrectLength,
     required TResult orElse(),
   }) {
     if (noNumeric != null) {
@@ -1293,6 +1461,10 @@ class _$NoSpecialCharacterImpl<T>
     required TResult Function(T failedValue) noLowercase,
     required TResult Function(T failedValue) noNumeric,
     required TResult Function(T failedValue) noSpecialCharacter,
+    required TResult Function(T failedValue) empty,
+    required TResult Function(T failedValue) shortLength,
+    required TResult Function(T failedValue) invalidCharacters,
+    required TResult Function(T failedValue) incorrectLength,
   }) {
     return noSpecialCharacter(failedValue);
   }
@@ -1307,6 +1479,10 @@ class _$NoSpecialCharacterImpl<T>
     TResult? Function(T failedValue)? noLowercase,
     TResult? Function(T failedValue)? noNumeric,
     TResult? Function(T failedValue)? noSpecialCharacter,
+    TResult? Function(T failedValue)? empty,
+    TResult? Function(T failedValue)? shortLength,
+    TResult? Function(T failedValue)? invalidCharacters,
+    TResult? Function(T failedValue)? incorrectLength,
   }) {
     return noSpecialCharacter?.call(failedValue);
   }
@@ -1321,6 +1497,10 @@ class _$NoSpecialCharacterImpl<T>
     TResult Function(T failedValue)? noLowercase,
     TResult Function(T failedValue)? noNumeric,
     TResult Function(T failedValue)? noSpecialCharacter,
+    TResult Function(T failedValue)? empty,
+    TResult Function(T failedValue)? shortLength,
+    TResult Function(T failedValue)? invalidCharacters,
+    TResult Function(T failedValue)? incorrectLength,
     required TResult orElse(),
   }) {
     if (noSpecialCharacter != null) {
@@ -1339,6 +1519,10 @@ class _$NoSpecialCharacterImpl<T>
     required TResult Function(NoLowercase<T> value) noLowercase,
     required TResult Function(NoNumeric<T> value) noNumeric,
     required TResult Function(NoSpecialCharacter<T> value) noSpecialCharacter,
+    required TResult Function(Empty<T> value) empty,
+    required TResult Function(ShortLength<T> value) shortLength,
+    required TResult Function(InvalidCharacters<T> value) invalidCharacters,
+    required TResult Function(IncorrectLength<T> value) incorrectLength,
   }) {
     return noSpecialCharacter(this);
   }
@@ -1353,6 +1537,10 @@ class _$NoSpecialCharacterImpl<T>
     TResult? Function(NoLowercase<T> value)? noLowercase,
     TResult? Function(NoNumeric<T> value)? noNumeric,
     TResult? Function(NoSpecialCharacter<T> value)? noSpecialCharacter,
+    TResult? Function(Empty<T> value)? empty,
+    TResult? Function(ShortLength<T> value)? shortLength,
+    TResult? Function(InvalidCharacters<T> value)? invalidCharacters,
+    TResult? Function(IncorrectLength<T> value)? incorrectLength,
   }) {
     return noSpecialCharacter?.call(this);
   }
@@ -1367,6 +1555,10 @@ class _$NoSpecialCharacterImpl<T>
     TResult Function(NoLowercase<T> value)? noLowercase,
     TResult Function(NoNumeric<T> value)? noNumeric,
     TResult Function(NoSpecialCharacter<T> value)? noSpecialCharacter,
+    TResult Function(Empty<T> value)? empty,
+    TResult Function(ShortLength<T> value)? shortLength,
+    TResult Function(InvalidCharacters<T> value)? invalidCharacters,
+    TResult Function(IncorrectLength<T> value)? incorrectLength,
     required TResult orElse(),
   }) {
     if (noSpecialCharacter != null) {
@@ -1386,4 +1578,821 @@ abstract class NoSpecialCharacter<T> implements ValueFailure<T> {
   @JsonKey(ignore: true)
   _$$NoSpecialCharacterImplCopyWith<T, _$NoSpecialCharacterImpl<T>>
       get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$EmptyImplCopyWith<T, $Res>
+    implements $ValueFailureCopyWith<T, $Res> {
+  factory _$$EmptyImplCopyWith(
+          _$EmptyImpl<T> value, $Res Function(_$EmptyImpl<T>) then) =
+      __$$EmptyImplCopyWithImpl<T, $Res>;
+  @override
+  @useResult
+  $Res call({T failedValue});
+}
+
+/// @nodoc
+class __$$EmptyImplCopyWithImpl<T, $Res>
+    extends _$ValueFailureCopyWithImpl<T, $Res, _$EmptyImpl<T>>
+    implements _$$EmptyImplCopyWith<T, $Res> {
+  __$$EmptyImplCopyWithImpl(
+      _$EmptyImpl<T> _value, $Res Function(_$EmptyImpl<T>) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? failedValue = freezed,
+  }) {
+    return _then(_$EmptyImpl<T>(
+      failedValue: freezed == failedValue
+          ? _value.failedValue
+          : failedValue // ignore: cast_nullable_to_non_nullable
+              as T,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$EmptyImpl<T> with DiagnosticableTreeMixin implements Empty<T> {
+  const _$EmptyImpl({required this.failedValue});
+
+  @override
+  final T failedValue;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'ValueFailure<$T>.empty(failedValue: $failedValue)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'ValueFailure<$T>.empty'))
+      ..add(DiagnosticsProperty('failedValue', failedValue));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$EmptyImpl<T> &&
+            const DeepCollectionEquality()
+                .equals(other.failedValue, failedValue));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(failedValue));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$EmptyImplCopyWith<T, _$EmptyImpl<T>> get copyWith =>
+      __$$EmptyImplCopyWithImpl<T, _$EmptyImpl<T>>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(T failedValue) invalidEmail,
+    required TResult Function(T failedValue) emailAlreadyInUse,
+    required TResult Function(T failedValue) shortPassword,
+    required TResult Function(T failedValue) noUppercase,
+    required TResult Function(T failedValue) noLowercase,
+    required TResult Function(T failedValue) noNumeric,
+    required TResult Function(T failedValue) noSpecialCharacter,
+    required TResult Function(T failedValue) empty,
+    required TResult Function(T failedValue) shortLength,
+    required TResult Function(T failedValue) invalidCharacters,
+    required TResult Function(T failedValue) incorrectLength,
+  }) {
+    return empty(failedValue);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(T failedValue)? invalidEmail,
+    TResult? Function(T failedValue)? emailAlreadyInUse,
+    TResult? Function(T failedValue)? shortPassword,
+    TResult? Function(T failedValue)? noUppercase,
+    TResult? Function(T failedValue)? noLowercase,
+    TResult? Function(T failedValue)? noNumeric,
+    TResult? Function(T failedValue)? noSpecialCharacter,
+    TResult? Function(T failedValue)? empty,
+    TResult? Function(T failedValue)? shortLength,
+    TResult? Function(T failedValue)? invalidCharacters,
+    TResult? Function(T failedValue)? incorrectLength,
+  }) {
+    return empty?.call(failedValue);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(T failedValue)? invalidEmail,
+    TResult Function(T failedValue)? emailAlreadyInUse,
+    TResult Function(T failedValue)? shortPassword,
+    TResult Function(T failedValue)? noUppercase,
+    TResult Function(T failedValue)? noLowercase,
+    TResult Function(T failedValue)? noNumeric,
+    TResult Function(T failedValue)? noSpecialCharacter,
+    TResult Function(T failedValue)? empty,
+    TResult Function(T failedValue)? shortLength,
+    TResult Function(T failedValue)? invalidCharacters,
+    TResult Function(T failedValue)? incorrectLength,
+    required TResult orElse(),
+  }) {
+    if (empty != null) {
+      return empty(failedValue);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(InvalidEmail<T> value) invalidEmail,
+    required TResult Function(EmailAlreadyInUse<T> value) emailAlreadyInUse,
+    required TResult Function(ShortPassword<T> value) shortPassword,
+    required TResult Function(NoUppercase<T> value) noUppercase,
+    required TResult Function(NoLowercase<T> value) noLowercase,
+    required TResult Function(NoNumeric<T> value) noNumeric,
+    required TResult Function(NoSpecialCharacter<T> value) noSpecialCharacter,
+    required TResult Function(Empty<T> value) empty,
+    required TResult Function(ShortLength<T> value) shortLength,
+    required TResult Function(InvalidCharacters<T> value) invalidCharacters,
+    required TResult Function(IncorrectLength<T> value) incorrectLength,
+  }) {
+    return empty(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(InvalidEmail<T> value)? invalidEmail,
+    TResult? Function(EmailAlreadyInUse<T> value)? emailAlreadyInUse,
+    TResult? Function(ShortPassword<T> value)? shortPassword,
+    TResult? Function(NoUppercase<T> value)? noUppercase,
+    TResult? Function(NoLowercase<T> value)? noLowercase,
+    TResult? Function(NoNumeric<T> value)? noNumeric,
+    TResult? Function(NoSpecialCharacter<T> value)? noSpecialCharacter,
+    TResult? Function(Empty<T> value)? empty,
+    TResult? Function(ShortLength<T> value)? shortLength,
+    TResult? Function(InvalidCharacters<T> value)? invalidCharacters,
+    TResult? Function(IncorrectLength<T> value)? incorrectLength,
+  }) {
+    return empty?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(InvalidEmail<T> value)? invalidEmail,
+    TResult Function(EmailAlreadyInUse<T> value)? emailAlreadyInUse,
+    TResult Function(ShortPassword<T> value)? shortPassword,
+    TResult Function(NoUppercase<T> value)? noUppercase,
+    TResult Function(NoLowercase<T> value)? noLowercase,
+    TResult Function(NoNumeric<T> value)? noNumeric,
+    TResult Function(NoSpecialCharacter<T> value)? noSpecialCharacter,
+    TResult Function(Empty<T> value)? empty,
+    TResult Function(ShortLength<T> value)? shortLength,
+    TResult Function(InvalidCharacters<T> value)? invalidCharacters,
+    TResult Function(IncorrectLength<T> value)? incorrectLength,
+    required TResult orElse(),
+  }) {
+    if (empty != null) {
+      return empty(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class Empty<T> implements ValueFailure<T> {
+  const factory Empty({required final T failedValue}) = _$EmptyImpl<T>;
+
+  @override
+  T get failedValue;
+  @override
+  @JsonKey(ignore: true)
+  _$$EmptyImplCopyWith<T, _$EmptyImpl<T>> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ShortLengthImplCopyWith<T, $Res>
+    implements $ValueFailureCopyWith<T, $Res> {
+  factory _$$ShortLengthImplCopyWith(_$ShortLengthImpl<T> value,
+          $Res Function(_$ShortLengthImpl<T>) then) =
+      __$$ShortLengthImplCopyWithImpl<T, $Res>;
+  @override
+  @useResult
+  $Res call({T failedValue});
+}
+
+/// @nodoc
+class __$$ShortLengthImplCopyWithImpl<T, $Res>
+    extends _$ValueFailureCopyWithImpl<T, $Res, _$ShortLengthImpl<T>>
+    implements _$$ShortLengthImplCopyWith<T, $Res> {
+  __$$ShortLengthImplCopyWithImpl(
+      _$ShortLengthImpl<T> _value, $Res Function(_$ShortLengthImpl<T>) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? failedValue = freezed,
+  }) {
+    return _then(_$ShortLengthImpl<T>(
+      failedValue: freezed == failedValue
+          ? _value.failedValue
+          : failedValue // ignore: cast_nullable_to_non_nullable
+              as T,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ShortLengthImpl<T>
+    with DiagnosticableTreeMixin
+    implements ShortLength<T> {
+  const _$ShortLengthImpl({required this.failedValue});
+
+  @override
+  final T failedValue;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'ValueFailure<$T>.shortLength(failedValue: $failedValue)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'ValueFailure<$T>.shortLength'))
+      ..add(DiagnosticsProperty('failedValue', failedValue));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ShortLengthImpl<T> &&
+            const DeepCollectionEquality()
+                .equals(other.failedValue, failedValue));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(failedValue));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ShortLengthImplCopyWith<T, _$ShortLengthImpl<T>> get copyWith =>
+      __$$ShortLengthImplCopyWithImpl<T, _$ShortLengthImpl<T>>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(T failedValue) invalidEmail,
+    required TResult Function(T failedValue) emailAlreadyInUse,
+    required TResult Function(T failedValue) shortPassword,
+    required TResult Function(T failedValue) noUppercase,
+    required TResult Function(T failedValue) noLowercase,
+    required TResult Function(T failedValue) noNumeric,
+    required TResult Function(T failedValue) noSpecialCharacter,
+    required TResult Function(T failedValue) empty,
+    required TResult Function(T failedValue) shortLength,
+    required TResult Function(T failedValue) invalidCharacters,
+    required TResult Function(T failedValue) incorrectLength,
+  }) {
+    return shortLength(failedValue);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(T failedValue)? invalidEmail,
+    TResult? Function(T failedValue)? emailAlreadyInUse,
+    TResult? Function(T failedValue)? shortPassword,
+    TResult? Function(T failedValue)? noUppercase,
+    TResult? Function(T failedValue)? noLowercase,
+    TResult? Function(T failedValue)? noNumeric,
+    TResult? Function(T failedValue)? noSpecialCharacter,
+    TResult? Function(T failedValue)? empty,
+    TResult? Function(T failedValue)? shortLength,
+    TResult? Function(T failedValue)? invalidCharacters,
+    TResult? Function(T failedValue)? incorrectLength,
+  }) {
+    return shortLength?.call(failedValue);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(T failedValue)? invalidEmail,
+    TResult Function(T failedValue)? emailAlreadyInUse,
+    TResult Function(T failedValue)? shortPassword,
+    TResult Function(T failedValue)? noUppercase,
+    TResult Function(T failedValue)? noLowercase,
+    TResult Function(T failedValue)? noNumeric,
+    TResult Function(T failedValue)? noSpecialCharacter,
+    TResult Function(T failedValue)? empty,
+    TResult Function(T failedValue)? shortLength,
+    TResult Function(T failedValue)? invalidCharacters,
+    TResult Function(T failedValue)? incorrectLength,
+    required TResult orElse(),
+  }) {
+    if (shortLength != null) {
+      return shortLength(failedValue);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(InvalidEmail<T> value) invalidEmail,
+    required TResult Function(EmailAlreadyInUse<T> value) emailAlreadyInUse,
+    required TResult Function(ShortPassword<T> value) shortPassword,
+    required TResult Function(NoUppercase<T> value) noUppercase,
+    required TResult Function(NoLowercase<T> value) noLowercase,
+    required TResult Function(NoNumeric<T> value) noNumeric,
+    required TResult Function(NoSpecialCharacter<T> value) noSpecialCharacter,
+    required TResult Function(Empty<T> value) empty,
+    required TResult Function(ShortLength<T> value) shortLength,
+    required TResult Function(InvalidCharacters<T> value) invalidCharacters,
+    required TResult Function(IncorrectLength<T> value) incorrectLength,
+  }) {
+    return shortLength(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(InvalidEmail<T> value)? invalidEmail,
+    TResult? Function(EmailAlreadyInUse<T> value)? emailAlreadyInUse,
+    TResult? Function(ShortPassword<T> value)? shortPassword,
+    TResult? Function(NoUppercase<T> value)? noUppercase,
+    TResult? Function(NoLowercase<T> value)? noLowercase,
+    TResult? Function(NoNumeric<T> value)? noNumeric,
+    TResult? Function(NoSpecialCharacter<T> value)? noSpecialCharacter,
+    TResult? Function(Empty<T> value)? empty,
+    TResult? Function(ShortLength<T> value)? shortLength,
+    TResult? Function(InvalidCharacters<T> value)? invalidCharacters,
+    TResult? Function(IncorrectLength<T> value)? incorrectLength,
+  }) {
+    return shortLength?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(InvalidEmail<T> value)? invalidEmail,
+    TResult Function(EmailAlreadyInUse<T> value)? emailAlreadyInUse,
+    TResult Function(ShortPassword<T> value)? shortPassword,
+    TResult Function(NoUppercase<T> value)? noUppercase,
+    TResult Function(NoLowercase<T> value)? noLowercase,
+    TResult Function(NoNumeric<T> value)? noNumeric,
+    TResult Function(NoSpecialCharacter<T> value)? noSpecialCharacter,
+    TResult Function(Empty<T> value)? empty,
+    TResult Function(ShortLength<T> value)? shortLength,
+    TResult Function(InvalidCharacters<T> value)? invalidCharacters,
+    TResult Function(IncorrectLength<T> value)? incorrectLength,
+    required TResult orElse(),
+  }) {
+    if (shortLength != null) {
+      return shortLength(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ShortLength<T> implements ValueFailure<T> {
+  const factory ShortLength({required final T failedValue}) =
+      _$ShortLengthImpl<T>;
+
+  @override
+  T get failedValue;
+  @override
+  @JsonKey(ignore: true)
+  _$$ShortLengthImplCopyWith<T, _$ShortLengthImpl<T>> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$InvalidCharactersImplCopyWith<T, $Res>
+    implements $ValueFailureCopyWith<T, $Res> {
+  factory _$$InvalidCharactersImplCopyWith(_$InvalidCharactersImpl<T> value,
+          $Res Function(_$InvalidCharactersImpl<T>) then) =
+      __$$InvalidCharactersImplCopyWithImpl<T, $Res>;
+  @override
+  @useResult
+  $Res call({T failedValue});
+}
+
+/// @nodoc
+class __$$InvalidCharactersImplCopyWithImpl<T, $Res>
+    extends _$ValueFailureCopyWithImpl<T, $Res, _$InvalidCharactersImpl<T>>
+    implements _$$InvalidCharactersImplCopyWith<T, $Res> {
+  __$$InvalidCharactersImplCopyWithImpl(_$InvalidCharactersImpl<T> _value,
+      $Res Function(_$InvalidCharactersImpl<T>) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? failedValue = freezed,
+  }) {
+    return _then(_$InvalidCharactersImpl<T>(
+      failedValue: freezed == failedValue
+          ? _value.failedValue
+          : failedValue // ignore: cast_nullable_to_non_nullable
+              as T,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$InvalidCharactersImpl<T>
+    with DiagnosticableTreeMixin
+    implements InvalidCharacters<T> {
+  const _$InvalidCharactersImpl({required this.failedValue});
+
+  @override
+  final T failedValue;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'ValueFailure<$T>.invalidCharacters(failedValue: $failedValue)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'ValueFailure<$T>.invalidCharacters'))
+      ..add(DiagnosticsProperty('failedValue', failedValue));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$InvalidCharactersImpl<T> &&
+            const DeepCollectionEquality()
+                .equals(other.failedValue, failedValue));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(failedValue));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$InvalidCharactersImplCopyWith<T, _$InvalidCharactersImpl<T>>
+      get copyWith =>
+          __$$InvalidCharactersImplCopyWithImpl<T, _$InvalidCharactersImpl<T>>(
+              this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(T failedValue) invalidEmail,
+    required TResult Function(T failedValue) emailAlreadyInUse,
+    required TResult Function(T failedValue) shortPassword,
+    required TResult Function(T failedValue) noUppercase,
+    required TResult Function(T failedValue) noLowercase,
+    required TResult Function(T failedValue) noNumeric,
+    required TResult Function(T failedValue) noSpecialCharacter,
+    required TResult Function(T failedValue) empty,
+    required TResult Function(T failedValue) shortLength,
+    required TResult Function(T failedValue) invalidCharacters,
+    required TResult Function(T failedValue) incorrectLength,
+  }) {
+    return invalidCharacters(failedValue);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(T failedValue)? invalidEmail,
+    TResult? Function(T failedValue)? emailAlreadyInUse,
+    TResult? Function(T failedValue)? shortPassword,
+    TResult? Function(T failedValue)? noUppercase,
+    TResult? Function(T failedValue)? noLowercase,
+    TResult? Function(T failedValue)? noNumeric,
+    TResult? Function(T failedValue)? noSpecialCharacter,
+    TResult? Function(T failedValue)? empty,
+    TResult? Function(T failedValue)? shortLength,
+    TResult? Function(T failedValue)? invalidCharacters,
+    TResult? Function(T failedValue)? incorrectLength,
+  }) {
+    return invalidCharacters?.call(failedValue);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(T failedValue)? invalidEmail,
+    TResult Function(T failedValue)? emailAlreadyInUse,
+    TResult Function(T failedValue)? shortPassword,
+    TResult Function(T failedValue)? noUppercase,
+    TResult Function(T failedValue)? noLowercase,
+    TResult Function(T failedValue)? noNumeric,
+    TResult Function(T failedValue)? noSpecialCharacter,
+    TResult Function(T failedValue)? empty,
+    TResult Function(T failedValue)? shortLength,
+    TResult Function(T failedValue)? invalidCharacters,
+    TResult Function(T failedValue)? incorrectLength,
+    required TResult orElse(),
+  }) {
+    if (invalidCharacters != null) {
+      return invalidCharacters(failedValue);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(InvalidEmail<T> value) invalidEmail,
+    required TResult Function(EmailAlreadyInUse<T> value) emailAlreadyInUse,
+    required TResult Function(ShortPassword<T> value) shortPassword,
+    required TResult Function(NoUppercase<T> value) noUppercase,
+    required TResult Function(NoLowercase<T> value) noLowercase,
+    required TResult Function(NoNumeric<T> value) noNumeric,
+    required TResult Function(NoSpecialCharacter<T> value) noSpecialCharacter,
+    required TResult Function(Empty<T> value) empty,
+    required TResult Function(ShortLength<T> value) shortLength,
+    required TResult Function(InvalidCharacters<T> value) invalidCharacters,
+    required TResult Function(IncorrectLength<T> value) incorrectLength,
+  }) {
+    return invalidCharacters(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(InvalidEmail<T> value)? invalidEmail,
+    TResult? Function(EmailAlreadyInUse<T> value)? emailAlreadyInUse,
+    TResult? Function(ShortPassword<T> value)? shortPassword,
+    TResult? Function(NoUppercase<T> value)? noUppercase,
+    TResult? Function(NoLowercase<T> value)? noLowercase,
+    TResult? Function(NoNumeric<T> value)? noNumeric,
+    TResult? Function(NoSpecialCharacter<T> value)? noSpecialCharacter,
+    TResult? Function(Empty<T> value)? empty,
+    TResult? Function(ShortLength<T> value)? shortLength,
+    TResult? Function(InvalidCharacters<T> value)? invalidCharacters,
+    TResult? Function(IncorrectLength<T> value)? incorrectLength,
+  }) {
+    return invalidCharacters?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(InvalidEmail<T> value)? invalidEmail,
+    TResult Function(EmailAlreadyInUse<T> value)? emailAlreadyInUse,
+    TResult Function(ShortPassword<T> value)? shortPassword,
+    TResult Function(NoUppercase<T> value)? noUppercase,
+    TResult Function(NoLowercase<T> value)? noLowercase,
+    TResult Function(NoNumeric<T> value)? noNumeric,
+    TResult Function(NoSpecialCharacter<T> value)? noSpecialCharacter,
+    TResult Function(Empty<T> value)? empty,
+    TResult Function(ShortLength<T> value)? shortLength,
+    TResult Function(InvalidCharacters<T> value)? invalidCharacters,
+    TResult Function(IncorrectLength<T> value)? incorrectLength,
+    required TResult orElse(),
+  }) {
+    if (invalidCharacters != null) {
+      return invalidCharacters(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class InvalidCharacters<T> implements ValueFailure<T> {
+  const factory InvalidCharacters({required final T failedValue}) =
+      _$InvalidCharactersImpl<T>;
+
+  @override
+  T get failedValue;
+  @override
+  @JsonKey(ignore: true)
+  _$$InvalidCharactersImplCopyWith<T, _$InvalidCharactersImpl<T>>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$IncorrectLengthImplCopyWith<T, $Res>
+    implements $ValueFailureCopyWith<T, $Res> {
+  factory _$$IncorrectLengthImplCopyWith(_$IncorrectLengthImpl<T> value,
+          $Res Function(_$IncorrectLengthImpl<T>) then) =
+      __$$IncorrectLengthImplCopyWithImpl<T, $Res>;
+  @override
+  @useResult
+  $Res call({T failedValue});
+}
+
+/// @nodoc
+class __$$IncorrectLengthImplCopyWithImpl<T, $Res>
+    extends _$ValueFailureCopyWithImpl<T, $Res, _$IncorrectLengthImpl<T>>
+    implements _$$IncorrectLengthImplCopyWith<T, $Res> {
+  __$$IncorrectLengthImplCopyWithImpl(_$IncorrectLengthImpl<T> _value,
+      $Res Function(_$IncorrectLengthImpl<T>) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? failedValue = freezed,
+  }) {
+    return _then(_$IncorrectLengthImpl<T>(
+      failedValue: freezed == failedValue
+          ? _value.failedValue
+          : failedValue // ignore: cast_nullable_to_non_nullable
+              as T,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$IncorrectLengthImpl<T>
+    with DiagnosticableTreeMixin
+    implements IncorrectLength<T> {
+  const _$IncorrectLengthImpl({required this.failedValue});
+
+  @override
+  final T failedValue;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'ValueFailure<$T>.incorrectLength(failedValue: $failedValue)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'ValueFailure<$T>.incorrectLength'))
+      ..add(DiagnosticsProperty('failedValue', failedValue));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$IncorrectLengthImpl<T> &&
+            const DeepCollectionEquality()
+                .equals(other.failedValue, failedValue));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(failedValue));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$IncorrectLengthImplCopyWith<T, _$IncorrectLengthImpl<T>> get copyWith =>
+      __$$IncorrectLengthImplCopyWithImpl<T, _$IncorrectLengthImpl<T>>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(T failedValue) invalidEmail,
+    required TResult Function(T failedValue) emailAlreadyInUse,
+    required TResult Function(T failedValue) shortPassword,
+    required TResult Function(T failedValue) noUppercase,
+    required TResult Function(T failedValue) noLowercase,
+    required TResult Function(T failedValue) noNumeric,
+    required TResult Function(T failedValue) noSpecialCharacter,
+    required TResult Function(T failedValue) empty,
+    required TResult Function(T failedValue) shortLength,
+    required TResult Function(T failedValue) invalidCharacters,
+    required TResult Function(T failedValue) incorrectLength,
+  }) {
+    return incorrectLength(failedValue);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(T failedValue)? invalidEmail,
+    TResult? Function(T failedValue)? emailAlreadyInUse,
+    TResult? Function(T failedValue)? shortPassword,
+    TResult? Function(T failedValue)? noUppercase,
+    TResult? Function(T failedValue)? noLowercase,
+    TResult? Function(T failedValue)? noNumeric,
+    TResult? Function(T failedValue)? noSpecialCharacter,
+    TResult? Function(T failedValue)? empty,
+    TResult? Function(T failedValue)? shortLength,
+    TResult? Function(T failedValue)? invalidCharacters,
+    TResult? Function(T failedValue)? incorrectLength,
+  }) {
+    return incorrectLength?.call(failedValue);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(T failedValue)? invalidEmail,
+    TResult Function(T failedValue)? emailAlreadyInUse,
+    TResult Function(T failedValue)? shortPassword,
+    TResult Function(T failedValue)? noUppercase,
+    TResult Function(T failedValue)? noLowercase,
+    TResult Function(T failedValue)? noNumeric,
+    TResult Function(T failedValue)? noSpecialCharacter,
+    TResult Function(T failedValue)? empty,
+    TResult Function(T failedValue)? shortLength,
+    TResult Function(T failedValue)? invalidCharacters,
+    TResult Function(T failedValue)? incorrectLength,
+    required TResult orElse(),
+  }) {
+    if (incorrectLength != null) {
+      return incorrectLength(failedValue);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(InvalidEmail<T> value) invalidEmail,
+    required TResult Function(EmailAlreadyInUse<T> value) emailAlreadyInUse,
+    required TResult Function(ShortPassword<T> value) shortPassword,
+    required TResult Function(NoUppercase<T> value) noUppercase,
+    required TResult Function(NoLowercase<T> value) noLowercase,
+    required TResult Function(NoNumeric<T> value) noNumeric,
+    required TResult Function(NoSpecialCharacter<T> value) noSpecialCharacter,
+    required TResult Function(Empty<T> value) empty,
+    required TResult Function(ShortLength<T> value) shortLength,
+    required TResult Function(InvalidCharacters<T> value) invalidCharacters,
+    required TResult Function(IncorrectLength<T> value) incorrectLength,
+  }) {
+    return incorrectLength(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(InvalidEmail<T> value)? invalidEmail,
+    TResult? Function(EmailAlreadyInUse<T> value)? emailAlreadyInUse,
+    TResult? Function(ShortPassword<T> value)? shortPassword,
+    TResult? Function(NoUppercase<T> value)? noUppercase,
+    TResult? Function(NoLowercase<T> value)? noLowercase,
+    TResult? Function(NoNumeric<T> value)? noNumeric,
+    TResult? Function(NoSpecialCharacter<T> value)? noSpecialCharacter,
+    TResult? Function(Empty<T> value)? empty,
+    TResult? Function(ShortLength<T> value)? shortLength,
+    TResult? Function(InvalidCharacters<T> value)? invalidCharacters,
+    TResult? Function(IncorrectLength<T> value)? incorrectLength,
+  }) {
+    return incorrectLength?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(InvalidEmail<T> value)? invalidEmail,
+    TResult Function(EmailAlreadyInUse<T> value)? emailAlreadyInUse,
+    TResult Function(ShortPassword<T> value)? shortPassword,
+    TResult Function(NoUppercase<T> value)? noUppercase,
+    TResult Function(NoLowercase<T> value)? noLowercase,
+    TResult Function(NoNumeric<T> value)? noNumeric,
+    TResult Function(NoSpecialCharacter<T> value)? noSpecialCharacter,
+    TResult Function(Empty<T> value)? empty,
+    TResult Function(ShortLength<T> value)? shortLength,
+    TResult Function(InvalidCharacters<T> value)? invalidCharacters,
+    TResult Function(IncorrectLength<T> value)? incorrectLength,
+    required TResult orElse(),
+  }) {
+    if (incorrectLength != null) {
+      return incorrectLength(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class IncorrectLength<T> implements ValueFailure<T> {
+  const factory IncorrectLength({required final T failedValue}) =
+      _$IncorrectLengthImpl<T>;
+
+  @override
+  T get failedValue;
+  @override
+  @JsonKey(ignore: true)
+  _$$IncorrectLengthImplCopyWith<T, _$IncorrectLengthImpl<T>> get copyWith =>
+      throw _privateConstructorUsedError;
 }
