@@ -1,3 +1,4 @@
+import 'package:book_ai/presentation/reusable_components/primary_button.dart';
 import 'package:book_ai/presentation/styles/themes.dart';
 import 'package:flutter/material.dart';
 
@@ -95,6 +96,9 @@ class _MyHomePageState extends State<MyHomePage> {
               '$_counter',
               style: Theme.of(context).textTheme.headlineMedium,
             ),
+            PrimaryButton(text: "hello", active: false, onPressed: () {}),
+            frost(),
+            frost()
           ],
         ),
       ),
