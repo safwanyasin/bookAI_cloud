@@ -61,6 +61,7 @@ class _MyHomePageState extends State<MyHomePage> {
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         // TRY THIS: Try changing the color here to a specific color (to
         // Colors.amber, perhaps?) and trigger a hot reload to see the AppBar
@@ -96,7 +97,7 @@ class _MyHomePageState extends State<MyHomePage> {
               '$_counter',
               style: Theme.of(context).textTheme.headlineMedium,
             ),
-            PrimaryButton(text: "hello", active: false, onPressed: () {}),
+            PrimaryButton(text: "hello", active: true, onPressed: () {}),
             frost(),
             frost()
           ],

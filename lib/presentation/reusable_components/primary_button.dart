@@ -51,6 +51,8 @@ class PrimaryButton extends StatelessWidget {
           child: TextButton(
             onPressed: onPressed,
             style: TextButton.styleFrom(
+              
+              splashFactory: NoSplash.splashFactory,
               backgroundColor: active
                   ? Theme.of(context).primaryColor
                   : Colors
