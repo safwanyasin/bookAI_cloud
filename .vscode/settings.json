@@ -1,0 +1,10 @@
+{
+    "editor.formatOnSave": true,
+    "[dart]": {
+      "editor.formatOnSave": true
+    },
+    "[flutter]": {
+      "editor.formatOnSave": true
+    }
+  }
+  
