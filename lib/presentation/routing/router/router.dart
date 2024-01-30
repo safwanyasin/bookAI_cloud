@@ -1,5 +1,5 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:book_ai/presentation/pages/home/home_page.dart';
+import 'package:book_ai/presentation/pages/home/home_screen.dart';
 import 'package:book_ai/presentation/pages/route_test.dart';
 import 'package:book_ai/presentation/pages/test.dart';
 // import 'package:book_ai/presentation/router/router.dart';
@@ -12,8 +12,13 @@ class AppRouter extends _$AppRouter {
   List<AutoRoute> get routes => [
         AutoRoute(
           page: HomeRoute.page,
+          initial: true,
         ),
-        AutoRoute(page: TestingRoute.page, initial: true),
-        AutoRoute(page: RoutingTestRoute.page)
+        AutoRoute(
+          page: TestingRoute.page,
+        ),
+        AutoRoute(
+          page: RoutingTestRoute.page,
+        )
       ];
 }

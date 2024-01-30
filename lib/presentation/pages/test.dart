@@ -10,7 +10,7 @@ import 'package:book_ai/presentation/reusable_components/cards/info_box.dart';
 import 'package:book_ai/presentation/reusable_components/cards/info_card.dart';
 import 'package:book_ai/presentation/reusable_components/input/input_fields.dart';
 import 'package:book_ai/presentation/reusable_components/input/search_input.dart';
-import 'package:book_ai/presentation/router/router.dart';
+import 'package:book_ai/presentation/routing/router/router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rive/rive.dart';

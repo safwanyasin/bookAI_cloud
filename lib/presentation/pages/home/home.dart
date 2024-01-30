@@ -17,13 +17,12 @@ class Book {
       required this.onPressed});
 }
 
-@RoutePage()
-class HomeScreen extends StatefulWidget {
+class HomePage extends StatefulWidget {
   @override
-  _HomeScreenState createState() => _HomeScreenState();
+  _HomePageState createState() => _HomePageState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _HomePageState extends State<HomePage> {
   late CarouselController _carouselController;
 
   final List<Book> books = [

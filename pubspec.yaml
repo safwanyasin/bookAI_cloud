@@ -104,3 +104,4 @@ flutter:
     # Add assets from the images directory to the application.
     - assets/images/bg-dark.png
     - assets/animations/background.riv
+    - assets/animations/bottom_nav_items.riv
