@@ -1,10 +1,11 @@
-import 'package:auto_route/auto_route.dart';
-import 'package:book_ai/presentation/reusable_components/backgrounds/animatied_background.dart';
-import 'package:book_ai/presentation/routing/navigaton/bottom_nav_bar.dart';
+import 'package:book_ai/presentation/reusable_components/buttons/plain_button.dart';
+import 'package:book_ai/presentation/reusable_components/input/search_input.dart';
+import 'package:book_ai/presentation/reusable_components/texts/heading.dart';
+import 'package:book_ai/presentation/reusable_components/texts/section_heading.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-@RoutePage()
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
@@ -13,46 +14,46 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  Widget _body = Container();
-  final List<Widget> _screens = [
-    Container(child: SafeArea(child: Text('screen 1'))),
-    Container(child: Text('screen 2')),
-    Container(child: Text('screen 3')),
-    Container(child: Text('screen 4')),
-    Container(child: Text('screen 5')),
-  ];
-
-  @override
-  void initState() {
-    _body = _screens.first;
-  }
-
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        systemOverlayStyle: const SystemUiOverlayStyle(
-          systemNavigationBarColor: Colors.black, // Navigation bar
-          statusBarColor: Colors.transparent, // Status bar
+    return Container(
+      margin: EdgeInsets.only(left: 20.w, right: 20.w),
+      height: MediaQuery.of(context).size.height,
+      child: SingleChildScrollView(
+        scrollDirection: Axis.vertical,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            SizedBox(height: 15.h),
+            SectionHeading(
+              content: 'Welcome, Safwan',
+            ),
+            SizedBox(height: 2.h),
+            Heading(
+              content: 'What do you want to read today?',
+            ),
+            SizedBox(height: 15.h),
+            SearchInput(
+              controller: TextEditingController(),
+              hintText: 'Search by name, author, ISBN',
+            ),
+            SizedBox(height: 15.h),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const SectionHeading(
+                  content: 'Top picks for you',
+                ),
+                PlainButton(
+                  onPressed: () {
+                    print('See all button pressed');
+                  },
+                  buttonText: 'See all',
+                ),
+              ],
+            ),
+          ],
         ),
-      ),
-      extendBody: true,
-      extendBodyBehindAppBar: true,
-      body: Container(
-          height: MediaQuery.of(context).size.height,
-          child: Stack(
-            children: [
-              const AnimatedBackground(),
-              _body,
-            ],
-          )),
-      bottomNavigationBar: BottomNavBar(
-        onTabChange: (tabIndex) {
-          setState(() {
-            _body = _screens[tabIndex];
-          });
-        },
       ),
     );
   }

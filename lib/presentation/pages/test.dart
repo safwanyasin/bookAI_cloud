@@ -4,7 +4,7 @@ import 'package:book_ai/presentation/reusable_components/backgrounds/animatied_b
 import 'package:book_ai/presentation/reusable_components/buttons/add_to_wishlist.dart';
 import 'package:book_ai/presentation/reusable_components/buttons/filter_button.dart';
 import 'package:book_ai/presentation/reusable_components/buttons/primary_button.dart';
-import 'package:book_ai/presentation/reusable_components/buttons/text_button.dart';
+import 'package:book_ai/presentation/reusable_components/buttons/plain_button.dart';
 import 'package:book_ai/presentation/reusable_components/cards/homescreen_card.dart';
 import 'package:book_ai/presentation/reusable_components/cards/info_box.dart';
 import 'package:book_ai/presentation/reusable_components/cards/info_card.dart';
@@ -74,9 +74,9 @@ class _TestScreenState extends State<TestingScreen> {
                           onPressed: () {
                             context.router.push(const RoutingTestRoute());
                           }),
-                      SearchInput(
-                          controller: textController,
-                          hintText: 'Search for something'),
+                      // SearchInput(
+                      //     controller: textController,
+                      //     hintText: 'Search for something'),
                       HomescreenCard(
                         imageUrl:
                             'https://cdn.kobo.com/book-images/7edc63b3-95a4-42ad-ab61-96135edda145/353/569/90/False/frankenstein-83.jpg',

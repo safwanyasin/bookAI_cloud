@@ -18,11 +18,6 @@ class BottomNavBar extends StatefulWidget {
 class _BottomNavBarState extends State<BottomNavBar> {
   int _selectedTab = 0;
 
-  // void initState() {
-  //   super.initState();
-  //   _controller = SimpleAnimation(bottomNavItems[0].rive.stateMachineName,
-  //       autoplay: false);
-  // }
 
   void _onRiveIconInit(Artboard artboard, index) {
     final controller = StateMachineController.fromArtboard(
@@ -31,6 +26,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
 
     bottomNavItems[index].status =
         controller.findInput<bool>("active") as SMIBool;
+        
   }
 
   void onTabPress(int index) {

@@ -8,8 +8,8 @@ class PlainButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextButton(
-      onPressed: onPressed,
+    return GestureDetector(
+      onTap: onPressed,
       child: Text(
         buttonText,
         style: TextStyle(

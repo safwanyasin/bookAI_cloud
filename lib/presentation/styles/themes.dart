@@ -27,6 +27,11 @@ class AppTheme {
           fontWeight: FontWeight.w600, // Semibold
           color: AppColors.secondaryColor,
         ),
+        headlineMedium: GoogleFonts.quicksand(
+          fontSize: 18.w,
+          fontWeight: FontWeight.w400,
+          color: AppColors.secondaryColor,
+        ),
         bodyLarge: GoogleFonts.quicksand(
           fontSize: 15.w,
           fontWeight: FontWeight.normal, // Regular
