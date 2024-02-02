@@ -24,7 +24,7 @@ environment:
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
 # consider running `flutter pub upgrade --major-versions`. Alternatively,
-# dependencies can be manually updated by changing the version numbers below to
+# dependencies can be manually updated by changing the version numbers below tof
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
@@ -103,5 +103,6 @@ flutter:
   assets:
     # Add assets from the images directory to the application.
     - assets/images/bg-dark.png
+    - assets/images/nav-bg.png
     - assets/animations/background.riv
     - assets/animations/bottom_nav_items.riv

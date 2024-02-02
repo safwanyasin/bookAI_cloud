@@ -1,3 +1,7 @@
+import 'package:book_ai/presentation/classes/book.dart';
+import 'package:book_ai/presentation/classes/prev_stories.dart';
+import 'package:book_ai/presentation/pages/home/home_main_carousel.dart';
+import 'package:book_ai/presentation/pages/home/home_secondary_carousel.dart';
 import 'package:book_ai/presentation/reusable_components/buttons/plain_button.dart';
 import 'package:book_ai/presentation/reusable_components/input/search_input.dart';
 import 'package:book_ai/presentation/reusable_components/texts/heading.dart';
@@ -14,6 +18,64 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  void likePressHandler(bool liked) {
+    setState(() {
+      liked = !liked;
+    });
+  }
+
+  List<Book> items = [
+    Book(
+        author: 'Roald Dahl',
+        name: 'Matilda',
+        description: 'this book is about a girl named matilda',
+        pageCount: 300,
+        reviewCount: 5000,
+        liked: true,
+        imageUrl:
+            "http://books.google.com/books/content?id=ggbLDwAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+        onPressed: () {},
+        rating: 4.4,
+        language: 'English'),
+    Book(
+        author: 'Adolf Hitler',
+        name: 'Mein Kampf',
+        description: 'this is the autobiography of Adolf Hitler',
+        pageCount: 300,
+        reviewCount: 5000,
+        liked: false,
+        imageUrl:
+            "http://books.google.com/books/content?id=B7QkEAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+        onPressed: () {},
+        rating: 4.4,
+        language: 'English'),
+    Book(
+        author: 'Jeff Kinney',
+        name: 'Diary of a wimpy kid',
+        description: 'this book is about a dumb kid made for dumb kids to read',
+        pageCount: 300,
+        reviewCount: 5000,
+        liked: true,
+        imageUrl:
+            "http://books.google.com/books/content?id=8MXK_KrHOZYC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+        onPressed: () {},
+        rating: 4.4,
+        language: 'English'),
+  ];
+
+  List<PreviousStory> previousStoriesList = [
+    PreviousStory(
+      title: 'The happy prince',
+      content: 'This is the description of the story',
+      creationDate: DateTime.now(),
+    ),
+    PreviousStory(
+      title: 'Football is great',
+      content: 'This is the description of the story',
+      creationDate: DateTime.now(),
+    ),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -24,12 +86,12 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(height: 15.h),
-            SectionHeading(
+            SizedBox(height: 95.h),
+            const SectionHeading(
               content: 'Welcome, Safwan',
             ),
             SizedBox(height: 2.h),
-            Heading(
+            const Heading(
               content: 'What do you want to read today?',
             ),
             SizedBox(height: 15.h),
@@ -52,6 +114,26 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ],
             ),
+            SizedBox(height: 10.h),
+            HomeMainCarousel(items: items),
+            SizedBox(height: 5.h),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const SectionHeading(
+                  content: 'Read stories you have generated',
+                ),
+                PlainButton(
+                  onPressed: () {
+                    print('See all button pressed');
+                  },
+                  buttonText: 'See all',
+                ),
+              ],
+            ),
+            SizedBox(height: 10.h),
+            HomeSecondaryCarousel(items: previousStoriesList),
+            SizedBox(height: 90.h)
           ],
         ),
       ),

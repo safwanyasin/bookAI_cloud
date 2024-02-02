@@ -77,14 +77,14 @@ class _TestScreenState extends State<TestingScreen> {
                       // SearchInput(
                       //     controller: textController,
                       //     hintText: 'Search for something'),
-                      HomescreenCard(
-                        imageUrl:
-                            'https://cdn.kobo.com/book-images/7edc63b3-95a4-42ad-ab61-96135edda145/353/569/90/False/frankenstein-83.jpg',
-                        heading: 'test',
-                        subheading: 'subheading',
-                        liked: false,
-                        onPressed: () {},
-                      ),
+                      // HomescreenCard(
+                      //   imageUrl:
+                      //       'https://cdn.kobo.com/book-images/7edc63b3-95a4-42ad-ab61-96135edda145/353/569/90/False/frankenstein-83.jpg',
+                      //   heading: 'test',
+                      //   subheading: 'subheading',
+                      //   liked: false,
+                      //   onPressed: () {},
+                      // ),
                       InputField(
                         controller: textController,
                         hintText: 'enter some shit',

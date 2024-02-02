@@ -1,21 +1,9 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:book_ai/constants.dart';
+import 'package:book_ai/presentation/classes/book.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-class Book {
-  final String imageUrl;
-  final String name;
-  final String author;
-  final VoidCallback onPressed;
-
-  Book(
-      {required this.imageUrl,
-      required this.name,
-      required this.author,
-      required this.onPressed});
-}
 
 class HomePage extends StatefulWidget {
   @override
@@ -26,24 +14,24 @@ class _HomePageState extends State<HomePage> {
   late CarouselController _carouselController;
 
   final List<Book> books = [
-    Book(
-      imageUrl:
-          'http://books.google.com/books/content?id=B7QkEAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api',
-      name: 'Book 1',
-      author: 'Author 1',
-      onPressed: () {
-        print('Book 1 pressed!');
-      },
-    ),
-    Book(
-      imageUrl:
-          'http://books.google.com/books/content?id=8MXK_KrHOZYC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api',
-      name: 'Book 2',
-      author: 'Author 2',
-      onPressed: () {
-        print('Book 2 pressed!');
-      },
-    ),
+    // Book(
+    //   imageUrl:
+    //       'http://books.google.com/books/content?id=B7QkEAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api',
+    //   name: 'Book 1',
+    //   author: 'Author 1',
+    //   onPressed: () {
+    //     print('Book 1 pressed!');
+    //   },
+    // ),
+    // Book(
+    //   imageUrl:
+    //       'http://books.google.com/books/content?id=8MXK_KrHOZYC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api',
+    //   name: 'Book 2',
+    //   author: 'Author 2',
+    //   onPressed: () {
+    //     print('Book 2 pressed!');
+    //   },
+    // ),
   ];
 
   String currentBackgroundImageUrl = '';

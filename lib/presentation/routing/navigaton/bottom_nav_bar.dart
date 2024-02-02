@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+import 'package:book_ai/presentation/classes/bottom_nav_models.dart';
 import 'package:book_ai/presentation/reusable_components/models/nav_item_model.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -18,7 +19,6 @@ class BottomNavBar extends StatefulWidget {
 class _BottomNavBarState extends State<BottomNavBar> {
   int _selectedTab = 0;
 
-
   void _onRiveIconInit(Artboard artboard, index) {
     final controller = StateMachineController.fromArtboard(
         artboard, bottomNavItems[index].rive.stateMachineName);
@@ -26,7 +26,6 @@ class _BottomNavBarState extends State<BottomNavBar> {
 
     bottomNavItems[index].status =
         controller.findInput<bool>("active") as SMIBool;
-        
   }
 
   void onTabPress(int index) {
@@ -49,61 +48,62 @@ class _BottomNavBarState extends State<BottomNavBar> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Container(
-        child: Container(
-          decoration: BoxDecoration(
-            color: Colors.transparent,
-            borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(50.w),
-              topRight: Radius.circular(50.w),
-            ),
+        decoration: BoxDecoration(
+          image: const DecorationImage(
+            image: AssetImage('assets/images/nav-bg.png'),
+            fit: BoxFit.cover,
           ),
-          child: ClipRRect(
-            borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(50.w),
-              topRight: Radius.circular(50.w),
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(50.w),
+            topRight: Radius.circular(50.w),
+          ),
+        ),
+        child: ClipRRect(
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(50.w),
+            topRight: Radius.circular(50.w),
+          ),
+          child: BackdropFilter(
+            filter: ImageFilter.blur(
+              sigmaX: 10,
+              sigmaY: 10,
             ),
-            child: BackdropFilter(
-              filter: ImageFilter.blur(
-                sigmaX: 10,
-                sigmaY: 10,
-              ),
-              blendMode: BlendMode.srcOver,
+            blendMode: BlendMode.srcOver,
+            child: Container(
+              color: Theme.of(context).disabledColor,
               child: Container(
-                color: Theme.of(context).disabledColor,
-                child: Container(
-                  height: 65.h,
-                  child: Padding(
-                    padding: EdgeInsets.only(right: 20.w, left: 20.w),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: List.generate(bottomNavItems.length, (index) {
-                        NavItemModel item = bottomNavItems[index];
-                        return CupertinoButton(
-                          // padding: EdgeInsets.all(0),
-                          onPressed: () {
-                            onTabPress(index);
-                          },
-                          child: Container(
-                            child: SizedBox(
-                              height: 40.h,
-                              width: 40.h,
-                              child: RiveAnimation.asset(
-                                item.rive.src,
-                                stateMachines: [item.rive.stateMachineName],
-                                artboard: item.rive.artboard,
-                                onInit: (artboard) {
-                                  _onRiveIconInit(artboard, index);
-                                  // artboard.addController(_controller =
-                                  //     SimpleAnimation(
-                                  //         item.rive.stateMachineName[0],
-                                  //         autoplay: false));
-                                },
-                              ),
+                height: 65.h,
+                child: Padding(
+                  padding: EdgeInsets.only(right: 20.w, left: 20.w),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: List.generate(bottomNavItems.length, (index) {
+                      NavItemModel item = bottomNavItems[index];
+                      return CupertinoButton(
+                        // padding: EdgeInsets.all(0),
+                        onPressed: () {
+                          onTabPress(index);
+                        },
+                        child: Container(
+                          child: SizedBox(
+                            height: 40.h,
+                            width: 40.h,
+                            child: RiveAnimation.asset(
+                              item.rive.src,
+                              stateMachines: [item.rive.stateMachineName],
+                              artboard: item.rive.artboard,
+                              onInit: (artboard) {
+                                _onRiveIconInit(artboard, index);
+                                // artboard.addController(_controller =
+                                //     SimpleAnimation(
+                                //         item.rive.stateMachineName[0],
+                                //         autoplay: false));
+                              },
                             ),
                           ),
-                        );
-                      }),
-                    ),
+                        ),
+                      );
+                    }),
                   ),
                 ),
               ),

@@ -17,7 +17,7 @@ class NavScreen extends StatefulWidget {
 class _NavScreenState extends State<NavScreen> {
   Widget _body = Container();
   final List<Widget> _screens = [
-    HomeScreen(),
+    const HomeScreen(),
     Container(child: Text('screen 2')),
     Container(child: Text('screen 3')),
     Container(child: Text('screen 4')),
@@ -32,10 +32,32 @@ class _NavScreenState extends State<NavScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // appBar: AppBar(
+      //   toolbarHeight: 30.h,
+      //   leading: Padding(
+      //     padding: EdgeInsets.only(left: 20.w),
+      //     child: GestureDetector(
+      //       child: Icon(
+      //         Icons.menu,
+      //         size: 25.w,
+      //       ),
+      //       onTap: () {
+      //         print('Menu icon pressed!');
+      //       },
+      //     ),
+      //   ),
+      //   backgroundColor: Colors.transparent,
+      //   systemOverlayStyle: const SystemUiOverlayStyle(
+      //     systemNavigationBarColor: Colors.black, // Navigation bar
+      //     statusBarColor: Colors.transparent, // Status bar
+      //   ),
+      // ),
+
       appBar: AppBar(
-        toolbarHeight: 30.h,
+        backgroundColor: Colors.transparent, // Set AppBar background to transparent
+        elevation: 0, // Remove AppBar elevation
         leading: Padding(
-          padding: EdgeInsets.only(left: 10.w),
+          padding: EdgeInsets.only(left: 20.w),
           child: GestureDetector(
             child: Icon(
               Icons.menu,
@@ -46,37 +68,25 @@ class _NavScreenState extends State<NavScreen> {
             },
           ),
         ),
-        backgroundColor: Colors.transparent,
-        systemOverlayStyle: const SystemUiOverlayStyle(
-          systemNavigationBarColor: Colors.black, // Navigation bar
-          statusBarColor: Colors.transparent, // Status bar
+        flexibleSpace: Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              colors: [Colors.black, Color.fromARGB(209, 0, 0, 0), Colors.transparent],
+            ),
+          ),
         ),
       ),
+
       extendBody: true,
       extendBodyBehindAppBar: true,
-      body: Container(
-          height: MediaQuery.of(context).size.height,
-          child: Stack(
-            children: [
-              const AnimatedBackground(),
-              AnimatedSwitcher(
-                  duration: Duration(milliseconds: 500),
-                  transitionBuilder: ((child, animation) {
-                    final curvedAnimation = CurvedAnimation(
-                      parent: animation,
-                      curve:
-                          Curves.easeInOut, // Use a different curve as needed
-                    );
-                    return SlideTransition(
-                        position: Tween<Offset>(
-                          begin: Offset(1, 0),
-                          end: Offset.zero,
-                        ).animate(curvedAnimation),
-                        child: child);
-                  }),
-                  child: SafeArea(child: _body)),
-            ],
-          )),
+      body: Stack(
+        children: [
+          const AnimatedBackground(),
+          _body,
+        ],
+      ),
       bottomNavigationBar: BottomNavBar(
         onTabChange: (tabIndex) {
           setState(() {
