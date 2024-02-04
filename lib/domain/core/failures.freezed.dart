@@ -21,6 +21,7 @@ mixin _$ValueFailure<T> {
   TResult when<TResult extends Object?>({
     required TResult Function(T failedValue) invalidEmail,
     required TResult Function(T failedValue) emailAlreadyInUse,
+    required TResult Function(T failedValue) passwordMismatch,
     required TResult Function(T failedValue) shortPassword,
     required TResult Function(T failedValue) noUppercase,
     required TResult Function(T failedValue) noLowercase,
@@ -36,6 +37,7 @@ mixin _$ValueFailure<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(T failedValue)? invalidEmail,
     TResult? Function(T failedValue)? emailAlreadyInUse,
+    TResult? Function(T failedValue)? passwordMismatch,
     TResult? Function(T failedValue)? shortPassword,
     TResult? Function(T failedValue)? noUppercase,
     TResult? Function(T failedValue)? noLowercase,
@@ -51,6 +53,7 @@ mixin _$ValueFailure<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(T failedValue)? invalidEmail,
     TResult Function(T failedValue)? emailAlreadyInUse,
+    TResult Function(T failedValue)? passwordMismatch,
     TResult Function(T failedValue)? shortPassword,
     TResult Function(T failedValue)? noUppercase,
     TResult Function(T failedValue)? noLowercase,
@@ -67,6 +70,7 @@ mixin _$ValueFailure<T> {
   TResult map<TResult extends Object?>({
     required TResult Function(InvalidEmail<T> value) invalidEmail,
     required TResult Function(EmailAlreadyInUse<T> value) emailAlreadyInUse,
+    required TResult Function(PasswordMismatch<T> value) passwordMismatch,
     required TResult Function(ShortPassword<T> value) shortPassword,
     required TResult Function(NoUppercase<T> value) noUppercase,
     required TResult Function(NoLowercase<T> value) noLowercase,
@@ -82,6 +86,7 @@ mixin _$ValueFailure<T> {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(InvalidEmail<T> value)? invalidEmail,
     TResult? Function(EmailAlreadyInUse<T> value)? emailAlreadyInUse,
+    TResult? Function(PasswordMismatch<T> value)? passwordMismatch,
     TResult? Function(ShortPassword<T> value)? shortPassword,
     TResult? Function(NoUppercase<T> value)? noUppercase,
     TResult? Function(NoLowercase<T> value)? noLowercase,
@@ -97,6 +102,7 @@ mixin _$ValueFailure<T> {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(InvalidEmail<T> value)? invalidEmail,
     TResult Function(EmailAlreadyInUse<T> value)? emailAlreadyInUse,
+    TResult Function(PasswordMismatch<T> value)? passwordMismatch,
     TResult Function(ShortPassword<T> value)? shortPassword,
     TResult Function(NoUppercase<T> value)? noUppercase,
     TResult Function(NoLowercase<T> value)? noLowercase,
@@ -229,6 +235,7 @@ class _$InvalidEmailImpl<T>
   TResult when<TResult extends Object?>({
     required TResult Function(T failedValue) invalidEmail,
     required TResult Function(T failedValue) emailAlreadyInUse,
+    required TResult Function(T failedValue) passwordMismatch,
     required TResult Function(T failedValue) shortPassword,
     required TResult Function(T failedValue) noUppercase,
     required TResult Function(T failedValue) noLowercase,
@@ -247,6 +254,7 @@ class _$InvalidEmailImpl<T>
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(T failedValue)? invalidEmail,
     TResult? Function(T failedValue)? emailAlreadyInUse,
+    TResult? Function(T failedValue)? passwordMismatch,
     TResult? Function(T failedValue)? shortPassword,
     TResult? Function(T failedValue)? noUppercase,
     TResult? Function(T failedValue)? noLowercase,
@@ -265,6 +273,7 @@ class _$InvalidEmailImpl<T>
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(T failedValue)? invalidEmail,
     TResult Function(T failedValue)? emailAlreadyInUse,
+    TResult Function(T failedValue)? passwordMismatch,
     TResult Function(T failedValue)? shortPassword,
     TResult Function(T failedValue)? noUppercase,
     TResult Function(T failedValue)? noLowercase,
@@ -287,6 +296,7 @@ class _$InvalidEmailImpl<T>
   TResult map<TResult extends Object?>({
     required TResult Function(InvalidEmail<T> value) invalidEmail,
     required TResult Function(EmailAlreadyInUse<T> value) emailAlreadyInUse,
+    required TResult Function(PasswordMismatch<T> value) passwordMismatch,
     required TResult Function(ShortPassword<T> value) shortPassword,
     required TResult Function(NoUppercase<T> value) noUppercase,
     required TResult Function(NoLowercase<T> value) noLowercase,
@@ -305,6 +315,7 @@ class _$InvalidEmailImpl<T>
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(InvalidEmail<T> value)? invalidEmail,
     TResult? Function(EmailAlreadyInUse<T> value)? emailAlreadyInUse,
+    TResult? Function(PasswordMismatch<T> value)? passwordMismatch,
     TResult? Function(ShortPassword<T> value)? shortPassword,
     TResult? Function(NoUppercase<T> value)? noUppercase,
     TResult? Function(NoLowercase<T> value)? noLowercase,
@@ -323,6 +334,7 @@ class _$InvalidEmailImpl<T>
   TResult maybeMap<TResult extends Object?>({
     TResult Function(InvalidEmail<T> value)? invalidEmail,
     TResult Function(EmailAlreadyInUse<T> value)? emailAlreadyInUse,
+    TResult Function(PasswordMismatch<T> value)? passwordMismatch,
     TResult Function(ShortPassword<T> value)? shortPassword,
     TResult Function(NoUppercase<T> value)? noUppercase,
     TResult Function(NoLowercase<T> value)? noLowercase,
@@ -435,6 +447,7 @@ class _$EmailAlreadyInUseImpl<T>
   TResult when<TResult extends Object?>({
     required TResult Function(T failedValue) invalidEmail,
     required TResult Function(T failedValue) emailAlreadyInUse,
+    required TResult Function(T failedValue) passwordMismatch,
     required TResult Function(T failedValue) shortPassword,
     required TResult Function(T failedValue) noUppercase,
     required TResult Function(T failedValue) noLowercase,
@@ -453,6 +466,7 @@ class _$EmailAlreadyInUseImpl<T>
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(T failedValue)? invalidEmail,
     TResult? Function(T failedValue)? emailAlreadyInUse,
+    TResult? Function(T failedValue)? passwordMismatch,
     TResult? Function(T failedValue)? shortPassword,
     TResult? Function(T failedValue)? noUppercase,
     TResult? Function(T failedValue)? noLowercase,
@@ -471,6 +485,7 @@ class _$EmailAlreadyInUseImpl<T>
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(T failedValue)? invalidEmail,
     TResult Function(T failedValue)? emailAlreadyInUse,
+    TResult Function(T failedValue)? passwordMismatch,
     TResult Function(T failedValue)? shortPassword,
     TResult Function(T failedValue)? noUppercase,
     TResult Function(T failedValue)? noLowercase,
@@ -493,6 +508,7 @@ class _$EmailAlreadyInUseImpl<T>
   TResult map<TResult extends Object?>({
     required TResult Function(InvalidEmail<T> value) invalidEmail,
     required TResult Function(EmailAlreadyInUse<T> value) emailAlreadyInUse,
+    required TResult Function(PasswordMismatch<T> value) passwordMismatch,
     required TResult Function(ShortPassword<T> value) shortPassword,
     required TResult Function(NoUppercase<T> value) noUppercase,
     required TResult Function(NoLowercase<T> value) noLowercase,
@@ -511,6 +527,7 @@ class _$EmailAlreadyInUseImpl<T>
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(InvalidEmail<T> value)? invalidEmail,
     TResult? Function(EmailAlreadyInUse<T> value)? emailAlreadyInUse,
+    TResult? Function(PasswordMismatch<T> value)? passwordMismatch,
     TResult? Function(ShortPassword<T> value)? shortPassword,
     TResult? Function(NoUppercase<T> value)? noUppercase,
     TResult? Function(NoLowercase<T> value)? noLowercase,
@@ -529,6 +546,7 @@ class _$EmailAlreadyInUseImpl<T>
   TResult maybeMap<TResult extends Object?>({
     TResult Function(InvalidEmail<T> value)? invalidEmail,
     TResult Function(EmailAlreadyInUse<T> value)? emailAlreadyInUse,
+    TResult Function(PasswordMismatch<T> value)? passwordMismatch,
     TResult Function(ShortPassword<T> value)? shortPassword,
     TResult Function(NoUppercase<T> value)? noUppercase,
     TResult Function(NoLowercase<T> value)? noLowercase,
@@ -557,6 +575,217 @@ abstract class EmailAlreadyInUse<T> implements ValueFailure<T> {
   @JsonKey(ignore: true)
   _$$EmailAlreadyInUseImplCopyWith<T, _$EmailAlreadyInUseImpl<T>>
       get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$PasswordMismatchImplCopyWith<T, $Res>
+    implements $ValueFailureCopyWith<T, $Res> {
+  factory _$$PasswordMismatchImplCopyWith(_$PasswordMismatchImpl<T> value,
+          $Res Function(_$PasswordMismatchImpl<T>) then) =
+      __$$PasswordMismatchImplCopyWithImpl<T, $Res>;
+  @override
+  @useResult
+  $Res call({T failedValue});
+}
+
+/// @nodoc
+class __$$PasswordMismatchImplCopyWithImpl<T, $Res>
+    extends _$ValueFailureCopyWithImpl<T, $Res, _$PasswordMismatchImpl<T>>
+    implements _$$PasswordMismatchImplCopyWith<T, $Res> {
+  __$$PasswordMismatchImplCopyWithImpl(_$PasswordMismatchImpl<T> _value,
+      $Res Function(_$PasswordMismatchImpl<T>) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? failedValue = freezed,
+  }) {
+    return _then(_$PasswordMismatchImpl<T>(
+      failedValue: freezed == failedValue
+          ? _value.failedValue
+          : failedValue // ignore: cast_nullable_to_non_nullable
+              as T,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$PasswordMismatchImpl<T>
+    with DiagnosticableTreeMixin
+    implements PasswordMismatch<T> {
+  const _$PasswordMismatchImpl({required this.failedValue});
+
+  @override
+  final T failedValue;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'ValueFailure<$T>.passwordMismatch(failedValue: $failedValue)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'ValueFailure<$T>.passwordMismatch'))
+      ..add(DiagnosticsProperty('failedValue', failedValue));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$PasswordMismatchImpl<T> &&
+            const DeepCollectionEquality()
+                .equals(other.failedValue, failedValue));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(failedValue));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$PasswordMismatchImplCopyWith<T, _$PasswordMismatchImpl<T>> get copyWith =>
+      __$$PasswordMismatchImplCopyWithImpl<T, _$PasswordMismatchImpl<T>>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(T failedValue) invalidEmail,
+    required TResult Function(T failedValue) emailAlreadyInUse,
+    required TResult Function(T failedValue) passwordMismatch,
+    required TResult Function(T failedValue) shortPassword,
+    required TResult Function(T failedValue) noUppercase,
+    required TResult Function(T failedValue) noLowercase,
+    required TResult Function(T failedValue) noNumeric,
+    required TResult Function(T failedValue) noSpecialCharacter,
+    required TResult Function(T failedValue) empty,
+    required TResult Function(T failedValue) shortLength,
+    required TResult Function(T failedValue) invalidCharacters,
+    required TResult Function(T failedValue) incorrectLength,
+  }) {
+    return passwordMismatch(failedValue);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(T failedValue)? invalidEmail,
+    TResult? Function(T failedValue)? emailAlreadyInUse,
+    TResult? Function(T failedValue)? passwordMismatch,
+    TResult? Function(T failedValue)? shortPassword,
+    TResult? Function(T failedValue)? noUppercase,
+    TResult? Function(T failedValue)? noLowercase,
+    TResult? Function(T failedValue)? noNumeric,
+    TResult? Function(T failedValue)? noSpecialCharacter,
+    TResult? Function(T failedValue)? empty,
+    TResult? Function(T failedValue)? shortLength,
+    TResult? Function(T failedValue)? invalidCharacters,
+    TResult? Function(T failedValue)? incorrectLength,
+  }) {
+    return passwordMismatch?.call(failedValue);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(T failedValue)? invalidEmail,
+    TResult Function(T failedValue)? emailAlreadyInUse,
+    TResult Function(T failedValue)? passwordMismatch,
+    TResult Function(T failedValue)? shortPassword,
+    TResult Function(T failedValue)? noUppercase,
+    TResult Function(T failedValue)? noLowercase,
+    TResult Function(T failedValue)? noNumeric,
+    TResult Function(T failedValue)? noSpecialCharacter,
+    TResult Function(T failedValue)? empty,
+    TResult Function(T failedValue)? shortLength,
+    TResult Function(T failedValue)? invalidCharacters,
+    TResult Function(T failedValue)? incorrectLength,
+    required TResult orElse(),
+  }) {
+    if (passwordMismatch != null) {
+      return passwordMismatch(failedValue);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(InvalidEmail<T> value) invalidEmail,
+    required TResult Function(EmailAlreadyInUse<T> value) emailAlreadyInUse,
+    required TResult Function(PasswordMismatch<T> value) passwordMismatch,
+    required TResult Function(ShortPassword<T> value) shortPassword,
+    required TResult Function(NoUppercase<T> value) noUppercase,
+    required TResult Function(NoLowercase<T> value) noLowercase,
+    required TResult Function(NoNumeric<T> value) noNumeric,
+    required TResult Function(NoSpecialCharacter<T> value) noSpecialCharacter,
+    required TResult Function(Empty<T> value) empty,
+    required TResult Function(ShortLength<T> value) shortLength,
+    required TResult Function(InvalidCharacters<T> value) invalidCharacters,
+    required TResult Function(IncorrectLength<T> value) incorrectLength,
+  }) {
+    return passwordMismatch(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(InvalidEmail<T> value)? invalidEmail,
+    TResult? Function(EmailAlreadyInUse<T> value)? emailAlreadyInUse,
+    TResult? Function(PasswordMismatch<T> value)? passwordMismatch,
+    TResult? Function(ShortPassword<T> value)? shortPassword,
+    TResult? Function(NoUppercase<T> value)? noUppercase,
+    TResult? Function(NoLowercase<T> value)? noLowercase,
+    TResult? Function(NoNumeric<T> value)? noNumeric,
+    TResult? Function(NoSpecialCharacter<T> value)? noSpecialCharacter,
+    TResult? Function(Empty<T> value)? empty,
+    TResult? Function(ShortLength<T> value)? shortLength,
+    TResult? Function(InvalidCharacters<T> value)? invalidCharacters,
+    TResult? Function(IncorrectLength<T> value)? incorrectLength,
+  }) {
+    return passwordMismatch?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(InvalidEmail<T> value)? invalidEmail,
+    TResult Function(EmailAlreadyInUse<T> value)? emailAlreadyInUse,
+    TResult Function(PasswordMismatch<T> value)? passwordMismatch,
+    TResult Function(ShortPassword<T> value)? shortPassword,
+    TResult Function(NoUppercase<T> value)? noUppercase,
+    TResult Function(NoLowercase<T> value)? noLowercase,
+    TResult Function(NoNumeric<T> value)? noNumeric,
+    TResult Function(NoSpecialCharacter<T> value)? noSpecialCharacter,
+    TResult Function(Empty<T> value)? empty,
+    TResult Function(ShortLength<T> value)? shortLength,
+    TResult Function(InvalidCharacters<T> value)? invalidCharacters,
+    TResult Function(IncorrectLength<T> value)? incorrectLength,
+    required TResult orElse(),
+  }) {
+    if (passwordMismatch != null) {
+      return passwordMismatch(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class PasswordMismatch<T> implements ValueFailure<T> {
+  const factory PasswordMismatch({required final T failedValue}) =
+      _$PasswordMismatchImpl<T>;
+
+  @override
+  T get failedValue;
+  @override
+  @JsonKey(ignore: true)
+  _$$PasswordMismatchImplCopyWith<T, _$PasswordMismatchImpl<T>> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -640,6 +869,7 @@ class _$ShortPasswordImpl<T>
   TResult when<TResult extends Object?>({
     required TResult Function(T failedValue) invalidEmail,
     required TResult Function(T failedValue) emailAlreadyInUse,
+    required TResult Function(T failedValue) passwordMismatch,
     required TResult Function(T failedValue) shortPassword,
     required TResult Function(T failedValue) noUppercase,
     required TResult Function(T failedValue) noLowercase,
@@ -658,6 +888,7 @@ class _$ShortPasswordImpl<T>
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(T failedValue)? invalidEmail,
     TResult? Function(T failedValue)? emailAlreadyInUse,
+    TResult? Function(T failedValue)? passwordMismatch,
     TResult? Function(T failedValue)? shortPassword,
     TResult? Function(T failedValue)? noUppercase,
     TResult? Function(T failedValue)? noLowercase,
@@ -676,6 +907,7 @@ class _$ShortPasswordImpl<T>
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(T failedValue)? invalidEmail,
     TResult Function(T failedValue)? emailAlreadyInUse,
+    TResult Function(T failedValue)? passwordMismatch,
     TResult Function(T failedValue)? shortPassword,
     TResult Function(T failedValue)? noUppercase,
     TResult Function(T failedValue)? noLowercase,
@@ -698,6 +930,7 @@ class _$ShortPasswordImpl<T>
   TResult map<TResult extends Object?>({
     required TResult Function(InvalidEmail<T> value) invalidEmail,
     required TResult Function(EmailAlreadyInUse<T> value) emailAlreadyInUse,
+    required TResult Function(PasswordMismatch<T> value) passwordMismatch,
     required TResult Function(ShortPassword<T> value) shortPassword,
     required TResult Function(NoUppercase<T> value) noUppercase,
     required TResult Function(NoLowercase<T> value) noLowercase,
@@ -716,6 +949,7 @@ class _$ShortPasswordImpl<T>
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(InvalidEmail<T> value)? invalidEmail,
     TResult? Function(EmailAlreadyInUse<T> value)? emailAlreadyInUse,
+    TResult? Function(PasswordMismatch<T> value)? passwordMismatch,
     TResult? Function(ShortPassword<T> value)? shortPassword,
     TResult? Function(NoUppercase<T> value)? noUppercase,
     TResult? Function(NoLowercase<T> value)? noLowercase,
@@ -734,6 +968,7 @@ class _$ShortPasswordImpl<T>
   TResult maybeMap<TResult extends Object?>({
     TResult Function(InvalidEmail<T> value)? invalidEmail,
     TResult Function(EmailAlreadyInUse<T> value)? emailAlreadyInUse,
+    TResult Function(PasswordMismatch<T> value)? passwordMismatch,
     TResult Function(ShortPassword<T> value)? shortPassword,
     TResult Function(NoUppercase<T> value)? noUppercase,
     TResult Function(NoLowercase<T> value)? noLowercase,
@@ -845,6 +1080,7 @@ class _$NoUppercaseImpl<T>
   TResult when<TResult extends Object?>({
     required TResult Function(T failedValue) invalidEmail,
     required TResult Function(T failedValue) emailAlreadyInUse,
+    required TResult Function(T failedValue) passwordMismatch,
     required TResult Function(T failedValue) shortPassword,
     required TResult Function(T failedValue) noUppercase,
     required TResult Function(T failedValue) noLowercase,
@@ -863,6 +1099,7 @@ class _$NoUppercaseImpl<T>
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(T failedValue)? invalidEmail,
     TResult? Function(T failedValue)? emailAlreadyInUse,
+    TResult? Function(T failedValue)? passwordMismatch,
     TResult? Function(T failedValue)? shortPassword,
     TResult? Function(T failedValue)? noUppercase,
     TResult? Function(T failedValue)? noLowercase,
@@ -881,6 +1118,7 @@ class _$NoUppercaseImpl<T>
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(T failedValue)? invalidEmail,
     TResult Function(T failedValue)? emailAlreadyInUse,
+    TResult Function(T failedValue)? passwordMismatch,
     TResult Function(T failedValue)? shortPassword,
     TResult Function(T failedValue)? noUppercase,
     TResult Function(T failedValue)? noLowercase,
@@ -903,6 +1141,7 @@ class _$NoUppercaseImpl<T>
   TResult map<TResult extends Object?>({
     required TResult Function(InvalidEmail<T> value) invalidEmail,
     required TResult Function(EmailAlreadyInUse<T> value) emailAlreadyInUse,
+    required TResult Function(PasswordMismatch<T> value) passwordMismatch,
     required TResult Function(ShortPassword<T> value) shortPassword,
     required TResult Function(NoUppercase<T> value) noUppercase,
     required TResult Function(NoLowercase<T> value) noLowercase,
@@ -921,6 +1160,7 @@ class _$NoUppercaseImpl<T>
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(InvalidEmail<T> value)? invalidEmail,
     TResult? Function(EmailAlreadyInUse<T> value)? emailAlreadyInUse,
+    TResult? Function(PasswordMismatch<T> value)? passwordMismatch,
     TResult? Function(ShortPassword<T> value)? shortPassword,
     TResult? Function(NoUppercase<T> value)? noUppercase,
     TResult? Function(NoLowercase<T> value)? noLowercase,
@@ -939,6 +1179,7 @@ class _$NoUppercaseImpl<T>
   TResult maybeMap<TResult extends Object?>({
     TResult Function(InvalidEmail<T> value)? invalidEmail,
     TResult Function(EmailAlreadyInUse<T> value)? emailAlreadyInUse,
+    TResult Function(PasswordMismatch<T> value)? passwordMismatch,
     TResult Function(ShortPassword<T> value)? shortPassword,
     TResult Function(NoUppercase<T> value)? noUppercase,
     TResult Function(NoLowercase<T> value)? noLowercase,
@@ -1050,6 +1291,7 @@ class _$NoLowercaseImpl<T>
   TResult when<TResult extends Object?>({
     required TResult Function(T failedValue) invalidEmail,
     required TResult Function(T failedValue) emailAlreadyInUse,
+    required TResult Function(T failedValue) passwordMismatch,
     required TResult Function(T failedValue) shortPassword,
     required TResult Function(T failedValue) noUppercase,
     required TResult Function(T failedValue) noLowercase,
@@ -1068,6 +1310,7 @@ class _$NoLowercaseImpl<T>
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(T failedValue)? invalidEmail,
     TResult? Function(T failedValue)? emailAlreadyInUse,
+    TResult? Function(T failedValue)? passwordMismatch,
     TResult? Function(T failedValue)? shortPassword,
     TResult? Function(T failedValue)? noUppercase,
     TResult? Function(T failedValue)? noLowercase,
@@ -1086,6 +1329,7 @@ class _$NoLowercaseImpl<T>
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(T failedValue)? invalidEmail,
     TResult Function(T failedValue)? emailAlreadyInUse,
+    TResult Function(T failedValue)? passwordMismatch,
     TResult Function(T failedValue)? shortPassword,
     TResult Function(T failedValue)? noUppercase,
     TResult Function(T failedValue)? noLowercase,
@@ -1108,6 +1352,7 @@ class _$NoLowercaseImpl<T>
   TResult map<TResult extends Object?>({
     required TResult Function(InvalidEmail<T> value) invalidEmail,
     required TResult Function(EmailAlreadyInUse<T> value) emailAlreadyInUse,
+    required TResult Function(PasswordMismatch<T> value) passwordMismatch,
     required TResult Function(ShortPassword<T> value) shortPassword,
     required TResult Function(NoUppercase<T> value) noUppercase,
     required TResult Function(NoLowercase<T> value) noLowercase,
@@ -1126,6 +1371,7 @@ class _$NoLowercaseImpl<T>
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(InvalidEmail<T> value)? invalidEmail,
     TResult? Function(EmailAlreadyInUse<T> value)? emailAlreadyInUse,
+    TResult? Function(PasswordMismatch<T> value)? passwordMismatch,
     TResult? Function(ShortPassword<T> value)? shortPassword,
     TResult? Function(NoUppercase<T> value)? noUppercase,
     TResult? Function(NoLowercase<T> value)? noLowercase,
@@ -1144,6 +1390,7 @@ class _$NoLowercaseImpl<T>
   TResult maybeMap<TResult extends Object?>({
     TResult Function(InvalidEmail<T> value)? invalidEmail,
     TResult Function(EmailAlreadyInUse<T> value)? emailAlreadyInUse,
+    TResult Function(PasswordMismatch<T> value)? passwordMismatch,
     TResult Function(ShortPassword<T> value)? shortPassword,
     TResult Function(NoUppercase<T> value)? noUppercase,
     TResult Function(NoLowercase<T> value)? noLowercase,
@@ -1252,6 +1499,7 @@ class _$NoNumericImpl<T> with DiagnosticableTreeMixin implements NoNumeric<T> {
   TResult when<TResult extends Object?>({
     required TResult Function(T failedValue) invalidEmail,
     required TResult Function(T failedValue) emailAlreadyInUse,
+    required TResult Function(T failedValue) passwordMismatch,
     required TResult Function(T failedValue) shortPassword,
     required TResult Function(T failedValue) noUppercase,
     required TResult Function(T failedValue) noLowercase,
@@ -1270,6 +1518,7 @@ class _$NoNumericImpl<T> with DiagnosticableTreeMixin implements NoNumeric<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(T failedValue)? invalidEmail,
     TResult? Function(T failedValue)? emailAlreadyInUse,
+    TResult? Function(T failedValue)? passwordMismatch,
     TResult? Function(T failedValue)? shortPassword,
     TResult? Function(T failedValue)? noUppercase,
     TResult? Function(T failedValue)? noLowercase,
@@ -1288,6 +1537,7 @@ class _$NoNumericImpl<T> with DiagnosticableTreeMixin implements NoNumeric<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(T failedValue)? invalidEmail,
     TResult Function(T failedValue)? emailAlreadyInUse,
+    TResult Function(T failedValue)? passwordMismatch,
     TResult Function(T failedValue)? shortPassword,
     TResult Function(T failedValue)? noUppercase,
     TResult Function(T failedValue)? noLowercase,
@@ -1310,6 +1560,7 @@ class _$NoNumericImpl<T> with DiagnosticableTreeMixin implements NoNumeric<T> {
   TResult map<TResult extends Object?>({
     required TResult Function(InvalidEmail<T> value) invalidEmail,
     required TResult Function(EmailAlreadyInUse<T> value) emailAlreadyInUse,
+    required TResult Function(PasswordMismatch<T> value) passwordMismatch,
     required TResult Function(ShortPassword<T> value) shortPassword,
     required TResult Function(NoUppercase<T> value) noUppercase,
     required TResult Function(NoLowercase<T> value) noLowercase,
@@ -1328,6 +1579,7 @@ class _$NoNumericImpl<T> with DiagnosticableTreeMixin implements NoNumeric<T> {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(InvalidEmail<T> value)? invalidEmail,
     TResult? Function(EmailAlreadyInUse<T> value)? emailAlreadyInUse,
+    TResult? Function(PasswordMismatch<T> value)? passwordMismatch,
     TResult? Function(ShortPassword<T> value)? shortPassword,
     TResult? Function(NoUppercase<T> value)? noUppercase,
     TResult? Function(NoLowercase<T> value)? noLowercase,
@@ -1346,6 +1598,7 @@ class _$NoNumericImpl<T> with DiagnosticableTreeMixin implements NoNumeric<T> {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(InvalidEmail<T> value)? invalidEmail,
     TResult Function(EmailAlreadyInUse<T> value)? emailAlreadyInUse,
+    TResult Function(PasswordMismatch<T> value)? passwordMismatch,
     TResult Function(ShortPassword<T> value)? shortPassword,
     TResult Function(NoUppercase<T> value)? noUppercase,
     TResult Function(NoLowercase<T> value)? noLowercase,
@@ -1456,6 +1709,7 @@ class _$NoSpecialCharacterImpl<T>
   TResult when<TResult extends Object?>({
     required TResult Function(T failedValue) invalidEmail,
     required TResult Function(T failedValue) emailAlreadyInUse,
+    required TResult Function(T failedValue) passwordMismatch,
     required TResult Function(T failedValue) shortPassword,
     required TResult Function(T failedValue) noUppercase,
     required TResult Function(T failedValue) noLowercase,
@@ -1474,6 +1728,7 @@ class _$NoSpecialCharacterImpl<T>
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(T failedValue)? invalidEmail,
     TResult? Function(T failedValue)? emailAlreadyInUse,
+    TResult? Function(T failedValue)? passwordMismatch,
     TResult? Function(T failedValue)? shortPassword,
     TResult? Function(T failedValue)? noUppercase,
     TResult? Function(T failedValue)? noLowercase,
@@ -1492,6 +1747,7 @@ class _$NoSpecialCharacterImpl<T>
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(T failedValue)? invalidEmail,
     TResult Function(T failedValue)? emailAlreadyInUse,
+    TResult Function(T failedValue)? passwordMismatch,
     TResult Function(T failedValue)? shortPassword,
     TResult Function(T failedValue)? noUppercase,
     TResult Function(T failedValue)? noLowercase,
@@ -1514,6 +1770,7 @@ class _$NoSpecialCharacterImpl<T>
   TResult map<TResult extends Object?>({
     required TResult Function(InvalidEmail<T> value) invalidEmail,
     required TResult Function(EmailAlreadyInUse<T> value) emailAlreadyInUse,
+    required TResult Function(PasswordMismatch<T> value) passwordMismatch,
     required TResult Function(ShortPassword<T> value) shortPassword,
     required TResult Function(NoUppercase<T> value) noUppercase,
     required TResult Function(NoLowercase<T> value) noLowercase,
@@ -1532,6 +1789,7 @@ class _$NoSpecialCharacterImpl<T>
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(InvalidEmail<T> value)? invalidEmail,
     TResult? Function(EmailAlreadyInUse<T> value)? emailAlreadyInUse,
+    TResult? Function(PasswordMismatch<T> value)? passwordMismatch,
     TResult? Function(ShortPassword<T> value)? shortPassword,
     TResult? Function(NoUppercase<T> value)? noUppercase,
     TResult? Function(NoLowercase<T> value)? noLowercase,
@@ -1550,6 +1808,7 @@ class _$NoSpecialCharacterImpl<T>
   TResult maybeMap<TResult extends Object?>({
     TResult Function(InvalidEmail<T> value)? invalidEmail,
     TResult Function(EmailAlreadyInUse<T> value)? emailAlreadyInUse,
+    TResult Function(PasswordMismatch<T> value)? passwordMismatch,
     TResult Function(ShortPassword<T> value)? shortPassword,
     TResult Function(NoUppercase<T> value)? noUppercase,
     TResult Function(NoLowercase<T> value)? noLowercase,
@@ -1658,6 +1917,7 @@ class _$EmptyImpl<T> with DiagnosticableTreeMixin implements Empty<T> {
   TResult when<TResult extends Object?>({
     required TResult Function(T failedValue) invalidEmail,
     required TResult Function(T failedValue) emailAlreadyInUse,
+    required TResult Function(T failedValue) passwordMismatch,
     required TResult Function(T failedValue) shortPassword,
     required TResult Function(T failedValue) noUppercase,
     required TResult Function(T failedValue) noLowercase,
@@ -1676,6 +1936,7 @@ class _$EmptyImpl<T> with DiagnosticableTreeMixin implements Empty<T> {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(T failedValue)? invalidEmail,
     TResult? Function(T failedValue)? emailAlreadyInUse,
+    TResult? Function(T failedValue)? passwordMismatch,
     TResult? Function(T failedValue)? shortPassword,
     TResult? Function(T failedValue)? noUppercase,
     TResult? Function(T failedValue)? noLowercase,
@@ -1694,6 +1955,7 @@ class _$EmptyImpl<T> with DiagnosticableTreeMixin implements Empty<T> {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(T failedValue)? invalidEmail,
     TResult Function(T failedValue)? emailAlreadyInUse,
+    TResult Function(T failedValue)? passwordMismatch,
     TResult Function(T failedValue)? shortPassword,
     TResult Function(T failedValue)? noUppercase,
     TResult Function(T failedValue)? noLowercase,
@@ -1716,6 +1978,7 @@ class _$EmptyImpl<T> with DiagnosticableTreeMixin implements Empty<T> {
   TResult map<TResult extends Object?>({
     required TResult Function(InvalidEmail<T> value) invalidEmail,
     required TResult Function(EmailAlreadyInUse<T> value) emailAlreadyInUse,
+    required TResult Function(PasswordMismatch<T> value) passwordMismatch,
     required TResult Function(ShortPassword<T> value) shortPassword,
     required TResult Function(NoUppercase<T> value) noUppercase,
     required TResult Function(NoLowercase<T> value) noLowercase,
@@ -1734,6 +1997,7 @@ class _$EmptyImpl<T> with DiagnosticableTreeMixin implements Empty<T> {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(InvalidEmail<T> value)? invalidEmail,
     TResult? Function(EmailAlreadyInUse<T> value)? emailAlreadyInUse,
+    TResult? Function(PasswordMismatch<T> value)? passwordMismatch,
     TResult? Function(ShortPassword<T> value)? shortPassword,
     TResult? Function(NoUppercase<T> value)? noUppercase,
     TResult? Function(NoLowercase<T> value)? noLowercase,
@@ -1752,6 +2016,7 @@ class _$EmptyImpl<T> with DiagnosticableTreeMixin implements Empty<T> {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(InvalidEmail<T> value)? invalidEmail,
     TResult Function(EmailAlreadyInUse<T> value)? emailAlreadyInUse,
+    TResult Function(PasswordMismatch<T> value)? passwordMismatch,
     TResult Function(ShortPassword<T> value)? shortPassword,
     TResult Function(NoUppercase<T> value)? noUppercase,
     TResult Function(NoLowercase<T> value)? noLowercase,
@@ -1862,6 +2127,7 @@ class _$ShortLengthImpl<T>
   TResult when<TResult extends Object?>({
     required TResult Function(T failedValue) invalidEmail,
     required TResult Function(T failedValue) emailAlreadyInUse,
+    required TResult Function(T failedValue) passwordMismatch,
     required TResult Function(T failedValue) shortPassword,
     required TResult Function(T failedValue) noUppercase,
     required TResult Function(T failedValue) noLowercase,
@@ -1880,6 +2146,7 @@ class _$ShortLengthImpl<T>
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(T failedValue)? invalidEmail,
     TResult? Function(T failedValue)? emailAlreadyInUse,
+    TResult? Function(T failedValue)? passwordMismatch,
     TResult? Function(T failedValue)? shortPassword,
     TResult? Function(T failedValue)? noUppercase,
     TResult? Function(T failedValue)? noLowercase,
@@ -1898,6 +2165,7 @@ class _$ShortLengthImpl<T>
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(T failedValue)? invalidEmail,
     TResult Function(T failedValue)? emailAlreadyInUse,
+    TResult Function(T failedValue)? passwordMismatch,
     TResult Function(T failedValue)? shortPassword,
     TResult Function(T failedValue)? noUppercase,
     TResult Function(T failedValue)? noLowercase,
@@ -1920,6 +2188,7 @@ class _$ShortLengthImpl<T>
   TResult map<TResult extends Object?>({
     required TResult Function(InvalidEmail<T> value) invalidEmail,
     required TResult Function(EmailAlreadyInUse<T> value) emailAlreadyInUse,
+    required TResult Function(PasswordMismatch<T> value) passwordMismatch,
     required TResult Function(ShortPassword<T> value) shortPassword,
     required TResult Function(NoUppercase<T> value) noUppercase,
     required TResult Function(NoLowercase<T> value) noLowercase,
@@ -1938,6 +2207,7 @@ class _$ShortLengthImpl<T>
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(InvalidEmail<T> value)? invalidEmail,
     TResult? Function(EmailAlreadyInUse<T> value)? emailAlreadyInUse,
+    TResult? Function(PasswordMismatch<T> value)? passwordMismatch,
     TResult? Function(ShortPassword<T> value)? shortPassword,
     TResult? Function(NoUppercase<T> value)? noUppercase,
     TResult? Function(NoLowercase<T> value)? noLowercase,
@@ -1956,6 +2226,7 @@ class _$ShortLengthImpl<T>
   TResult maybeMap<TResult extends Object?>({
     TResult Function(InvalidEmail<T> value)? invalidEmail,
     TResult Function(EmailAlreadyInUse<T> value)? emailAlreadyInUse,
+    TResult Function(PasswordMismatch<T> value)? passwordMismatch,
     TResult Function(ShortPassword<T> value)? shortPassword,
     TResult Function(NoUppercase<T> value)? noUppercase,
     TResult Function(NoLowercase<T> value)? noLowercase,
@@ -2068,6 +2339,7 @@ class _$InvalidCharactersImpl<T>
   TResult when<TResult extends Object?>({
     required TResult Function(T failedValue) invalidEmail,
     required TResult Function(T failedValue) emailAlreadyInUse,
+    required TResult Function(T failedValue) passwordMismatch,
     required TResult Function(T failedValue) shortPassword,
     required TResult Function(T failedValue) noUppercase,
     required TResult Function(T failedValue) noLowercase,
@@ -2086,6 +2358,7 @@ class _$InvalidCharactersImpl<T>
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(T failedValue)? invalidEmail,
     TResult? Function(T failedValue)? emailAlreadyInUse,
+    TResult? Function(T failedValue)? passwordMismatch,
     TResult? Function(T failedValue)? shortPassword,
     TResult? Function(T failedValue)? noUppercase,
     TResult? Function(T failedValue)? noLowercase,
@@ -2104,6 +2377,7 @@ class _$InvalidCharactersImpl<T>
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(T failedValue)? invalidEmail,
     TResult Function(T failedValue)? emailAlreadyInUse,
+    TResult Function(T failedValue)? passwordMismatch,
     TResult Function(T failedValue)? shortPassword,
     TResult Function(T failedValue)? noUppercase,
     TResult Function(T failedValue)? noLowercase,
@@ -2126,6 +2400,7 @@ class _$InvalidCharactersImpl<T>
   TResult map<TResult extends Object?>({
     required TResult Function(InvalidEmail<T> value) invalidEmail,
     required TResult Function(EmailAlreadyInUse<T> value) emailAlreadyInUse,
+    required TResult Function(PasswordMismatch<T> value) passwordMismatch,
     required TResult Function(ShortPassword<T> value) shortPassword,
     required TResult Function(NoUppercase<T> value) noUppercase,
     required TResult Function(NoLowercase<T> value) noLowercase,
@@ -2144,6 +2419,7 @@ class _$InvalidCharactersImpl<T>
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(InvalidEmail<T> value)? invalidEmail,
     TResult? Function(EmailAlreadyInUse<T> value)? emailAlreadyInUse,
+    TResult? Function(PasswordMismatch<T> value)? passwordMismatch,
     TResult? Function(ShortPassword<T> value)? shortPassword,
     TResult? Function(NoUppercase<T> value)? noUppercase,
     TResult? Function(NoLowercase<T> value)? noLowercase,
@@ -2162,6 +2438,7 @@ class _$InvalidCharactersImpl<T>
   TResult maybeMap<TResult extends Object?>({
     TResult Function(InvalidEmail<T> value)? invalidEmail,
     TResult Function(EmailAlreadyInUse<T> value)? emailAlreadyInUse,
+    TResult Function(PasswordMismatch<T> value)? passwordMismatch,
     TResult Function(ShortPassword<T> value)? shortPassword,
     TResult Function(NoUppercase<T> value)? noUppercase,
     TResult Function(NoLowercase<T> value)? noLowercase,
@@ -2273,6 +2550,7 @@ class _$IncorrectLengthImpl<T>
   TResult when<TResult extends Object?>({
     required TResult Function(T failedValue) invalidEmail,
     required TResult Function(T failedValue) emailAlreadyInUse,
+    required TResult Function(T failedValue) passwordMismatch,
     required TResult Function(T failedValue) shortPassword,
     required TResult Function(T failedValue) noUppercase,
     required TResult Function(T failedValue) noLowercase,
@@ -2291,6 +2569,7 @@ class _$IncorrectLengthImpl<T>
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(T failedValue)? invalidEmail,
     TResult? Function(T failedValue)? emailAlreadyInUse,
+    TResult? Function(T failedValue)? passwordMismatch,
     TResult? Function(T failedValue)? shortPassword,
     TResult? Function(T failedValue)? noUppercase,
     TResult? Function(T failedValue)? noLowercase,
@@ -2309,6 +2588,7 @@ class _$IncorrectLengthImpl<T>
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(T failedValue)? invalidEmail,
     TResult Function(T failedValue)? emailAlreadyInUse,
+    TResult Function(T failedValue)? passwordMismatch,
     TResult Function(T failedValue)? shortPassword,
     TResult Function(T failedValue)? noUppercase,
     TResult Function(T failedValue)? noLowercase,
@@ -2331,6 +2611,7 @@ class _$IncorrectLengthImpl<T>
   TResult map<TResult extends Object?>({
     required TResult Function(InvalidEmail<T> value) invalidEmail,
     required TResult Function(EmailAlreadyInUse<T> value) emailAlreadyInUse,
+    required TResult Function(PasswordMismatch<T> value) passwordMismatch,
     required TResult Function(ShortPassword<T> value) shortPassword,
     required TResult Function(NoUppercase<T> value) noUppercase,
     required TResult Function(NoLowercase<T> value) noLowercase,
@@ -2349,6 +2630,7 @@ class _$IncorrectLengthImpl<T>
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(InvalidEmail<T> value)? invalidEmail,
     TResult? Function(EmailAlreadyInUse<T> value)? emailAlreadyInUse,
+    TResult? Function(PasswordMismatch<T> value)? passwordMismatch,
     TResult? Function(ShortPassword<T> value)? shortPassword,
     TResult? Function(NoUppercase<T> value)? noUppercase,
     TResult? Function(NoLowercase<T> value)? noLowercase,
@@ -2367,6 +2649,7 @@ class _$IncorrectLengthImpl<T>
   TResult maybeMap<TResult extends Object?>({
     TResult Function(InvalidEmail<T> value)? invalidEmail,
     TResult Function(EmailAlreadyInUse<T> value)? emailAlreadyInUse,
+    TResult Function(PasswordMismatch<T> value)? passwordMismatch,
     TResult Function(ShortPassword<T> value)? shortPassword,
     TResult Function(NoUppercase<T> value)? noUppercase,
     TResult Function(NoLowercase<T> value)? noLowercase,

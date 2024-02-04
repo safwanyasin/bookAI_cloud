@@ -1,10 +1,9 @@
 {
-    "editor.formatOnSave": true,
-    "[dart]": {
-      "editor.formatOnSave": true
-    },
-    "[flutter]": {
-      "editor.formatOnSave": true
-    }
+  "editor.formatOnSave": true,
+  "[dart]": {
+    "editor.formatOnSave": true
+  },
+  "[flutter]": {
+    "editor.formatOnSave": true
   }
-  
+}

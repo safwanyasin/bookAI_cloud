@@ -18,10 +18,10 @@ class _NavScreenState extends State<NavScreen> {
   Widget _body = Container();
   final List<Widget> _screens = [
     const HomeScreen(),
-    Container(child: Text('screen 2')),
-    Container(child: Text('screen 3')),
-    Container(child: Text('screen 4')),
-    Container(child: Text('screen 5')),
+    const Center(child: Text('screen 2')),
+    const Center(child: Text('screen 3')),
+    const Center(child: Text('screen 4')),
+    const Center(child: Text('screen 5')),
   ];
 
   @override
@@ -54,7 +54,8 @@ class _NavScreenState extends State<NavScreen> {
       // ),
 
       appBar: AppBar(
-        backgroundColor: Colors.transparent, // Set AppBar background to transparent
+        backgroundColor:
+            Colors.transparent, // Set AppBar background to transparent
         elevation: 0, // Remove AppBar elevation
         leading: Padding(
           padding: EdgeInsets.only(left: 20.w),
@@ -73,7 +74,11 @@ class _NavScreenState extends State<NavScreen> {
             gradient: LinearGradient(
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,
-              colors: [Colors.black, Color.fromARGB(209, 0, 0, 0), Colors.transparent],
+              colors: [
+                Colors.black,
+                Color.fromARGB(209, 0, 0, 0),
+                Colors.transparent
+              ],
             ),
           ),
         ),

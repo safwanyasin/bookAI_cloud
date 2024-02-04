@@ -3,7 +3,6 @@ import 'package:book_ai/constants.dart';
 import 'package:book_ai/presentation/reusable_components/buttons/animated_stars.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:rive/rive.dart';
 
 @RoutePage()
 class RoutingTestScreen extends StatefulWidget {

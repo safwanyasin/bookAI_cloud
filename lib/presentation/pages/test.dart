@@ -1,19 +1,15 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:book_ai/constants.dart';
 import 'package:book_ai/presentation/reusable_components/backgrounds/animatied_background.dart';
-import 'package:book_ai/presentation/reusable_components/buttons/add_to_wishlist.dart';
 import 'package:book_ai/presentation/reusable_components/buttons/filter_button.dart';
 import 'package:book_ai/presentation/reusable_components/buttons/primary_button.dart';
 import 'package:book_ai/presentation/reusable_components/buttons/plain_button.dart';
-import 'package:book_ai/presentation/reusable_components/cards/homescreen_card.dart';
 import 'package:book_ai/presentation/reusable_components/cards/info_box.dart';
 import 'package:book_ai/presentation/reusable_components/cards/info_card.dart';
 import 'package:book_ai/presentation/reusable_components/input/input_fields.dart';
-import 'package:book_ai/presentation/reusable_components/input/search_input.dart';
 import 'package:book_ai/presentation/routing/router/router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:rive/rive.dart';
 
 @RoutePage()
 class TestingScreen extends StatefulWidget {
@@ -85,11 +81,11 @@ class _TestScreenState extends State<TestingScreen> {
                       //   liked: false,
                       //   onPressed: () {},
                       // ),
-                      InputField(
-                        controller: textController,
-                        hintText: 'enter some shit',
-                        labelText: 'Genre',
-                      ),
+                      // InputField(
+                      //   controller: textController,
+                      //   hintText: 'enter some shit',
+                      //   labelText: 'Genre',
+                      // ),
                       InfoCard(
                         imageUrl:
                             'http://books.google.com/books/content?id=B7QkEAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api',

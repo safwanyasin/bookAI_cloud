@@ -1,18 +1,23 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
 class InputField extends StatefulWidget {
   final TextEditingController controller;
   final String hintText;
   final String labelText;
-  final VoidCallback? onSearchPressed;
+  bool obscureText;
+  final void Function(String) onChanged;
+  final void Function(String) validator;
 
   InputField({
     required this.controller,
     required this.hintText,
     required this.labelText,
-    this.onSearchPressed,
+    required this.onChanged,
+    required this.validator,
+    this.obscureText = false,
   });
 
   @override
@@ -49,6 +54,8 @@ class _SearchInputState extends State<InputField> {
                   padding: EdgeInsets.symmetric(horizontal: 16.w),
                   child: Form(
                     child: TextFormField(
+                      onChanged: widget.onChanged,
+                      obscureText: widget.obscureText,
                       controller: widget.controller,
                       decoration: InputDecoration(
                           hintText: widget.hintText,

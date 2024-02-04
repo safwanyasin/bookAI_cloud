@@ -13,6 +13,10 @@ abstract class ValueFailure<T> with _$ValueFailure<T> {
     required T failedValue,
     // @required T failedValue,
   }) = EmailAlreadyInUse<T>;
+  const factory ValueFailure.passwordMismatch({
+    required T failedValue,
+    // @required T failedValue,
+  }) = PasswordMismatch<T>;
   const factory ValueFailure.shortPassword({
     required T failedValue,
     // @required T failedValue,

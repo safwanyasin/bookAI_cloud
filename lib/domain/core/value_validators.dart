@@ -29,6 +29,15 @@ Either<ValueFailure<String>, String> validatePassword(String input) {
   }
 }
 
+Either<ValueFailure<String>, String> validateConfirmPassword(
+    String input, String password) {
+  if (input != password) {
+    return Left(ValueFailure<String>.passwordMismatch(failedValue: input));
+  } else {
+    return Right(input);
+  }
+}
+
 Either<ValueFailure<String>, String> validateFullName(String input) {
   if (input.isEmpty) {
     return left(ValueFailure<String>.empty(failedValue: input));
@@ -63,4 +72,3 @@ Either<ValueFailure<String>, String> validateOpenApiKey(String input) {
     return right(input);
   }
 }
-  

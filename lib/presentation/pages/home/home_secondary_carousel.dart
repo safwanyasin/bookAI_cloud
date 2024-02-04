@@ -1,6 +1,4 @@
-import 'package:book_ai/presentation/classes/book.dart';
 import 'package:book_ai/presentation/classes/prev_stories.dart';
-import 'package:book_ai/presentation/reusable_components/cards/homescreen_card.dart';
 import 'package:book_ai/presentation/reusable_components/cards/previous_stories_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

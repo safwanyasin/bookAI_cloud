@@ -1,12 +1,13 @@
-import 'package:auto_route/auto_route.dart';
-import 'package:book_ai/constants.dart';
 import 'package:book_ai/presentation/classes/book.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class HomePage extends StatefulWidget {
+  const HomePage({super.key});
+
   @override
+  // ignore: library_private_types_in_public_api
   _HomePageState createState() => _HomePageState();
 }
 
@@ -53,9 +54,11 @@ class _HomePageState extends State<HomePage> {
           backgroundColor: Colors.transparent,
           elevation: 0.0,
           leading: IconButton(
-            icon: Icon(Icons.menu),
+            icon: const Icon(Icons.menu),
             onPressed: () {
-              print('Menu icon pressed!');
+              if (kDebugMode) {
+                print('Menu icon pressed!');
+              }
             },
           ),
         ),
@@ -69,8 +72,8 @@ class _HomePageState extends State<HomePage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Padding(
-                padding: const EdgeInsets.all(16.0),
+              const Padding(
+                padding: EdgeInsets.all(16.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -117,7 +120,7 @@ class BookCarousel extends StatelessWidget {
   final CarouselController carouselController;
   final Function(int, CarouselPageChangedReason)? onIndexChanged;
 
-  BookCarousel({
+  const BookCarousel({super.key, 
     required this.books,
     required this.carouselController,
     this.onIndexChanged,
