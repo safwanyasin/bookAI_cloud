@@ -59,6 +59,11 @@ class AppTheme {
             fontSize: 15.w,
             fontWeight: FontWeight.bold,
             color: AppColors.primaryColor),
+        headlineSmall: GoogleFonts.quicksand(
+          fontSize: 12.w,
+          fontWeight: FontWeight.bold,
+          color: AppColors.primaryColor,
+        ),
       ),
     );
   }

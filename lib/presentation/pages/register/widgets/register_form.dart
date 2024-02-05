@@ -1,6 +1,6 @@
 import 'package:another_flushbar/flushbar.dart';
 import 'package:auto_route/auto_route.dart';
-import 'package:book_ai/application/auth/login/login_cubit.dart';
+import 'package:book_ai/application/auth/register/register_cubit.dart';
 import 'package:book_ai/presentation/reusable_components/buttons/continue_with_google.dart';
 import 'package:book_ai/presentation/reusable_components/buttons/plain_button_small.dart';
 import 'package:book_ai/presentation/reusable_components/buttons/primary_button.dart';
@@ -10,14 +10,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class LoginForm extends StatelessWidget {
-  const LoginForm({super.key});
+class RegisterForm extends StatelessWidget {
+  const RegisterForm({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<LoginCubit, LoginState>(
+    return BlocConsumer<RegisterCubit, RegisterState>(
       listener: (context, state) {
-        state.loginFailureOrSuccessOption.fold(
+        state.registerFailureOrSuccessOption.fold(
           () {},
           (either) => either.fold(
             (failure) {
@@ -25,8 +25,7 @@ class LoginForm extends StatelessWidget {
                 message: failure.map(
                   cancelledByUser: (_) => 'Cancelled',
                   serverError: (_) => 'Server error',
-                  invalidEmailAndPasswordCombination: (_) =>
-                      'Email or password are incorrect!',
+                  emailAlreadyInUse: (_) => 'This email is already in use',
                   otherFailure: (_) => 'An unexpected error occurred',
                 ),
               );
@@ -46,12 +45,15 @@ class LoginForm extends StatelessWidget {
                 showError: state.isSubmitting,
                 labelText: 'Email',
                 onChanged: (email) =>
-                    context.read<LoginCubit>().updateEmail(email),
+                    context.read<RegisterCubit>().updateEmail(email),
                 validator: (_) =>
-                    context.read<LoginCubit>().state.emailAddress.value.fold(
+                    context.read<RegisterCubit>().state.emailAddress.value.fold(
                           (f) => f.maybeMap(
                             invalidEmail: (_) {
                               return 'Invalid Email';
+                            },
+                            emailAlreadyInUse: (_) {
+                              return 'Email already in use';
                             },
                             orElse: () => null,
                           ),
@@ -65,12 +67,42 @@ class LoginForm extends StatelessWidget {
                 labelText: 'Password',
                 obscureText: true,
                 onChanged: (password) =>
-                    context.read<LoginCubit>().updatePassword(password),
+                    context.read<RegisterCubit>().updatePassword(password),
                 validator: (_) =>
-                    context.read<LoginCubit>().state.password.value.fold(
+                    context.read<RegisterCubit>().state.password.value.fold(
                         (f) => f.maybeMap(
                               shortPassword: (_) =>
                                   'Password should be at least 6 characters long!',
+                              noLowercase: (_) =>
+                                  'Password should contain at least one lowercase letter',
+                              noUppercase: (_) =>
+                                  'Password should contain at least one uppercase letter',
+                              noNumeric: (_) =>
+                                  'Password should contain at least one numeric character',
+                              noSpecialCharacter: (_) =>
+                                  'Password should contain at least one special character',
+                              orElse: () => null,
+                            ),
+                        (_) => null),
+              ),
+              SizedBox(height: 10.h),
+              InputField(
+                // controller: TextEditingController(),
+                showError: state.isSubmitting,
+                labelText: 'Confirm Password',
+                obscureText: true,
+                onChanged: (cPassword) => context
+                    .read<RegisterCubit>()
+                    .updateConfirmPassword(cPassword),
+                validator: (_) => context
+                    .read<RegisterCubit>()
+                    .state
+                    .confirmPassword
+                    .value
+                    .fold(
+                        (f) => f.maybeMap(
+                              passwordMismatch: (_) =>
+                                  'The passwords do not match!',
                               orElse: () => null,
                             ),
                         (_) => null),
@@ -78,15 +110,15 @@ class LoginForm extends StatelessWidget {
               SizedBox(height: 15.h),
               PrimaryButton(
                 onPressed: () {
-                  context.read<LoginCubit>().login(true);
-                  // AutoRouter.of(context).popAndPush(const NavRoute());
+                  context.read<RegisterCubit>().register(true);
+                  //AutoRouter.of(context).popAndPush(const NavRoute());
                 },
-                text: 'Login',
+                text: 'Sign Up',
               ),
               SizedBox(height: 15.h),
               ContinueWithGoogleButton(
                 onPressed: () {
-                  context.read<LoginCubit>().login(false);
+                  context.read<RegisterCubit>().register(false);
                 },
               ),
               SizedBox(height: 15.h),
@@ -94,16 +126,16 @@ class LoginForm extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    "Don't have an account?",
+                    "Already have an account?",
                     style: Theme.of(context).textTheme.labelSmall,
                   ),
                   SizedBox(width: 2.w),
                   PlainButtonSmall(
-                      onPressed: () {
-                        AutoRouter.of(context)
-                            .popAndPush(const RegisterRoute());
-                      },
-                      buttonText: 'Sign Up')
+                    onPressed: () {
+                      AutoRouter.of(context).popAndPush(const LoginRoute());
+                    },
+                    buttonText: 'Login',
+                  )
                 ],
               )
             ],

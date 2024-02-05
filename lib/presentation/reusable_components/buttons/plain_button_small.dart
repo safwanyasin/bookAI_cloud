@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-class PlainButton extends StatelessWidget {
+class PlainButtonSmall extends StatelessWidget {
   final VoidCallback onPressed;
   final String buttonText;
 
-  const PlainButton({required this.onPressed, required this.buttonText});
+  const PlainButtonSmall({required this.onPressed, required this.buttonText});
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +12,7 @@ class PlainButton extends StatelessWidget {
       onTap: onPressed,
       child: Text(
         buttonText,
-        style: Theme.of(context).textTheme.bodySmall,
+        style: Theme.of(context).textTheme.headlineSmall,
       ),
     );
   }

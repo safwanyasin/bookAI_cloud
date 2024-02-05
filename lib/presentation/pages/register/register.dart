@@ -1,16 +1,15 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:book_ai/application/auth/login/login_cubit.dart';
+import 'package:book_ai/application/auth/register/register_cubit.dart';
 import 'package:book_ai/injection.dart';
-import 'package:book_ai/presentation/pages/login/widgets/login_form.dart';
+import 'package:book_ai/presentation/pages/register/widgets/register_form.dart';
 import 'package:book_ai/presentation/reusable_components/backgrounds/animatied_background.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 @RoutePage()
-class LoginScreen extends StatelessWidget {
-  const LoginScreen({super.key});
+class RegisterScreen extends StatelessWidget {
+  const RegisterScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -31,12 +30,12 @@ class LoginScreen extends StatelessWidget {
                 size: 50.w,
               ),
               Text(
-                'Login to TaleTuner',
+                'Register to TaleTuner',
                 style: Theme.of(context).textTheme.headlineLarge,
               ),
               BlocProvider(
-                create: (context) => getIt<LoginCubit>(),
-                child: const LoginForm(),
+                create: (context) => getIt<RegisterCubit>(),
+                child: const RegisterForm(),
               )
             ],
           ),

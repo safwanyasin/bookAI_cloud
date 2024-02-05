@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:book_ai/presentation/pages/login/login.dart';
+import 'package:book_ai/presentation/pages/register/register.dart';
 import 'package:book_ai/presentation/routing/navigaton/nav_screen.dart';
 import 'package:book_ai/presentation/pages/route_test.dart';
 import 'package:book_ai/presentation/pages/test.dart';
@@ -14,6 +15,9 @@ class AppRouter extends _$AppRouter {
         AutoRoute(
           page: LoginRoute.page,
           initial: true,
+        ),
+        AutoRoute(
+          page: RegisterRoute.page,
         ),
         AutoRoute(
           page: NavRoute.page,

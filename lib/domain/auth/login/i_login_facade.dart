@@ -9,10 +9,12 @@ abstract class ILoginFacade {
   Future<Either<RegisterFailure, Unit>> registerWithEmailAndPassword({
     required EmailAddress emailAddress,
     required Password password,
+    required ConfirmPassword confirmPassword,
   });
   Future<Either<LoginFailure, Unit>> signInWithEmailAndPassword({
     required EmailAddress emailAddress,
     required Password password,
   });
   Future<Either<LoginFailure, Unit>> signInWithGoogle();
+  Future<Either<RegisterFailure, Unit>> registerWithGoogle();
 }

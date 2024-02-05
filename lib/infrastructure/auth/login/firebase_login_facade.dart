@@ -22,10 +22,14 @@ class FirebaseLoginFacade implements ILoginFacade {
 
   @override
   Future<Either<RegisterFailure, Unit>> registerWithEmailAndPassword(
-      {required EmailAddress emailAddress, required Password password}) async {
+      {required EmailAddress emailAddress, required Password password, required ConfirmPassword confirmPassword}) async {
     final emailAddressStr = emailAddress.getOrCrash();
     final passwordStr = password.getOrCrash();
+    final confirmPasswordStr = confirmPassword.getOrCrash();
     // converting the exceptions to failures
+    if (passwordStr != confirmPasswordStr) {
+      return left(const RegisterFailure.otherFailure('Passwords do not match'));
+    }
     try {
       await _firebaseAuth.createUserWithEmailAndPassword(
         email: emailAddressStr,
@@ -81,6 +85,28 @@ class FirebaseLoginFacade implements ILoginFacade {
           .then((r) => right(unit));
     } on PlatformException catch (_) {
       return left(const LoginFailure.serverError());
+    }
+  }
+
+  @override
+  Future<Either<RegisterFailure, Unit>> registerWithGoogle() async {
+    try {
+      final googleUser = await _googleSignIn.signIn();
+      if (googleUser == null) {
+        return left(const RegisterFailure.cancelledByUser());
+      }
+      final googleAuthentication = await googleUser.authentication;
+
+      final authCredential = GoogleAuthProvider.credential(
+        idToken: googleAuthentication.idToken,
+        accessToken: googleAuthentication.accessToken,
+      );
+
+      return _firebaseAuth
+          .signInWithCredential(authCredential)
+          .then((r) => right(unit));
+    } on PlatformException catch (_) {
+      return left(const RegisterFailure.serverError());
     }
   }
 }

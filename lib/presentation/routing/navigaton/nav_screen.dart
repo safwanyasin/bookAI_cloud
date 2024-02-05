@@ -3,7 +3,6 @@ import 'package:book_ai/presentation/pages/home/home_screen.dart';
 import 'package:book_ai/presentation/reusable_components/backgrounds/animatied_background.dart';
 import 'package:book_ai/presentation/routing/navigaton/bottom_nav_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 @RoutePage()
@@ -26,6 +25,7 @@ class _NavScreenState extends State<NavScreen> {
 
   @override
   void initState() {
+    super.initState();
     _body = _screens.first;
   }
 
@@ -70,7 +70,7 @@ class _NavScreenState extends State<NavScreen> {
           ),
         ),
         flexibleSpace: Container(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             gradient: LinearGradient(
               begin: Alignment.topCenter,
               end: Alignment.bottomCenter,

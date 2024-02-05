@@ -18,7 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$RegisterState {
   EmailAddress get emailAddress => throw _privateConstructorUsedError;
   Password get password => throw _privateConstructorUsedError;
-  Password get confirmPassword => throw _privateConstructorUsedError;
+  ConfirmPassword get confirmPassword => throw _privateConstructorUsedError;
   bool get showErrorMessages => throw _privateConstructorUsedError;
   bool get isSubmitting => throw _privateConstructorUsedError;
   Option<Either<RegisterFailure, Unit>> get registerFailureOrSuccessOption =>
@@ -38,7 +38,7 @@ abstract class $RegisterStateCopyWith<$Res> {
   $Res call(
       {EmailAddress emailAddress,
       Password password,
-      Password confirmPassword,
+      ConfirmPassword confirmPassword,
       bool showErrorMessages,
       bool isSubmitting,
       Option<Either<RegisterFailure, Unit>> registerFailureOrSuccessOption});
@@ -76,7 +76,7 @@ class _$RegisterStateCopyWithImpl<$Res, $Val extends RegisterState>
       confirmPassword: null == confirmPassword
           ? _value.confirmPassword
           : confirmPassword // ignore: cast_nullable_to_non_nullable
-              as Password,
+              as ConfirmPassword,
       showErrorMessages: null == showErrorMessages
           ? _value.showErrorMessages
           : showErrorMessages // ignore: cast_nullable_to_non_nullable
@@ -104,7 +104,7 @@ abstract class _$$RegisterStateImplCopyWith<$Res>
   $Res call(
       {EmailAddress emailAddress,
       Password password,
-      Password confirmPassword,
+      ConfirmPassword confirmPassword,
       bool showErrorMessages,
       bool isSubmitting,
       Option<Either<RegisterFailure, Unit>> registerFailureOrSuccessOption});
@@ -140,7 +140,7 @@ class __$$RegisterStateImplCopyWithImpl<$Res>
       confirmPassword: null == confirmPassword
           ? _value.confirmPassword
           : confirmPassword // ignore: cast_nullable_to_non_nullable
-              as Password,
+              as ConfirmPassword,
       showErrorMessages: null == showErrorMessages
           ? _value.showErrorMessages
           : showErrorMessages // ignore: cast_nullable_to_non_nullable
@@ -174,7 +174,7 @@ class _$RegisterStateImpl extends _RegisterState {
   @override
   final Password password;
   @override
-  final Password confirmPassword;
+  final ConfirmPassword confirmPassword;
   @override
   final bool showErrorMessages;
   @override
@@ -229,7 +229,7 @@ abstract class _RegisterState extends RegisterState {
   const factory _RegisterState(
       {required final EmailAddress emailAddress,
       required final Password password,
-      required final Password confirmPassword,
+      required final ConfirmPassword confirmPassword,
       required final bool showErrorMessages,
       required final bool isSubmitting,
       required final Option<Either<RegisterFailure, Unit>>
@@ -241,7 +241,7 @@ abstract class _RegisterState extends RegisterState {
   @override
   Password get password;
   @override
-  Password get confirmPassword;
+  ConfirmPassword get confirmPassword;
   @override
   bool get showErrorMessages;
   @override

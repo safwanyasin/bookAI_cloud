@@ -6,7 +6,6 @@ import 'package:book_ai/presentation/reusable_components/buttons/primary_button.
 import 'package:book_ai/presentation/reusable_components/buttons/plain_button.dart';
 import 'package:book_ai/presentation/reusable_components/cards/info_box.dart';
 import 'package:book_ai/presentation/reusable_components/cards/info_card.dart';
-import 'package:book_ai/presentation/reusable_components/input/input_fields.dart';
 import 'package:book_ai/presentation/routing/router/router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -43,7 +42,7 @@ class _TestScreenState extends State<TestingScreen> {
         backgroundColor: Colors.transparent,
         title: const Text('Testing page'),
       ),
-      body: Container(
+      body: SizedBox(
         height: MediaQuery.of(context).size.height,
         // decoration: const BoxDecoration(
         //   image: DecorationImage(

@@ -8,7 +8,7 @@ class RegisterState with _$RegisterState {
   const factory RegisterState({
     required EmailAddress emailAddress,
     required Password password,
-    required Password confirmPassword,
+    required ConfirmPassword confirmPassword,
     required bool showErrorMessages,
     required bool isSubmitting,
     required Option<Either<RegisterFailure, Unit>>
@@ -21,7 +21,7 @@ class RegisterState with _$RegisterState {
   factory RegisterState.initial() => RegisterState(
         emailAddress: EmailAddress(''),
         password: Password(''),
-        confirmPassword: Password(''),
+        confirmPassword: ConfirmPassword('', ''),
         showErrorMessages: false,
         isSubmitting: false,
         registerFailureOrSuccessOption: none(),

@@ -2,6 +2,7 @@ import 'package:book_ai/presentation/reusable_components/models/nav_item_model.d
 import 'package:flutter/material.dart';
 import 'package:rive/rive.dart';
 
+// ignore: must_be_immutable
 class AnimatedStars extends StatefulWidget {
   bool active;
 

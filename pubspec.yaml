@@ -47,6 +47,7 @@ dependencies:
   firebase_core: ^2.25.3
   firebase_auth: ^4.17.3
   google_sign_in: ^6.2.1
+  another_flushbar: ^1.12.30
 
 dev_dependencies:
   flutter_test:
@@ -107,6 +108,6 @@ flutter:
     # Add assets from the images directory to the application.
     - assets/images/bg-dark.png
     - assets/images/nav-bg.png
-    - assets/images/google-button.png
+    - assets/images/google-logo.png
     - assets/animations/background.riv
     - assets/animations/bottom_nav_items.riv

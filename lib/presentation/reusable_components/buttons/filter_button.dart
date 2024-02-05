@@ -2,13 +2,14 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+// ignore: must_be_immutable
 class FilterButton extends StatelessWidget {
   final String text;
   bool active = false;
   final VoidCallback onPressed;
 
   FilterButton(
-      {required this.text, required this.active, required this.onPressed});
+      {super.key, required this.text, required this.active, required this.onPressed});
   @override
   Widget build(BuildContext context) {
     return InkWell(
