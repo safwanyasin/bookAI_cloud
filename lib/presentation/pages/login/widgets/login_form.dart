@@ -81,8 +81,8 @@ class LoginForm extends StatelessWidget {
                 validator: (_) =>
                     context.read<LoginCubit>().state.password.value.fold(
                         (f) => f.maybeMap(
-                              shortPassword: (_) =>
-                                  'Password should be at least 6 characters long!',
+                              empty: (_) =>
+                                  'Password cannot be empty!',
                               orElse: () => null,
                             ),
                         (_) => null),

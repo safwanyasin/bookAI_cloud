@@ -32,7 +32,7 @@ class LoginCubit extends Cubit<LoginState> {
   void updatePassword(String typedPassword) {
     emit(
       state.copyWith(
-        password: Password(typedPassword),
+        password: LoginPassword(typedPassword),
         loginFailureOrSuccessOption: none(),
       ),
     );
@@ -44,7 +44,7 @@ class LoginCubit extends Cubit<LoginState> {
 
   Future<void> _performLogin(bool withEmail) async {
     final email = state.emailAddress;
-    Password? password = state.password;
+    LoginPassword? password = state.password;
 
     emit(
       state.copyWith(

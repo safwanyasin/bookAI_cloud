@@ -8,12 +8,13 @@
 // coverage:ignore-file
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
+import 'package:book_ai/application/auth/auth_cubit.dart' as _i8;
 import 'package:book_ai/application/auth/login/login_cubit.dart' as _i6;
 import 'package:book_ai/application/auth/register/register_cubit.dart' as _i7;
 import 'package:book_ai/domain/auth/login/i_login_facade.dart' as _i5;
 import 'package:book_ai/infrastructure/auth/login/firebase_login_facade.dart'
-    as _i8;
-import 'package:book_ai/infrastructure/injectable_module.dart' as _i9;
+    as _i9;
+import 'package:book_ai/infrastructure/injectable_module.dart' as _i10;
 import 'package:firebase_auth/firebase_auth.dart' as _i3;
 import 'package:get_it/get_it.dart' as _i1;
 import 'package:google_sign_in/google_sign_in.dart' as _i4;
@@ -37,7 +38,8 @@ extension GetItInjectableX on _i1.GetIt {
     gh.factory<_i6.LoginCubit>(() => _i6.LoginCubit(gh<_i5.ILoginFacade>()));
     gh.factory<_i7.RegisterCubit>(
         () => _i7.RegisterCubit(gh<_i5.ILoginFacade>()));
-    gh.lazySingleton<_i8.FirebaseLoginFacade>(() => _i8.FirebaseLoginFacade(
+    gh.factory<_i8.AuthCubit>(() => _i8.AuthCubit(gh<_i5.ILoginFacade>()));
+    gh.lazySingleton<_i9.FirebaseLoginFacade>(() => _i9.FirebaseLoginFacade(
           gh<_i3.FirebaseAuth>(),
           gh<_i4.GoogleSignIn>(),
         ));
@@ -45,4 +47,4 @@ extension GetItInjectableX on _i1.GetIt {
   }
 }
 
-class _$InjectableModule extends _i9.InjectableModule {}
+class _$InjectableModule extends _i10.InjectableModule {}

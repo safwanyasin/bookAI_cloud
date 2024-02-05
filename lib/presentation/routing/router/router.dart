@@ -4,6 +4,7 @@ import 'package:book_ai/presentation/pages/register/register.dart';
 import 'package:book_ai/presentation/routing/navigaton/nav_screen.dart';
 import 'package:book_ai/presentation/pages/route_test.dart';
 import 'package:book_ai/presentation/pages/test.dart';
+import 'package:book_ai/presentation/splash/splash_screen.dart';
 // import 'package:book_ai/presentation/router/router.dart';
 
 part 'router.gr.dart';
@@ -13,8 +14,11 @@ class AppRouter extends _$AppRouter {
   @override
   List<AutoRoute> get routes => [
         AutoRoute(
-          page: LoginRoute.page,
+          page: SplashRoute.page,
           initial: true,
+        ),
+        AutoRoute(
+          page: LoginRoute.page,
         ),
         AutoRoute(
           page: RegisterRoute.page,

@@ -17,7 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$LoginState {
   EmailAddress get emailAddress => throw _privateConstructorUsedError;
-  Password get password => throw _privateConstructorUsedError;
+  LoginPassword get password => throw _privateConstructorUsedError;
   bool get showErrorMessages => throw _privateConstructorUsedError;
   bool get isSubmitting => throw _privateConstructorUsedError;
   Option<Either<LoginFailure, Unit>> get loginFailureOrSuccessOption =>
@@ -36,7 +36,7 @@ abstract class $LoginStateCopyWith<$Res> {
   @useResult
   $Res call(
       {EmailAddress emailAddress,
-      Password password,
+      LoginPassword password,
       bool showErrorMessages,
       bool isSubmitting,
       Option<Either<LoginFailure, Unit>> loginFailureOrSuccessOption});
@@ -69,7 +69,7 @@ class _$LoginStateCopyWithImpl<$Res, $Val extends LoginState>
       password: null == password
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
-              as Password,
+              as LoginPassword,
       showErrorMessages: null == showErrorMessages
           ? _value.showErrorMessages
           : showErrorMessages // ignore: cast_nullable_to_non_nullable
@@ -96,7 +96,7 @@ abstract class _$$LoginStateImplCopyWith<$Res>
   @useResult
   $Res call(
       {EmailAddress emailAddress,
-      Password password,
+      LoginPassword password,
       bool showErrorMessages,
       bool isSubmitting,
       Option<Either<LoginFailure, Unit>> loginFailureOrSuccessOption});
@@ -127,7 +127,7 @@ class __$$LoginStateImplCopyWithImpl<$Res>
       password: null == password
           ? _value.password
           : password // ignore: cast_nullable_to_non_nullable
-              as Password,
+              as LoginPassword,
       showErrorMessages: null == showErrorMessages
           ? _value.showErrorMessages
           : showErrorMessages // ignore: cast_nullable_to_non_nullable
@@ -158,7 +158,7 @@ class _$LoginStateImpl extends _LoginState {
   @override
   final EmailAddress emailAddress;
   @override
-  final Password password;
+  final LoginPassword password;
   @override
   final bool showErrorMessages;
   @override
@@ -204,7 +204,7 @@ class _$LoginStateImpl extends _LoginState {
 abstract class _LoginState extends LoginState {
   const factory _LoginState(
       {required final EmailAddress emailAddress,
-      required final Password password,
+      required final LoginPassword password,
       required final bool showErrorMessages,
       required final bool isSubmitting,
       required final Option<Either<LoginFailure, Unit>>
@@ -214,7 +214,7 @@ abstract class _LoginState extends LoginState {
   @override
   EmailAddress get emailAddress;
   @override
-  Password get password;
+  LoginPassword get password;
   @override
   bool get showErrorMessages;
   @override

@@ -24,7 +24,7 @@ class FirebaseLoginFacade implements ILoginFacade {
   );
 
   @override
-  Future<Option<AppUser>> getSignedInUser() {
+  Future<Option<AppUser>> getSignedInUser() async {
     // some(
     //   User(
     //     id: UniqueId.fromUniqueString(
@@ -32,7 +32,21 @@ class FirebaseLoginFacade implements ILoginFacade {
     //     ),
     //   ),
     // );
-    return optionOf(_firebaseAuth.currentUser?.toDomain());
+    // return optionOf(_firebaseAuth.currentUser?.toDomain());
+
+    try {
+      User? user = _firebaseAuth.currentUser;
+
+      if (user == null) {
+        return none();
+      }
+
+      AppUser appUser = user.toDomain();
+      return some(appUser);
+    } catch (e) {
+      print('error getting signed in user');
+      return none();
+    }
   }
 
   @override
@@ -54,7 +68,7 @@ class FirebaseLoginFacade implements ILoginFacade {
         password: passwordStr,
       );
       return right(unit);
-    } on PlatformException catch (e) {
+    } on FirebaseAuthException catch (e) {
       if (e.code == 'email-already-in-use') {
         return left(const RegisterFailure.emailAlreadyInUse());
       } else {
@@ -65,7 +79,7 @@ class FirebaseLoginFacade implements ILoginFacade {
 
   @override
   Future<Either<LoginFailure, Unit>> signInWithEmailAndPassword(
-      {required EmailAddress emailAddress, required Password password}) async {
+      {required EmailAddress emailAddress, required LoginPassword password}) async {
     final emailAddressStr = emailAddress.getOrCrash();
     final passwordStr = password.getOrCrash();
     // converting the exceptions to failures
@@ -75,8 +89,10 @@ class FirebaseLoginFacade implements ILoginFacade {
         password: passwordStr,
       );
       return right(unit);
-    } on PlatformException catch (e) {
-      if (e.code == 'wrong-password' || e.code == 'user-not-found') {
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'invalid-credential' ||
+          e.code == 'user-not-found' ||
+          e.code == 'wrong-password') {
         return left(const LoginFailure.invalidEmailAndPasswordCombination());
       } else {
         return left(const LoginFailure.serverError());
@@ -101,7 +117,7 @@ class FirebaseLoginFacade implements ILoginFacade {
       return _firebaseAuth
           .signInWithCredential(authCredential)
           .then((r) => right(unit));
-    } on PlatformException catch (_) {
+    } on FirebaseAuthException catch (_) {
       return left(const LoginFailure.serverError());
     }
   }
@@ -123,7 +139,7 @@ class FirebaseLoginFacade implements ILoginFacade {
       return _firebaseAuth
           .signInWithCredential(authCredential)
           .then((r) => right(unit));
-    } on PlatformException catch (_) {
+    } on FirebaseAuthException catch (_) {
       return left(const RegisterFailure.serverError());
     }
   }

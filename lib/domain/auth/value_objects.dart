@@ -45,6 +45,20 @@ class Password extends ValueObject<String> {
   const Password._(this.value);
 }
 
+class LoginPassword extends ValueObject<String> {
+  @override
+  final Either<ValueFailure<String>, String> value;
+
+  factory LoginPassword(String input) {
+    assert(input != null);
+    return LoginPassword._(
+      validateLoginPassword(input),
+    );
+  }
+
+  const LoginPassword._(this.value);
+}
+
 class ConfirmPassword extends ValueObject<String> {
   @override
   final Either<ValueFailure<String>, String> value;

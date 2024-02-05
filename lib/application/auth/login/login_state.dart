@@ -7,7 +7,7 @@ part of 'login_cubit.dart';
 class LoginState with _$LoginState {
   const factory LoginState({
     required EmailAddress emailAddress,
-    required Password password,
+    required LoginPassword password,
     required bool showErrorMessages,
     required bool isSubmitting,
     required Option<Either<LoginFailure, Unit>> loginFailureOrSuccessOption,
@@ -18,7 +18,7 @@ class LoginState with _$LoginState {
 
   factory LoginState.initial() => LoginState(
         emailAddress: EmailAddress(''),
-        password: Password(''),
+        password: LoginPassword(''),
         showErrorMessages: false,
         isSubmitting: false,
         loginFailureOrSuccessOption: none(),

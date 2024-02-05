@@ -16,7 +16,7 @@ abstract class ILoginFacade {
   });
   Future<Either<LoginFailure, Unit>> signInWithEmailAndPassword({
     required EmailAddress emailAddress,
-    required Password password,
+    required LoginPassword password,
   });
   Future<Either<LoginFailure, Unit>> signInWithGoogle();
   Future<Either<RegisterFailure, Unit>> registerWithGoogle();

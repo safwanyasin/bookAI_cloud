@@ -29,6 +29,14 @@ Either<ValueFailure<String>, String> validatePassword(String input) {
   }
 }
 
+Either<ValueFailure<String>, String> validateLoginPassword(String input) {
+  if (input.length == 0) {
+    return left(ValueFailure<String>.empty(failedValue: input));
+  } else {
+    return right(input);
+  }
+}
+
 Either<ValueFailure<String>, String> validateConfirmPassword(
     String input, String password) {
   if (input != password) {
