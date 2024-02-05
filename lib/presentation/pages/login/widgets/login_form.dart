@@ -10,8 +10,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+// ignore: must_be_immutable
 class LoginForm extends StatelessWidget {
-  const LoginForm({super.key});
+  LoginForm({super.key});
+  bool withGoogle = false;
 
   @override
   Widget build(BuildContext context) {
@@ -22,14 +24,24 @@ class LoginForm extends StatelessWidget {
           (either) => either.fold(
             (failure) {
               Flushbar(
-                message: failure.map(
-                  cancelledByUser: (_) => 'Cancelled',
-                  serverError: (_) => 'Server error',
-                  invalidEmailAndPasswordCombination: (_) =>
+                messageText: failure.map(
+                  cancelledByUser: (_) => Text('Operation cancelled',
+                      style: Theme.of(context).textTheme.titleSmall),
+                  serverError: (_) => Text('Server error',
+                      style: Theme.of(context).textTheme.titleSmall),
+                  invalidEmailAndPasswordCombination: (_) => Text(
                       'Email or password are incorrect!',
-                  otherFailure: (_) => 'An unexpected error occurred',
+                      style: Theme.of(context).textTheme.titleSmall),
+                  otherFailure: (_) => Text('An unexpected error occurred!',
+                      style: Theme.of(context).textTheme.titleSmall),
                 ),
-              );
+                barBlur: 20,
+                backgroundColor: Theme.of(context).disabledColor,
+                duration: const Duration(seconds: 2),
+                borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(10.w),
+                    topRight: Radius.circular(20.w)),
+              ).show(context);
             },
             (_) {
               // navigate to another page
@@ -43,7 +55,7 @@ class LoginForm extends StatelessWidget {
             children: [
               InputField(
                 // controller: TextEditingController(),
-                showError: state.isSubmitting,
+                showError: state.isSubmitting && !withGoogle,
                 labelText: 'Email',
                 onChanged: (email) =>
                     context.read<LoginCubit>().updateEmail(email),
@@ -61,7 +73,7 @@ class LoginForm extends StatelessWidget {
               SizedBox(height: 10.h),
               InputField(
                 // controller: TextEditingController(),
-                showError: state.isSubmitting,
+                showError: state.isSubmitting && !withGoogle,
                 labelText: 'Password',
                 obscureText: true,
                 onChanged: (password) =>
@@ -78,6 +90,7 @@ class LoginForm extends StatelessWidget {
               SizedBox(height: 15.h),
               PrimaryButton(
                 onPressed: () {
+                  withGoogle = false;
                   context.read<LoginCubit>().login(true);
                   // AutoRouter.of(context).popAndPush(const NavRoute());
                 },
@@ -86,6 +99,7 @@ class LoginForm extends StatelessWidget {
               SizedBox(height: 15.h),
               ContinueWithGoogleButton(
                 onPressed: () {
+                  withGoogle = true;
                   context.read<LoginCubit>().login(false);
                 },
               ),

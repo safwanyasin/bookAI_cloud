@@ -36,7 +36,7 @@ class LoginScreen extends StatelessWidget {
               ),
               BlocProvider(
                 create: (context) => getIt<LoginCubit>(),
-                child: const LoginForm(),
+                child: LoginForm(),
               )
             ],
           ),

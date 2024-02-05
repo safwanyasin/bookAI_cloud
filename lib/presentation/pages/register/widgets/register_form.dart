@@ -10,8 +10,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+// ignore: must_be_immutable
 class RegisterForm extends StatelessWidget {
-  const RegisterForm({super.key});
+  RegisterForm({super.key});
+  bool withGoogle = false;
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +44,7 @@ class RegisterForm extends StatelessWidget {
             children: [
               InputField(
                 // controller: TextEditingController(),
-                showError: state.isSubmitting,
+                showError: state.isSubmitting && !withGoogle,
                 labelText: 'Email',
                 onChanged: (email) =>
                     context.read<RegisterCubit>().updateEmail(email),
@@ -63,7 +65,7 @@ class RegisterForm extends StatelessWidget {
               SizedBox(height: 10.h),
               InputField(
                 // controller: TextEditingController(),
-                showError: state.isSubmitting,
+                showError: state.isSubmitting && !withGoogle,
                 labelText: 'Password',
                 obscureText: true,
                 onChanged: (password) =>
@@ -88,7 +90,7 @@ class RegisterForm extends StatelessWidget {
               SizedBox(height: 10.h),
               InputField(
                 // controller: TextEditingController(),
-                showError: state.isSubmitting,
+                showError: state.isSubmitting && !withGoogle,
                 labelText: 'Confirm Password',
                 obscureText: true,
                 onChanged: (cPassword) => context
@@ -110,6 +112,7 @@ class RegisterForm extends StatelessWidget {
               SizedBox(height: 15.h),
               PrimaryButton(
                 onPressed: () {
+                  withGoogle = false;
                   context.read<RegisterCubit>().register(true);
                   //AutoRouter.of(context).popAndPush(const NavRoute());
                 },
@@ -118,6 +121,7 @@ class RegisterForm extends StatelessWidget {
               SizedBox(height: 15.h),
               ContinueWithGoogleButton(
                 onPressed: () {
+                  withGoogle = true;
                   context.read<RegisterCubit>().register(false);
                 },
               ),

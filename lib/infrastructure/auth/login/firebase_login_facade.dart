@@ -3,12 +3,15 @@
 import 'package:book_ai/domain/auth/login/i_login_facade.dart';
 import 'package:book_ai/domain/auth/login/login_failure.dart';
 import 'package:book_ai/domain/auth/register/register_failure.dart';
+import 'package:book_ai/domain/auth/user.dart';
 import 'package:book_ai/domain/auth/value_objects.dart';
+import 'package:book_ai/domain/core/value_objects.dart';
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/services.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:injectable/injectable.dart';
+import './firebase_user_mapper.dart';
 
 @lazySingleton
 class FirebaseLoginFacade implements ILoginFacade {
@@ -21,8 +24,23 @@ class FirebaseLoginFacade implements ILoginFacade {
   );
 
   @override
+  Future<Option<AppUser>> getSignedInUser() {
+    // some(
+    //   User(
+    //     id: UniqueId.fromUniqueString(
+    //       _firebaseAuth.currentUser!.uid,
+    //     ),
+    //   ),
+    // );
+    return optionOf(_firebaseAuth.currentUser?.toDomain());
+  }
+
+  @override
   Future<Either<RegisterFailure, Unit>> registerWithEmailAndPassword(
-      {required EmailAddress emailAddress, required Password password, required ConfirmPassword confirmPassword}) async {
+      {required EmailAddress emailAddress,
+      required Password password,
+      required ConfirmPassword confirmPassword}) async {
+    // _firebaseAuth.currentUser!().then((value) => value.uid);
     final emailAddressStr = emailAddress.getOrCrash();
     final passwordStr = password.getOrCrash();
     final confirmPasswordStr = confirmPassword.getOrCrash();
@@ -108,5 +126,13 @@ class FirebaseLoginFacade implements ILoginFacade {
     } on PlatformException catch (_) {
       return left(const RegisterFailure.serverError());
     }
+  }
+
+  @override
+  Future<void> signOut() {
+    return Future.wait([
+      _firebaseAuth.signOut(),
+      _googleSignIn.signOut(),
+    ]);
   }
 }

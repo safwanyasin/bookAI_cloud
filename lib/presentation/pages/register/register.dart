@@ -35,7 +35,7 @@ class RegisterScreen extends StatelessWidget {
               ),
               BlocProvider(
                 create: (context) => getIt<RegisterCubit>(),
-                child: const RegisterForm(),
+                child: RegisterForm(),
               )
             ],
           ),
