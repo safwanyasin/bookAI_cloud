@@ -46,9 +46,11 @@ dependencies:
   rive: ^0.9.1
   firebase_core: ^2.25.3
   firebase_auth: ^4.17.3
+  cloud_firestore: ^4.15.4
   google_sign_in: ^6.2.1
   another_flushbar: ^1.12.30
   uuid: ^4.3.3
+  json_serializable: ^6.7.1
 
 dev_dependencies:
   flutter_test:

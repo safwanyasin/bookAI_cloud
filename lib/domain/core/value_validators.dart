@@ -80,3 +80,66 @@ Either<ValueFailure<String>, String> validateOpenApiKey(String input) {
     return right(input);
   }
 }
+
+Either<ValueFailure<String>, String> validateMaxStringLength(
+    String input, int maxLength) {
+  if (input.length <= maxLength) {
+    return right(input);
+  } else {
+    return left(
+      ValueFailure.exceedingLength(failedValue: input, max: maxLength),
+    );
+  }
+}
+
+Either<ValueFailure<String>, String> checkIfEmpty(String input) {
+  if (input.isEmpty) {
+    return left(ValueFailure<String>.empty(failedValue: input));
+  } else {
+    return right(input);
+  }
+}
+
+Either<ValueFailure<int>, int> positiveInt(int input) {
+  if (input <= 0) {
+    return left(ValueFailure<int>.negative(failedValue: input));
+  } else {
+    return right(input);
+  }
+}
+
+// value failure for rating which can be a double between 0 and 5
+Either<ValueFailure<double>, double> validateRating(double input) {
+  if (input <= 0 || input > 5) {
+    return left(ValueFailure<double>.negative(failedValue: input));
+  } else {
+    return right(input);
+  }
+}
+
+Either<ValueFailure<String>, String> validateUrl(String url) {
+  // Regular expression for the given URL format
+  RegExp urlRegExp = RegExp(
+    r'^http://books\.google\.com/books/content\?id=[a-zA-Z0-9_-]+&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api$',
+  );
+
+  if (url.isEmpty) {
+    return left(ValueFailure<String>.empty(failedValue: url));
+  } else if (!urlRegExp.hasMatch(url)) {
+    return left(ValueFailure<String>.invalidImageUrl(failedValue: url));
+  } else {
+    return right(url);
+  }
+}
+
+Either<ValueFailure<String>, String> validateBookId(String bookId) {
+  if (bookId.isEmpty) {
+    return left(ValueFailure<String>.empty(failedValue: bookId));
+  } else if (bookId.length != 12) {
+    return left(ValueFailure<String>.incorrectLength(failedValue: bookId));
+  } else if (!RegExp(r"^[a-zA-Z0-9_-]+$").hasMatch(bookId)) {
+    return left(ValueFailure<String>.invalidCharacters(failedValue: bookId));
+  } else {
+    return right(bookId);
+  }
+}

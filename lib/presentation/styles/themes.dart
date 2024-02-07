@@ -6,6 +6,11 @@ import 'package:google_fonts/google_fonts.dart';
 class AppTheme {
   static ThemeData darkTheme() {
     return ThemeData.dark().copyWith(
+      colorScheme: ColorScheme.fromSwatch(
+        primarySwatch: Colors.deepOrange, // Set your primary color
+        accentColor: Colors.deepOrange, // Set your accent color
+      ),
+      canvasColor: AppColors.primaryColor,
       focusColor: AppColors.primaryColor, // Main color
       disabledColor: AppColors.translucentColor,
       primaryColor: AppColors.secondaryColor, // Secondary color

@@ -1,3 +1,5 @@
+import 'package:book_ai/domain/book/i_book_repository.dart';
+import 'package:book_ai/infrastructure/book/book_repository.dart';
 import 'package:book_ai/injection.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
@@ -18,4 +20,7 @@ abstract class InjectableModule {
         getIt<FirebaseAuth>(),
         getIt<GoogleSignIn>(),
       );
+
+  @lazySingleton
+  IBookRepository get bookRepository => BookRepository();
 }

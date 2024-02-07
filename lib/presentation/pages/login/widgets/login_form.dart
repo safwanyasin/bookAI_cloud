@@ -81,8 +81,7 @@ class LoginForm extends StatelessWidget {
                 validator: (_) =>
                     context.read<LoginCubit>().state.password.value.fold(
                         (f) => f.maybeMap(
-                              empty: (_) =>
-                                  'Password cannot be empty!',
+                              empty: (_) => 'Password cannot be empty!',
                               orElse: () => null,
                             ),
                         (_) => null),
@@ -119,7 +118,11 @@ class LoginForm extends StatelessWidget {
                       },
                       buttonText: 'Sign Up')
                 ],
-              )
+              ),
+              // if (state.isSubmitting) ...[
+              //   SizedBox(height: 5.h),
+              //   const LinearProgressIndicator(),
+              // ]
             ],
           ),
         );

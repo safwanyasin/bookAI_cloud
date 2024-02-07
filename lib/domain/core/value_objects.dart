@@ -14,6 +14,14 @@ abstract class ValueObject<T> {
     return value.fold((f) => throw UnexpectedValueError(f), (r) => r);
   }
 
+  Either<ValueFailure<dynamic>, Unit> get failureOrUnit {
+    return value.fold(
+      (l) => left(l),
+      (r) => right(unit),
+    );
+  }
+
+  bool isValid() => value.isRight();
   @override
   bool operator ==(Object o) {
     if (identical(this, o)) return true;
@@ -40,6 +48,19 @@ class UniqueId extends ValueObject<String> {
   factory UniqueId.fromUniqueString(String uniqueId) {
     return UniqueId._(
       right(uniqueId),
+    );
+  }
+
+  factory UniqueId.ofSpecificLength(int length) {
+    if (length <= 0) {
+      throw ArgumentError('Length must be greater than 0');
+    }
+
+    final uuid = Uuid().v1();
+    final truncatedUuid = uuid.replaceAll('-', '').substring(0, length);
+
+    return UniqueId._(
+      right(truncatedUuid),
     );
   }
 

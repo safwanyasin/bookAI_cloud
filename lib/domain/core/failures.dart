@@ -41,6 +41,10 @@ abstract class ValueFailure<T> with _$ValueFailure<T> {
     required T failedValue,
   }) = Empty<T>;
 
+  const factory ValueFailure.negative({
+    required T failedValue,
+  }) = Negative<T>;
+
   const factory ValueFailure.shortLength({
     required T failedValue,
   }) = ShortLength<T>;
@@ -52,4 +56,16 @@ abstract class ValueFailure<T> with _$ValueFailure<T> {
   const factory ValueFailure.incorrectLength({
     required T failedValue,
   }) = IncorrectLength<T>;
+
+  const factory ValueFailure.shortQuery({
+    required T failedValue,
+  }) = ShortQuery<T>;
+  const factory ValueFailure.exceedingLength({
+    required T failedValue,
+    required int max,
+  }) = ExceedingLength<T>;
+  const factory ValueFailure.invalidImageUrl({
+    required T failedValue,
+    // @required T failedValue,
+  }) = InvalidImageUrl<T>;
 }
