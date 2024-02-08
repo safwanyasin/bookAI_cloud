@@ -40,8 +40,8 @@ class RegisterCubit extends Cubit<RegisterState> {
   void updateConfirmPassword(String typedConfirmPassword) {
     emit(
       state.copyWith(
-        confirmPassword:
-            ConfirmPassword(typedConfirmPassword, state.password.toString()),
+        confirmPassword: ConfirmPassword(
+            typedConfirmPassword, state.password.getOrCrash()),
         registerFailureOrSuccessOption: none(),
       ),
     );
@@ -64,7 +64,9 @@ class RegisterCubit extends Cubit<RegisterState> {
 
     final registerResult = withEmail
         ? await _loginFacade.registerWithEmailAndPassword(
-            emailAddress: email, password: password, confirmPassword: confirmPassword)
+            emailAddress: email,
+            password: password,
+            confirmPassword: confirmPassword)
         : await _loginFacade.registerWithGoogle();
 
     if (registerResult.isLeft()) {

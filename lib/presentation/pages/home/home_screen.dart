@@ -1,14 +1,18 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:book_ai/presentation/classes/book.dart';
 import 'package:book_ai/presentation/classes/prev_stories.dart';
 import 'package:book_ai/presentation/pages/home/home_main_carousel.dart';
 import 'package:book_ai/presentation/pages/home/home_secondary_carousel.dart';
 import 'package:book_ai/presentation/reusable_components/buttons/plain_button.dart';
+import 'package:book_ai/presentation/reusable_components/input/dropdown_menu.dart';
 import 'package:book_ai/presentation/reusable_components/input/search_input.dart';
 import 'package:book_ai/presentation/reusable_components/texts/heading.dart';
 import 'package:book_ai/presentation/reusable_components/texts/section_heading.dart';
+import 'package:book_ai/presentation/routing/router/router.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:dio/dio.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -18,12 +22,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  void likePressHandler(bool liked) {
-    setState(() {
-      liked = !liked;
-    });
-  }
-
   List<Book> items = [
     Book(
         author: 'Roald Dahl',
@@ -95,9 +93,21 @@ class _HomeScreenState extends State<HomeScreen> {
               content: 'What do you want to read today?',
             ),
             SizedBox(height: 15.h),
-            SearchInput(
-              controller: TextEditingController(),
-              hintText: 'Search by name, author, ISBN',
+            Row(
+              children: [
+                Expanded(
+                  child: SearchInput(
+                    controller: TextEditingController(),
+                    hintText: 'Search by name, author, ISBN',
+                  ),
+                ),
+                IconButton(
+                  icon: const Icon(Icons.tune),
+                  onPressed: () {
+                    AutoRouter.of(context).push(const AdvancedSearchRoute());
+                  },
+                )
+              ],
             ),
             SizedBox(height: 15.h),
             Row(
@@ -124,8 +134,14 @@ class _HomeScreenState extends State<HomeScreen> {
                   content: 'Read stories you have generated',
                 ),
                 PlainButton(
-                  onPressed: () {
-                    print('See all button pressed');
+                  onPressed: () async {
+                    final dio = Dio();
+
+                    final response = await dio.get(
+                        'https://www.googleapis.com/books/v1/volumes?q=mein+kampf');
+                    print(response);
+                    print(response.runtimeType);
+                    print('see all button pressed');
                   },
                   buttonText: 'See all',
                 ),
@@ -133,6 +149,14 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             SizedBox(height: 10.h),
             HomeSecondaryCarousel(items: previousStoriesList),
+            // SizedBox(height: 10.h),
+            // DropdownMenuInput(
+            //   labelText: 'Gender',
+            //   items: const ['Male', 'Female'],
+            //   value: 'male',
+            //   onChanged: (_) {},
+            //   validator: (_) {},
+            // ),
             SizedBox(height: 90.h)
           ],
         ),

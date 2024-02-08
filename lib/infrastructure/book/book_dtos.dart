@@ -64,6 +64,8 @@ abstract class BookDto implements _$BookDto {
     return BookDto.fromJson(doc.data() as Map<String, dynamic>)
         .copyWith(bookId: doc.id);
   }
+
+  // can maybe add a .fromdio function
 }
 
 class ServerTimestampConverter implements JsonConverter<FieldValue, Object> {

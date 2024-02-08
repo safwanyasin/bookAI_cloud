@@ -15,6 +15,7 @@ abstract class ValueFailure<T> with _$ValueFailure<T> {
   }) = EmailAlreadyInUse<T>;
   const factory ValueFailure.passwordMismatch({
     required T failedValue,
+    required T otherValue
     // @required T failedValue,
   }) = PasswordMismatch<T>;
   const factory ValueFailure.shortPassword({

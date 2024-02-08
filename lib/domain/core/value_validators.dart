@@ -40,7 +40,9 @@ Either<ValueFailure<String>, String> validateLoginPassword(String input) {
 Either<ValueFailure<String>, String> validateConfirmPassword(
     String input, String password) {
   if (input != password) {
-    return Left(ValueFailure<String>.passwordMismatch(failedValue: input));
+    print("confirm pass " + input);
+    print("password " + password);
+    return Left(ValueFailure<String>.passwordMismatch(failedValue: input, otherValue: password));
   } else {
     return Right(input);
   }

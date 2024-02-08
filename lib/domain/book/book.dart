@@ -35,6 +35,20 @@ abstract class Book implements _$Book {
             "http://books.google.com/books/content?id=8MXK_KrHOZYC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"),
         liked: false,
       );
+
+  factory Book.fromGoogleBooksApi(Map<String, dynamic> data) {
+    return Book(
+      bookId: data['id'],
+      bookName: data['volumeInfo']['title'],
+      authorName: data['volumeInfo']['authors']?.join(', ') ?? 'Unknown Author',
+      description: data['volumeInfo']['description'] ?? 'No Description',
+      language: data['volumeInfo']['language'] ?? 'Unknown Language',
+      pageCount: data['volumeInfo']['pageCount'] ?? 0,
+      reviewCount: data['volumeInfo']['ratingsCount']?? 0,
+      rating: data['volumeInfo']['averageRating']?? 0,
+      imageUrl: data['volumeInfo']['imageLinks']['thumbnail'] ?? 'https://placehold.co/190x280'
+    );
+  }
   Option<ValueFailure<dynamic>> get failureOption {
     return bookName.failureOrUnit
         .andThen(authorName.failureOrUnit.andThen(description.failureOrUnit

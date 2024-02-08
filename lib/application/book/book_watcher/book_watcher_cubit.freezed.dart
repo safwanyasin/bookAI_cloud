@@ -20,7 +20,7 @@ mixin _$BookWatcherState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(Book book) loadSuccess,
+    required TResult Function(List<Book> book) loadSuccess,
     required TResult Function(BookFailure bookFailure) loadFailure,
   }) =>
       throw _privateConstructorUsedError;
@@ -28,7 +28,7 @@ mixin _$BookWatcherState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(Book book)? loadSuccess,
+    TResult? Function(List<Book> book)? loadSuccess,
     TResult? Function(BookFailure bookFailure)? loadFailure,
   }) =>
       throw _privateConstructorUsedError;
@@ -36,7 +36,7 @@ mixin _$BookWatcherState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(Book book)? loadSuccess,
+    TResult Function(List<Book> book)? loadSuccess,
     TResult Function(BookFailure bookFailure)? loadFailure,
     required TResult orElse(),
   }) =>
@@ -126,7 +126,7 @@ class _$InitialImpl implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(Book book) loadSuccess,
+    required TResult Function(List<Book> book) loadSuccess,
     required TResult Function(BookFailure bookFailure) loadFailure,
   }) {
     return initial();
@@ -137,7 +137,7 @@ class _$InitialImpl implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(Book book)? loadSuccess,
+    TResult? Function(List<Book> book)? loadSuccess,
     TResult? Function(BookFailure bookFailure)? loadFailure,
   }) {
     return initial?.call();
@@ -148,7 +148,7 @@ class _$InitialImpl implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(Book book)? loadSuccess,
+    TResult Function(List<Book> book)? loadSuccess,
     TResult Function(BookFailure bookFailure)? loadFailure,
     required TResult orElse(),
   }) {
@@ -240,7 +240,7 @@ class _$LoadingImpl implements _Loading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(Book book) loadSuccess,
+    required TResult Function(List<Book> book) loadSuccess,
     required TResult Function(BookFailure bookFailure) loadFailure,
   }) {
     return loading();
@@ -251,7 +251,7 @@ class _$LoadingImpl implements _Loading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(Book book)? loadSuccess,
+    TResult? Function(List<Book> book)? loadSuccess,
     TResult? Function(BookFailure bookFailure)? loadFailure,
   }) {
     return loading?.call();
@@ -262,7 +262,7 @@ class _$LoadingImpl implements _Loading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(Book book)? loadSuccess,
+    TResult Function(List<Book> book)? loadSuccess,
     TResult Function(BookFailure bookFailure)? loadFailure,
     required TResult orElse(),
   }) {
@@ -320,9 +320,7 @@ abstract class _$$LoadSuccessImplCopyWith<$Res> {
           _$LoadSuccessImpl value, $Res Function(_$LoadSuccessImpl) then) =
       __$$LoadSuccessImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({Book book});
-
-  $BookCopyWith<$Res> get book;
+  $Res call({List<Book> book});
 }
 
 /// @nodoc
@@ -340,28 +338,25 @@ class __$$LoadSuccessImplCopyWithImpl<$Res>
   }) {
     return _then(_$LoadSuccessImpl(
       null == book
-          ? _value.book
+          ? _value._book
           : book // ignore: cast_nullable_to_non_nullable
-              as Book,
+              as List<Book>,
     ));
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $BookCopyWith<$Res> get book {
-    return $BookCopyWith<$Res>(_value.book, (value) {
-      return _then(_value.copyWith(book: value));
-    });
   }
 }
 
 /// @nodoc
 
 class _$LoadSuccessImpl implements _LoadSuccess {
-  const _$LoadSuccessImpl(this.book);
+  const _$LoadSuccessImpl(final List<Book> book) : _book = book;
 
+  final List<Book> _book;
   @override
-  final Book book;
+  List<Book> get book {
+    if (_book is EqualUnmodifiableListView) return _book;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_book);
+  }
 
   @override
   String toString() {
@@ -373,11 +368,12 @@ class _$LoadSuccessImpl implements _LoadSuccess {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$LoadSuccessImpl &&
-            (identical(other.book, book) || other.book == book));
+            const DeepCollectionEquality().equals(other._book, _book));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, book);
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_book));
 
   @JsonKey(ignore: true)
   @override
@@ -390,7 +386,7 @@ class _$LoadSuccessImpl implements _LoadSuccess {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(Book book) loadSuccess,
+    required TResult Function(List<Book> book) loadSuccess,
     required TResult Function(BookFailure bookFailure) loadFailure,
   }) {
     return loadSuccess(book);
@@ -401,7 +397,7 @@ class _$LoadSuccessImpl implements _LoadSuccess {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(Book book)? loadSuccess,
+    TResult? Function(List<Book> book)? loadSuccess,
     TResult? Function(BookFailure bookFailure)? loadFailure,
   }) {
     return loadSuccess?.call(book);
@@ -412,7 +408,7 @@ class _$LoadSuccessImpl implements _LoadSuccess {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(Book book)? loadSuccess,
+    TResult Function(List<Book> book)? loadSuccess,
     TResult Function(BookFailure bookFailure)? loadFailure,
     required TResult orElse(),
   }) {
@@ -461,9 +457,9 @@ class _$LoadSuccessImpl implements _LoadSuccess {
 }
 
 abstract class _LoadSuccess implements BookWatcherState {
-  const factory _LoadSuccess(final Book book) = _$LoadSuccessImpl;
+  const factory _LoadSuccess(final List<Book> book) = _$LoadSuccessImpl;
 
-  Book get book;
+  List<Book> get book;
   @JsonKey(ignore: true)
   _$$LoadSuccessImplCopyWith<_$LoadSuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
@@ -546,7 +542,7 @@ class _$LoadFailureImpl implements _LoadFailure {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(Book book) loadSuccess,
+    required TResult Function(List<Book> book) loadSuccess,
     required TResult Function(BookFailure bookFailure) loadFailure,
   }) {
     return loadFailure(bookFailure);
@@ -557,7 +553,7 @@ class _$LoadFailureImpl implements _LoadFailure {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(Book book)? loadSuccess,
+    TResult? Function(List<Book> book)? loadSuccess,
     TResult? Function(BookFailure bookFailure)? loadFailure,
   }) {
     return loadFailure?.call(bookFailure);
@@ -568,7 +564,7 @@ class _$LoadFailureImpl implements _LoadFailure {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(Book book)? loadSuccess,
+    TResult Function(List<Book> book)? loadSuccess,
     TResult Function(BookFailure bookFailure)? loadFailure,
     required TResult orElse(),
   }) {

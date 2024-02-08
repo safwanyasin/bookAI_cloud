@@ -15,6 +15,12 @@ abstract class _$AppRouter extends RootStackRouter {
 
   @override
   final Map<String, PageFactory> pagesMap = {
+    AdvancedSearchRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const AdvancedSearchScreen(),
+      );
+    },
     LoginRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -52,6 +58,20 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
   };
+}
+
+/// generated route for
+/// [AdvancedSearchScreen]
+class AdvancedSearchRoute extends PageRouteInfo<void> {
+  const AdvancedSearchRoute({List<PageRouteInfo>? children})
+      : super(
+          AdvancedSearchRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'AdvancedSearchRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
 }
 
 /// generated route for

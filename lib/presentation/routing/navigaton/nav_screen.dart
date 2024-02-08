@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:book_ai/presentation/pages/ai_generate/ai_generate_screen.dart';
 import 'package:book_ai/presentation/pages/home/home_screen.dart';
 import 'package:book_ai/presentation/reusable_components/backgrounds/animatied_background.dart';
 import 'package:book_ai/presentation/routing/navigaton/bottom_nav_bar.dart';
@@ -18,7 +19,7 @@ class _NavScreenState extends State<NavScreen> {
   final List<Widget> _screens = [
     const HomeScreen(),
     const Center(child: Text('screen 2')),
-    const Center(child: Text('screen 3')),
+    const AiGenerateScreen(),
     const Center(child: Text('screen 4')),
     const Center(child: Text('screen 5')),
   ];
@@ -69,6 +70,19 @@ class _NavScreenState extends State<NavScreen> {
             },
           ),
         ),
+        actions: [
+          _body == _screens[2]
+              ? Padding(
+                padding: EdgeInsets.only(right: 20.w),
+                child: IconButton(
+                    icon: Icon(Icons.history, size: 25.w),
+                    onPressed: () {
+                      print('open history');
+                    },
+                  ),
+              )
+              : Container(),
+        ],
         flexibleSpace: Container(
           decoration: const BoxDecoration(
             gradient: LinearGradient(

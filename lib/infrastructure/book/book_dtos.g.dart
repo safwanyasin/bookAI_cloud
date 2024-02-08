@@ -17,6 +17,8 @@ _$BookDtoImpl _$$BookDtoImplFromJson(Map<String, dynamic> json) =>
       reviewCount: json['reviewCount'] as int,
       rating: (json['rating'] as num).toDouble(),
       imageUrl: json['imageUrl'] as String,
+      serverTimestamp: const ServerTimestampConverter()
+          .fromJson(json['serverTimestamp'] as Object),
       liked: json['liked'] as bool? ?? false,
     );
 
@@ -31,5 +33,7 @@ Map<String, dynamic> _$$BookDtoImplToJson(_$BookDtoImpl instance) =>
       'reviewCount': instance.reviewCount,
       'rating': instance.rating,
       'imageUrl': instance.imageUrl,
+      'serverTimestamp':
+          const ServerTimestampConverter().toJson(instance.serverTimestamp),
       'liked': instance.liked,
     };

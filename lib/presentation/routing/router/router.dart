@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:book_ai/presentation/pages/advanced_search/advance_search_screen.dart';
 import 'package:book_ai/presentation/pages/login/login.dart';
 import 'package:book_ai/presentation/pages/register/register.dart';
 import 'package:book_ai/presentation/routing/navigaton/nav_screen.dart';
@@ -32,6 +33,9 @@ class AppRouter extends _$AppRouter {
         ),
         AutoRoute(
           page: RoutingTestRoute.page,
-        )
+        ),
+        AutoRoute(
+          page: AdvancedSearchRoute.page,
+        ),
       ];
 }

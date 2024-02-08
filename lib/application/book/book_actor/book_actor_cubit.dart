@@ -14,9 +14,9 @@ class NoteActorCubit extends Cubit<BookActorState> {
 
   NoteActorCubit(this._bookRepository) : super(const BookActorState.initial());
 
-  Future<void> delete(Book book) async {
+  Future<void> delete(Book book, bool fromWishlist) async {
     emit(const BookActorState.actionInProgress());
-    final possibleFailure = await _bookRepository.delete(book);
+    final possibleFailure = await _bookRepository.delete(book, fromWishlist);
     emit(
       possibleFailure.fold(
         (f) => BookActorState.deleteFailure(f),
