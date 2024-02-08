@@ -35,6 +35,7 @@ mixin _$ValueFailure<T> {
     required TResult Function(T failedValue) shortQuery,
     required TResult Function(T failedValue, int max) exceedingLength,
     required TResult Function(T failedValue) invalidImageUrl,
+    required TResult Function(T failedValue) invalidValue,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -55,6 +56,7 @@ mixin _$ValueFailure<T> {
     TResult? Function(T failedValue)? shortQuery,
     TResult? Function(T failedValue, int max)? exceedingLength,
     TResult? Function(T failedValue)? invalidImageUrl,
+    TResult? Function(T failedValue)? invalidValue,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -75,6 +77,7 @@ mixin _$ValueFailure<T> {
     TResult Function(T failedValue)? shortQuery,
     TResult Function(T failedValue, int max)? exceedingLength,
     TResult Function(T failedValue)? invalidImageUrl,
+    TResult Function(T failedValue)? invalidValue,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -96,6 +99,7 @@ mixin _$ValueFailure<T> {
     required TResult Function(ShortQuery<T> value) shortQuery,
     required TResult Function(ExceedingLength<T> value) exceedingLength,
     required TResult Function(InvalidImageUrl<T> value) invalidImageUrl,
+    required TResult Function(InvalidValue<T> value) invalidValue,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -116,6 +120,7 @@ mixin _$ValueFailure<T> {
     TResult? Function(ShortQuery<T> value)? shortQuery,
     TResult? Function(ExceedingLength<T> value)? exceedingLength,
     TResult? Function(InvalidImageUrl<T> value)? invalidImageUrl,
+    TResult? Function(InvalidValue<T> value)? invalidValue,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -136,6 +141,7 @@ mixin _$ValueFailure<T> {
     TResult Function(ShortQuery<T> value)? shortQuery,
     TResult Function(ExceedingLength<T> value)? exceedingLength,
     TResult Function(InvalidImageUrl<T> value)? invalidImageUrl,
+    TResult Function(InvalidValue<T> value)? invalidValue,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -273,6 +279,7 @@ class _$InvalidEmailImpl<T>
     required TResult Function(T failedValue) shortQuery,
     required TResult Function(T failedValue, int max) exceedingLength,
     required TResult Function(T failedValue) invalidImageUrl,
+    required TResult Function(T failedValue) invalidValue,
   }) {
     return invalidEmail(failedValue);
   }
@@ -296,6 +303,7 @@ class _$InvalidEmailImpl<T>
     TResult? Function(T failedValue)? shortQuery,
     TResult? Function(T failedValue, int max)? exceedingLength,
     TResult? Function(T failedValue)? invalidImageUrl,
+    TResult? Function(T failedValue)? invalidValue,
   }) {
     return invalidEmail?.call(failedValue);
   }
@@ -319,6 +327,7 @@ class _$InvalidEmailImpl<T>
     TResult Function(T failedValue)? shortQuery,
     TResult Function(T failedValue, int max)? exceedingLength,
     TResult Function(T failedValue)? invalidImageUrl,
+    TResult Function(T failedValue)? invalidValue,
     required TResult orElse(),
   }) {
     if (invalidEmail != null) {
@@ -346,6 +355,7 @@ class _$InvalidEmailImpl<T>
     required TResult Function(ShortQuery<T> value) shortQuery,
     required TResult Function(ExceedingLength<T> value) exceedingLength,
     required TResult Function(InvalidImageUrl<T> value) invalidImageUrl,
+    required TResult Function(InvalidValue<T> value) invalidValue,
   }) {
     return invalidEmail(this);
   }
@@ -369,6 +379,7 @@ class _$InvalidEmailImpl<T>
     TResult? Function(ShortQuery<T> value)? shortQuery,
     TResult? Function(ExceedingLength<T> value)? exceedingLength,
     TResult? Function(InvalidImageUrl<T> value)? invalidImageUrl,
+    TResult? Function(InvalidValue<T> value)? invalidValue,
   }) {
     return invalidEmail?.call(this);
   }
@@ -392,6 +403,7 @@ class _$InvalidEmailImpl<T>
     TResult Function(ShortQuery<T> value)? shortQuery,
     TResult Function(ExceedingLength<T> value)? exceedingLength,
     TResult Function(InvalidImageUrl<T> value)? invalidImageUrl,
+    TResult Function(InvalidValue<T> value)? invalidValue,
     required TResult orElse(),
   }) {
     if (invalidEmail != null) {
@@ -509,6 +521,7 @@ class _$EmailAlreadyInUseImpl<T>
     required TResult Function(T failedValue) shortQuery,
     required TResult Function(T failedValue, int max) exceedingLength,
     required TResult Function(T failedValue) invalidImageUrl,
+    required TResult Function(T failedValue) invalidValue,
   }) {
     return emailAlreadyInUse(failedValue);
   }
@@ -532,6 +545,7 @@ class _$EmailAlreadyInUseImpl<T>
     TResult? Function(T failedValue)? shortQuery,
     TResult? Function(T failedValue, int max)? exceedingLength,
     TResult? Function(T failedValue)? invalidImageUrl,
+    TResult? Function(T failedValue)? invalidValue,
   }) {
     return emailAlreadyInUse?.call(failedValue);
   }
@@ -555,6 +569,7 @@ class _$EmailAlreadyInUseImpl<T>
     TResult Function(T failedValue)? shortQuery,
     TResult Function(T failedValue, int max)? exceedingLength,
     TResult Function(T failedValue)? invalidImageUrl,
+    TResult Function(T failedValue)? invalidValue,
     required TResult orElse(),
   }) {
     if (emailAlreadyInUse != null) {
@@ -582,6 +597,7 @@ class _$EmailAlreadyInUseImpl<T>
     required TResult Function(ShortQuery<T> value) shortQuery,
     required TResult Function(ExceedingLength<T> value) exceedingLength,
     required TResult Function(InvalidImageUrl<T> value) invalidImageUrl,
+    required TResult Function(InvalidValue<T> value) invalidValue,
   }) {
     return emailAlreadyInUse(this);
   }
@@ -605,6 +621,7 @@ class _$EmailAlreadyInUseImpl<T>
     TResult? Function(ShortQuery<T> value)? shortQuery,
     TResult? Function(ExceedingLength<T> value)? exceedingLength,
     TResult? Function(InvalidImageUrl<T> value)? invalidImageUrl,
+    TResult? Function(InvalidValue<T> value)? invalidValue,
   }) {
     return emailAlreadyInUse?.call(this);
   }
@@ -628,6 +645,7 @@ class _$EmailAlreadyInUseImpl<T>
     TResult Function(ShortQuery<T> value)? shortQuery,
     TResult Function(ExceedingLength<T> value)? exceedingLength,
     TResult Function(InvalidImageUrl<T> value)? invalidImageUrl,
+    TResult Function(InvalidValue<T> value)? invalidValue,
     required TResult orElse(),
   }) {
     if (emailAlreadyInUse != null) {
@@ -757,6 +775,7 @@ class _$PasswordMismatchImpl<T>
     required TResult Function(T failedValue) shortQuery,
     required TResult Function(T failedValue, int max) exceedingLength,
     required TResult Function(T failedValue) invalidImageUrl,
+    required TResult Function(T failedValue) invalidValue,
   }) {
     return passwordMismatch(failedValue, otherValue);
   }
@@ -780,6 +799,7 @@ class _$PasswordMismatchImpl<T>
     TResult? Function(T failedValue)? shortQuery,
     TResult? Function(T failedValue, int max)? exceedingLength,
     TResult? Function(T failedValue)? invalidImageUrl,
+    TResult? Function(T failedValue)? invalidValue,
   }) {
     return passwordMismatch?.call(failedValue, otherValue);
   }
@@ -803,6 +823,7 @@ class _$PasswordMismatchImpl<T>
     TResult Function(T failedValue)? shortQuery,
     TResult Function(T failedValue, int max)? exceedingLength,
     TResult Function(T failedValue)? invalidImageUrl,
+    TResult Function(T failedValue)? invalidValue,
     required TResult orElse(),
   }) {
     if (passwordMismatch != null) {
@@ -830,6 +851,7 @@ class _$PasswordMismatchImpl<T>
     required TResult Function(ShortQuery<T> value) shortQuery,
     required TResult Function(ExceedingLength<T> value) exceedingLength,
     required TResult Function(InvalidImageUrl<T> value) invalidImageUrl,
+    required TResult Function(InvalidValue<T> value) invalidValue,
   }) {
     return passwordMismatch(this);
   }
@@ -853,6 +875,7 @@ class _$PasswordMismatchImpl<T>
     TResult? Function(ShortQuery<T> value)? shortQuery,
     TResult? Function(ExceedingLength<T> value)? exceedingLength,
     TResult? Function(InvalidImageUrl<T> value)? invalidImageUrl,
+    TResult? Function(InvalidValue<T> value)? invalidValue,
   }) {
     return passwordMismatch?.call(this);
   }
@@ -876,6 +899,7 @@ class _$PasswordMismatchImpl<T>
     TResult Function(ShortQuery<T> value)? shortQuery,
     TResult Function(ExceedingLength<T> value)? exceedingLength,
     TResult Function(InvalidImageUrl<T> value)? invalidImageUrl,
+    TResult Function(InvalidValue<T> value)? invalidValue,
     required TResult orElse(),
   }) {
     if (passwordMismatch != null) {
@@ -994,6 +1018,7 @@ class _$ShortPasswordImpl<T>
     required TResult Function(T failedValue) shortQuery,
     required TResult Function(T failedValue, int max) exceedingLength,
     required TResult Function(T failedValue) invalidImageUrl,
+    required TResult Function(T failedValue) invalidValue,
   }) {
     return shortPassword(failedValue);
   }
@@ -1017,6 +1042,7 @@ class _$ShortPasswordImpl<T>
     TResult? Function(T failedValue)? shortQuery,
     TResult? Function(T failedValue, int max)? exceedingLength,
     TResult? Function(T failedValue)? invalidImageUrl,
+    TResult? Function(T failedValue)? invalidValue,
   }) {
     return shortPassword?.call(failedValue);
   }
@@ -1040,6 +1066,7 @@ class _$ShortPasswordImpl<T>
     TResult Function(T failedValue)? shortQuery,
     TResult Function(T failedValue, int max)? exceedingLength,
     TResult Function(T failedValue)? invalidImageUrl,
+    TResult Function(T failedValue)? invalidValue,
     required TResult orElse(),
   }) {
     if (shortPassword != null) {
@@ -1067,6 +1094,7 @@ class _$ShortPasswordImpl<T>
     required TResult Function(ShortQuery<T> value) shortQuery,
     required TResult Function(ExceedingLength<T> value) exceedingLength,
     required TResult Function(InvalidImageUrl<T> value) invalidImageUrl,
+    required TResult Function(InvalidValue<T> value) invalidValue,
   }) {
     return shortPassword(this);
   }
@@ -1090,6 +1118,7 @@ class _$ShortPasswordImpl<T>
     TResult? Function(ShortQuery<T> value)? shortQuery,
     TResult? Function(ExceedingLength<T> value)? exceedingLength,
     TResult? Function(InvalidImageUrl<T> value)? invalidImageUrl,
+    TResult? Function(InvalidValue<T> value)? invalidValue,
   }) {
     return shortPassword?.call(this);
   }
@@ -1113,6 +1142,7 @@ class _$ShortPasswordImpl<T>
     TResult Function(ShortQuery<T> value)? shortQuery,
     TResult Function(ExceedingLength<T> value)? exceedingLength,
     TResult Function(InvalidImageUrl<T> value)? invalidImageUrl,
+    TResult Function(InvalidValue<T> value)? invalidValue,
     required TResult orElse(),
   }) {
     if (shortPassword != null) {
@@ -1229,6 +1259,7 @@ class _$NoUppercaseImpl<T>
     required TResult Function(T failedValue) shortQuery,
     required TResult Function(T failedValue, int max) exceedingLength,
     required TResult Function(T failedValue) invalidImageUrl,
+    required TResult Function(T failedValue) invalidValue,
   }) {
     return noUppercase(failedValue);
   }
@@ -1252,6 +1283,7 @@ class _$NoUppercaseImpl<T>
     TResult? Function(T failedValue)? shortQuery,
     TResult? Function(T failedValue, int max)? exceedingLength,
     TResult? Function(T failedValue)? invalidImageUrl,
+    TResult? Function(T failedValue)? invalidValue,
   }) {
     return noUppercase?.call(failedValue);
   }
@@ -1275,6 +1307,7 @@ class _$NoUppercaseImpl<T>
     TResult Function(T failedValue)? shortQuery,
     TResult Function(T failedValue, int max)? exceedingLength,
     TResult Function(T failedValue)? invalidImageUrl,
+    TResult Function(T failedValue)? invalidValue,
     required TResult orElse(),
   }) {
     if (noUppercase != null) {
@@ -1302,6 +1335,7 @@ class _$NoUppercaseImpl<T>
     required TResult Function(ShortQuery<T> value) shortQuery,
     required TResult Function(ExceedingLength<T> value) exceedingLength,
     required TResult Function(InvalidImageUrl<T> value) invalidImageUrl,
+    required TResult Function(InvalidValue<T> value) invalidValue,
   }) {
     return noUppercase(this);
   }
@@ -1325,6 +1359,7 @@ class _$NoUppercaseImpl<T>
     TResult? Function(ShortQuery<T> value)? shortQuery,
     TResult? Function(ExceedingLength<T> value)? exceedingLength,
     TResult? Function(InvalidImageUrl<T> value)? invalidImageUrl,
+    TResult? Function(InvalidValue<T> value)? invalidValue,
   }) {
     return noUppercase?.call(this);
   }
@@ -1348,6 +1383,7 @@ class _$NoUppercaseImpl<T>
     TResult Function(ShortQuery<T> value)? shortQuery,
     TResult Function(ExceedingLength<T> value)? exceedingLength,
     TResult Function(InvalidImageUrl<T> value)? invalidImageUrl,
+    TResult Function(InvalidValue<T> value)? invalidValue,
     required TResult orElse(),
   }) {
     if (noUppercase != null) {
@@ -1464,6 +1500,7 @@ class _$NoLowercaseImpl<T>
     required TResult Function(T failedValue) shortQuery,
     required TResult Function(T failedValue, int max) exceedingLength,
     required TResult Function(T failedValue) invalidImageUrl,
+    required TResult Function(T failedValue) invalidValue,
   }) {
     return noLowercase(failedValue);
   }
@@ -1487,6 +1524,7 @@ class _$NoLowercaseImpl<T>
     TResult? Function(T failedValue)? shortQuery,
     TResult? Function(T failedValue, int max)? exceedingLength,
     TResult? Function(T failedValue)? invalidImageUrl,
+    TResult? Function(T failedValue)? invalidValue,
   }) {
     return noLowercase?.call(failedValue);
   }
@@ -1510,6 +1548,7 @@ class _$NoLowercaseImpl<T>
     TResult Function(T failedValue)? shortQuery,
     TResult Function(T failedValue, int max)? exceedingLength,
     TResult Function(T failedValue)? invalidImageUrl,
+    TResult Function(T failedValue)? invalidValue,
     required TResult orElse(),
   }) {
     if (noLowercase != null) {
@@ -1537,6 +1576,7 @@ class _$NoLowercaseImpl<T>
     required TResult Function(ShortQuery<T> value) shortQuery,
     required TResult Function(ExceedingLength<T> value) exceedingLength,
     required TResult Function(InvalidImageUrl<T> value) invalidImageUrl,
+    required TResult Function(InvalidValue<T> value) invalidValue,
   }) {
     return noLowercase(this);
   }
@@ -1560,6 +1600,7 @@ class _$NoLowercaseImpl<T>
     TResult? Function(ShortQuery<T> value)? shortQuery,
     TResult? Function(ExceedingLength<T> value)? exceedingLength,
     TResult? Function(InvalidImageUrl<T> value)? invalidImageUrl,
+    TResult? Function(InvalidValue<T> value)? invalidValue,
   }) {
     return noLowercase?.call(this);
   }
@@ -1583,6 +1624,7 @@ class _$NoLowercaseImpl<T>
     TResult Function(ShortQuery<T> value)? shortQuery,
     TResult Function(ExceedingLength<T> value)? exceedingLength,
     TResult Function(InvalidImageUrl<T> value)? invalidImageUrl,
+    TResult Function(InvalidValue<T> value)? invalidValue,
     required TResult orElse(),
   }) {
     if (noLowercase != null) {
@@ -1696,6 +1738,7 @@ class _$NoNumericImpl<T> with DiagnosticableTreeMixin implements NoNumeric<T> {
     required TResult Function(T failedValue) shortQuery,
     required TResult Function(T failedValue, int max) exceedingLength,
     required TResult Function(T failedValue) invalidImageUrl,
+    required TResult Function(T failedValue) invalidValue,
   }) {
     return noNumeric(failedValue);
   }
@@ -1719,6 +1762,7 @@ class _$NoNumericImpl<T> with DiagnosticableTreeMixin implements NoNumeric<T> {
     TResult? Function(T failedValue)? shortQuery,
     TResult? Function(T failedValue, int max)? exceedingLength,
     TResult? Function(T failedValue)? invalidImageUrl,
+    TResult? Function(T failedValue)? invalidValue,
   }) {
     return noNumeric?.call(failedValue);
   }
@@ -1742,6 +1786,7 @@ class _$NoNumericImpl<T> with DiagnosticableTreeMixin implements NoNumeric<T> {
     TResult Function(T failedValue)? shortQuery,
     TResult Function(T failedValue, int max)? exceedingLength,
     TResult Function(T failedValue)? invalidImageUrl,
+    TResult Function(T failedValue)? invalidValue,
     required TResult orElse(),
   }) {
     if (noNumeric != null) {
@@ -1769,6 +1814,7 @@ class _$NoNumericImpl<T> with DiagnosticableTreeMixin implements NoNumeric<T> {
     required TResult Function(ShortQuery<T> value) shortQuery,
     required TResult Function(ExceedingLength<T> value) exceedingLength,
     required TResult Function(InvalidImageUrl<T> value) invalidImageUrl,
+    required TResult Function(InvalidValue<T> value) invalidValue,
   }) {
     return noNumeric(this);
   }
@@ -1792,6 +1838,7 @@ class _$NoNumericImpl<T> with DiagnosticableTreeMixin implements NoNumeric<T> {
     TResult? Function(ShortQuery<T> value)? shortQuery,
     TResult? Function(ExceedingLength<T> value)? exceedingLength,
     TResult? Function(InvalidImageUrl<T> value)? invalidImageUrl,
+    TResult? Function(InvalidValue<T> value)? invalidValue,
   }) {
     return noNumeric?.call(this);
   }
@@ -1815,6 +1862,7 @@ class _$NoNumericImpl<T> with DiagnosticableTreeMixin implements NoNumeric<T> {
     TResult Function(ShortQuery<T> value)? shortQuery,
     TResult Function(ExceedingLength<T> value)? exceedingLength,
     TResult Function(InvalidImageUrl<T> value)? invalidImageUrl,
+    TResult Function(InvalidValue<T> value)? invalidValue,
     required TResult orElse(),
   }) {
     if (noNumeric != null) {
@@ -1930,6 +1978,7 @@ class _$NoSpecialCharacterImpl<T>
     required TResult Function(T failedValue) shortQuery,
     required TResult Function(T failedValue, int max) exceedingLength,
     required TResult Function(T failedValue) invalidImageUrl,
+    required TResult Function(T failedValue) invalidValue,
   }) {
     return noSpecialCharacter(failedValue);
   }
@@ -1953,6 +2002,7 @@ class _$NoSpecialCharacterImpl<T>
     TResult? Function(T failedValue)? shortQuery,
     TResult? Function(T failedValue, int max)? exceedingLength,
     TResult? Function(T failedValue)? invalidImageUrl,
+    TResult? Function(T failedValue)? invalidValue,
   }) {
     return noSpecialCharacter?.call(failedValue);
   }
@@ -1976,6 +2026,7 @@ class _$NoSpecialCharacterImpl<T>
     TResult Function(T failedValue)? shortQuery,
     TResult Function(T failedValue, int max)? exceedingLength,
     TResult Function(T failedValue)? invalidImageUrl,
+    TResult Function(T failedValue)? invalidValue,
     required TResult orElse(),
   }) {
     if (noSpecialCharacter != null) {
@@ -2003,6 +2054,7 @@ class _$NoSpecialCharacterImpl<T>
     required TResult Function(ShortQuery<T> value) shortQuery,
     required TResult Function(ExceedingLength<T> value) exceedingLength,
     required TResult Function(InvalidImageUrl<T> value) invalidImageUrl,
+    required TResult Function(InvalidValue<T> value) invalidValue,
   }) {
     return noSpecialCharacter(this);
   }
@@ -2026,6 +2078,7 @@ class _$NoSpecialCharacterImpl<T>
     TResult? Function(ShortQuery<T> value)? shortQuery,
     TResult? Function(ExceedingLength<T> value)? exceedingLength,
     TResult? Function(InvalidImageUrl<T> value)? invalidImageUrl,
+    TResult? Function(InvalidValue<T> value)? invalidValue,
   }) {
     return noSpecialCharacter?.call(this);
   }
@@ -2049,6 +2102,7 @@ class _$NoSpecialCharacterImpl<T>
     TResult Function(ShortQuery<T> value)? shortQuery,
     TResult Function(ExceedingLength<T> value)? exceedingLength,
     TResult Function(InvalidImageUrl<T> value)? invalidImageUrl,
+    TResult Function(InvalidValue<T> value)? invalidValue,
     required TResult orElse(),
   }) {
     if (noSpecialCharacter != null) {
@@ -2162,6 +2216,7 @@ class _$EmptyImpl<T> with DiagnosticableTreeMixin implements Empty<T> {
     required TResult Function(T failedValue) shortQuery,
     required TResult Function(T failedValue, int max) exceedingLength,
     required TResult Function(T failedValue) invalidImageUrl,
+    required TResult Function(T failedValue) invalidValue,
   }) {
     return empty(failedValue);
   }
@@ -2185,6 +2240,7 @@ class _$EmptyImpl<T> with DiagnosticableTreeMixin implements Empty<T> {
     TResult? Function(T failedValue)? shortQuery,
     TResult? Function(T failedValue, int max)? exceedingLength,
     TResult? Function(T failedValue)? invalidImageUrl,
+    TResult? Function(T failedValue)? invalidValue,
   }) {
     return empty?.call(failedValue);
   }
@@ -2208,6 +2264,7 @@ class _$EmptyImpl<T> with DiagnosticableTreeMixin implements Empty<T> {
     TResult Function(T failedValue)? shortQuery,
     TResult Function(T failedValue, int max)? exceedingLength,
     TResult Function(T failedValue)? invalidImageUrl,
+    TResult Function(T failedValue)? invalidValue,
     required TResult orElse(),
   }) {
     if (empty != null) {
@@ -2235,6 +2292,7 @@ class _$EmptyImpl<T> with DiagnosticableTreeMixin implements Empty<T> {
     required TResult Function(ShortQuery<T> value) shortQuery,
     required TResult Function(ExceedingLength<T> value) exceedingLength,
     required TResult Function(InvalidImageUrl<T> value) invalidImageUrl,
+    required TResult Function(InvalidValue<T> value) invalidValue,
   }) {
     return empty(this);
   }
@@ -2258,6 +2316,7 @@ class _$EmptyImpl<T> with DiagnosticableTreeMixin implements Empty<T> {
     TResult? Function(ShortQuery<T> value)? shortQuery,
     TResult? Function(ExceedingLength<T> value)? exceedingLength,
     TResult? Function(InvalidImageUrl<T> value)? invalidImageUrl,
+    TResult? Function(InvalidValue<T> value)? invalidValue,
   }) {
     return empty?.call(this);
   }
@@ -2281,6 +2340,7 @@ class _$EmptyImpl<T> with DiagnosticableTreeMixin implements Empty<T> {
     TResult Function(ShortQuery<T> value)? shortQuery,
     TResult Function(ExceedingLength<T> value)? exceedingLength,
     TResult Function(InvalidImageUrl<T> value)? invalidImageUrl,
+    TResult Function(InvalidValue<T> value)? invalidValue,
     required TResult orElse(),
   }) {
     if (empty != null) {
@@ -2393,6 +2453,7 @@ class _$NegativeImpl<T> with DiagnosticableTreeMixin implements Negative<T> {
     required TResult Function(T failedValue) shortQuery,
     required TResult Function(T failedValue, int max) exceedingLength,
     required TResult Function(T failedValue) invalidImageUrl,
+    required TResult Function(T failedValue) invalidValue,
   }) {
     return negative(failedValue);
   }
@@ -2416,6 +2477,7 @@ class _$NegativeImpl<T> with DiagnosticableTreeMixin implements Negative<T> {
     TResult? Function(T failedValue)? shortQuery,
     TResult? Function(T failedValue, int max)? exceedingLength,
     TResult? Function(T failedValue)? invalidImageUrl,
+    TResult? Function(T failedValue)? invalidValue,
   }) {
     return negative?.call(failedValue);
   }
@@ -2439,6 +2501,7 @@ class _$NegativeImpl<T> with DiagnosticableTreeMixin implements Negative<T> {
     TResult Function(T failedValue)? shortQuery,
     TResult Function(T failedValue, int max)? exceedingLength,
     TResult Function(T failedValue)? invalidImageUrl,
+    TResult Function(T failedValue)? invalidValue,
     required TResult orElse(),
   }) {
     if (negative != null) {
@@ -2466,6 +2529,7 @@ class _$NegativeImpl<T> with DiagnosticableTreeMixin implements Negative<T> {
     required TResult Function(ShortQuery<T> value) shortQuery,
     required TResult Function(ExceedingLength<T> value) exceedingLength,
     required TResult Function(InvalidImageUrl<T> value) invalidImageUrl,
+    required TResult Function(InvalidValue<T> value) invalidValue,
   }) {
     return negative(this);
   }
@@ -2489,6 +2553,7 @@ class _$NegativeImpl<T> with DiagnosticableTreeMixin implements Negative<T> {
     TResult? Function(ShortQuery<T> value)? shortQuery,
     TResult? Function(ExceedingLength<T> value)? exceedingLength,
     TResult? Function(InvalidImageUrl<T> value)? invalidImageUrl,
+    TResult? Function(InvalidValue<T> value)? invalidValue,
   }) {
     return negative?.call(this);
   }
@@ -2512,6 +2577,7 @@ class _$NegativeImpl<T> with DiagnosticableTreeMixin implements Negative<T> {
     TResult Function(ShortQuery<T> value)? shortQuery,
     TResult Function(ExceedingLength<T> value)? exceedingLength,
     TResult Function(InvalidImageUrl<T> value)? invalidImageUrl,
+    TResult Function(InvalidValue<T> value)? invalidValue,
     required TResult orElse(),
   }) {
     if (negative != null) {
@@ -2627,6 +2693,7 @@ class _$ShortLengthImpl<T>
     required TResult Function(T failedValue) shortQuery,
     required TResult Function(T failedValue, int max) exceedingLength,
     required TResult Function(T failedValue) invalidImageUrl,
+    required TResult Function(T failedValue) invalidValue,
   }) {
     return shortLength(failedValue);
   }
@@ -2650,6 +2717,7 @@ class _$ShortLengthImpl<T>
     TResult? Function(T failedValue)? shortQuery,
     TResult? Function(T failedValue, int max)? exceedingLength,
     TResult? Function(T failedValue)? invalidImageUrl,
+    TResult? Function(T failedValue)? invalidValue,
   }) {
     return shortLength?.call(failedValue);
   }
@@ -2673,6 +2741,7 @@ class _$ShortLengthImpl<T>
     TResult Function(T failedValue)? shortQuery,
     TResult Function(T failedValue, int max)? exceedingLength,
     TResult Function(T failedValue)? invalidImageUrl,
+    TResult Function(T failedValue)? invalidValue,
     required TResult orElse(),
   }) {
     if (shortLength != null) {
@@ -2700,6 +2769,7 @@ class _$ShortLengthImpl<T>
     required TResult Function(ShortQuery<T> value) shortQuery,
     required TResult Function(ExceedingLength<T> value) exceedingLength,
     required TResult Function(InvalidImageUrl<T> value) invalidImageUrl,
+    required TResult Function(InvalidValue<T> value) invalidValue,
   }) {
     return shortLength(this);
   }
@@ -2723,6 +2793,7 @@ class _$ShortLengthImpl<T>
     TResult? Function(ShortQuery<T> value)? shortQuery,
     TResult? Function(ExceedingLength<T> value)? exceedingLength,
     TResult? Function(InvalidImageUrl<T> value)? invalidImageUrl,
+    TResult? Function(InvalidValue<T> value)? invalidValue,
   }) {
     return shortLength?.call(this);
   }
@@ -2746,6 +2817,7 @@ class _$ShortLengthImpl<T>
     TResult Function(ShortQuery<T> value)? shortQuery,
     TResult Function(ExceedingLength<T> value)? exceedingLength,
     TResult Function(InvalidImageUrl<T> value)? invalidImageUrl,
+    TResult Function(InvalidValue<T> value)? invalidValue,
     required TResult orElse(),
   }) {
     if (shortLength != null) {
@@ -2863,6 +2935,7 @@ class _$InvalidCharactersImpl<T>
     required TResult Function(T failedValue) shortQuery,
     required TResult Function(T failedValue, int max) exceedingLength,
     required TResult Function(T failedValue) invalidImageUrl,
+    required TResult Function(T failedValue) invalidValue,
   }) {
     return invalidCharacters(failedValue);
   }
@@ -2886,6 +2959,7 @@ class _$InvalidCharactersImpl<T>
     TResult? Function(T failedValue)? shortQuery,
     TResult? Function(T failedValue, int max)? exceedingLength,
     TResult? Function(T failedValue)? invalidImageUrl,
+    TResult? Function(T failedValue)? invalidValue,
   }) {
     return invalidCharacters?.call(failedValue);
   }
@@ -2909,6 +2983,7 @@ class _$InvalidCharactersImpl<T>
     TResult Function(T failedValue)? shortQuery,
     TResult Function(T failedValue, int max)? exceedingLength,
     TResult Function(T failedValue)? invalidImageUrl,
+    TResult Function(T failedValue)? invalidValue,
     required TResult orElse(),
   }) {
     if (invalidCharacters != null) {
@@ -2936,6 +3011,7 @@ class _$InvalidCharactersImpl<T>
     required TResult Function(ShortQuery<T> value) shortQuery,
     required TResult Function(ExceedingLength<T> value) exceedingLength,
     required TResult Function(InvalidImageUrl<T> value) invalidImageUrl,
+    required TResult Function(InvalidValue<T> value) invalidValue,
   }) {
     return invalidCharacters(this);
   }
@@ -2959,6 +3035,7 @@ class _$InvalidCharactersImpl<T>
     TResult? Function(ShortQuery<T> value)? shortQuery,
     TResult? Function(ExceedingLength<T> value)? exceedingLength,
     TResult? Function(InvalidImageUrl<T> value)? invalidImageUrl,
+    TResult? Function(InvalidValue<T> value)? invalidValue,
   }) {
     return invalidCharacters?.call(this);
   }
@@ -2982,6 +3059,7 @@ class _$InvalidCharactersImpl<T>
     TResult Function(ShortQuery<T> value)? shortQuery,
     TResult Function(ExceedingLength<T> value)? exceedingLength,
     TResult Function(InvalidImageUrl<T> value)? invalidImageUrl,
+    TResult Function(InvalidValue<T> value)? invalidValue,
     required TResult orElse(),
   }) {
     if (invalidCharacters != null) {
@@ -3098,6 +3176,7 @@ class _$IncorrectLengthImpl<T>
     required TResult Function(T failedValue) shortQuery,
     required TResult Function(T failedValue, int max) exceedingLength,
     required TResult Function(T failedValue) invalidImageUrl,
+    required TResult Function(T failedValue) invalidValue,
   }) {
     return incorrectLength(failedValue);
   }
@@ -3121,6 +3200,7 @@ class _$IncorrectLengthImpl<T>
     TResult? Function(T failedValue)? shortQuery,
     TResult? Function(T failedValue, int max)? exceedingLength,
     TResult? Function(T failedValue)? invalidImageUrl,
+    TResult? Function(T failedValue)? invalidValue,
   }) {
     return incorrectLength?.call(failedValue);
   }
@@ -3144,6 +3224,7 @@ class _$IncorrectLengthImpl<T>
     TResult Function(T failedValue)? shortQuery,
     TResult Function(T failedValue, int max)? exceedingLength,
     TResult Function(T failedValue)? invalidImageUrl,
+    TResult Function(T failedValue)? invalidValue,
     required TResult orElse(),
   }) {
     if (incorrectLength != null) {
@@ -3171,6 +3252,7 @@ class _$IncorrectLengthImpl<T>
     required TResult Function(ShortQuery<T> value) shortQuery,
     required TResult Function(ExceedingLength<T> value) exceedingLength,
     required TResult Function(InvalidImageUrl<T> value) invalidImageUrl,
+    required TResult Function(InvalidValue<T> value) invalidValue,
   }) {
     return incorrectLength(this);
   }
@@ -3194,6 +3276,7 @@ class _$IncorrectLengthImpl<T>
     TResult? Function(ShortQuery<T> value)? shortQuery,
     TResult? Function(ExceedingLength<T> value)? exceedingLength,
     TResult? Function(InvalidImageUrl<T> value)? invalidImageUrl,
+    TResult? Function(InvalidValue<T> value)? invalidValue,
   }) {
     return incorrectLength?.call(this);
   }
@@ -3217,6 +3300,7 @@ class _$IncorrectLengthImpl<T>
     TResult Function(ShortQuery<T> value)? shortQuery,
     TResult Function(ExceedingLength<T> value)? exceedingLength,
     TResult Function(InvalidImageUrl<T> value)? invalidImageUrl,
+    TResult Function(InvalidValue<T> value)? invalidValue,
     required TResult orElse(),
   }) {
     if (incorrectLength != null) {
@@ -3332,6 +3416,7 @@ class _$ShortQueryImpl<T>
     required TResult Function(T failedValue) shortQuery,
     required TResult Function(T failedValue, int max) exceedingLength,
     required TResult Function(T failedValue) invalidImageUrl,
+    required TResult Function(T failedValue) invalidValue,
   }) {
     return shortQuery(failedValue);
   }
@@ -3355,6 +3440,7 @@ class _$ShortQueryImpl<T>
     TResult? Function(T failedValue)? shortQuery,
     TResult? Function(T failedValue, int max)? exceedingLength,
     TResult? Function(T failedValue)? invalidImageUrl,
+    TResult? Function(T failedValue)? invalidValue,
   }) {
     return shortQuery?.call(failedValue);
   }
@@ -3378,6 +3464,7 @@ class _$ShortQueryImpl<T>
     TResult Function(T failedValue)? shortQuery,
     TResult Function(T failedValue, int max)? exceedingLength,
     TResult Function(T failedValue)? invalidImageUrl,
+    TResult Function(T failedValue)? invalidValue,
     required TResult orElse(),
   }) {
     if (shortQuery != null) {
@@ -3405,6 +3492,7 @@ class _$ShortQueryImpl<T>
     required TResult Function(ShortQuery<T> value) shortQuery,
     required TResult Function(ExceedingLength<T> value) exceedingLength,
     required TResult Function(InvalidImageUrl<T> value) invalidImageUrl,
+    required TResult Function(InvalidValue<T> value) invalidValue,
   }) {
     return shortQuery(this);
   }
@@ -3428,6 +3516,7 @@ class _$ShortQueryImpl<T>
     TResult? Function(ShortQuery<T> value)? shortQuery,
     TResult? Function(ExceedingLength<T> value)? exceedingLength,
     TResult? Function(InvalidImageUrl<T> value)? invalidImageUrl,
+    TResult? Function(InvalidValue<T> value)? invalidValue,
   }) {
     return shortQuery?.call(this);
   }
@@ -3451,6 +3540,7 @@ class _$ShortQueryImpl<T>
     TResult Function(ShortQuery<T> value)? shortQuery,
     TResult Function(ExceedingLength<T> value)? exceedingLength,
     TResult Function(InvalidImageUrl<T> value)? invalidImageUrl,
+    TResult Function(InvalidValue<T> value)? invalidValue,
     required TResult orElse(),
   }) {
     if (shortQuery != null) {
@@ -3576,6 +3666,7 @@ class _$ExceedingLengthImpl<T>
     required TResult Function(T failedValue) shortQuery,
     required TResult Function(T failedValue, int max) exceedingLength,
     required TResult Function(T failedValue) invalidImageUrl,
+    required TResult Function(T failedValue) invalidValue,
   }) {
     return exceedingLength(failedValue, max);
   }
@@ -3599,6 +3690,7 @@ class _$ExceedingLengthImpl<T>
     TResult? Function(T failedValue)? shortQuery,
     TResult? Function(T failedValue, int max)? exceedingLength,
     TResult? Function(T failedValue)? invalidImageUrl,
+    TResult? Function(T failedValue)? invalidValue,
   }) {
     return exceedingLength?.call(failedValue, max);
   }
@@ -3622,6 +3714,7 @@ class _$ExceedingLengthImpl<T>
     TResult Function(T failedValue)? shortQuery,
     TResult Function(T failedValue, int max)? exceedingLength,
     TResult Function(T failedValue)? invalidImageUrl,
+    TResult Function(T failedValue)? invalidValue,
     required TResult orElse(),
   }) {
     if (exceedingLength != null) {
@@ -3649,6 +3742,7 @@ class _$ExceedingLengthImpl<T>
     required TResult Function(ShortQuery<T> value) shortQuery,
     required TResult Function(ExceedingLength<T> value) exceedingLength,
     required TResult Function(InvalidImageUrl<T> value) invalidImageUrl,
+    required TResult Function(InvalidValue<T> value) invalidValue,
   }) {
     return exceedingLength(this);
   }
@@ -3672,6 +3766,7 @@ class _$ExceedingLengthImpl<T>
     TResult? Function(ShortQuery<T> value)? shortQuery,
     TResult? Function(ExceedingLength<T> value)? exceedingLength,
     TResult? Function(InvalidImageUrl<T> value)? invalidImageUrl,
+    TResult? Function(InvalidValue<T> value)? invalidValue,
   }) {
     return exceedingLength?.call(this);
   }
@@ -3695,6 +3790,7 @@ class _$ExceedingLengthImpl<T>
     TResult Function(ShortQuery<T> value)? shortQuery,
     TResult Function(ExceedingLength<T> value)? exceedingLength,
     TResult Function(InvalidImageUrl<T> value)? invalidImageUrl,
+    TResult Function(InvalidValue<T> value)? invalidValue,
     required TResult orElse(),
   }) {
     if (exceedingLength != null) {
@@ -3813,6 +3909,7 @@ class _$InvalidImageUrlImpl<T>
     required TResult Function(T failedValue) shortQuery,
     required TResult Function(T failedValue, int max) exceedingLength,
     required TResult Function(T failedValue) invalidImageUrl,
+    required TResult Function(T failedValue) invalidValue,
   }) {
     return invalidImageUrl(failedValue);
   }
@@ -3836,6 +3933,7 @@ class _$InvalidImageUrlImpl<T>
     TResult? Function(T failedValue)? shortQuery,
     TResult? Function(T failedValue, int max)? exceedingLength,
     TResult? Function(T failedValue)? invalidImageUrl,
+    TResult? Function(T failedValue)? invalidValue,
   }) {
     return invalidImageUrl?.call(failedValue);
   }
@@ -3859,6 +3957,7 @@ class _$InvalidImageUrlImpl<T>
     TResult Function(T failedValue)? shortQuery,
     TResult Function(T failedValue, int max)? exceedingLength,
     TResult Function(T failedValue)? invalidImageUrl,
+    TResult Function(T failedValue)? invalidValue,
     required TResult orElse(),
   }) {
     if (invalidImageUrl != null) {
@@ -3886,6 +3985,7 @@ class _$InvalidImageUrlImpl<T>
     required TResult Function(ShortQuery<T> value) shortQuery,
     required TResult Function(ExceedingLength<T> value) exceedingLength,
     required TResult Function(InvalidImageUrl<T> value) invalidImageUrl,
+    required TResult Function(InvalidValue<T> value) invalidValue,
   }) {
     return invalidImageUrl(this);
   }
@@ -3909,6 +4009,7 @@ class _$InvalidImageUrlImpl<T>
     TResult? Function(ShortQuery<T> value)? shortQuery,
     TResult? Function(ExceedingLength<T> value)? exceedingLength,
     TResult? Function(InvalidImageUrl<T> value)? invalidImageUrl,
+    TResult? Function(InvalidValue<T> value)? invalidValue,
   }) {
     return invalidImageUrl?.call(this);
   }
@@ -3932,6 +4033,7 @@ class _$InvalidImageUrlImpl<T>
     TResult Function(ShortQuery<T> value)? shortQuery,
     TResult Function(ExceedingLength<T> value)? exceedingLength,
     TResult Function(InvalidImageUrl<T> value)? invalidImageUrl,
+    TResult Function(InvalidValue<T> value)? invalidValue,
     required TResult orElse(),
   }) {
     if (invalidImageUrl != null) {
@@ -3950,5 +4052,246 @@ abstract class InvalidImageUrl<T> implements ValueFailure<T> {
   @override
   @JsonKey(ignore: true)
   _$$InvalidImageUrlImplCopyWith<T, _$InvalidImageUrlImpl<T>> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$InvalidValueImplCopyWith<T, $Res>
+    implements $ValueFailureCopyWith<T, $Res> {
+  factory _$$InvalidValueImplCopyWith(_$InvalidValueImpl<T> value,
+          $Res Function(_$InvalidValueImpl<T>) then) =
+      __$$InvalidValueImplCopyWithImpl<T, $Res>;
+  @override
+  @useResult
+  $Res call({T failedValue});
+}
+
+/// @nodoc
+class __$$InvalidValueImplCopyWithImpl<T, $Res>
+    extends _$ValueFailureCopyWithImpl<T, $Res, _$InvalidValueImpl<T>>
+    implements _$$InvalidValueImplCopyWith<T, $Res> {
+  __$$InvalidValueImplCopyWithImpl(
+      _$InvalidValueImpl<T> _value, $Res Function(_$InvalidValueImpl<T>) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? failedValue = freezed,
+  }) {
+    return _then(_$InvalidValueImpl<T>(
+      failedValue: freezed == failedValue
+          ? _value.failedValue
+          : failedValue // ignore: cast_nullable_to_non_nullable
+              as T,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$InvalidValueImpl<T>
+    with DiagnosticableTreeMixin
+    implements InvalidValue<T> {
+  const _$InvalidValueImpl({required this.failedValue});
+
+  @override
+  final T failedValue;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'ValueFailure<$T>.invalidValue(failedValue: $failedValue)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'ValueFailure<$T>.invalidValue'))
+      ..add(DiagnosticsProperty('failedValue', failedValue));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$InvalidValueImpl<T> &&
+            const DeepCollectionEquality()
+                .equals(other.failedValue, failedValue));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(failedValue));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$InvalidValueImplCopyWith<T, _$InvalidValueImpl<T>> get copyWith =>
+      __$$InvalidValueImplCopyWithImpl<T, _$InvalidValueImpl<T>>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(T failedValue) invalidEmail,
+    required TResult Function(T failedValue) emailAlreadyInUse,
+    required TResult Function(T failedValue, T otherValue) passwordMismatch,
+    required TResult Function(T failedValue) shortPassword,
+    required TResult Function(T failedValue) noUppercase,
+    required TResult Function(T failedValue) noLowercase,
+    required TResult Function(T failedValue) noNumeric,
+    required TResult Function(T failedValue) noSpecialCharacter,
+    required TResult Function(T failedValue) empty,
+    required TResult Function(T failedValue) negative,
+    required TResult Function(T failedValue) shortLength,
+    required TResult Function(T failedValue) invalidCharacters,
+    required TResult Function(T failedValue) incorrectLength,
+    required TResult Function(T failedValue) shortQuery,
+    required TResult Function(T failedValue, int max) exceedingLength,
+    required TResult Function(T failedValue) invalidImageUrl,
+    required TResult Function(T failedValue) invalidValue,
+  }) {
+    return invalidValue(failedValue);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(T failedValue)? invalidEmail,
+    TResult? Function(T failedValue)? emailAlreadyInUse,
+    TResult? Function(T failedValue, T otherValue)? passwordMismatch,
+    TResult? Function(T failedValue)? shortPassword,
+    TResult? Function(T failedValue)? noUppercase,
+    TResult? Function(T failedValue)? noLowercase,
+    TResult? Function(T failedValue)? noNumeric,
+    TResult? Function(T failedValue)? noSpecialCharacter,
+    TResult? Function(T failedValue)? empty,
+    TResult? Function(T failedValue)? negative,
+    TResult? Function(T failedValue)? shortLength,
+    TResult? Function(T failedValue)? invalidCharacters,
+    TResult? Function(T failedValue)? incorrectLength,
+    TResult? Function(T failedValue)? shortQuery,
+    TResult? Function(T failedValue, int max)? exceedingLength,
+    TResult? Function(T failedValue)? invalidImageUrl,
+    TResult? Function(T failedValue)? invalidValue,
+  }) {
+    return invalidValue?.call(failedValue);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(T failedValue)? invalidEmail,
+    TResult Function(T failedValue)? emailAlreadyInUse,
+    TResult Function(T failedValue, T otherValue)? passwordMismatch,
+    TResult Function(T failedValue)? shortPassword,
+    TResult Function(T failedValue)? noUppercase,
+    TResult Function(T failedValue)? noLowercase,
+    TResult Function(T failedValue)? noNumeric,
+    TResult Function(T failedValue)? noSpecialCharacter,
+    TResult Function(T failedValue)? empty,
+    TResult Function(T failedValue)? negative,
+    TResult Function(T failedValue)? shortLength,
+    TResult Function(T failedValue)? invalidCharacters,
+    TResult Function(T failedValue)? incorrectLength,
+    TResult Function(T failedValue)? shortQuery,
+    TResult Function(T failedValue, int max)? exceedingLength,
+    TResult Function(T failedValue)? invalidImageUrl,
+    TResult Function(T failedValue)? invalidValue,
+    required TResult orElse(),
+  }) {
+    if (invalidValue != null) {
+      return invalidValue(failedValue);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(InvalidEmail<T> value) invalidEmail,
+    required TResult Function(EmailAlreadyInUse<T> value) emailAlreadyInUse,
+    required TResult Function(PasswordMismatch<T> value) passwordMismatch,
+    required TResult Function(ShortPassword<T> value) shortPassword,
+    required TResult Function(NoUppercase<T> value) noUppercase,
+    required TResult Function(NoLowercase<T> value) noLowercase,
+    required TResult Function(NoNumeric<T> value) noNumeric,
+    required TResult Function(NoSpecialCharacter<T> value) noSpecialCharacter,
+    required TResult Function(Empty<T> value) empty,
+    required TResult Function(Negative<T> value) negative,
+    required TResult Function(ShortLength<T> value) shortLength,
+    required TResult Function(InvalidCharacters<T> value) invalidCharacters,
+    required TResult Function(IncorrectLength<T> value) incorrectLength,
+    required TResult Function(ShortQuery<T> value) shortQuery,
+    required TResult Function(ExceedingLength<T> value) exceedingLength,
+    required TResult Function(InvalidImageUrl<T> value) invalidImageUrl,
+    required TResult Function(InvalidValue<T> value) invalidValue,
+  }) {
+    return invalidValue(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(InvalidEmail<T> value)? invalidEmail,
+    TResult? Function(EmailAlreadyInUse<T> value)? emailAlreadyInUse,
+    TResult? Function(PasswordMismatch<T> value)? passwordMismatch,
+    TResult? Function(ShortPassword<T> value)? shortPassword,
+    TResult? Function(NoUppercase<T> value)? noUppercase,
+    TResult? Function(NoLowercase<T> value)? noLowercase,
+    TResult? Function(NoNumeric<T> value)? noNumeric,
+    TResult? Function(NoSpecialCharacter<T> value)? noSpecialCharacter,
+    TResult? Function(Empty<T> value)? empty,
+    TResult? Function(Negative<T> value)? negative,
+    TResult? Function(ShortLength<T> value)? shortLength,
+    TResult? Function(InvalidCharacters<T> value)? invalidCharacters,
+    TResult? Function(IncorrectLength<T> value)? incorrectLength,
+    TResult? Function(ShortQuery<T> value)? shortQuery,
+    TResult? Function(ExceedingLength<T> value)? exceedingLength,
+    TResult? Function(InvalidImageUrl<T> value)? invalidImageUrl,
+    TResult? Function(InvalidValue<T> value)? invalidValue,
+  }) {
+    return invalidValue?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(InvalidEmail<T> value)? invalidEmail,
+    TResult Function(EmailAlreadyInUse<T> value)? emailAlreadyInUse,
+    TResult Function(PasswordMismatch<T> value)? passwordMismatch,
+    TResult Function(ShortPassword<T> value)? shortPassword,
+    TResult Function(NoUppercase<T> value)? noUppercase,
+    TResult Function(NoLowercase<T> value)? noLowercase,
+    TResult Function(NoNumeric<T> value)? noNumeric,
+    TResult Function(NoSpecialCharacter<T> value)? noSpecialCharacter,
+    TResult Function(Empty<T> value)? empty,
+    TResult Function(Negative<T> value)? negative,
+    TResult Function(ShortLength<T> value)? shortLength,
+    TResult Function(InvalidCharacters<T> value)? invalidCharacters,
+    TResult Function(IncorrectLength<T> value)? incorrectLength,
+    TResult Function(ShortQuery<T> value)? shortQuery,
+    TResult Function(ExceedingLength<T> value)? exceedingLength,
+    TResult Function(InvalidImageUrl<T> value)? invalidImageUrl,
+    TResult Function(InvalidValue<T> value)? invalidValue,
+    required TResult orElse(),
+  }) {
+    if (invalidValue != null) {
+      return invalidValue(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class InvalidValue<T> implements ValueFailure<T> {
+  const factory InvalidValue({required final T failedValue}) =
+      _$InvalidValueImpl<T>;
+
+  @override
+  T get failedValue;
+  @override
+  @JsonKey(ignore: true)
+  _$$InvalidValueImplCopyWith<T, _$InvalidValueImpl<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }

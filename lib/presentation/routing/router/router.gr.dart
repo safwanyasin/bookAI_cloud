@@ -21,6 +21,12 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const AdvancedSearchScreen(),
       );
     },
+    AiGenerateRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const AiGenerateScreen(),
+      );
+    },
     LoginRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -70,6 +76,20 @@ class AdvancedSearchRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'AdvancedSearchRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [AiGenerateScreen]
+class AiGenerateRoute extends PageRouteInfo<void> {
+  const AiGenerateRoute({List<PageRouteInfo>? children})
+      : super(
+          AiGenerateRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'AiGenerateRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }

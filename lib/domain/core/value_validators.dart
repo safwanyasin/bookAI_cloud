@@ -42,7 +42,8 @@ Either<ValueFailure<String>, String> validateConfirmPassword(
   if (input != password) {
     print("confirm pass " + input);
     print("password " + password);
-    return Left(ValueFailure<String>.passwordMismatch(failedValue: input, otherValue: password));
+    return Left(ValueFailure<String>.passwordMismatch(
+        failedValue: input, otherValue: password));
   } else {
     return Right(input);
   }
@@ -143,5 +144,21 @@ Either<ValueFailure<String>, String> validateBookId(String bookId) {
     return left(ValueFailure<String>.invalidCharacters(failedValue: bookId));
   } else {
     return right(bookId);
+  }
+}
+
+Either<ValueFailure<String>, String> validateGender(String gender) {
+  if (gender == 'male' || gender == 'female' || gender == 'prefer not to say') {
+    return right(gender);
+  } else {
+    return left(ValueFailure<String>.invalidValue(failedValue: gender));
+  }
+}
+
+Either<ValueFailure<String>, String> validateNarrativeStyle(String style) {
+  if (style == 'male' || style == 'female' || style == 'prefer not to say') {
+    return right(style);
+  } else {
+    return left(ValueFailure<String>.invalidValue(failedValue: style));
   }
 }

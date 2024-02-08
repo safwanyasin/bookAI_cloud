@@ -78,7 +78,7 @@ class _SearchInputState extends State<InputField> {
         Align(
           alignment: Alignment.bottomLeft,
           child: Text(
-            widget.validator!(null) ?? '', // Pass null to get the error message
+            widget.validator(null) ?? '', // Pass null to get the error message
             style: GoogleFonts.quicksand(
               color: Colors.red,
               fontSize: 12.w,

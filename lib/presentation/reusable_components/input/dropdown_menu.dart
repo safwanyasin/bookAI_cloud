@@ -12,7 +12,7 @@ class DropdownMenuInput<T> extends StatefulWidget {
   final String? Function(T?) validator;
   final bool showError;
 
-  DropdownMenuInput({
+  const DropdownMenuInput({
     Key? key,
     required this.labelText,
     required this.items,
@@ -82,11 +82,11 @@ class _DropdownMenuInputState<T> extends State<DropdownMenuInput<T>> {
         SizedBox(
           height: 3.h,
         ),
-        if (widget.validator != null && widget.showError)
+        if (widget.showError)
           Align(
             alignment: Alignment.bottomLeft,
             child: Text(
-              widget.validator!(null) ??
+              widget.validator(null) ??
                   '', // Pass null to get the error message
               style: GoogleFonts.quicksand(
                 color: Colors.red,

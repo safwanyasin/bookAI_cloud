@@ -69,4 +69,8 @@ abstract class ValueFailure<T> with _$ValueFailure<T> {
     required T failedValue,
     // @required T failedValue,
   }) = InvalidImageUrl<T>;
+  const factory ValueFailure.invalidValue({
+    required T failedValue,
+    // @required T failedValue,
+  }) = InvalidValue<T>;
 }

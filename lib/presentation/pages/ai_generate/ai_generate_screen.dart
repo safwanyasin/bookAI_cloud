@@ -1,12 +1,8 @@
 import 'package:auto_route/annotations.dart';
-import 'package:book_ai/presentation/pages/advanced_search/widgets/advanced_search_form.dart';
 import 'package:book_ai/presentation/pages/ai_generate/widgets/ai_generate_form.dart';
-import 'package:book_ai/presentation/reusable_components/backgrounds/animatied_background.dart';
 import 'package:book_ai/presentation/reusable_components/texts/heading.dart';
 import 'package:book_ai/presentation/reusable_components/texts/subheading.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 @RoutePage()
@@ -23,9 +19,9 @@ class AiGenerateScreen extends StatelessWidget {
         scrollDirection: Axis.vertical,
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
           SizedBox(height: 95.h),
-          Heading(content: 'AI Generate'),
+          const Heading(content: 'AI Generate'),
           SizedBox(height: 2.h),
-          Subheading(
+          const Subheading(
             content: 'Generate your own custom story',
           ),
           SizedBox(height: 10.h),

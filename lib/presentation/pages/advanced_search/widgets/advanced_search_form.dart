@@ -1,7 +1,6 @@
 import 'package:book_ai/presentation/reusable_components/buttons/primary_button.dart';
 import 'package:book_ai/presentation/reusable_components/input/dropdown_menu.dart';
 import 'package:book_ai/presentation/reusable_components/input/input_fields.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -46,7 +45,7 @@ class AdvancedSearchForm extends StatelessWidget {
               Expanded(
                 child: DropdownMenuInput(
                   labelText: 'Gender',
-                  items: ['Male', 'Female', 'Unspecified'],
+                  items: const ['Male', 'Female', 'Unspecified'],
                   value: 'Unspecified',
                   onChanged: (_) {},
                   validator: (_) {},
@@ -56,7 +55,11 @@ class AdvancedSearchForm extends StatelessWidget {
               Expanded(
                 child: DropdownMenuInput(
                   labelText: 'Narrative Style',
-                  items: ['First Person', 'Second Person', 'Third Person'],
+                  items: const [
+                    'First Person',
+                    'Second Person',
+                    'Third Person'
+                  ],
                   value: 'First Person',
                   onChanged: (_) {},
                   validator: (_) {},
