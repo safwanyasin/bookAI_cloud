@@ -24,30 +24,32 @@ class FirebaseLoginFacade implements ILoginFacade {
   );
 
   @override
-  Future<Option<AppUser>> getSignedInUser() async {
-    // some(
-    //   User(
-    //     id: UniqueId.fromUniqueString(
-    //       _firebaseAuth.currentUser!.uid,
-    //     ),
-    //   ),
-    // );
-    // return optionOf(_firebaseAuth.currentUser?.toDomain());
+  Future<Option<AppUser>> getSignedInUser() async =>
+      optionOf(_firebaseAuth.currentUser?.toDomain());
+  // Future<Option<AppUser>> getSignedInUser() async {
+  // some(
+  //   User(
+  //     id: UniqueId.fromUniqueString(
+  //       _firebaseAuth.currentUser!.uid,
+  //     ),
+  //   ),
+  // );
+  // return optionOf(_firebaseAuth.currentUser?.toDomain());
 
-    try {
-      User? user = _firebaseAuth.currentUser;
+  // try {
+  //   User? user = _firebaseAuth.currentUser;
 
-      if (user == null) {
-        return none();
-      }
+  //   if (user == null) {
+  //     return none();
+  //   }
 
-      AppUser appUser = user.toDomain();
-      return some(appUser);
-    } catch (e) {
-      print('error getting signed in user');
-      return none();
-    }
-  }
+  //   AppUser appUser = user.toDomain();
+  //   return some(appUser);
+  // } catch (e) {
+  //   print('error getting signed in user');
+  //   return none();
+  // }
+  // }
 
   @override
   Future<Either<RegisterFailure, Unit>> registerWithEmailAndPassword(
@@ -79,7 +81,8 @@ class FirebaseLoginFacade implements ILoginFacade {
 
   @override
   Future<Either<LoginFailure, Unit>> signInWithEmailAndPassword(
-      {required EmailAddress emailAddress, required LoginPassword password}) async {
+      {required EmailAddress emailAddress,
+      required LoginPassword password}) async {
     final emailAddressStr = emailAddress.getOrCrash();
     final passwordStr = password.getOrCrash();
     // converting the exceptions to failures

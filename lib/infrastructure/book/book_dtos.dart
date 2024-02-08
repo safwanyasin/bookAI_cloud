@@ -6,7 +6,6 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'book_dtos.freezed.dart';
 part 'book_dtos.g.dart';
 
-
 @freezed
 abstract class BookDto implements _$BookDto {
   const BookDto._();
@@ -56,5 +55,5 @@ abstract class BookDto implements _$BookDto {
   }
 
   factory BookDto.fromJson(Map<String, dynamic> json) =>
-    _$BookDtoFromJson(json);
+      _$BookDtoFromJson(json);
 }
