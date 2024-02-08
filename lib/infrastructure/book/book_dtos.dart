@@ -2,6 +2,7 @@ import 'package:book_ai/domain/book/book.dart';
 import 'package:book_ai/domain/book/value_objects.dart';
 import 'package:book_ai/domain/core/value_objects.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 part 'book_dtos.freezed.dart';
 part 'book_dtos.g.dart';
@@ -21,6 +22,7 @@ abstract class BookDto implements _$BookDto {
     required int reviewCount,
     required double rating,
     required String imageUrl,
+    @ServerTimestampConverter() required FieldValue serverTimestamp,
     @Default(false) bool liked,
   }) = _BookDto;
 
@@ -36,6 +38,7 @@ abstract class BookDto implements _$BookDto {
       rating: book.rating.getOrCrash(),
       imageUrl: book.imageUrl.getOrCrash(),
       liked: book.liked,
+      serverTimestamp: FieldValue.serverTimestamp(),
     );
   }
 
@@ -56,4 +59,21 @@ abstract class BookDto implements _$BookDto {
 
   factory BookDto.fromJson(Map<String, dynamic> json) =>
       _$BookDtoFromJson(json);
+
+  factory BookDto.fromFirestore(DocumentSnapshot doc) {
+    return BookDto.fromJson(doc.data() as Map<String, dynamic>)
+        .copyWith(bookId: doc.id);
+  }
+}
+
+class ServerTimestampConverter implements JsonConverter<FieldValue, Object> {
+  const ServerTimestampConverter();
+
+  @override
+  FieldValue fromJson(Object json) {
+    return FieldValue.serverTimestamp();
+  }
+
+  @override
+  Object toJson(FieldValue fieldValue) => fieldValue;
 }

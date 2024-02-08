@@ -16,7 +16,7 @@ part 'book_watcher_state.dart';
 @injectable
 class BookWatcherCubit extends Cubit<BookWatcherState> {
   final IBookRepository _bookRepository;
-  StreamSubscription<Either<BookFailure, Book>>? _bookStreamSubscription;
+  StreamSubscription<Either<BookFailure, List<Book>>>? _bookStreamSubscription;
 
   BookWatcherCubit(this._bookRepository)
       : super(const BookWatcherState.initial());
@@ -37,7 +37,7 @@ class BookWatcherCubit extends Cubit<BookWatcherState> {
         );
   }
 
-  void _onBookReceived(Either<BookFailure, Book> failureOrBook) {
+  void _onBookReceived(Either<BookFailure, List<Book>> failureOrBook) {
     emit(
       failureOrBook.fold(
         (f) => BookWatcherState.loadFailure(f),

@@ -10,7 +10,7 @@ class BookWatcherState with _$BookWatcherState {
 
   const factory BookWatcherState.initial() = _Initial;
   const factory BookWatcherState.loading() = _Loading;
-  const factory BookWatcherState.loadSuccess(Book book) = _LoadSuccess;
+  const factory BookWatcherState.loadSuccess(List<Book> book) = _LoadSuccess;
   const factory BookWatcherState.loadFailure(BookFailure bookFailure) = _LoadFailure;
   
 }

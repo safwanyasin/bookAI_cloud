@@ -6,4 +6,5 @@ part 'book_failure.freezed.dart';
 abstract class BookFailure with _$BookFailure {
   const factory BookFailure.unexpected() = _Unexpected;
   const factory BookFailure.unableToUpdate() = _UnableToUpdate;
+  const factory BookFailure.insufficientPermissions() = _InsufficientPermissions;
 }
