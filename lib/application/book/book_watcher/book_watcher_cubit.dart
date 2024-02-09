@@ -41,7 +41,7 @@ class BookWatcherCubit extends Cubit<BookWatcherState> {
     emit(
       failureOrBook.fold(
         (f) => BookWatcherState.loadFailure(f),
-        (notes) => BookWatcherState.loadSuccess(notes),
+        (books) => BookWatcherState.loadSuccess(books),
       ),
     );
   }

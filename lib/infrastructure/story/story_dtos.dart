@@ -1,6 +1,7 @@
 import 'package:book_ai/domain/story/story.dart';
 import 'package:book_ai/domain/story/value_objects.dart';
 import 'package:book_ai/domain/core/value_objects.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'story_dtos.freezed.dart';
@@ -35,4 +36,8 @@ abstract class StoryDto implements _$StoryDto {
 
   factory StoryDto.fromJson(Map<String, dynamic> json) =>
       _$StoryDtoFromJson(json);
+  factory StoryDto.fromFirestore(DocumentSnapshot doc) {
+    return StoryDto.fromJson(doc.data() as Map<String, dynamic>)
+        .copyWith(storyId: doc.id);
+  }
 }

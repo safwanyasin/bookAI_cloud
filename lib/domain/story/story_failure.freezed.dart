@@ -19,18 +19,21 @@ mixin _$StoryFailure {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() unexpected,
+    required TResult Function() insufficientPermissions,
     required TResult Function() unableToUpdate,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? unexpected,
+    TResult? Function()? insufficientPermissions,
     TResult? Function()? unableToUpdate,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? unexpected,
+    TResult Function()? insufficientPermissions,
     TResult Function()? unableToUpdate,
     required TResult orElse(),
   }) =>
@@ -38,18 +41,22 @@ mixin _$StoryFailure {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Unexpected value) unexpected,
+    required TResult Function(_InsufficientPermissions value)
+        insufficientPermissions,
     required TResult Function(_UnableToUpdate value) unableToUpdate,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Unexpected value)? unexpected,
+    TResult? Function(_InsufficientPermissions value)? insufficientPermissions,
     TResult? Function(_UnableToUpdate value)? unableToUpdate,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Unexpected value)? unexpected,
+    TResult Function(_InsufficientPermissions value)? insufficientPermissions,
     TResult Function(_UnableToUpdate value)? unableToUpdate,
     required TResult orElse(),
   }) =>
@@ -113,6 +120,7 @@ class _$UnexpectedImpl implements _Unexpected {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() unexpected,
+    required TResult Function() insufficientPermissions,
     required TResult Function() unableToUpdate,
   }) {
     return unexpected();
@@ -122,6 +130,7 @@ class _$UnexpectedImpl implements _Unexpected {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? unexpected,
+    TResult? Function()? insufficientPermissions,
     TResult? Function()? unableToUpdate,
   }) {
     return unexpected?.call();
@@ -131,6 +140,7 @@ class _$UnexpectedImpl implements _Unexpected {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? unexpected,
+    TResult Function()? insufficientPermissions,
     TResult Function()? unableToUpdate,
     required TResult orElse(),
   }) {
@@ -144,6 +154,8 @@ class _$UnexpectedImpl implements _Unexpected {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Unexpected value) unexpected,
+    required TResult Function(_InsufficientPermissions value)
+        insufficientPermissions,
     required TResult Function(_UnableToUpdate value) unableToUpdate,
   }) {
     return unexpected(this);
@@ -153,6 +165,7 @@ class _$UnexpectedImpl implements _Unexpected {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Unexpected value)? unexpected,
+    TResult? Function(_InsufficientPermissions value)? insufficientPermissions,
     TResult? Function(_UnableToUpdate value)? unableToUpdate,
   }) {
     return unexpected?.call(this);
@@ -162,6 +175,7 @@ class _$UnexpectedImpl implements _Unexpected {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Unexpected value)? unexpected,
+    TResult Function(_InsufficientPermissions value)? insufficientPermissions,
     TResult Function(_UnableToUpdate value)? unableToUpdate,
     required TResult orElse(),
   }) {
@@ -174,6 +188,118 @@ class _$UnexpectedImpl implements _Unexpected {
 
 abstract class _Unexpected implements StoryFailure {
   const factory _Unexpected() = _$UnexpectedImpl;
+}
+
+/// @nodoc
+abstract class _$$InsufficientPermissionsImplCopyWith<$Res> {
+  factory _$$InsufficientPermissionsImplCopyWith(
+          _$InsufficientPermissionsImpl value,
+          $Res Function(_$InsufficientPermissionsImpl) then) =
+      __$$InsufficientPermissionsImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$InsufficientPermissionsImplCopyWithImpl<$Res>
+    extends _$StoryFailureCopyWithImpl<$Res, _$InsufficientPermissionsImpl>
+    implements _$$InsufficientPermissionsImplCopyWith<$Res> {
+  __$$InsufficientPermissionsImplCopyWithImpl(
+      _$InsufficientPermissionsImpl _value,
+      $Res Function(_$InsufficientPermissionsImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$InsufficientPermissionsImpl implements _InsufficientPermissions {
+  const _$InsufficientPermissionsImpl();
+
+  @override
+  String toString() {
+    return 'StoryFailure.insufficientPermissions()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$InsufficientPermissionsImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() unexpected,
+    required TResult Function() insufficientPermissions,
+    required TResult Function() unableToUpdate,
+  }) {
+    return insufficientPermissions();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? unexpected,
+    TResult? Function()? insufficientPermissions,
+    TResult? Function()? unableToUpdate,
+  }) {
+    return insufficientPermissions?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? unexpected,
+    TResult Function()? insufficientPermissions,
+    TResult Function()? unableToUpdate,
+    required TResult orElse(),
+  }) {
+    if (insufficientPermissions != null) {
+      return insufficientPermissions();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Unexpected value) unexpected,
+    required TResult Function(_InsufficientPermissions value)
+        insufficientPermissions,
+    required TResult Function(_UnableToUpdate value) unableToUpdate,
+  }) {
+    return insufficientPermissions(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Unexpected value)? unexpected,
+    TResult? Function(_InsufficientPermissions value)? insufficientPermissions,
+    TResult? Function(_UnableToUpdate value)? unableToUpdate,
+  }) {
+    return insufficientPermissions?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Unexpected value)? unexpected,
+    TResult Function(_InsufficientPermissions value)? insufficientPermissions,
+    TResult Function(_UnableToUpdate value)? unableToUpdate,
+    required TResult orElse(),
+  }) {
+    if (insufficientPermissions != null) {
+      return insufficientPermissions(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _InsufficientPermissions implements StoryFailure {
+  const factory _InsufficientPermissions() = _$InsufficientPermissionsImpl;
 }
 
 /// @nodoc
@@ -215,6 +341,7 @@ class _$UnableToUpdateImpl implements _UnableToUpdate {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() unexpected,
+    required TResult Function() insufficientPermissions,
     required TResult Function() unableToUpdate,
   }) {
     return unableToUpdate();
@@ -224,6 +351,7 @@ class _$UnableToUpdateImpl implements _UnableToUpdate {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? unexpected,
+    TResult? Function()? insufficientPermissions,
     TResult? Function()? unableToUpdate,
   }) {
     return unableToUpdate?.call();
@@ -233,6 +361,7 @@ class _$UnableToUpdateImpl implements _UnableToUpdate {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? unexpected,
+    TResult Function()? insufficientPermissions,
     TResult Function()? unableToUpdate,
     required TResult orElse(),
   }) {
@@ -246,6 +375,8 @@ class _$UnableToUpdateImpl implements _UnableToUpdate {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_Unexpected value) unexpected,
+    required TResult Function(_InsufficientPermissions value)
+        insufficientPermissions,
     required TResult Function(_UnableToUpdate value) unableToUpdate,
   }) {
     return unableToUpdate(this);
@@ -255,6 +386,7 @@ class _$UnableToUpdateImpl implements _UnableToUpdate {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Unexpected value)? unexpected,
+    TResult? Function(_InsufficientPermissions value)? insufficientPermissions,
     TResult? Function(_UnableToUpdate value)? unableToUpdate,
   }) {
     return unableToUpdate?.call(this);
@@ -264,6 +396,7 @@ class _$UnableToUpdateImpl implements _UnableToUpdate {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Unexpected value)? unexpected,
+    TResult Function(_InsufficientPermissions value)? insufficientPermissions,
     TResult Function(_UnableToUpdate value)? unableToUpdate,
     required TResult orElse(),
   }) {
