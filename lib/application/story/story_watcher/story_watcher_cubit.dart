@@ -17,7 +17,7 @@ class StoryWatcherCubit extends Cubit<StoryWatcherState> {
   final IStoryRepository _storyRepository;
   StreamSubscription<Either<StoryFailure, List<StoryItem>>>?
       _storyStreamSubscription;
- 
+
   StoryWatcherCubit(this._storyRepository)
       : super(const StoryWatcherState.initial());
 
