@@ -19,7 +19,10 @@ class BookWatcherCubit extends Cubit<BookWatcherState> {
   StreamSubscription<Either<BookFailure, List<Book>>>? _bookStreamSubscription;
 
   BookWatcherCubit(this._bookRepository)
-      : super(const BookWatcherState.initial());
+      : super(const BookWatcherState.initial()) {
+    watchReadingListStarted();
+    watchWishListStarted();
+  }
 
   void watchWishListStarted() async {
     emit(const BookWatcherState.loading());

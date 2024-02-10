@@ -9,6 +9,7 @@ class AdvancedSearchState with _$AdvancedSearchState {
     required MainCharacterTraits mainCharacterTraits,
     required Gender gender,
     required NarrativeStyle narrativeStyle,
+    required bool isSubmitting,
     required Option<Either<AiGenerateFailure, Unit>>
         searchFailureOrSuccessOption,
     // can add a userdialog over here to show the error messages
@@ -23,6 +24,7 @@ class AdvancedSearchState with _$AdvancedSearchState {
         mainCharacterTraits: MainCharacterTraits(''),
         gender: Gender(''),
         narrativeStyle: NarrativeStyle(''),
+        isSubmitting: false,
         searchFailureOrSuccessOption: none(),
       );
 }

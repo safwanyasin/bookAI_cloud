@@ -19,12 +19,13 @@ class StoryRepository extends IStoryRepository {
   Stream<Either<StoryFailure, List<StoryItem>>> watchAll() async* {
     final userDoc = await _firestore.userDocument();
     yield* userDoc.storyCollection
-        .orderBy('serverTimestamp', descending: true)
+        // .orderBy('serverTimestamp', descending: true)
         .snapshots()
-        .map((snapshot) => right<StoryFailure, List<StoryItem>>(snapshot.docs
-            .map((doc) => StoryDto.fromFirestore(doc).toDomain())
-            .toList()))
-        .onErrorReturnWith((e, stackTrace) {
+        .map((snapshot) {
+      return right<StoryFailure, List<StoryItem>>(snapshot.docs.map((doc) {
+        return StoryDto.fromFirestore(doc).toDomain();
+      }).toList());
+    }).onErrorReturnWith((e, stackTrace) {
       if (e is PlatformException && e.message!.contains('PERMISSION_DENIED')) {
         return left(const StoryFailure.unexpected());
       } else {

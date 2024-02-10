@@ -23,6 +23,7 @@ mixin _$AiGenerateState {
       throw _privateConstructorUsedError;
   Gender get gender => throw _privateConstructorUsedError;
   NarrativeStyle get narrativeStyle => throw _privateConstructorUsedError;
+  bool get isSubmitting => throw _privateConstructorUsedError;
   Option<Either<AiGenerateFailure, Unit>> get generateFailureOrSuccessOption =>
       throw _privateConstructorUsedError;
 
@@ -44,6 +45,7 @@ abstract class $AiGenerateStateCopyWith<$Res> {
       MainCharacterTraits mainCharacterTraits,
       Gender gender,
       NarrativeStyle narrativeStyle,
+      bool isSubmitting,
       Option<Either<AiGenerateFailure, Unit>> generateFailureOrSuccessOption});
 }
 
@@ -66,6 +68,7 @@ class _$AiGenerateStateCopyWithImpl<$Res, $Val extends AiGenerateState>
     Object? mainCharacterTraits = null,
     Object? gender = null,
     Object? narrativeStyle = null,
+    Object? isSubmitting = null,
     Object? generateFailureOrSuccessOption = null,
   }) {
     return _then(_value.copyWith(
@@ -93,6 +96,10 @@ class _$AiGenerateStateCopyWithImpl<$Res, $Val extends AiGenerateState>
           ? _value.narrativeStyle
           : narrativeStyle // ignore: cast_nullable_to_non_nullable
               as NarrativeStyle,
+      isSubmitting: null == isSubmitting
+          ? _value.isSubmitting
+          : isSubmitting // ignore: cast_nullable_to_non_nullable
+              as bool,
       generateFailureOrSuccessOption: null == generateFailureOrSuccessOption
           ? _value.generateFailureOrSuccessOption
           : generateFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
@@ -116,6 +123,7 @@ abstract class _$$AiGenerateStateImplCopyWith<$Res>
       MainCharacterTraits mainCharacterTraits,
       Gender gender,
       NarrativeStyle narrativeStyle,
+      bool isSubmitting,
       Option<Either<AiGenerateFailure, Unit>> generateFailureOrSuccessOption});
 }
 
@@ -136,6 +144,7 @@ class __$$AiGenerateStateImplCopyWithImpl<$Res>
     Object? mainCharacterTraits = null,
     Object? gender = null,
     Object? narrativeStyle = null,
+    Object? isSubmitting = null,
     Object? generateFailureOrSuccessOption = null,
   }) {
     return _then(_$AiGenerateStateImpl(
@@ -163,6 +172,10 @@ class __$$AiGenerateStateImplCopyWithImpl<$Res>
           ? _value.narrativeStyle
           : narrativeStyle // ignore: cast_nullable_to_non_nullable
               as NarrativeStyle,
+      isSubmitting: null == isSubmitting
+          ? _value.isSubmitting
+          : isSubmitting // ignore: cast_nullable_to_non_nullable
+              as bool,
       generateFailureOrSuccessOption: null == generateFailureOrSuccessOption
           ? _value.generateFailureOrSuccessOption
           : generateFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
@@ -181,6 +194,7 @@ class _$AiGenerateStateImpl extends _AiGenerateState {
       required this.mainCharacterTraits,
       required this.gender,
       required this.narrativeStyle,
+      required this.isSubmitting,
       required this.generateFailureOrSuccessOption})
       : super._();
 
@@ -197,11 +211,13 @@ class _$AiGenerateStateImpl extends _AiGenerateState {
   @override
   final NarrativeStyle narrativeStyle;
   @override
+  final bool isSubmitting;
+  @override
   final Option<Either<AiGenerateFailure, Unit>> generateFailureOrSuccessOption;
 
   @override
   String toString() {
-    return 'AiGenerateState(genre: $genre, setting: $setting, timePeriod: $timePeriod, mainCharacterTraits: $mainCharacterTraits, gender: $gender, narrativeStyle: $narrativeStyle, generateFailureOrSuccessOption: $generateFailureOrSuccessOption)';
+    return 'AiGenerateState(genre: $genre, setting: $setting, timePeriod: $timePeriod, mainCharacterTraits: $mainCharacterTraits, gender: $gender, narrativeStyle: $narrativeStyle, isSubmitting: $isSubmitting, generateFailureOrSuccessOption: $generateFailureOrSuccessOption)';
   }
 
   @override
@@ -218,6 +234,8 @@ class _$AiGenerateStateImpl extends _AiGenerateState {
             (identical(other.gender, gender) || other.gender == gender) &&
             (identical(other.narrativeStyle, narrativeStyle) ||
                 other.narrativeStyle == narrativeStyle) &&
+            (identical(other.isSubmitting, isSubmitting) ||
+                other.isSubmitting == isSubmitting) &&
             (identical(other.generateFailureOrSuccessOption,
                     generateFailureOrSuccessOption) ||
                 other.generateFailureOrSuccessOption ==
@@ -233,6 +251,7 @@ class _$AiGenerateStateImpl extends _AiGenerateState {
       mainCharacterTraits,
       gender,
       narrativeStyle,
+      isSubmitting,
       generateFailureOrSuccessOption);
 
   @JsonKey(ignore: true)
@@ -251,6 +270,7 @@ abstract class _AiGenerateState extends AiGenerateState {
       required final MainCharacterTraits mainCharacterTraits,
       required final Gender gender,
       required final NarrativeStyle narrativeStyle,
+      required final bool isSubmitting,
       required final Option<Either<AiGenerateFailure, Unit>>
           generateFailureOrSuccessOption}) = _$AiGenerateStateImpl;
   const _AiGenerateState._() : super._();
@@ -267,6 +287,8 @@ abstract class _AiGenerateState extends AiGenerateState {
   Gender get gender;
   @override
   NarrativeStyle get narrativeStyle;
+  @override
+  bool get isSubmitting;
   @override
   Option<Either<AiGenerateFailure, Unit>> get generateFailureOrSuccessOption;
   @override

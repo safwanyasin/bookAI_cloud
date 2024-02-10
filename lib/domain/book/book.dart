@@ -1,3 +1,4 @@
+import 'package:book_ai/domain/book/book_failure.dart';
 import 'package:book_ai/domain/book/value_objects.dart';
 import 'package:book_ai/domain/core/failures.dart';
 import 'package:book_ai/domain/core/value_objects.dart';
@@ -19,7 +20,7 @@ abstract class Book implements _$Book {
     required ReviewCount reviewCount,
     required Rating rating,
     required ImageUrl imageUrl,
-    @Default(false) bool liked,
+    required bool liked,
   }) = _Book;
 
   factory Book.empty() => Book(
@@ -44,9 +45,11 @@ abstract class Book implements _$Book {
       description: data['volumeInfo']['description'] ?? 'No Description',
       language: data['volumeInfo']['language'] ?? 'Unknown Language',
       pageCount: data['volumeInfo']['pageCount'] ?? 0,
-      reviewCount: data['volumeInfo']['ratingsCount']?? 0,
-      rating: data['volumeInfo']['averageRating']?? 0,
-      imageUrl: data['volumeInfo']['imageLinks']['thumbnail'] ?? 'https://placehold.co/190x280'
+      reviewCount: data['volumeInfo']['ratingsCount'] ?? 0,
+      rating: data['volumeInfo']['averageRating'] ?? 0,
+      imageUrl: data['volumeInfo']['imageLinks']['thumbnail'] ??
+          'https://placehold.co/190x280',
+      liked: false,
     );
   }
   Option<ValueFailure<dynamic>> get failureOption {
@@ -56,5 +59,9 @@ abstract class Book implements _$Book {
                 .andThen(reviewCount.failureOrUnit.andThen(
                     rating.failureOrUnit.andThen(imageUrl.failureOrUnit)))))))
         .fold((f) => some(f), (_) => none());
+  }
+
+  Book copyWithLiked(bool liked) {
+    return copyWith(liked: liked);
   }
 }

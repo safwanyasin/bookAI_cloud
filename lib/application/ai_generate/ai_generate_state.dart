@@ -9,6 +9,7 @@ class AiGenerateState with _$AiGenerateState {
     required MainCharacterTraits mainCharacterTraits,
     required Gender gender,
     required NarrativeStyle narrativeStyle,
+    required bool isSubmitting,
     required Option<Either<AiGenerateFailure, Unit>>
         generateFailureOrSuccessOption,
     // can add a userdialog over here to show the error messages
@@ -23,8 +24,7 @@ class AiGenerateState with _$AiGenerateState {
         mainCharacterTraits: MainCharacterTraits(''),
         gender: Gender(''),
         narrativeStyle: NarrativeStyle(''),
+        isSubmitting: false,
         generateFailureOrSuccessOption: none(),
       );
 }
-
-

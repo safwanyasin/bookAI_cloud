@@ -9,10 +9,10 @@ part 'book_actor_state.dart';
 part 'book_actor_cubit.freezed.dart';
 
 @injectable
-class NoteActorCubit extends Cubit<BookActorState> {
+class BookActorCubit extends Cubit<BookActorState> {
   final IBookRepository _bookRepository;
 
-  NoteActorCubit(this._bookRepository) : super(const BookActorState.initial());
+  BookActorCubit(this._bookRepository) : super(const BookActorState.initial());
 
   Future<void> delete(Book book, bool fromWishlist) async {
     emit(const BookActorState.actionInProgress());

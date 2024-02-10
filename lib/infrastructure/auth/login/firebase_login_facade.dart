@@ -6,6 +6,7 @@ import 'package:book_ai/domain/auth/register/register_failure.dart';
 import 'package:book_ai/domain/auth/user.dart';
 import 'package:book_ai/domain/auth/value_objects.dart';
 import 'package:book_ai/domain/core/value_objects.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/services.dart';
@@ -65,10 +66,16 @@ class FirebaseLoginFacade implements ILoginFacade {
       return left(const RegisterFailure.otherFailure('Passwords do not match'));
     }
     try {
-      await _firebaseAuth.createUserWithEmailAndPassword(
+      UserCredential result =
+          await _firebaseAuth.createUserWithEmailAndPassword(
         email: emailAddressStr,
         password: passwordStr,
       );
+      User? user = result.user;
+      await FirebaseFirestore.instance
+          .collection('users')
+          .doc(user!.uid)
+          .set({'firstName': 'safwan'});
       return right(unit);
     } on FirebaseAuthException catch (e) {
       if (e.code == 'email-already-in-use') {

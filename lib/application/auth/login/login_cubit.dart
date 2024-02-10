@@ -90,6 +90,13 @@ class LoginCubit extends Cubit<LoginState> {
                 ),
             orElse: () => print("some unknown error occurred"));
       }, (_) => {});
+    } else {
+      emit(
+        state.copyWith(
+          isSubmitting: false,
+          loginFailureOrSuccessOption: some(right(unit)),
+        ),
+      );
     }
 
     // login successful

@@ -20,7 +20,7 @@ mixin _$StoryWatcherState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<StoryItem> book) loadSuccess,
+    required TResult Function(List<StoryItem> story) loadSuccess,
     required TResult Function(StoryFailure storyFailure) loadFailure,
   }) =>
       throw _privateConstructorUsedError;
@@ -28,7 +28,7 @@ mixin _$StoryWatcherState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<StoryItem> book)? loadSuccess,
+    TResult? Function(List<StoryItem> story)? loadSuccess,
     TResult? Function(StoryFailure storyFailure)? loadFailure,
   }) =>
       throw _privateConstructorUsedError;
@@ -36,7 +36,7 @@ mixin _$StoryWatcherState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<StoryItem> book)? loadSuccess,
+    TResult Function(List<StoryItem> story)? loadSuccess,
     TResult Function(StoryFailure storyFailure)? loadFailure,
     required TResult orElse(),
   }) =>
@@ -126,7 +126,7 @@ class _$InitialImpl implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<StoryItem> book) loadSuccess,
+    required TResult Function(List<StoryItem> story) loadSuccess,
     required TResult Function(StoryFailure storyFailure) loadFailure,
   }) {
     return initial();
@@ -137,7 +137,7 @@ class _$InitialImpl implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<StoryItem> book)? loadSuccess,
+    TResult? Function(List<StoryItem> story)? loadSuccess,
     TResult? Function(StoryFailure storyFailure)? loadFailure,
   }) {
     return initial?.call();
@@ -148,7 +148,7 @@ class _$InitialImpl implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<StoryItem> book)? loadSuccess,
+    TResult Function(List<StoryItem> story)? loadSuccess,
     TResult Function(StoryFailure storyFailure)? loadFailure,
     required TResult orElse(),
   }) {
@@ -240,7 +240,7 @@ class _$LoadingImpl implements _Loading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<StoryItem> book) loadSuccess,
+    required TResult Function(List<StoryItem> story) loadSuccess,
     required TResult Function(StoryFailure storyFailure) loadFailure,
   }) {
     return loading();
@@ -251,7 +251,7 @@ class _$LoadingImpl implements _Loading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<StoryItem> book)? loadSuccess,
+    TResult? Function(List<StoryItem> story)? loadSuccess,
     TResult? Function(StoryFailure storyFailure)? loadFailure,
   }) {
     return loading?.call();
@@ -262,7 +262,7 @@ class _$LoadingImpl implements _Loading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<StoryItem> book)? loadSuccess,
+    TResult Function(List<StoryItem> story)? loadSuccess,
     TResult Function(StoryFailure storyFailure)? loadFailure,
     required TResult orElse(),
   }) {
@@ -320,7 +320,7 @@ abstract class _$$LoadSuccessImplCopyWith<$Res> {
           _$LoadSuccessImpl value, $Res Function(_$LoadSuccessImpl) then) =
       __$$LoadSuccessImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({List<StoryItem> book});
+  $Res call({List<StoryItem> story});
 }
 
 /// @nodoc
@@ -334,12 +334,12 @@ class __$$LoadSuccessImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? book = null,
+    Object? story = null,
   }) {
     return _then(_$LoadSuccessImpl(
-      null == book
-          ? _value._book
-          : book // ignore: cast_nullable_to_non_nullable
+      null == story
+          ? _value._story
+          : story // ignore: cast_nullable_to_non_nullable
               as List<StoryItem>,
     ));
   }
@@ -348,19 +348,19 @@ class __$$LoadSuccessImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$LoadSuccessImpl implements _LoadSuccess {
-  const _$LoadSuccessImpl(final List<StoryItem> book) : _book = book;
+  const _$LoadSuccessImpl(final List<StoryItem> story) : _story = story;
 
-  final List<StoryItem> _book;
+  final List<StoryItem> _story;
   @override
-  List<StoryItem> get book {
-    if (_book is EqualUnmodifiableListView) return _book;
+  List<StoryItem> get story {
+    if (_story is EqualUnmodifiableListView) return _story;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_book);
+    return EqualUnmodifiableListView(_story);
   }
 
   @override
   String toString() {
-    return 'StoryWatcherState.loadSuccess(book: $book)';
+    return 'StoryWatcherState.loadSuccess(story: $story)';
   }
 
   @override
@@ -368,12 +368,12 @@ class _$LoadSuccessImpl implements _LoadSuccess {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$LoadSuccessImpl &&
-            const DeepCollectionEquality().equals(other._book, _book));
+            const DeepCollectionEquality().equals(other._story, _story));
   }
 
   @override
   int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_book));
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_story));
 
   @JsonKey(ignore: true)
   @override
@@ -386,10 +386,10 @@ class _$LoadSuccessImpl implements _LoadSuccess {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<StoryItem> book) loadSuccess,
+    required TResult Function(List<StoryItem> story) loadSuccess,
     required TResult Function(StoryFailure storyFailure) loadFailure,
   }) {
-    return loadSuccess(book);
+    return loadSuccess(story);
   }
 
   @override
@@ -397,10 +397,10 @@ class _$LoadSuccessImpl implements _LoadSuccess {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<StoryItem> book)? loadSuccess,
+    TResult? Function(List<StoryItem> story)? loadSuccess,
     TResult? Function(StoryFailure storyFailure)? loadFailure,
   }) {
-    return loadSuccess?.call(book);
+    return loadSuccess?.call(story);
   }
 
   @override
@@ -408,12 +408,12 @@ class _$LoadSuccessImpl implements _LoadSuccess {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<StoryItem> book)? loadSuccess,
+    TResult Function(List<StoryItem> story)? loadSuccess,
     TResult Function(StoryFailure storyFailure)? loadFailure,
     required TResult orElse(),
   }) {
     if (loadSuccess != null) {
-      return loadSuccess(book);
+      return loadSuccess(story);
     }
     return orElse();
   }
@@ -457,9 +457,9 @@ class _$LoadSuccessImpl implements _LoadSuccess {
 }
 
 abstract class _LoadSuccess implements StoryWatcherState {
-  const factory _LoadSuccess(final List<StoryItem> book) = _$LoadSuccessImpl;
+  const factory _LoadSuccess(final List<StoryItem> story) = _$LoadSuccessImpl;
 
-  List<StoryItem> get book;
+  List<StoryItem> get story;
   @JsonKey(ignore: true)
   _$$LoadSuccessImplCopyWith<_$LoadSuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
@@ -542,7 +542,7 @@ class _$LoadFailureImpl implements _LoadFailure {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<StoryItem> book) loadSuccess,
+    required TResult Function(List<StoryItem> story) loadSuccess,
     required TResult Function(StoryFailure storyFailure) loadFailure,
   }) {
     return loadFailure(storyFailure);
@@ -553,7 +553,7 @@ class _$LoadFailureImpl implements _LoadFailure {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<StoryItem> book)? loadSuccess,
+    TResult? Function(List<StoryItem> story)? loadSuccess,
     TResult? Function(StoryFailure storyFailure)? loadFailure,
   }) {
     return loadFailure?.call(storyFailure);
@@ -564,7 +564,7 @@ class _$LoadFailureImpl implements _LoadFailure {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<StoryItem> book)? loadSuccess,
+    TResult Function(List<StoryItem> story)? loadSuccess,
     TResult Function(StoryFailure storyFailure)? loadFailure,
     required TResult orElse(),
   }) {

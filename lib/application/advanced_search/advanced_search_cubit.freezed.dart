@@ -23,6 +23,7 @@ mixin _$AdvancedSearchState {
       throw _privateConstructorUsedError;
   Gender get gender => throw _privateConstructorUsedError;
   NarrativeStyle get narrativeStyle => throw _privateConstructorUsedError;
+  bool get isSubmitting => throw _privateConstructorUsedError;
   Option<Either<AiGenerateFailure, Unit>> get searchFailureOrSuccessOption =>
       throw _privateConstructorUsedError;
 
@@ -44,6 +45,7 @@ abstract class $AdvancedSearchStateCopyWith<$Res> {
       MainCharacterTraits mainCharacterTraits,
       Gender gender,
       NarrativeStyle narrativeStyle,
+      bool isSubmitting,
       Option<Either<AiGenerateFailure, Unit>> searchFailureOrSuccessOption});
 }
 
@@ -66,6 +68,7 @@ class _$AdvancedSearchStateCopyWithImpl<$Res, $Val extends AdvancedSearchState>
     Object? mainCharacterTraits = null,
     Object? gender = null,
     Object? narrativeStyle = null,
+    Object? isSubmitting = null,
     Object? searchFailureOrSuccessOption = null,
   }) {
     return _then(_value.copyWith(
@@ -93,6 +96,10 @@ class _$AdvancedSearchStateCopyWithImpl<$Res, $Val extends AdvancedSearchState>
           ? _value.narrativeStyle
           : narrativeStyle // ignore: cast_nullable_to_non_nullable
               as NarrativeStyle,
+      isSubmitting: null == isSubmitting
+          ? _value.isSubmitting
+          : isSubmitting // ignore: cast_nullable_to_non_nullable
+              as bool,
       searchFailureOrSuccessOption: null == searchFailureOrSuccessOption
           ? _value.searchFailureOrSuccessOption
           : searchFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
@@ -116,6 +123,7 @@ abstract class _$$AdvancedSearchStateImplCopyWith<$Res>
       MainCharacterTraits mainCharacterTraits,
       Gender gender,
       NarrativeStyle narrativeStyle,
+      bool isSubmitting,
       Option<Either<AiGenerateFailure, Unit>> searchFailureOrSuccessOption});
 }
 
@@ -136,6 +144,7 @@ class __$$AdvancedSearchStateImplCopyWithImpl<$Res>
     Object? mainCharacterTraits = null,
     Object? gender = null,
     Object? narrativeStyle = null,
+    Object? isSubmitting = null,
     Object? searchFailureOrSuccessOption = null,
   }) {
     return _then(_$AdvancedSearchStateImpl(
@@ -163,6 +172,10 @@ class __$$AdvancedSearchStateImplCopyWithImpl<$Res>
           ? _value.narrativeStyle
           : narrativeStyle // ignore: cast_nullable_to_non_nullable
               as NarrativeStyle,
+      isSubmitting: null == isSubmitting
+          ? _value.isSubmitting
+          : isSubmitting // ignore: cast_nullable_to_non_nullable
+              as bool,
       searchFailureOrSuccessOption: null == searchFailureOrSuccessOption
           ? _value.searchFailureOrSuccessOption
           : searchFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
@@ -181,6 +194,7 @@ class _$AdvancedSearchStateImpl extends _AdvancedSearchState {
       required this.mainCharacterTraits,
       required this.gender,
       required this.narrativeStyle,
+      required this.isSubmitting,
       required this.searchFailureOrSuccessOption})
       : super._();
 
@@ -197,11 +211,13 @@ class _$AdvancedSearchStateImpl extends _AdvancedSearchState {
   @override
   final NarrativeStyle narrativeStyle;
   @override
+  final bool isSubmitting;
+  @override
   final Option<Either<AiGenerateFailure, Unit>> searchFailureOrSuccessOption;
 
   @override
   String toString() {
-    return 'AdvancedSearchState(genre: $genre, setting: $setting, timePeriod: $timePeriod, mainCharacterTraits: $mainCharacterTraits, gender: $gender, narrativeStyle: $narrativeStyle, searchFailureOrSuccessOption: $searchFailureOrSuccessOption)';
+    return 'AdvancedSearchState(genre: $genre, setting: $setting, timePeriod: $timePeriod, mainCharacterTraits: $mainCharacterTraits, gender: $gender, narrativeStyle: $narrativeStyle, isSubmitting: $isSubmitting, searchFailureOrSuccessOption: $searchFailureOrSuccessOption)';
   }
 
   @override
@@ -218,6 +234,8 @@ class _$AdvancedSearchStateImpl extends _AdvancedSearchState {
             (identical(other.gender, gender) || other.gender == gender) &&
             (identical(other.narrativeStyle, narrativeStyle) ||
                 other.narrativeStyle == narrativeStyle) &&
+            (identical(other.isSubmitting, isSubmitting) ||
+                other.isSubmitting == isSubmitting) &&
             (identical(other.searchFailureOrSuccessOption,
                     searchFailureOrSuccessOption) ||
                 other.searchFailureOrSuccessOption ==
@@ -233,6 +251,7 @@ class _$AdvancedSearchStateImpl extends _AdvancedSearchState {
       mainCharacterTraits,
       gender,
       narrativeStyle,
+      isSubmitting,
       searchFailureOrSuccessOption);
 
   @JsonKey(ignore: true)
@@ -251,6 +270,7 @@ abstract class _AdvancedSearchState extends AdvancedSearchState {
       required final MainCharacterTraits mainCharacterTraits,
       required final Gender gender,
       required final NarrativeStyle narrativeStyle,
+      required final bool isSubmitting,
       required final Option<Either<AiGenerateFailure, Unit>>
           searchFailureOrSuccessOption}) = _$AdvancedSearchStateImpl;
   const _AdvancedSearchState._() : super._();
@@ -267,6 +287,8 @@ abstract class _AdvancedSearchState extends AdvancedSearchState {
   Gender get gender;
   @override
   NarrativeStyle get narrativeStyle;
+  @override
+  bool get isSubmitting;
   @override
   Option<Either<AiGenerateFailure, Unit>> get searchFailureOrSuccessOption;
   @override

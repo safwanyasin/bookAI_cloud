@@ -1,10 +1,10 @@
 import 'dart:ui';
-import 'package:book_ai/presentation/classes/prev_stories.dart';
+import 'package:book_ai/domain/story/story.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class PreviousStoriesCard extends StatelessWidget {
-  final PreviousStory previousStory;
+  final StoryItem previousStory;
 
   const PreviousStoriesCard({Key? key, required this.previousStory});
 
@@ -43,10 +43,10 @@ class PreviousStoriesCard extends StatelessWidget {
                         ),
                       ),
                     ),
-              
+
                     // initial
                     Text(
-                      previousStory.title[0],
+                      previousStory.storyTitle.getOrCrash()[0],
                       style: Theme.of(context).textTheme.headlineLarge,
                     ),
                   ],
@@ -54,7 +54,7 @@ class PreviousStoriesCard extends StatelessWidget {
               ),
               SizedBox(height: 5.h),
               Text(
-                previousStory.title,
+                previousStory.storyTitle.getOrCrash(),
                 style: Theme.of(context).textTheme.labelSmall,
                 softWrap: true,
                 maxLines: 2,

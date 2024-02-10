@@ -61,8 +61,9 @@ abstract class BookDto implements _$BookDto {
       _$BookDtoFromJson(json);
 
   factory BookDto.fromFirestore(DocumentSnapshot doc) {
-    return BookDto.fromJson(doc.data() as Map<String, dynamic>)
-        .copyWith(bookId: doc.id);
+    final data = doc.data() as Map<String, dynamic>;
+    data['bookId'] = doc.id;
+    return BookDto.fromJson(data);
   }
 
   // can maybe add a .fromdio function

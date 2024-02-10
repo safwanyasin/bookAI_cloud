@@ -1,5 +1,6 @@
 import 'package:another_flushbar/flushbar.dart';
 import 'package:auto_route/auto_route.dart';
+import 'package:book_ai/application/auth/auth_cubit.dart';
 import 'package:book_ai/application/auth/login/login_cubit.dart';
 import 'package:book_ai/presentation/reusable_components/buttons/continue_with_google.dart';
 import 'package:book_ai/presentation/reusable_components/buttons/plain_button_small.dart';
@@ -45,6 +46,9 @@ class LoginForm extends StatelessWidget {
             },
             (_) {
               // navigate to another page
+              print('hello');
+              AutoRouter.of(context).replace(const NavRoute());
+              context.read<AuthCubit>().authCheckRequested();
             },
           ),
         );

@@ -217,7 +217,7 @@ class _$BookImpl extends _Book {
       required this.reviewCount,
       required this.rating,
       required this.imageUrl,
-      this.liked = false})
+      required this.liked})
       : super._();
 
   @override
@@ -239,7 +239,6 @@ class _$BookImpl extends _Book {
   @override
   final ImageUrl imageUrl;
   @override
-  @JsonKey()
   final bool liked;
 
   @override
@@ -293,7 +292,7 @@ abstract class _Book extends Book {
       required final ReviewCount reviewCount,
       required final Rating rating,
       required final ImageUrl imageUrl,
-      final bool liked}) = _$BookImpl;
+      required final bool liked}) = _$BookImpl;
   const _Book._() : super._();
 
   @override

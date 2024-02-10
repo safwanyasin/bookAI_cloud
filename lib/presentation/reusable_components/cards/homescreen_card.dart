@@ -1,4 +1,4 @@
-import 'package:book_ai/presentation/classes/book.dart';
+import 'package:book_ai/domain/book/book.dart';
 import 'package:book_ai/presentation/reusable_components/buttons/add_to_wishlist.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -6,7 +6,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class HomescreenCard extends StatefulWidget {
   final Book bookDetails;
 
-  HomescreenCard({required this.bookDetails});
+  const HomescreenCard({super.key, required this.bookDetails});
 
   @override
   State<HomescreenCard> createState() => _HomescreenCardState();
@@ -18,7 +18,7 @@ class _HomescreenCardState extends State<HomescreenCard> {
     return Padding(
       padding: EdgeInsets.only(right: 10.w),
       child: GestureDetector(
-        onTap: widget.bookDetails.onPressed,
+        onTap: () {},
         child: Column(
           children: [
             SizedBox(
@@ -39,13 +39,13 @@ class _HomescreenCardState extends State<HomescreenCard> {
                         ClipRRect(
                           borderRadius: BorderRadius.circular(16.w),
                           child: Image.network(
-                            widget.bookDetails.imageUrl,
+                            widget.bookDetails.imageUrl.getOrCrash(),
                             width: 190.w,
                             height: 280.h,
                             fit: BoxFit.cover,
                           ),
                         ),
-      
+
                         // Like button on the top right
                         Positioned(
                           top: 8.0,
@@ -55,14 +55,14 @@ class _HomescreenCardState extends State<HomescreenCard> {
                             onPressed: () {
                               // Handle like button tap
                               setState(() {
-                                widget.bookDetails.liked =
-                                    !widget.bookDetails.liked;
+                                widget.bookDetails
+                                    .copyWithLiked(!widget.bookDetails.liked);
                               });
                               print("Like button tapped!");
                             },
                           ),
                         ),
-      
+
                         // Heading and Subheading
                       ],
                     ),
@@ -75,11 +75,11 @@ class _HomescreenCardState extends State<HomescreenCard> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              widget.bookDetails.name,
+                              widget.bookDetails.bookName.getOrCrash(),
                               style: Theme.of(context).textTheme.labelLarge,
                             ),
                             Text(
-                              widget.bookDetails.author,
+                              widget.bookDetails.authorName.getOrCrash(),
                               style: Theme.of(context).textTheme.labelSmall,
                             ),
                           ],

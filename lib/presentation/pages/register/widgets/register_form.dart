@@ -1,5 +1,6 @@
 import 'package:another_flushbar/flushbar.dart';
 import 'package:auto_route/auto_route.dart';
+import 'package:book_ai/application/auth/auth_cubit.dart';
 import 'package:book_ai/application/auth/register/register_cubit.dart';
 import 'package:book_ai/presentation/reusable_components/buttons/continue_with_google.dart';
 import 'package:book_ai/presentation/reusable_components/buttons/plain_button_small.dart';
@@ -24,16 +25,23 @@ class RegisterForm extends StatelessWidget {
           (either) => either.fold(
             (failure) {
               Flushbar(
-                message: failure.map(
-                  cancelledByUser: (_) => 'Cancelled',
-                  serverError: (_) => 'Server error',
-                  emailAlreadyInUse: (_) => 'This email is already in use',
-                  otherFailure: (_) => 'An unexpected error occurred',
+                messageText: failure.map(
+                  cancelledByUser: (_) => Text('Operation cancelled',
+                      style: Theme.of(context).textTheme.titleSmall),
+                  serverError: (_) => Text('Server error',
+                      style: Theme.of(context).textTheme.titleSmall),
+                  emailAlreadyInUse: (_) => Text('This email is already in use',
+                      style: Theme.of(context).textTheme.titleSmall),
+                  otherFailure: (_) => Text('An unexpected error occurred!',
+                      style: Theme.of(context).textTheme.titleSmall),
                 ),
-              );
+              ).show(context);
             },
             (_) {
+              print('hello');
               // navigate to another page
+              AutoRouter.of(context).replace(const NavRoute());
+              context.read<AuthCubit>().authCheckRequested();
             },
           ),
         );

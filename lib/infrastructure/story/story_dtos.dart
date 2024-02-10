@@ -37,7 +37,8 @@ abstract class StoryDto implements _$StoryDto {
   factory StoryDto.fromJson(Map<String, dynamic> json) =>
       _$StoryDtoFromJson(json);
   factory StoryDto.fromFirestore(DocumentSnapshot doc) {
-    return StoryDto.fromJson(doc.data() as Map<String, dynamic>)
-        .copyWith(storyId: doc.id);
+    final data = doc.data() as Map<String, dynamic>;
+    data['storyId'] = doc.id;
+    return StoryDto.fromJson(data);
   }
 }

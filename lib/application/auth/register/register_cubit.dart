@@ -40,8 +40,8 @@ class RegisterCubit extends Cubit<RegisterState> {
   void updateConfirmPassword(String typedConfirmPassword) {
     emit(
       state.copyWith(
-        confirmPassword: ConfirmPassword(
-            typedConfirmPassword, state.password.getOrCrash()),
+        confirmPassword:
+            ConfirmPassword(typedConfirmPassword, state.password.getOrCrash()),
         registerFailureOrSuccessOption: none(),
       ),
     );
@@ -102,6 +102,13 @@ class RegisterCubit extends Cubit<RegisterState> {
                 ),
             orElse: () => print("some unknown error occurred"));
       }, (_) => {});
+    } else {
+      emit(
+        state.copyWith(
+          isSubmitting: false,
+          registerFailureOrSuccessOption: some(right(unit)),
+        ),
+      );
     }
 
     // login successful
