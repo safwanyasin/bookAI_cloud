@@ -104,7 +104,7 @@ Either<ValueFailure<String>, String> checkIfEmpty(String input) {
 }
 
 Either<ValueFailure<int>, int> positiveInt(int input) {
-  if (input <= 0) {
+  if (input < 0) {
     return left(ValueFailure<int>.negative(failedValue: input));
   } else {
     return right(input);
@@ -113,7 +113,7 @@ Either<ValueFailure<int>, int> positiveInt(int input) {
 
 // value failure for rating which can be a double between 0 and 5
 Either<ValueFailure<double>, double> validateRating(double input) {
-  if (input <= 0 || input > 5) {
+  if (input < 0 || input > 5) {
     return left(ValueFailure<double>.negative(failedValue: input));
   } else {
     return right(input);

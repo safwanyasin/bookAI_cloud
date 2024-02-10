@@ -1,26 +1,12 @@
+import 'package:book_ai/domain/book/book.dart';
 import 'package:book_ai/presentation/reusable_components/buttons/remove.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class InfoCard extends StatelessWidget {
-  final String imageUrl;
-  final String name;
-  final String author;
-  final double rating;
-  final int reviewCount;
-  final int pageCount;
-  final VoidCallback onCrossPressed;
+  final Book book;
 
-  const InfoCard({
-    super.key,
-    required this.imageUrl,
-    required this.name,
-    required this.author,
-    required this.rating,
-    required this.reviewCount,
-    required this.pageCount,
-    required this.onCrossPressed,
-  });
+  const InfoCard({super.key, required this.book});
 
   @override
   Widget build(BuildContext context) {
@@ -46,7 +32,7 @@ class InfoCard extends StatelessWidget {
                 ClipRRect(
                   borderRadius: BorderRadius.circular(13.w),
                   child: Image.network(
-                    imageUrl,
+                    book.imageUrl.getOrCrash(),
                     width: 105.w,
                     height: 155.h,
                     fit: BoxFit.cover,
@@ -57,45 +43,46 @@ class InfoCard extends StatelessWidget {
                     top: 8.w,
                     right: 8.h,
                     child: RemoveButton(
-                      onPressed: onCrossPressed,
+                      onPressed: () {},
                     )),
               ],
             ),
             // Details section
-            Padding(
-              padding: EdgeInsets.all(16.w),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  // Heading with two lines
-                  Text(
-                    name,
-                    style: Theme.of(context).textTheme.labelLarge,
-                  ),
-                  // Subheading on top
-                  Text(
-                    author,
-                    style: Theme.of(context).textTheme.labelSmall,
-                  ),
-                  // Rating and review count
-                  Row(
-                    children: [
-                      // Stars based on rating
-                      _buildStarRating(rating),
-                      SizedBox(width: 8.w),
-                      // Review count
-                      Text(
-                        '$rating ($reviewCount)',
-                        style: Theme.of(context).textTheme.labelSmall
-                      ),
-                    ],
-                  ),
-                  // Subheading on bottom
-                  Text(
-                    '$pageCount pages',
-                    style: Theme.of(context).textTheme.labelSmall
-                  ),
-                ],
+            Flexible(
+              child: Padding(
+                padding: EdgeInsets.all(16.w),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    // Heading with two lines
+                    Text(
+                      book.bookName.getOrCrash(),
+                      style: Theme.of(context).textTheme.labelLarge,
+                      overflow: TextOverflow.ellipsis,
+                      maxLines: 2,
+                    ),
+                    // Subheading on top
+                    Text(
+                      book.authorName.getOrCrash(),
+                      style: Theme.of(context).textTheme.labelSmall,
+                    ),
+                    // Rating and review count
+                    Row(
+                      children: [
+                        // Stars based on rating
+                        _buildStarRating(book.rating.getOrCrash()),
+                        SizedBox(width: 8.w),
+                        // Review count
+                        Text(
+                            '${book.rating.getOrCrash()} (${book.reviewCount.getOrCrash()})',
+                            style: Theme.of(context).textTheme.labelSmall),
+                      ],
+                    ),
+                    // Subheading on bottom
+                    Text('${book.pageCount.getOrCrash()} pages',
+                        style: Theme.of(context).textTheme.labelSmall),
+                  ],
+                ),
               ),
             ),
           ],

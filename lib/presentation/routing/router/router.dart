@@ -2,11 +2,14 @@ import 'package:auto_route/auto_route.dart';
 import 'package:book_ai/presentation/pages/advanced_search/advance_search_screen.dart';
 import 'package:book_ai/presentation/pages/login/login.dart';
 import 'package:book_ai/presentation/pages/register/register.dart';
+import 'package:book_ai/presentation/pages/search/search_screen.dart';
 import 'package:book_ai/presentation/routing/navigaton/nav_screen.dart';
 import 'package:book_ai/presentation/pages/route_test.dart';
 import 'package:book_ai/presentation/pages/test.dart';
 import 'package:book_ai/presentation/splash/splash_screen.dart';
 import 'package:book_ai/presentation/pages/ai_generate/ai_generate_screen.dart';
+import 'package:book_ai/presentation/wishlist/wishlist_screen.dart';
+import 'package:flutter/foundation.dart';
 // import 'package:book_ai/presentation/router/router.dart';
 
 part 'router.gr.dart';
@@ -40,6 +43,12 @@ class AppRouter extends _$AppRouter {
         ),
         AutoRoute(
           page: AiGenerateRoute.page,
+        ),
+        AutoRoute(
+          page: SearchRoute.page,
+        ),
+        AutoRoute(
+          page: WishlistRoute.page,
         )
       ];
 }

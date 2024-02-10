@@ -2,6 +2,7 @@ import 'package:book_ai/domain/book/book_failure.dart';
 import 'package:book_ai/domain/book/value_objects.dart';
 import 'package:book_ai/domain/core/failures.dart';
 import 'package:book_ai/domain/core/value_objects.dart';
+import 'package:book_ai/infrastructure/book/book_dtos.dart';
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -32,13 +33,12 @@ abstract class Book implements _$Book {
         pageCount: PageCount(0),
         reviewCount: ReviewCount(0),
         rating: Rating(0),
-        imageUrl: ImageUrl(
-            "http://books.google.com/books/content?id=8MXK_KrHOZYC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"),
+        imageUrl: ImageUrl("https://placehold.co/190x280"),
         liked: false,
       );
 
   factory Book.fromGoogleBooksApi(Map<String, dynamic> data) {
-    return Book(
+    final BookDto bookData = BookDto(
       bookId: data['id'],
       bookName: data['volumeInfo']['title'],
       authorName: data['volumeInfo']['authors']?.join(', ') ?? 'Unknown Author',
@@ -46,11 +46,31 @@ abstract class Book implements _$Book {
       language: data['volumeInfo']['language'] ?? 'Unknown Language',
       pageCount: data['volumeInfo']['pageCount'] ?? 0,
       reviewCount: data['volumeInfo']['ratingsCount'] ?? 0,
-      rating: data['volumeInfo']['averageRating'] ?? 0,
-      imageUrl: data['volumeInfo']['imageLinks']['thumbnail'] ??
-          'https://placehold.co/190x280',
+      rating: data['volumeInfo']['averageRating'] == null
+          ? 0
+          : data['volumeInfo']['averageRating'].toDouble(),
+      // imageUrl: data['volumeInfo']['imageLinks']['thumbnail'] ??
+      //     'https://placehold.co/190x280',
+      imageUrl: data['volumeInfo']['imageLinks'] == null
+          ? 'https://placehold.co/190x280.png'
+          : data['volumeInfo']['imageLinks']['thumbnail'] ??
+              'https://placehold.co/190x280.png',
       liked: false,
     );
+    return bookData.toDomain();
+    // return Book(
+    //   bookId: UniqueId.fromUniqueString(data['id']),
+    //   bookName: data['volumeInfo']['title'],
+    //   authorName: data['volumeInfo']['authors']?.join(', ') ?? 'Unknown Author',
+    //   description: data['volumeInfo']['description'] ?? 'No Description',
+    //   language: data['volumeInfo']['language'] ?? 'Unknown Language',
+    //   pageCount: data['volumeInfo']['pageCount'] ?? 0,
+    //   reviewCount: data['volumeInfo']['ratingsCount'] ?? 0,
+    //   rating: data['volumeInfo']['averageRating'] ?? 0,
+    //   imageUrl: data['volumeInfo']['imageLinks']['thumbnail'] ??
+    //       'https://placehold.co/190x280',
+    //   liked: false,
+    // );
   }
   Option<ValueFailure<dynamic>> get failureOption {
     return bookName.failureOrUnit

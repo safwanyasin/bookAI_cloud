@@ -37,11 +37,25 @@ class AppTheme {
           fontWeight: FontWeight.w400,
           color: AppColors.secondaryColor,
         ),
+        headlineSmall: GoogleFonts.quicksand(
+          fontSize: 12.w,
+          fontWeight: FontWeight.bold,
+          color: AppColors.primaryColor,
+        ),
         bodyLarge: GoogleFonts.quicksand(
           fontSize: 15.w,
           fontWeight: FontWeight.normal, // Regular
           color: AppColors.secondaryColor,
         ),
+        bodyMedium: GoogleFonts.quicksand(
+          fontSize: 12.w,
+          fontWeight: FontWeight.w600, // Regular
+          color: AppColors.secondaryColor,
+        ),
+        bodySmall: GoogleFonts.quicksand(
+            fontSize: 15.w,
+            fontWeight: FontWeight.bold,
+            color: AppColors.primaryColor),
         labelLarge: GoogleFonts.quicksand(
           fontSize: 15.w,
           fontWeight: FontWeight.bold, // Bold
@@ -60,15 +74,6 @@ class AppTheme {
             fontSize: 12.w,
             fontWeight: FontWeight.w400,
             color: AppColors.secondaryColor),
-        bodySmall: GoogleFonts.quicksand(
-            fontSize: 15.w,
-            fontWeight: FontWeight.bold,
-            color: AppColors.primaryColor),
-        headlineSmall: GoogleFonts.quicksand(
-          fontSize: 12.w,
-          fontWeight: FontWeight.bold,
-          color: AppColors.primaryColor,
-        ),
       ),
     );
   }

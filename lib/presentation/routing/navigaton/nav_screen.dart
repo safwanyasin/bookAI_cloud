@@ -3,6 +3,7 @@ import 'package:book_ai/presentation/pages/ai_generate/ai_generate_screen.dart';
 import 'package:book_ai/presentation/pages/home/home_screen.dart';
 import 'package:book_ai/presentation/reusable_components/backgrounds/animatied_background.dart';
 import 'package:book_ai/presentation/routing/navigaton/bottom_nav_bar.dart';
+import 'package:book_ai/presentation/wishlist/wishlist_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -18,7 +19,7 @@ class _NavScreenState extends State<NavScreen> {
   Widget _body = Container();
   final List<Widget> _screens = [
     const HomeScreen(),
-    const Center(child: Text('screen 2')),
+    const WishlistScreen(),
     const AiGenerateScreen(),
     const Center(child: Text('screen 4')),
     const Center(child: Text('screen 5')),
@@ -73,14 +74,14 @@ class _NavScreenState extends State<NavScreen> {
         actions: [
           _body == _screens[2]
               ? Padding(
-                padding: EdgeInsets.only(right: 20.w),
-                child: IconButton(
+                  padding: EdgeInsets.only(right: 20.w),
+                  child: IconButton(
                     icon: Icon(Icons.history, size: 25.w),
                     onPressed: () {
                       print('open history');
                     },
                   ),
-              )
+                )
               : Container(),
         ],
         flexibleSpace: Container(

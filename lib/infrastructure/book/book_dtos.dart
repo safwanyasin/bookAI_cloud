@@ -22,7 +22,7 @@ abstract class BookDto implements _$BookDto {
     required int reviewCount,
     required double rating,
     required String imageUrl,
-    @ServerTimestampConverter() required FieldValue serverTimestamp,
+    // @ServerTimestampConverter() required FieldValue serverTimestamp,
     @Default(false) bool liked,
   }) = _BookDto;
 
@@ -38,7 +38,7 @@ abstract class BookDto implements _$BookDto {
       rating: book.rating.getOrCrash(),
       imageUrl: book.imageUrl.getOrCrash(),
       liked: book.liked,
-      serverTimestamp: FieldValue.serverTimestamp(),
+      // serverTimestamp: FieldValue.serverTimestamp(),
     );
   }
 

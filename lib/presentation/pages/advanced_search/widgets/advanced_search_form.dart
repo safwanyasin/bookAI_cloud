@@ -1,4 +1,4 @@
-import 'package:book_ai/application/advanced_search/advanced_search_cubit.dart';
+import 'package:book_ai/application/search/advanced_search/advanced_search_cubit.dart';
 import 'package:book_ai/presentation/reusable_components/buttons/primary_button.dart';
 import 'package:book_ai/presentation/reusable_components/input/dropdown_menu.dart';
 import 'package:book_ai/presentation/reusable_components/input/input_fields.dart';

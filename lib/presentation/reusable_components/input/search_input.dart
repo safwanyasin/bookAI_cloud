@@ -3,14 +3,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SearchInput extends StatefulWidget {
-  final TextEditingController controller;
   final String hintText;
   final VoidCallback? onSearchPressed;
-
+  final VoidCallback? onPressed;
+  final void Function(String) onChanged;
+  FocusNode? focusNode;
   SearchInput({
-    required this.controller,
+    super.key,
     required this.hintText,
     this.onSearchPressed,
+    this.onPressed,
+    required this.onChanged,
+    this.focusNode,
   });
 
   @override
@@ -38,7 +42,12 @@ class _SearchInputState extends State<SearchInput> {
                     padding: EdgeInsets.symmetric(horizontal: 16.w),
                     child: Form(
                       child: TextFormField(
-                        controller: widget.controller,
+                        keyboardType: TextInputType.text,
+                        textInputAction: TextInputAction.search,
+                        focusNode: widget.focusNode,
+                        onChanged: widget.onChanged,
+                        onTap: widget.onPressed,
+                        onFieldSubmitted: (value) => widget.onSearchPressed,
                         decoration: InputDecoration(
                             hintText: widget.hintText,
                             border: InputBorder.none,

@@ -1,6 +1,7 @@
-import 'package:book_ai/application/advanced_search/advanced_search_cubit.dart';
+import 'package:book_ai/application/search/advanced_search/advanced_search_cubit.dart';
 import 'package:book_ai/application/ai_generate/ai_generate_cubit.dart';
 import 'package:book_ai/application/auth/auth_cubit.dart';
+import 'package:book_ai/application/wishlist/wishlist_cubit.dart';
 import 'package:book_ai/constants.dart';
 import 'package:book_ai/injection.dart';
 import 'package:book_ai/presentation/routing/router/router.dart';
@@ -29,6 +30,9 @@ class AppWidget extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => getIt<AdvancedSearchCubit>(),
+        ),
+        BlocProvider(
+          create: (context) => getIt<WishlistCubit>(),
         ),
       ],
       child: MaterialApp.router(

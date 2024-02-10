@@ -51,6 +51,14 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const RoutingTestScreen(),
       );
     },
+    SearchRoute.name: (routeData) {
+      final args = routeData.argsAs<SearchRouteArgs>(
+          orElse: () => const SearchRouteArgs());
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: SearchScreen(key: args.key),
+      );
+    },
     SplashRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -61,6 +69,12 @@ abstract class _$AppRouter extends RootStackRouter {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const TestingScreen(),
+      );
+    },
+    WishlistRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const WishlistScreen(),
       );
     },
   };
@@ -151,6 +165,34 @@ class RoutingTestRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
+/// [SearchScreen]
+class SearchRoute extends PageRouteInfo<SearchRouteArgs> {
+  SearchRoute({
+    Key? key,
+    List<PageRouteInfo>? children,
+  }) : super(
+          SearchRoute.name,
+          args: SearchRouteArgs(key: key),
+          initialChildren: children,
+        );
+
+  static const String name = 'SearchRoute';
+
+  static const PageInfo<SearchRouteArgs> page = PageInfo<SearchRouteArgs>(name);
+}
+
+class SearchRouteArgs {
+  const SearchRouteArgs({this.key});
+
+  final Key? key;
+
+  @override
+  String toString() {
+    return 'SearchRouteArgs{key: $key}';
+  }
+}
+
+/// generated route for
 /// [SplashScreen]
 class SplashRoute extends PageRouteInfo<void> {
   const SplashRoute({List<PageRouteInfo>? children})
@@ -174,6 +216,20 @@ class TestingRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'TestingRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [WishlistScreen]
+class WishlistRoute extends PageRouteInfo<void> {
+  const WishlistRoute({List<PageRouteInfo>? children})
+      : super(
+          WishlistRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'WishlistRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }

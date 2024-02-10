@@ -85,18 +85,18 @@ class _TestScreenState extends State<TestingScreen> {
                       //   hintText: 'enter some shit',
                       //   labelText: 'Genre',
                       // ),
-                      InfoCard(
-                        imageUrl:
-                            'http://books.google.com/books/content?id=B7QkEAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api',
-                        name: 'Mein Kampf',
-                        author: 'Adolf Hitler',
-                        rating: 2.5,
-                        reviewCount: 300,
-                        pageCount: 550,
-                        onCrossPressed: () {
-                          print('cross button pressed');
-                        },
-                      ),
+                      // InfoCard(
+                      //   imageUrl:
+                      //       'http://books.google.com/books/content?id=B7QkEAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api',
+                      //   name: 'Mein Kampf',
+                      //   author: 'Adolf Hitler',
+                      //   rating: 2.5,
+                      //   reviewCount: 300,
+                      //   pageCount: 550,
+                      //   onCrossPressed: () {
+                      //     print('cross button pressed');
+                      //   },
+                      // ),
                       InfoBox(infoList: [
                         InfoItem(heading: 'Info 1', subheading: 'Subtitle 1'),
                         InfoItem(heading: 'Info 2', subheading: 'Subtitle 2'),

@@ -10,6 +10,7 @@ import 'package:book_ai/presentation/pages/home/home_main_carousel.dart';
 import 'package:book_ai/presentation/pages/home/home_secondary_carousel.dart';
 import 'package:book_ai/presentation/reusable_components/buttons/plain_button.dart';
 import 'package:book_ai/presentation/reusable_components/input/search_input.dart';
+import 'package:book_ai/presentation/reusable_components/input/search_placeholder.dart';
 import 'package:book_ai/presentation/reusable_components/texts/heading.dart';
 import 'package:book_ai/presentation/reusable_components/texts/section_heading.dart';
 import 'package:book_ai/presentation/routing/router/router.dart';
@@ -149,9 +150,8 @@ class _HomeScreenState extends State<HomeScreen> {
                 Row(
                   children: [
                     Expanded(
-                      child: SearchInput(
-                        controller: TextEditingController(),
-                        hintText: 'Search by name, author, ISBN',
+                      child: SearchPlaceholder(
+                        onPressed: () => AutoRouter.of(context).push(SearchRoute()),
                       ),
                     ),
                     IconButton(
