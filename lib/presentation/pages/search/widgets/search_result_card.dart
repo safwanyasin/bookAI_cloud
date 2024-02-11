@@ -1,4 +1,6 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:book_ai/domain/book/book.dart';
+import 'package:book_ai/presentation/routing/router/router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -18,6 +20,7 @@ class SearchResultCard extends StatelessWidget {
         //     builder: (context) => AnotherPage(),
         //   ),
         // );
+        AutoRouter.of(context).push(BookDetailsRoute(details: book));
       },
       child: Card(
         elevation: 0,

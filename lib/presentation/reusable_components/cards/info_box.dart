@@ -52,18 +52,22 @@ class InfoBox extends StatelessWidget {
 
       InfoItem infoItem = infoList[i];
       widgets.add(
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Text(
-              infoItem.heading,
-              style: Theme.of(context).textTheme.labelLarge,
-            ),
-            Text(
-              infoItem.subheading,
-              style: Theme.of(context).textTheme.labelSmall,
-            ),
-          ],
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Text(
+                infoItem.heading,
+                style: Theme.of(context).textTheme.labelLarge,
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
+              ),
+              Text(
+                infoItem.subheading,
+                style: Theme.of(context).textTheme.labelSmall,
+              ),
+            ],
+          ),
         ),
       );
     }

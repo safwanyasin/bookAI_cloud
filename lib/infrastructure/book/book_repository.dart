@@ -22,7 +22,7 @@ class BookRepository implements IBookRepository {
     // users/{user ID}/reading_list/{book ID}
     final userDoc = await _firestore.userDocument();
     yield* userDoc.readingListCollection
-        .orderBy('serverTimestamp', descending: true)
+        // .orderBy('serverTimestamp', descending: true)
         .snapshots()
         .map((snapshot) => right<BookFailure, List<Book>>(snapshot.docs
             .map((doc) => BookDto.fromFirestore(doc).toDomain())
@@ -40,7 +40,7 @@ class BookRepository implements IBookRepository {
   Stream<Either<BookFailure, List<Book>>> watchWishList() async* {
     final userDoc = await _firestore.userDocument();
     yield* userDoc.wishListCollection
-        .orderBy('serverTimestamp', descending: true)
+        // .orderBy('serverTimestamp', descending: true)
         .snapshots()
         .map((snapshot) => right<BookFailure, List<Book>>(snapshot.docs
             .map((doc) => BookDto.fromFirestore(doc).toDomain())
@@ -52,6 +52,41 @@ class BookRepository implements IBookRepository {
         return left(const BookFailure.unexpected());
       }
     });
+  }
+
+  @override
+  Future<Either<BookFailure, bool>> findInWishlist(Book book) async {
+    try {
+      final bookId = book.bookId.getOrCrash();
+      final userDoc = await _firestore.userDocument();
+      final wishListSnapshot = await userDoc.wishListCollection.get();
+      final isInWishList = wishListSnapshot.docs.any((doc) => doc.id == bookId);
+      return right(isInWishList);
+    } on PlatformException catch (e) {
+      if (e.message!.contains('PERMISSION_DENIED')) {
+        return left(const BookFailure.insufficientPermissions());
+      } else {
+        return left(const BookFailure.unexpected());
+      }
+    }
+  }
+
+  @override
+  Future<Either<BookFailure, bool>> findInReadingList(Book book) async {
+    try {
+      final bookId = book.bookId.getOrCrash();
+      final userDoc = await _firestore.userDocument();
+      final readingListSnapshot = await userDoc.readingListCollection.get();
+      final isInReadingList =
+          readingListSnapshot.docs.any((doc) => doc.id == bookId);
+      return right(isInReadingList);
+    } on PlatformException catch (e) {
+      if (e.message!.contains('PERMISSION_DENIED')) {
+        return left(const BookFailure.insufficientPermissions());
+      } else {
+        return left(const BookFailure.unexpected());
+      }
+    }
   }
 
   @override

@@ -17,6 +17,9 @@ _$BookDtoImpl _$$BookDtoImplFromJson(Map<String, dynamic> json) =>
       reviewCount: json['reviewCount'] as int,
       rating: (json['rating'] as num).toDouble(),
       imageUrl: json['imageUrl'] as String,
+      category: json['category'] as String,
+      publisher: json['publisher'] as String,
+      publishDate: json['publishDate'] as String,
       liked: json['liked'] as bool? ?? false,
     );
 
@@ -31,5 +34,8 @@ Map<String, dynamic> _$$BookDtoImplToJson(_$BookDtoImpl instance) =>
       'reviewCount': instance.reviewCount,
       'rating': instance.rating,
       'imageUrl': instance.imageUrl,
+      'category': instance.category,
+      'publisher': instance.publisher,
+      'publishDate': instance.publishDate,
       'liked': instance.liked,
     };

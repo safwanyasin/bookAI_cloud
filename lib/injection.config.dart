@@ -15,7 +15,9 @@ import 'package:book_ai/application/auth/register/register_cubit.dart' as _i14;
 import 'package:book_ai/application/book/book_actor/book_actor_cubit.dart'
     as _i21;
 import 'package:book_ai/application/book/book_watcher/book_watcher_cubit.dart'
-    as _i23;
+    as _i24;
+import 'package:book_ai/application/book_details/book_details_cubit.dart'
+    as _i22;
 import 'package:book_ai/application/reading_list/reading_list_cubit.dart'
     as _i13;
 import 'package:book_ai/application/search/advanced_search/advanced_search_cubit.dart'
@@ -30,9 +32,9 @@ import 'package:book_ai/domain/auth/login/i_login_facade.dart' as _i10;
 import 'package:book_ai/domain/book/i_book_repository.dart' as _i9;
 import 'package:book_ai/domain/story/i_story_repository.dart' as _i11;
 import 'package:book_ai/infrastructure/auth/login/firebase_login_facade.dart'
-    as _i24;
-import 'package:book_ai/infrastructure/book/book_repository.dart' as _i22;
-import 'package:book_ai/infrastructure/injectable_module.dart' as _i25;
+    as _i25;
+import 'package:book_ai/infrastructure/book/book_repository.dart' as _i23;
+import 'package:book_ai/infrastructure/injectable_module.dart' as _i26;
 import 'package:book_ai/infrastructure/story/story_repository.dart' as _i17;
 import 'package:cloud_firestore/cloud_firestore.dart' as _i7;
 import 'package:dio/dio.dart' as _i5;
@@ -83,11 +85,13 @@ extension GetItInjectableX on _i1.GetIt {
     gh.factory<_i20.AuthCubit>(() => _i20.AuthCubit(gh<_i10.ILoginFacade>()));
     gh.factory<_i21.BookActorCubit>(
         () => _i21.BookActorCubit(gh<_i9.IBookRepository>()));
-    gh.lazySingleton<_i22.BookRepository>(
-        () => _i22.BookRepository(gh<_i7.FirebaseFirestore>()));
-    gh.factory<_i23.BookWatcherCubit>(
-        () => _i23.BookWatcherCubit(gh<_i9.IBookRepository>()));
-    gh.lazySingleton<_i24.FirebaseLoginFacade>(() => _i24.FirebaseLoginFacade(
+    gh.factory<_i22.BookDetailsCubit>(
+        () => _i22.BookDetailsCubit(gh<_i9.IBookRepository>()));
+    gh.lazySingleton<_i23.BookRepository>(
+        () => _i23.BookRepository(gh<_i7.FirebaseFirestore>()));
+    gh.factory<_i24.BookWatcherCubit>(
+        () => _i24.BookWatcherCubit(gh<_i9.IBookRepository>()));
+    gh.lazySingleton<_i25.FirebaseLoginFacade>(() => _i25.FirebaseLoginFacade(
           gh<_i6.FirebaseAuth>(),
           gh<_i8.GoogleSignIn>(),
         ));
@@ -95,4 +99,4 @@ extension GetItInjectableX on _i1.GetIt {
   }
 }
 
-class _$InjectableModule extends _i25.InjectableModule {}
+class _$InjectableModule extends _i26.InjectableModule {}

@@ -139,19 +139,29 @@ class _HomeScreenState extends State<HomeScreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SizedBox(height: 95.h),
-                const SectionHeading(
-                  content: 'Welcome, Safwan',
-                ),
+                RichText(
+                    text: TextSpan(children: <TextSpan>[
+                  TextSpan(
+                    text: 'Welcome, ',
+                    style: Theme.of(context).textTheme.headlineMedium,
+                  ),
+                  TextSpan(
+                    text:'Safwan',
+                    style: Theme.of(context).textTheme.labelMedium,
+                  ),
+                ])),
                 SizedBox(height: 2.h),
                 const Heading(
                   content: 'What do you want to read today?',
                 ),
                 SizedBox(height: 15.h),
                 Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Expanded(
                       child: SearchPlaceholder(
-                        onPressed: () => AutoRouter.of(context).push(SearchRoute()),
+                        onPressed: () =>
+                            AutoRouter.of(context).push(SearchRoute()),
                       ),
                     ),
                     IconButton(

@@ -65,9 +65,24 @@ class _SearchFormState extends State<SearchForm> {
                             if (index == 0) {
                               return Padding(
                                 padding: EdgeInsets.only(top: 5.h),
-                                child: Text('Showing ${results.length} results',
+                                child: RichText(
+                                    text: TextSpan(children: <TextSpan>[
+                                  TextSpan(
+                                    text: 'Showing ',
                                     style:
-                                        Theme.of(context).textTheme.bodyLarge),
+                                        Theme.of(context).textTheme.bodyLarge,
+                                  ),
+                                  TextSpan(
+                                    text: results.length.toString(),
+                                    style:
+                                        Theme.of(context).textTheme.titleLarge,
+                                  ),
+                                  TextSpan(
+                                    text: ' search result(s)',
+                                    style:
+                                        Theme.of(context).textTheme.bodyLarge,
+                                  ),
+                                ])),
                               );
                             } else {
                               return SearchResultCard(book: results[index - 1]);

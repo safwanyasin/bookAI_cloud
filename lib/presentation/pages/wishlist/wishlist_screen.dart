@@ -59,18 +59,7 @@ class _WishlistScreenState extends State<WishlistScreen> {
                                 scrollDirection: Axis.vertical,
                                 itemCount: wishlistItems.length,
                                 itemBuilder: ((context, index) {
-                                  if (index == 0) {
-                                    return Padding(
-                                      padding: EdgeInsets.only(top: 5.h),
-                                      child: Text(
-                                          'Showing ${wishlistItems.length} results',
-                                          style: Theme.of(context)
-                                              .textTheme
-                                              .bodyLarge),
-                                    );
-                                  } else {
-                                    return InfoCard(book: wishlistItems[index]);
-                                  }
+                                  return InfoCard(book: wishlistItems[index]);
                                 }),
                               )
                             : Padding(

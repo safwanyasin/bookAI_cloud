@@ -27,6 +27,16 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const AiGenerateScreen(),
       );
     },
+    BookDetailsRoute.name: (routeData) {
+      final args = routeData.argsAs<BookDetailsRouteArgs>();
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: BookDetailsScreen(
+          key: args.key,
+          details: args.details,
+        ),
+      );
+    },
     LoginRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -37,6 +47,12 @@ abstract class _$AppRouter extends RootStackRouter {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const NavScreen(),
+      );
+    },
+    ReadingListRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const ReadingListScreen(),
       );
     },
     RegisterRoute.name: (routeData) {
@@ -109,6 +125,44 @@ class AiGenerateRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
+/// [BookDetailsScreen]
+class BookDetailsRoute extends PageRouteInfo<BookDetailsRouteArgs> {
+  BookDetailsRoute({
+    Key? key,
+    required Book details,
+    List<PageRouteInfo>? children,
+  }) : super(
+          BookDetailsRoute.name,
+          args: BookDetailsRouteArgs(
+            key: key,
+            details: details,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'BookDetailsRoute';
+
+  static const PageInfo<BookDetailsRouteArgs> page =
+      PageInfo<BookDetailsRouteArgs>(name);
+}
+
+class BookDetailsRouteArgs {
+  const BookDetailsRouteArgs({
+    this.key,
+    required this.details,
+  });
+
+  final Key? key;
+
+  final Book details;
+
+  @override
+  String toString() {
+    return 'BookDetailsRouteArgs{key: $key, details: $details}';
+  }
+}
+
+/// generated route for
 /// [LoginScreen]
 class LoginRoute extends PageRouteInfo<void> {
   const LoginRoute({List<PageRouteInfo>? children})
@@ -132,6 +186,20 @@ class NavRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'NavRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [ReadingListScreen]
+class ReadingListRoute extends PageRouteInfo<void> {
+  const ReadingListRoute({List<PageRouteInfo>? children})
+      : super(
+          ReadingListRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'ReadingListRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }

@@ -1,9 +1,10 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:book_ai/presentation/pages/ai_generate/ai_generate_screen.dart';
 import 'package:book_ai/presentation/pages/home/home_screen.dart';
+import 'package:book_ai/presentation/pages/reading_list/reading_list_screen.dart';
 import 'package:book_ai/presentation/reusable_components/backgrounds/animatied_background.dart';
 import 'package:book_ai/presentation/routing/navigaton/bottom_nav_bar.dart';
-import 'package:book_ai/presentation/wishlist/wishlist_screen.dart';
+import 'package:book_ai/presentation/pages/wishlist/wishlist_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -21,7 +22,7 @@ class _NavScreenState extends State<NavScreen> {
     const HomeScreen(),
     const WishlistScreen(),
     const AiGenerateScreen(),
-    const Center(child: Text('screen 4')),
+    const ReadingListScreen(),
     const Center(child: Text('screen 5')),
   ];
 

@@ -1,5 +1,6 @@
 import 'package:book_ai/domain/book/book.dart';
 import 'package:book_ai/presentation/reusable_components/buttons/remove.dart';
+import 'package:book_ai/presentation/reusable_components/cards/star_rating.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -70,7 +71,7 @@ class InfoCard extends StatelessWidget {
                     Row(
                       children: [
                         // Stars based on rating
-                        _buildStarRating(book.rating.getOrCrash()),
+                        buildStarRating(book.rating.getOrCrash(), 9.5.w),
                         SizedBox(width: 8.w),
                         // Review count
                         Text(
@@ -88,36 +89,6 @@ class InfoCard extends StatelessWidget {
           ],
         ),
       ),
-    );
-  }
-
-  Widget _buildStarRating(double rating) {
-    int filledStars = rating.floor();
-    int halfStars = (rating * 2).round() % 2;
-    int emptyStars = 5 - filledStars - halfStars;
-
-    return Row(
-      children: List.generate(
-        filledStars,
-        (index) => Icon(
-          Icons.star,
-          color: Colors.yellow,
-          size: 9.5.w,
-        ),
-      )
-        ..addAll(
-          List.generate(
-            halfStars,
-            (index) => Icon(Icons.star_half, color: Colors.yellow, size: 9.5.w),
-          ),
-        )
-        ..addAll(
-          List.generate(
-            emptyStars,
-            (index) =>
-                Icon(Icons.star_border, color: Colors.yellow, size: 9.5.w),
-          ),
-        ),
     );
   }
 }

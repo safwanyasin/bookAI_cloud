@@ -44,7 +44,7 @@ class AppTheme {
         ),
         bodyLarge: GoogleFonts.quicksand(
           fontSize: 15.w,
-          fontWeight: FontWeight.normal, // Regular
+          fontWeight: FontWeight.w400, // Regular
           color: AppColors.secondaryColor,
         ),
         bodyMedium: GoogleFonts.quicksand(
@@ -61,9 +61,19 @@ class AppTheme {
           fontWeight: FontWeight.bold, // Bold
           color: AppColors.secondaryColor,
         ),
+        labelMedium: GoogleFonts.quicksand(
+          fontSize: 18.w,
+          fontWeight: FontWeight.bold, // Bold
+          color: AppColors.secondaryColor,
+        ),
         labelSmall: GoogleFonts.quicksand(
           fontSize: 12.w,
           fontWeight: FontWeight.w400,
+          color: AppColors.secondaryColor,
+        ),
+        titleLarge: GoogleFonts.quicksand(
+          fontSize: 15.w,
+          fontWeight: FontWeight.bold, // Bold
           color: AppColors.secondaryColor,
         ),
         titleMedium: GoogleFonts.quicksand(

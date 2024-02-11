@@ -5,6 +5,8 @@ import 'package:dartz/dartz.dart';
 abstract class IBookRepository {
   Stream<Either<BookFailure, List<Book>>> watchReadingList();
   Stream<Either<BookFailure, List<Book>>> watchWishList();
+  Future<Either<BookFailure, bool>> findInWishlist(Book book);
+  Future<Either<BookFailure, bool>> findInReadingList(Book book);
   Future<Either<BookFailure, List<Book>>> get(String searchTerms);
   Future<Either<BookFailure, Unit>> create(Book note, bool toWishlist);
   Future<Either<BookFailure, Unit>> update(Book note, bool toWishlist);

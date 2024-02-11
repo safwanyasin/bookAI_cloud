@@ -1,3 +1,4 @@
+import 'package:book_ai/application/reading_list/reading_list_cubit.dart';
 import 'package:book_ai/application/search/advanced_search/advanced_search_cubit.dart';
 import 'package:book_ai/application/ai_generate/ai_generate_cubit.dart';
 import 'package:book_ai/application/auth/auth_cubit.dart';
@@ -33,6 +34,9 @@ class AppWidget extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => getIt<WishlistCubit>(),
+        ),
+        BlocProvider(
+          create: (context) => getIt<ReadingListCubit>(),
         ),
       ],
       child: MaterialApp.router(

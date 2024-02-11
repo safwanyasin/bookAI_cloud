@@ -21,7 +21,9 @@ abstract class Book implements _$Book {
     required ReviewCount reviewCount,
     required Rating rating,
     required ImageUrl imageUrl,
-    required bool liked,
+    required Category category,
+    required Publisher publisher,
+    required PublishDate publishDate,
   }) = _Book;
 
   factory Book.empty() => Book(
@@ -34,7 +36,9 @@ abstract class Book implements _$Book {
         reviewCount: ReviewCount(0),
         rating: Rating(0),
         imageUrl: ImageUrl("https://placehold.co/190x280"),
-        liked: false,
+        category: Category('none'),
+        publisher: Publisher('none'),
+        publishDate: PublishDate('-'),
       );
 
   factory Book.fromGoogleBooksApi(Map<String, dynamic> data) {
@@ -55,7 +59,11 @@ abstract class Book implements _$Book {
           ? 'https://placehold.co/190x280.png'
           : data['volumeInfo']['imageLinks']['thumbnail'] ??
               'https://placehold.co/190x280.png',
-      liked: false,
+      category: data['volumeInfo']['categories'] == null
+          ? 'None'
+          : data['volumeInfo']['categories'].join(','),
+      publisher: data['volumeInfo']['publisher'] ?? 'none',
+      publishDate: data['volumeInfo']['publishedDate'] ?? '-',
     );
     return bookData.toDomain();
     // return Book(
@@ -81,7 +89,4 @@ abstract class Book implements _$Book {
         .fold((f) => some(f), (_) => none());
   }
 
-  Book copyWithLiked(bool liked) {
-    return copyWith(liked: liked);
-  }
 }

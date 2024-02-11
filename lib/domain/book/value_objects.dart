@@ -107,6 +107,45 @@ class Rating extends ValueObject<double> {
   const Rating._(this.value);
 }
 
+class Category extends ValueObject<String> {
+  @override
+  final Either<ValueFailure<String>, String> value;
+
+  factory Category(String input) {
+    return Category._(
+      checkIfEmpty(input),
+    );
+  }
+
+  const Category._(this.value);
+}
+
+class Publisher extends ValueObject<String> {
+  @override
+  final Either<ValueFailure<String>, String> value;
+
+  factory Publisher(String input) {
+    return Publisher._(
+      checkIfEmpty(input),
+    );
+  }
+
+  const Publisher._(this.value);
+}
+
+class PublishDate extends ValueObject<String> {
+  @override
+  final Either<ValueFailure<String>, String> value;
+
+  factory PublishDate(String input) {
+    return PublishDate._(
+      checkIfEmpty(input),
+    );
+  }
+
+  const PublishDate._(this.value);
+}
+
 class ImageUrl extends ValueObject<String> {
   @override
   final Either<ValueFailure<String>, String> value;
@@ -119,4 +158,3 @@ class ImageUrl extends ValueObject<String> {
 
   const ImageUrl._(this.value);
 }
-

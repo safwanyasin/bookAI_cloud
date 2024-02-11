@@ -22,6 +22,9 @@ abstract class BookDto implements _$BookDto {
     required int reviewCount,
     required double rating,
     required String imageUrl,
+    required String category,
+    required String publisher,
+    required String publishDate,
     // @ServerTimestampConverter() required FieldValue serverTimestamp,
     @Default(false) bool liked,
   }) = _BookDto;
@@ -37,7 +40,9 @@ abstract class BookDto implements _$BookDto {
       reviewCount: book.reviewCount.getOrCrash(),
       rating: book.rating.getOrCrash(),
       imageUrl: book.imageUrl.getOrCrash(),
-      liked: book.liked,
+      category: book.category.getOrCrash(),
+      publisher: book.publisher.getOrCrash(),
+      publishDate: book.publishDate.getOrCrash(),
       // serverTimestamp: FieldValue.serverTimestamp(),
     );
   }
@@ -53,7 +58,9 @@ abstract class BookDto implements _$BookDto {
       reviewCount: ReviewCount(reviewCount),
       rating: Rating(rating),
       imageUrl: ImageUrl(imageUrl),
-      liked: liked,
+      category: Category(category),
+      publisher: Publisher(publisher),
+      publishDate: PublishDate(publishDate),
     );
   }
 

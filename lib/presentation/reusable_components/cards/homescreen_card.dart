@@ -51,13 +51,10 @@ class _HomescreenCardState extends State<HomescreenCard> {
                           top: 8.0,
                           right: 8.0,
                           child: CircularHeartButton(
-                            liked: widget.bookDetails.liked,
+                            liked: true,
                             onPressed: () {
                               // Handle like button tap
-                              setState(() {
-                                widget.bookDetails
-                                    .copyWithLiked(!widget.bookDetails.liked);
-                              });
+                              setState(() {});
                               print("Like button tapped!");
                             },
                           ),

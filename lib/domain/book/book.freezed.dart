@@ -25,7 +25,9 @@ mixin _$Book {
   ReviewCount get reviewCount => throw _privateConstructorUsedError;
   Rating get rating => throw _privateConstructorUsedError;
   ImageUrl get imageUrl => throw _privateConstructorUsedError;
-  bool get liked => throw _privateConstructorUsedError;
+  Category get category => throw _privateConstructorUsedError;
+  Publisher get publisher => throw _privateConstructorUsedError;
+  PublishDate get publishDate => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $BookCopyWith<Book> get copyWith => throw _privateConstructorUsedError;
@@ -46,7 +48,9 @@ abstract class $BookCopyWith<$Res> {
       ReviewCount reviewCount,
       Rating rating,
       ImageUrl imageUrl,
-      bool liked});
+      Category category,
+      Publisher publisher,
+      PublishDate publishDate});
 }
 
 /// @nodoc
@@ -71,7 +75,9 @@ class _$BookCopyWithImpl<$Res, $Val extends Book>
     Object? reviewCount = null,
     Object? rating = null,
     Object? imageUrl = null,
-    Object? liked = null,
+    Object? category = null,
+    Object? publisher = null,
+    Object? publishDate = null,
   }) {
     return _then(_value.copyWith(
       bookId: null == bookId
@@ -110,10 +116,18 @@ class _$BookCopyWithImpl<$Res, $Val extends Book>
           ? _value.imageUrl
           : imageUrl // ignore: cast_nullable_to_non_nullable
               as ImageUrl,
-      liked: null == liked
-          ? _value.liked
-          : liked // ignore: cast_nullable_to_non_nullable
-              as bool,
+      category: null == category
+          ? _value.category
+          : category // ignore: cast_nullable_to_non_nullable
+              as Category,
+      publisher: null == publisher
+          ? _value.publisher
+          : publisher // ignore: cast_nullable_to_non_nullable
+              as Publisher,
+      publishDate: null == publishDate
+          ? _value.publishDate
+          : publishDate // ignore: cast_nullable_to_non_nullable
+              as PublishDate,
     ) as $Val);
   }
 }
@@ -135,7 +149,9 @@ abstract class _$$BookImplCopyWith<$Res> implements $BookCopyWith<$Res> {
       ReviewCount reviewCount,
       Rating rating,
       ImageUrl imageUrl,
-      bool liked});
+      Category category,
+      Publisher publisher,
+      PublishDate publishDate});
 }
 
 /// @nodoc
@@ -157,7 +173,9 @@ class __$$BookImplCopyWithImpl<$Res>
     Object? reviewCount = null,
     Object? rating = null,
     Object? imageUrl = null,
-    Object? liked = null,
+    Object? category = null,
+    Object? publisher = null,
+    Object? publishDate = null,
   }) {
     return _then(_$BookImpl(
       bookId: null == bookId
@@ -196,10 +214,18 @@ class __$$BookImplCopyWithImpl<$Res>
           ? _value.imageUrl
           : imageUrl // ignore: cast_nullable_to_non_nullable
               as ImageUrl,
-      liked: null == liked
-          ? _value.liked
-          : liked // ignore: cast_nullable_to_non_nullable
-              as bool,
+      category: null == category
+          ? _value.category
+          : category // ignore: cast_nullable_to_non_nullable
+              as Category,
+      publisher: null == publisher
+          ? _value.publisher
+          : publisher // ignore: cast_nullable_to_non_nullable
+              as Publisher,
+      publishDate: null == publishDate
+          ? _value.publishDate
+          : publishDate // ignore: cast_nullable_to_non_nullable
+              as PublishDate,
     ));
   }
 }
@@ -217,7 +243,9 @@ class _$BookImpl extends _Book {
       required this.reviewCount,
       required this.rating,
       required this.imageUrl,
-      required this.liked})
+      required this.category,
+      required this.publisher,
+      required this.publishDate})
       : super._();
 
   @override
@@ -239,11 +267,15 @@ class _$BookImpl extends _Book {
   @override
   final ImageUrl imageUrl;
   @override
-  final bool liked;
+  final Category category;
+  @override
+  final Publisher publisher;
+  @override
+  final PublishDate publishDate;
 
   @override
   String toString() {
-    return 'Book(bookId: $bookId, bookName: $bookName, authorName: $authorName, description: $description, language: $language, pageCount: $pageCount, reviewCount: $reviewCount, rating: $rating, imageUrl: $imageUrl, liked: $liked)';
+    return 'Book(bookId: $bookId, bookName: $bookName, authorName: $authorName, description: $description, language: $language, pageCount: $pageCount, reviewCount: $reviewCount, rating: $rating, imageUrl: $imageUrl, category: $category, publisher: $publisher, publishDate: $publishDate)';
   }
 
   @override
@@ -267,12 +299,29 @@ class _$BookImpl extends _Book {
             (identical(other.rating, rating) || other.rating == rating) &&
             (identical(other.imageUrl, imageUrl) ||
                 other.imageUrl == imageUrl) &&
-            (identical(other.liked, liked) || other.liked == liked));
+            (identical(other.category, category) ||
+                other.category == category) &&
+            (identical(other.publisher, publisher) ||
+                other.publisher == publisher) &&
+            (identical(other.publishDate, publishDate) ||
+                other.publishDate == publishDate));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, bookId, bookName, authorName,
-      description, language, pageCount, reviewCount, rating, imageUrl, liked);
+  int get hashCode => Object.hash(
+      runtimeType,
+      bookId,
+      bookName,
+      authorName,
+      description,
+      language,
+      pageCount,
+      reviewCount,
+      rating,
+      imageUrl,
+      category,
+      publisher,
+      publishDate);
 
   @JsonKey(ignore: true)
   @override
@@ -292,7 +341,9 @@ abstract class _Book extends Book {
       required final ReviewCount reviewCount,
       required final Rating rating,
       required final ImageUrl imageUrl,
-      required final bool liked}) = _$BookImpl;
+      required final Category category,
+      required final Publisher publisher,
+      required final PublishDate publishDate}) = _$BookImpl;
   const _Book._() : super._();
 
   @override
@@ -314,7 +365,11 @@ abstract class _Book extends Book {
   @override
   ImageUrl get imageUrl;
   @override
-  bool get liked;
+  Category get category;
+  @override
+  Publisher get publisher;
+  @override
+  PublishDate get publishDate;
   @override
   @JsonKey(ignore: true)
   _$$BookImplCopyWith<_$BookImpl> get copyWith =>

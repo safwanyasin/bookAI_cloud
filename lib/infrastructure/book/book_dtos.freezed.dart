@@ -29,7 +29,10 @@ mixin _$BookDto {
   int get pageCount => throw _privateConstructorUsedError;
   int get reviewCount => throw _privateConstructorUsedError;
   double get rating => throw _privateConstructorUsedError;
-  String get imageUrl =>
+  String get imageUrl => throw _privateConstructorUsedError;
+  String get category => throw _privateConstructorUsedError;
+  String get publisher => throw _privateConstructorUsedError;
+  String get publishDate =>
       throw _privateConstructorUsedError; // @ServerTimestampConverter() required FieldValue serverTimestamp,
   bool get liked => throw _privateConstructorUsedError;
 
@@ -53,6 +56,9 @@ abstract class $BookDtoCopyWith<$Res> {
       int reviewCount,
       double rating,
       String imageUrl,
+      String category,
+      String publisher,
+      String publishDate,
       bool liked});
 }
 
@@ -78,6 +84,9 @@ class _$BookDtoCopyWithImpl<$Res, $Val extends BookDto>
     Object? reviewCount = null,
     Object? rating = null,
     Object? imageUrl = null,
+    Object? category = null,
+    Object? publisher = null,
+    Object? publishDate = null,
     Object? liked = null,
   }) {
     return _then(_value.copyWith(
@@ -117,6 +126,18 @@ class _$BookDtoCopyWithImpl<$Res, $Val extends BookDto>
           ? _value.imageUrl
           : imageUrl // ignore: cast_nullable_to_non_nullable
               as String,
+      category: null == category
+          ? _value.category
+          : category // ignore: cast_nullable_to_non_nullable
+              as String,
+      publisher: null == publisher
+          ? _value.publisher
+          : publisher // ignore: cast_nullable_to_non_nullable
+              as String,
+      publishDate: null == publishDate
+          ? _value.publishDate
+          : publishDate // ignore: cast_nullable_to_non_nullable
+              as String,
       liked: null == liked
           ? _value.liked
           : liked // ignore: cast_nullable_to_non_nullable
@@ -142,6 +163,9 @@ abstract class _$$BookDtoImplCopyWith<$Res> implements $BookDtoCopyWith<$Res> {
       int reviewCount,
       double rating,
       String imageUrl,
+      String category,
+      String publisher,
+      String publishDate,
       bool liked});
 }
 
@@ -165,6 +189,9 @@ class __$$BookDtoImplCopyWithImpl<$Res>
     Object? reviewCount = null,
     Object? rating = null,
     Object? imageUrl = null,
+    Object? category = null,
+    Object? publisher = null,
+    Object? publishDate = null,
     Object? liked = null,
   }) {
     return _then(_$BookDtoImpl(
@@ -204,6 +231,18 @@ class __$$BookDtoImplCopyWithImpl<$Res>
           ? _value.imageUrl
           : imageUrl // ignore: cast_nullable_to_non_nullable
               as String,
+      category: null == category
+          ? _value.category
+          : category // ignore: cast_nullable_to_non_nullable
+              as String,
+      publisher: null == publisher
+          ? _value.publisher
+          : publisher // ignore: cast_nullable_to_non_nullable
+              as String,
+      publishDate: null == publishDate
+          ? _value.publishDate
+          : publishDate // ignore: cast_nullable_to_non_nullable
+              as String,
       liked: null == liked
           ? _value.liked
           : liked // ignore: cast_nullable_to_non_nullable
@@ -225,6 +264,9 @@ class _$BookDtoImpl extends _BookDto {
       required this.reviewCount,
       required this.rating,
       required this.imageUrl,
+      required this.category,
+      required this.publisher,
+      required this.publishDate,
       this.liked = false})
       : super._();
 
@@ -250,6 +292,12 @@ class _$BookDtoImpl extends _BookDto {
   final double rating;
   @override
   final String imageUrl;
+  @override
+  final String category;
+  @override
+  final String publisher;
+  @override
+  final String publishDate;
 // @ServerTimestampConverter() required FieldValue serverTimestamp,
   @override
   @JsonKey()
@@ -257,7 +305,7 @@ class _$BookDtoImpl extends _BookDto {
 
   @override
   String toString() {
-    return 'BookDto(bookId: $bookId, bookName: $bookName, authorName: $authorName, description: $description, language: $language, pageCount: $pageCount, reviewCount: $reviewCount, rating: $rating, imageUrl: $imageUrl, liked: $liked)';
+    return 'BookDto(bookId: $bookId, bookName: $bookName, authorName: $authorName, description: $description, language: $language, pageCount: $pageCount, reviewCount: $reviewCount, rating: $rating, imageUrl: $imageUrl, category: $category, publisher: $publisher, publishDate: $publishDate, liked: $liked)';
   }
 
   @override
@@ -281,13 +329,32 @@ class _$BookDtoImpl extends _BookDto {
             (identical(other.rating, rating) || other.rating == rating) &&
             (identical(other.imageUrl, imageUrl) ||
                 other.imageUrl == imageUrl) &&
+            (identical(other.category, category) ||
+                other.category == category) &&
+            (identical(other.publisher, publisher) ||
+                other.publisher == publisher) &&
+            (identical(other.publishDate, publishDate) ||
+                other.publishDate == publishDate) &&
             (identical(other.liked, liked) || other.liked == liked));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, bookId, bookName, authorName,
-      description, language, pageCount, reviewCount, rating, imageUrl, liked);
+  int get hashCode => Object.hash(
+      runtimeType,
+      bookId,
+      bookName,
+      authorName,
+      description,
+      language,
+      pageCount,
+      reviewCount,
+      rating,
+      imageUrl,
+      category,
+      publisher,
+      publishDate,
+      liked);
 
   @JsonKey(ignore: true)
   @override
@@ -314,6 +381,9 @@ abstract class _BookDto extends BookDto {
       required final int reviewCount,
       required final double rating,
       required final String imageUrl,
+      required final String category,
+      required final String publisher,
+      required final String publishDate,
       final bool liked}) = _$BookDtoImpl;
   const _BookDto._() : super._();
 
@@ -337,6 +407,12 @@ abstract class _BookDto extends BookDto {
   double get rating;
   @override
   String get imageUrl;
+  @override
+  String get category;
+  @override
+  String get publisher;
+  @override
+  String get publishDate;
   @override // @ServerTimestampConverter() required FieldValue serverTimestamp,
   bool get liked;
   @override

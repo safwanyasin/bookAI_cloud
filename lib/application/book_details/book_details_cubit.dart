@@ -9,22 +9,31 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
-part 'reading_list_cubit.freezed.dart';
-part 'reading_list_state.dart';
+part 'book_details_cubit.freezed.dart';
+part 'book_details_state.dart';
 
 // the watcher cubit will only be used to get the items from firestore
 @injectable
-class ReadingListCubit extends Cubit<ReadingListState> {
+class BookDetailsCubit extends Cubit<BookDetailsState> {
   final IBookRepository _bookRepository;
   StreamSubscription<Either<BookFailure, List<Book>>>? _bookStreamSubscription;
 
-  ReadingListCubit(this._bookRepository)
-      : super(const ReadingListState.initial()) {
-    watchReadingListStarted();
+  BookDetailsCubit(this._bookRepository)
+      : super(const BookDetailsState.initial()) {
+    findInReadingList();
+    findInWishlist();
   }
 
-  void watchReadingListStarted() async {
-    emit(const ReadingListState.loading());
+  void findInReadingList() async {
+    emit(const BookDetailsState.loading());
+    await _bookStreamSubscription?.cancel();
+    _bookStreamSubscription = _bookRepository.watchReadingList().listen(
+          (failureOrBook) => _onBookReceived(failureOrBook),
+        );
+  }
+
+  void findInWishlist() async {
+    emit(const BookDetailsState.loading());
     await _bookStreamSubscription?.cancel();
     _bookStreamSubscription = _bookRepository.watchReadingList().listen(
           (failureOrBook) => _onBookReceived(failureOrBook),
@@ -34,8 +43,8 @@ class ReadingListCubit extends Cubit<ReadingListState> {
   void _onBookReceived(Either<BookFailure, List<Book>> failureOrBook) {
     emit(
       failureOrBook.fold(
-        (f) => ReadingListState.loadFailure(f),
-        (books) => ReadingListState.loadSuccess(books),
+        (f) => BookDetailsState.loadFailure(f),
+        (books) => BookDetailsState.loadSuccess(books),
       ),
     );
   }
@@ -46,7 +55,7 @@ class ReadingListCubit extends Cubit<ReadingListState> {
     return super.close();
   }
 
-  // ReadingListCubit() : super(const ReadingListState.initial());
+  // BookDetailsCubit() : super(const BookDetailsState.initial());
 
   // void updateEmail(String typedEmail) {
   //   emit(
