@@ -87,6 +87,19 @@ class ParameterInput extends ValueObject<String> {
   const ParameterInput._(this.value);
 }
 
+class NickName extends ValueObject<String> {
+  @override
+  final Either<ValueFailure<String>, String> value;
+
+  factory NickName(String input) {
+    return NickName._(
+      validateNickName(input),
+    );
+  }
+
+  const NickName._(this.value);
+}
+
 class ApiInput extends ValueObject<String> {
   @override
   final Either<ValueFailure<String>, String> value;
@@ -100,3 +113,5 @@ class ApiInput extends ValueObject<String> {
 
   const ApiInput._(this.value);
 }
+
+

@@ -16,43 +16,77 @@ part 'book_details_state.dart';
 @injectable
 class BookDetailsCubit extends Cubit<BookDetailsState> {
   final IBookRepository _bookRepository;
-  StreamSubscription<Either<BookFailure, List<Book>>>? _bookStreamSubscription;
+  late bool isInWishlist, isInReadingList;
 
   BookDetailsCubit(this._bookRepository)
-      : super(const BookDetailsState.initial()) {
-    findInReadingList();
-    findInWishlist();
-  }
+      : super(const BookDetailsState.initial());
 
-  void findInReadingList() async {
+  Future<void> findInLists(Book book) async {
     emit(const BookDetailsState.loading());
-    await _bookStreamSubscription?.cancel();
-    _bookStreamSubscription = _bookRepository.watchReadingList().listen(
-          (failureOrBook) => _onBookReceived(failureOrBook),
-        );
-  }
-
-  void findInWishlist() async {
-    emit(const BookDetailsState.loading());
-    await _bookStreamSubscription?.cancel();
-    _bookStreamSubscription = _bookRepository.watchReadingList().listen(
-          (failureOrBook) => _onBookReceived(failureOrBook),
-        );
-  }
-
-  void _onBookReceived(Either<BookFailure, List<Book>> failureOrBook) {
+    // await _bookStreamSubscription?.cancel();
+    // _bookStreamSubscription = _bookRepository.watchReadingList().listen(
+    //       (failureOrBook) => _onBookReceived(failureOrBook),
+    //     );
+    Either<BookFailure, bool> checkIfExistsInReading =
+        await _bookRepository.findInReadingList(book);
+    Either<BookFailure, bool> checkIfExistsInWish =
+        await _bookRepository.findInWishlist(book);
+    print(checkIfExistsInWish);
     emit(
-      failureOrBook.fold(
+      checkIfExistsInReading.fold(
+          (f) => BookDetailsState.loadFailure(f),
+          (exists) => checkIfExistsInWish.fold(
+                (fail) => BookDetailsState.loadFailure(fail),
+                (present) => BookDetailsState.loadSuccess(exists, present),
+              )),
+    );
+  }
+
+  void addToWishlist(Book book) async {
+    emit(const BookDetailsState.loading());
+    Either<BookFailure, Unit> add = await _bookRepository.create(book, true);
+    emit(
+      add.fold(
         (f) => BookDetailsState.loadFailure(f),
-        (books) => BookDetailsState.loadSuccess(books),
+        (success) {
+          return BookDetailsState.initial();
+        },
       ),
     );
   }
 
-  @override
-  Future<void> close() async {
-    await _bookStreamSubscription?.cancel();
-    return super.close();
+  void addToReadingList(Book book) async {
+    emit(const BookDetailsState.loading());
+    Either<BookFailure, Unit> add = await _bookRepository.create(book, false);
+    emit(
+      add.fold(
+        (f) => BookDetailsState.loadFailure(f),
+        (success) => BookDetailsState.initial(),
+      ),
+    );
+  }
+
+  void removeFromWishlist(Book book) async {
+    emit(const BookDetailsState.loading());
+    Either<BookFailure, Unit> remove = await _bookRepository.delete(book, true);
+    emit(
+      remove.fold(
+        (f) => BookDetailsState.loadFailure(f),
+        (success) => BookDetailsState.initial(),
+      ),
+    );
+  }
+
+  void removeFromReadingList(Book book) async {
+    emit(const BookDetailsState.loading());
+    Either<BookFailure, Unit> remove =
+        await _bookRepository.delete(book, false);
+    emit(
+      remove.fold(
+        (f) => BookDetailsState.loadFailure(f),
+        (success) => BookDetailsState.initial(),
+      ),
+    );
   }
 
   // BookDetailsCubit() : super(const BookDetailsState.initial());

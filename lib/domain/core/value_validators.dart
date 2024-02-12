@@ -52,7 +52,19 @@ Either<ValueFailure<String>, String> validateConfirmPassword(
 Either<ValueFailure<String>, String> validateFullName(String input) {
   if (input.isEmpty) {
     return left(ValueFailure<String>.empty(failedValue: input));
-  } else if (input.length < 2) {
+  } else if (input.length < 3) {
+    return left(ValueFailure<String>.shortLength(failedValue: input));
+  } else if (!RegExp(r"^[a-zA-Z ]+$").hasMatch(input)) {
+    return left(ValueFailure<String>.invalidCharacters(failedValue: input));
+  } else {
+    return right(input);
+  }
+}
+
+Either<ValueFailure<String>, String> validateNickName(String input) {
+  if (input.isEmpty) {
+    return left(ValueFailure<String>.empty(failedValue: input));
+  } else if (input.length < 3) {
     return left(ValueFailure<String>.shortLength(failedValue: input));
   } else if (!RegExp(r"^[a-zA-Z ]+$").hasMatch(input)) {
     return left(ValueFailure<String>.invalidCharacters(failedValue: input));

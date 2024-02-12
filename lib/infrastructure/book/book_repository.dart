@@ -105,11 +105,11 @@ class BookRepository implements IBookRepository {
           'maxResults': 40, // Set maxResults to 40
         },
       );
-      print(response);
+      // print(response);
       final List<Book> books = (response.data['items'] as List)
           .map((item) => Book.fromGoogleBooksApi(item))
           .toList();
-      print(books);
+      // print(books);
       return right(books);
     } on PlatformException catch (e) {
       print(e.message);

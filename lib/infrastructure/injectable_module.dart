@@ -1,3 +1,4 @@
+import 'package:book_ai/domain/book/book.dart';
 import 'package:book_ai/domain/book/i_book_repository.dart';
 import 'package:book_ai/domain/story/i_story_repository.dart';
 import 'package:book_ai/infrastructure/book/book_repository.dart';

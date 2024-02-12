@@ -6,6 +6,7 @@ part of 'register_cubit.dart';
 @freezed
 class RegisterState with _$RegisterState {
   const factory RegisterState({
+    required NickName nickName,
     required EmailAddress emailAddress,
     required Password password,
     required ConfirmPassword confirmPassword,
@@ -19,6 +20,7 @@ class RegisterState with _$RegisterState {
   const RegisterState._();
 
   factory RegisterState.initial() => RegisterState(
+        nickName: NickName(''),
         emailAddress: EmailAddress(''),
         password: Password(''),
         confirmPassword: ConfirmPassword('', ''),

@@ -19,6 +19,15 @@ class RegisterCubit extends Cubit<RegisterState> {
     this._loginFacade,
   ) : super(RegisterState.initial());
 
+  void updateNickName(String typedNickName) {
+    emit(
+      state.copyWith(
+        emailAddress: EmailAddress(typedNickName),
+        registerFailureOrSuccessOption: none(),
+      ),
+    );
+  }
+
   void updateEmail(String typedEmail) {
     emit(
       state.copyWith(
@@ -53,6 +62,7 @@ class RegisterCubit extends Cubit<RegisterState> {
   }
 
   Future<void> _performRegister(bool withEmail) async {
+    final nickName = state.nickName;
     final email = state.emailAddress;
     Password? password = state.password;
     ConfirmPassword? confirmPassword = state.confirmPassword;
@@ -64,6 +74,7 @@ class RegisterCubit extends Cubit<RegisterState> {
 
     final registerResult = withEmail
         ? await _loginFacade.registerWithEmailAndPassword(
+            nickName: nickName,
             emailAddress: email,
             password: password,
             confirmPassword: confirmPassword)

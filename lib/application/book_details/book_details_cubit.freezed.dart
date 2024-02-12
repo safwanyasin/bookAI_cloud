@@ -20,7 +20,8 @@ mixin _$BookDetailsState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<Book> books) loadSuccess,
+    required TResult Function(bool existsInReading, bool existsInWish)
+        loadSuccess,
     required TResult Function(BookFailure bookFailure) loadFailure,
   }) =>
       throw _privateConstructorUsedError;
@@ -28,7 +29,7 @@ mixin _$BookDetailsState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<Book> books)? loadSuccess,
+    TResult? Function(bool existsInReading, bool existsInWish)? loadSuccess,
     TResult? Function(BookFailure bookFailure)? loadFailure,
   }) =>
       throw _privateConstructorUsedError;
@@ -36,7 +37,7 @@ mixin _$BookDetailsState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<Book> books)? loadSuccess,
+    TResult Function(bool existsInReading, bool existsInWish)? loadSuccess,
     TResult Function(BookFailure bookFailure)? loadFailure,
     required TResult orElse(),
   }) =>
@@ -126,7 +127,8 @@ class _$InitialImpl extends _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<Book> books) loadSuccess,
+    required TResult Function(bool existsInReading, bool existsInWish)
+        loadSuccess,
     required TResult Function(BookFailure bookFailure) loadFailure,
   }) {
     return initial();
@@ -137,7 +139,7 @@ class _$InitialImpl extends _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<Book> books)? loadSuccess,
+    TResult? Function(bool existsInReading, bool existsInWish)? loadSuccess,
     TResult? Function(BookFailure bookFailure)? loadFailure,
   }) {
     return initial?.call();
@@ -148,7 +150,7 @@ class _$InitialImpl extends _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<Book> books)? loadSuccess,
+    TResult Function(bool existsInReading, bool existsInWish)? loadSuccess,
     TResult Function(BookFailure bookFailure)? loadFailure,
     required TResult orElse(),
   }) {
@@ -241,7 +243,8 @@ class _$LoadingImpl extends _Loading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<Book> books) loadSuccess,
+    required TResult Function(bool existsInReading, bool existsInWish)
+        loadSuccess,
     required TResult Function(BookFailure bookFailure) loadFailure,
   }) {
     return loading();
@@ -252,7 +255,7 @@ class _$LoadingImpl extends _Loading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<Book> books)? loadSuccess,
+    TResult? Function(bool existsInReading, bool existsInWish)? loadSuccess,
     TResult? Function(BookFailure bookFailure)? loadFailure,
   }) {
     return loading?.call();
@@ -263,7 +266,7 @@ class _$LoadingImpl extends _Loading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<Book> books)? loadSuccess,
+    TResult Function(bool existsInReading, bool existsInWish)? loadSuccess,
     TResult Function(BookFailure bookFailure)? loadFailure,
     required TResult orElse(),
   }) {
@@ -322,7 +325,7 @@ abstract class _$$LoadSuccessImplCopyWith<$Res> {
           _$LoadSuccessImpl value, $Res Function(_$LoadSuccessImpl) then) =
       __$$LoadSuccessImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({List<Book> books});
+  $Res call({bool existsInReading, bool existsInWish});
 }
 
 /// @nodoc
@@ -336,13 +339,18 @@ class __$$LoadSuccessImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? books = null,
+    Object? existsInReading = null,
+    Object? existsInWish = null,
   }) {
     return _then(_$LoadSuccessImpl(
-      null == books
-          ? _value._books
-          : books // ignore: cast_nullable_to_non_nullable
-              as List<Book>,
+      null == existsInReading
+          ? _value.existsInReading
+          : existsInReading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      null == existsInWish
+          ? _value.existsInWish
+          : existsInWish // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -350,21 +358,16 @@ class __$$LoadSuccessImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$LoadSuccessImpl extends _LoadSuccess {
-  const _$LoadSuccessImpl(final List<Book> books)
-      : _books = books,
-        super._();
+  const _$LoadSuccessImpl(this.existsInReading, this.existsInWish) : super._();
 
-  final List<Book> _books;
   @override
-  List<Book> get books {
-    if (_books is EqualUnmodifiableListView) return _books;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_books);
-  }
+  final bool existsInReading;
+  @override
+  final bool existsInWish;
 
   @override
   String toString() {
-    return 'BookDetailsState.loadSuccess(books: $books)';
+    return 'BookDetailsState.loadSuccess(existsInReading: $existsInReading, existsInWish: $existsInWish)';
   }
 
   @override
@@ -372,12 +375,14 @@ class _$LoadSuccessImpl extends _LoadSuccess {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$LoadSuccessImpl &&
-            const DeepCollectionEquality().equals(other._books, _books));
+            (identical(other.existsInReading, existsInReading) ||
+                other.existsInReading == existsInReading) &&
+            (identical(other.existsInWish, existsInWish) ||
+                other.existsInWish == existsInWish));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_books));
+  int get hashCode => Object.hash(runtimeType, existsInReading, existsInWish);
 
   @JsonKey(ignore: true)
   @override
@@ -390,10 +395,11 @@ class _$LoadSuccessImpl extends _LoadSuccess {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<Book> books) loadSuccess,
+    required TResult Function(bool existsInReading, bool existsInWish)
+        loadSuccess,
     required TResult Function(BookFailure bookFailure) loadFailure,
   }) {
-    return loadSuccess(books);
+    return loadSuccess(existsInReading, existsInWish);
   }
 
   @override
@@ -401,10 +407,10 @@ class _$LoadSuccessImpl extends _LoadSuccess {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<Book> books)? loadSuccess,
+    TResult? Function(bool existsInReading, bool existsInWish)? loadSuccess,
     TResult? Function(BookFailure bookFailure)? loadFailure,
   }) {
-    return loadSuccess?.call(books);
+    return loadSuccess?.call(existsInReading, existsInWish);
   }
 
   @override
@@ -412,12 +418,12 @@ class _$LoadSuccessImpl extends _LoadSuccess {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<Book> books)? loadSuccess,
+    TResult Function(bool existsInReading, bool existsInWish)? loadSuccess,
     TResult Function(BookFailure bookFailure)? loadFailure,
     required TResult orElse(),
   }) {
     if (loadSuccess != null) {
-      return loadSuccess(books);
+      return loadSuccess(existsInReading, existsInWish);
     }
     return orElse();
   }
@@ -461,10 +467,12 @@ class _$LoadSuccessImpl extends _LoadSuccess {
 }
 
 abstract class _LoadSuccess extends BookDetailsState {
-  const factory _LoadSuccess(final List<Book> books) = _$LoadSuccessImpl;
+  const factory _LoadSuccess(
+      final bool existsInReading, final bool existsInWish) = _$LoadSuccessImpl;
   const _LoadSuccess._() : super._();
 
-  List<Book> get books;
+  bool get existsInReading;
+  bool get existsInWish;
   @JsonKey(ignore: true)
   _$$LoadSuccessImplCopyWith<_$LoadSuccessImpl> get copyWith =>
       throw _privateConstructorUsedError;
@@ -547,7 +555,8 @@ class _$LoadFailureImpl extends _LoadFailure {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<Book> books) loadSuccess,
+    required TResult Function(bool existsInReading, bool existsInWish)
+        loadSuccess,
     required TResult Function(BookFailure bookFailure) loadFailure,
   }) {
     return loadFailure(bookFailure);
@@ -558,7 +567,7 @@ class _$LoadFailureImpl extends _LoadFailure {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<Book> books)? loadSuccess,
+    TResult? Function(bool existsInReading, bool existsInWish)? loadSuccess,
     TResult? Function(BookFailure bookFailure)? loadFailure,
   }) {
     return loadFailure?.call(bookFailure);
@@ -569,7 +578,7 @@ class _$LoadFailureImpl extends _LoadFailure {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<Book> books)? loadSuccess,
+    TResult Function(bool existsInReading, bool existsInWish)? loadSuccess,
     TResult Function(BookFailure bookFailure)? loadFailure,
     required TResult orElse(),
   }) {

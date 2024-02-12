@@ -20,6 +20,7 @@ class ReadingListCubit extends Cubit<ReadingListState> {
 
   ReadingListCubit(this._bookRepository)
       : super(const ReadingListState.initial()) {
+    print('initating reading list cubit');
     watchReadingListStarted();
   }
 

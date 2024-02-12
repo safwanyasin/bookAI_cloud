@@ -19,15 +19,18 @@ class ReadingListScreen extends StatefulWidget {
 class _ReadingListScreenState extends State<ReadingListScreen> {
   @override
   List<Book> readingListItems = [];
+
+  @override
+  void initState() {
+    super.initState();
+    print('rendering the reading list');
+  }
+
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<ReadingListCubit, ReadingListState>(
-        listener: (context, state) {
-      state.maybeMap(
-        loadSuccess: (state) => readingListItems = state.books,
-        orElse: () {},
-      );
-    }, builder: (context, state) {
+    return BlocBuilder<ReadingListCubit, ReadingListState>(
+        builder: (context, state) {
+      print(state);
       return SafeArea(
         child: Container(
           width: double.infinity,
@@ -39,10 +42,13 @@ class _ReadingListScreenState extends State<ReadingListScreen> {
               const Heading(content: 'Wishlist'),
               SizedBox(height: 2.h),
               state.maybeMap(
-                loadSuccess: (_) => Subheading(
-                  content:
-                      'Showing ${readingListItems.length} books on your wishlist',
-                ),
+                loadSuccess: (state) {
+                  readingListItems = state.books;
+                  return Subheading(
+                    content:
+                        'Showing ${readingListItems.length} books on your wishlist',
+                  );
+                },
                 orElse: () => Container(),
               ),
               SizedBox(height: 10.h),

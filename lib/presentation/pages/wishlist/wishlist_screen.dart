@@ -22,13 +22,14 @@ class _WishlistScreenState extends State<WishlistScreen> {
   List<Book> wishlistItems = [];
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<WishlistCubit, WishlistState>(
-        listener: (context, state) {
-      state.maybeMap(
-        loadSuccess: (state) => wishlistItems = state.books,
-        orElse: () {},
-      );
-    }, builder: (context, state) {
+    return BlocBuilder<WishlistCubit, WishlistState>(
+        //     listener: (context, state) {
+        //   state.maybeMap(
+        //     loadSuccess: (state) => wishlistItems = state.books,
+        //     orElse: () {},
+        //   );
+        // },
+        builder: (context, state) {
       return SafeArea(
         child: Container(
           width: double.infinity,
@@ -40,10 +41,13 @@ class _WishlistScreenState extends State<WishlistScreen> {
               const Heading(content: 'Wishlist'),
               SizedBox(height: 2.h),
               state.maybeMap(
-                loadSuccess: (_) => Subheading(
-                  content:
-                      'Showing ${wishlistItems.length} books on your wishlist',
-                ),
+                loadSuccess: (state) {
+                  wishlistItems = state.books;
+                  return Subheading(
+                    content:
+                        'Showing ${wishlistItems.length} books on your wishlist',
+                  );
+                },
                 orElse: () => Container(),
               ),
               SizedBox(height: 10.h),

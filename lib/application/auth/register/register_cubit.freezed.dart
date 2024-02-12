@@ -16,6 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$RegisterState {
+  NickName get nickName => throw _privateConstructorUsedError;
   EmailAddress get emailAddress => throw _privateConstructorUsedError;
   Password get password => throw _privateConstructorUsedError;
   ConfirmPassword get confirmPassword => throw _privateConstructorUsedError;
@@ -36,7 +37,8 @@ abstract class $RegisterStateCopyWith<$Res> {
       _$RegisterStateCopyWithImpl<$Res, RegisterState>;
   @useResult
   $Res call(
-      {EmailAddress emailAddress,
+      {NickName nickName,
+      EmailAddress emailAddress,
       Password password,
       ConfirmPassword confirmPassword,
       bool showErrorMessages,
@@ -57,6 +59,7 @@ class _$RegisterStateCopyWithImpl<$Res, $Val extends RegisterState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? nickName = null,
     Object? emailAddress = null,
     Object? password = null,
     Object? confirmPassword = null,
@@ -65,6 +68,10 @@ class _$RegisterStateCopyWithImpl<$Res, $Val extends RegisterState>
     Object? registerFailureOrSuccessOption = null,
   }) {
     return _then(_value.copyWith(
+      nickName: null == nickName
+          ? _value.nickName
+          : nickName // ignore: cast_nullable_to_non_nullable
+              as NickName,
       emailAddress: null == emailAddress
           ? _value.emailAddress
           : emailAddress // ignore: cast_nullable_to_non_nullable
@@ -102,7 +109,8 @@ abstract class _$$RegisterStateImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {EmailAddress emailAddress,
+      {NickName nickName,
+      EmailAddress emailAddress,
       Password password,
       ConfirmPassword confirmPassword,
       bool showErrorMessages,
@@ -121,6 +129,7 @@ class __$$RegisterStateImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? nickName = null,
     Object? emailAddress = null,
     Object? password = null,
     Object? confirmPassword = null,
@@ -129,6 +138,10 @@ class __$$RegisterStateImplCopyWithImpl<$Res>
     Object? registerFailureOrSuccessOption = null,
   }) {
     return _then(_$RegisterStateImpl(
+      nickName: null == nickName
+          ? _value.nickName
+          : nickName // ignore: cast_nullable_to_non_nullable
+              as NickName,
       emailAddress: null == emailAddress
           ? _value.emailAddress
           : emailAddress // ignore: cast_nullable_to_non_nullable
@@ -161,7 +174,8 @@ class __$$RegisterStateImplCopyWithImpl<$Res>
 
 class _$RegisterStateImpl extends _RegisterState {
   const _$RegisterStateImpl(
-      {required this.emailAddress,
+      {required this.nickName,
+      required this.emailAddress,
       required this.password,
       required this.confirmPassword,
       required this.showErrorMessages,
@@ -169,6 +183,8 @@ class _$RegisterStateImpl extends _RegisterState {
       required this.registerFailureOrSuccessOption})
       : super._();
 
+  @override
+  final NickName nickName;
   @override
   final EmailAddress emailAddress;
   @override
@@ -184,7 +200,7 @@ class _$RegisterStateImpl extends _RegisterState {
 
   @override
   String toString() {
-    return 'RegisterState(emailAddress: $emailAddress, password: $password, confirmPassword: $confirmPassword, showErrorMessages: $showErrorMessages, isSubmitting: $isSubmitting, registerFailureOrSuccessOption: $registerFailureOrSuccessOption)';
+    return 'RegisterState(nickName: $nickName, emailAddress: $emailAddress, password: $password, confirmPassword: $confirmPassword, showErrorMessages: $showErrorMessages, isSubmitting: $isSubmitting, registerFailureOrSuccessOption: $registerFailureOrSuccessOption)';
   }
 
   @override
@@ -192,6 +208,8 @@ class _$RegisterStateImpl extends _RegisterState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$RegisterStateImpl &&
+            (identical(other.nickName, nickName) ||
+                other.nickName == nickName) &&
             (identical(other.emailAddress, emailAddress) ||
                 other.emailAddress == emailAddress) &&
             (identical(other.password, password) ||
@@ -211,6 +229,7 @@ class _$RegisterStateImpl extends _RegisterState {
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      nickName,
       emailAddress,
       password,
       confirmPassword,
@@ -227,7 +246,8 @@ class _$RegisterStateImpl extends _RegisterState {
 
 abstract class _RegisterState extends RegisterState {
   const factory _RegisterState(
-      {required final EmailAddress emailAddress,
+      {required final NickName nickName,
+      required final EmailAddress emailAddress,
       required final Password password,
       required final ConfirmPassword confirmPassword,
       required final bool showErrorMessages,
@@ -236,6 +256,8 @@ abstract class _RegisterState extends RegisterState {
           registerFailureOrSuccessOption}) = _$RegisterStateImpl;
   const _RegisterState._() : super._();
 
+  @override
+  NickName get nickName;
   @override
   EmailAddress get emailAddress;
   @override

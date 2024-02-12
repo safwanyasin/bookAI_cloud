@@ -54,10 +54,12 @@ class FirebaseLoginFacade implements ILoginFacade {
 
   @override
   Future<Either<RegisterFailure, Unit>> registerWithEmailAndPassword(
-      {required EmailAddress emailAddress,
+      {required NickName nickName,
+      required EmailAddress emailAddress,
       required Password password,
       required ConfirmPassword confirmPassword}) async {
     // _firebaseAuth.currentUser!().then((value) => value.uid);
+    final nickNameStr = nickName.getOrCrash();
     final emailAddressStr = emailAddress.getOrCrash();
     final passwordStr = password.getOrCrash();
     final confirmPasswordStr = confirmPassword.getOrCrash();
@@ -75,7 +77,7 @@ class FirebaseLoginFacade implements ILoginFacade {
       await FirebaseFirestore.instance
           .collection('users')
           .doc(user!.uid)
-          .set({'firstName': 'safwan'});
+          .set({'nickname': nickNameStr});
       return right(unit);
     } on FirebaseAuthException catch (e) {
       if (e.code == 'email-already-in-use') {

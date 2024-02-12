@@ -10,6 +10,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 abstract class ILoginFacade {
   Future<Option<AppUser>> getSignedInUser();
   Future<Either<RegisterFailure, Unit>> registerWithEmailAndPassword({
+    required NickName nickName,
     required EmailAddress emailAddress,
     required Password password,
     required ConfirmPassword confirmPassword,

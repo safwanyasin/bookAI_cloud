@@ -10,7 +10,8 @@ class BookDetailsState with _$BookDetailsState {
 
   const factory BookDetailsState.initial() = _Initial;
   const factory BookDetailsState.loading() = _Loading;
-  const factory BookDetailsState.loadSuccess(List<Book> books) = _LoadSuccess;
+  const factory BookDetailsState.loadSuccess(
+      bool existsInReading, bool existsInWish) = _LoadSuccess;
   const factory BookDetailsState.loadFailure(BookFailure bookFailure) =
       _LoadFailure;
 }
