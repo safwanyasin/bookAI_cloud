@@ -21,6 +21,7 @@ class BookRepository implements IBookRepository {
   Stream<Either<BookFailure, List<Book>>> watchReadingList() async* {
     // users/{user ID}/reading_list/{book ID}
     final userDoc = await _firestore.userDocument();
+    print(userDoc.id);
     yield* userDoc.readingListCollection
         // .orderBy('serverTimestamp', descending: true)
         .snapshots()

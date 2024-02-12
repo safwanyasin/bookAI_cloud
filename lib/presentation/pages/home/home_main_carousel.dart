@@ -41,7 +41,7 @@ class _HomeMainCarouselState extends State<HomeMainCarousel> {
           loadSuccess: (state) {
             return state.book.isNotEmpty
                 ? SizedBox(
-                    height: 335.h,
+                    height: 300.h,
                     child: ListView.builder(
                       scrollDirection: Axis.horizontal,
                       itemCount: state.book.length,

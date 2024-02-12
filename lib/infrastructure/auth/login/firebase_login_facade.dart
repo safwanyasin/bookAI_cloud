@@ -5,7 +5,9 @@ import 'package:book_ai/domain/auth/login/login_failure.dart';
 import 'package:book_ai/domain/auth/register/register_failure.dart';
 import 'package:book_ai/domain/auth/user.dart';
 import 'package:book_ai/domain/auth/value_objects.dart';
+import 'package:book_ai/domain/core/failures.dart';
 import 'package:book_ai/domain/core/value_objects.dart';
+import 'package:book_ai/infrastructure/core/firestore_helpers.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -154,6 +156,19 @@ class FirebaseLoginFacade implements ILoginFacade {
     } on FirebaseAuthException catch (_) {
       return left(const RegisterFailure.serverError());
     }
+  }
+
+  // @override
+  // Future<Either<ValueFailure, DocumentSnapshot>> getUser() async {
+  //   final userDoc = await FirebaseFirestore.instance.userDocument();
+  //   final user = await userDoc.get();
+  //   return right(user);
+  // }
+  @override
+  Future<DocumentSnapshot> getUser() async {
+    final userDetails = await FirebaseFirestore.instance.userDocument();
+    final snapshot = await userDetails.get();
+    return snapshot;
   }
 
   @override

@@ -32,12 +32,13 @@ class BookDetailsCubit extends Cubit<BookDetailsState> {
     Either<BookFailure, bool> checkIfExistsInWish =
         await _bookRepository.findInWishlist(book);
     print(checkIfExistsInWish);
+    print(checkIfExistsInReading);
     emit(
       checkIfExistsInReading.fold(
           (f) => BookDetailsState.loadFailure(f),
-          (exists) => checkIfExistsInWish.fold(
+          (inReading) => checkIfExistsInWish.fold(
                 (fail) => BookDetailsState.loadFailure(fail),
-                (present) => BookDetailsState.loadSuccess(exists, present),
+                (inWish) => BookDetailsState.loadSuccess(inReading, inWish),
               )),
     );
   }

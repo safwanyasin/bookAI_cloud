@@ -5,6 +5,7 @@ import 'package:book_ai/application/book/book_actor/book_actor_cubit.dart';
 import 'package:book_ai/application/book/book_watcher/book_watcher_cubit.dart';
 import 'package:book_ai/application/story/story_actor/story_actor_cubit.dart';
 import 'package:book_ai/application/story/story_watcher/story_watcher_cubit.dart';
+import 'package:book_ai/infrastructure/core/firestore_helpers.dart';
 import 'package:book_ai/injection.dart';
 import 'package:book_ai/presentation/pages/home/home_main_carousel.dart';
 import 'package:book_ai/presentation/pages/home/home_secondary_carousel.dart';
@@ -14,6 +15,7 @@ import 'package:book_ai/presentation/reusable_components/input/search_placeholde
 import 'package:book_ai/presentation/reusable_components/texts/heading.dart';
 import 'package:book_ai/presentation/reusable_components/texts/section_heading.dart';
 import 'package:book_ai/presentation/routing/router/router.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -139,17 +141,23 @@ class _HomeScreenState extends State<HomeScreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SizedBox(height: 95.h),
-                RichText(
-                    text: TextSpan(children: <TextSpan>[
-                  TextSpan(
-                    text: 'Welcome, ',
-                    style: Theme.of(context).textTheme.headlineMedium,
-                  ),
-                  TextSpan(
-                    text:'Safwan',
-                    style: Theme.of(context).textTheme.labelMedium,
-                  ),
-                ])),
+                BlocBuilder<AuthCubit, AuthState>(builder: (context, state) {
+                  return state.maybeMap(authenticated: (value) {
+                    return RichText(
+                        text: TextSpan(children: <TextSpan>[
+                      TextSpan(
+                        text: 'Welcome, ',
+                        style: Theme.of(context).textTheme.headlineMedium,
+                      ),
+                      TextSpan(
+                        text: value.user['nickname'],
+                        style: Theme.of(context).textTheme.labelMedium,
+                      ),
+                    ]));
+                  }, orElse: () {
+                    return Text('Hi there!');
+                  });
+                }),
                 SizedBox(height: 2.h),
                 const Heading(
                   content: 'What do you want to read today?',

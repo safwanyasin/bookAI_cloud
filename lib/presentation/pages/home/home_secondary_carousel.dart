@@ -58,10 +58,10 @@ class _HomeSecondaryCarouselState extends State<HomeSecondaryCarousel> {
                         }),
                   )
                 : SizedBox(
-                    height: 50.h,
+                    height: 30.h,
                     child: const Center(
                       child: Text(
-                          'Add some items to your reading list to receive recommendations'),
+                          'No stories generated'),
                     ));
           },
           loadFailure: (state) {

@@ -31,8 +31,10 @@ class AppRouter extends _$AppRouter {
         AutoRoute(
           page: RegisterRoute.page,
         ),
-        AutoRoute(
+        CustomRoute(
           page: NavRoute.page,
+          transitionsBuilder: TransitionsBuilders.fadeIn,
+          durationInMilliseconds: 2000,
           // initial: true,
         ),
         AutoRoute(
@@ -41,20 +43,28 @@ class AppRouter extends _$AppRouter {
         AutoRoute(
           page: RoutingTestRoute.page,
         ),
-        AutoRoute(
+        CustomRoute(
           page: AdvancedSearchRoute.page,
+          transitionsBuilder: TransitionsBuilders.fadeIn,
         ),
         AutoRoute(
           page: AiGenerateRoute.page,
         ),
-        AutoRoute(
+        CustomRoute(
           page: SearchRoute.page,
+          transitionsBuilder: TransitionsBuilders.fadeIn,
         ),
-        AutoRoute(
+        CustomRoute(
           page: WishlistRoute.page,
+          transitionsBuilder: TransitionsBuilders.fadeIn,
         ),
-        AutoRoute(
+        CustomRoute(
           page: BookDetailsRoute.page,
-        )
+          transitionsBuilder: TransitionsBuilders.fadeIn,
+        ),
+        CustomRoute(
+          page: StoryRoute.page,
+          transitionsBuilder: TransitionsBuilders.fadeIn,
+        ),
       ];
 }

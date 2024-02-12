@@ -53,6 +53,29 @@ class RegisterForm extends StatelessWidget {
               InputField(
                 // controller: TextEditingController(),
                 showError: state.isSubmitting && !withGoogle,
+                labelText: 'Nickname',
+                onChanged: (nickName) =>
+                    context.read<RegisterCubit>().updateNickName(nickName),
+                validator: (_) =>
+                    context.read<RegisterCubit>().state.nickName.value.fold(
+                          (f) => f.maybeMap(
+                            shortLength: (_) {
+                              return 'Nickname should have at least 3 characters';
+                            },
+                            invalidCharacters: (_) {
+                              return 'Nickname can only contain alphabets';
+                            },
+                            orElse: () => null,
+                          ),
+                          (_) => null,
+                        ),
+              ),
+              SizedBox(
+                height: 10.h,
+              ),
+              InputField(
+                // controller: TextEditingController(),
+                showError: state.isSubmitting && !withGoogle,
                 labelText: 'Email',
                 onChanged: (email) =>
                     context.read<RegisterCubit>().updateEmail(email),

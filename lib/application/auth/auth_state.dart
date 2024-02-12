@@ -10,6 +10,6 @@ class AuthState with _$AuthState {
   // factory AuthState.authenticated() => AuthState();
   // factory AuthState.unauthenticated() => AuthState();
   const factory AuthState.initial() = Initial;
-  const factory AuthState.authenticated() = Authenticated;
+  const factory AuthState.authenticated(DocumentSnapshot user) = Authenticated;
   const factory AuthState.unauthenticated() = Unauthenticated;
 }

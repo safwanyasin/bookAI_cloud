@@ -22,7 +22,7 @@ class RegisterCubit extends Cubit<RegisterState> {
   void updateNickName(String typedNickName) {
     emit(
       state.copyWith(
-        emailAddress: EmailAddress(typedNickName),
+        nickName: NickName(typedNickName),
         registerFailureOrSuccessOption: none(),
       ),
     );

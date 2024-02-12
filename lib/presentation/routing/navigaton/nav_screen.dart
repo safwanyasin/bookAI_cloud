@@ -5,6 +5,7 @@ import 'package:book_ai/presentation/pages/reading_list/reading_list_screen.dart
 import 'package:book_ai/presentation/reusable_components/backgrounds/animatied_background.dart';
 import 'package:book_ai/presentation/routing/navigaton/bottom_nav_bar.dart';
 import 'package:book_ai/presentation/pages/wishlist/wishlist_screen.dart';
+import 'package:book_ai/presentation/routing/navigaton/sidebar_menu.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -25,6 +26,7 @@ class _NavScreenState extends State<NavScreen> {
     const ReadingListScreen(),
     const Center(child: Text('screen 5')),
   ];
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
@@ -35,6 +37,7 @@ class _NavScreenState extends State<NavScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _scaffoldKey,
       // appBar: AppBar(
       //   toolbarHeight: 30.h,
       //   leading: Padding(
@@ -55,7 +58,7 @@ class _NavScreenState extends State<NavScreen> {
       //     statusBarColor: Colors.transparent, // Status bar
       //   ),
       // ),
-
+      drawer: SidebarMenu(),
       appBar: AppBar(
         backgroundColor:
             Colors.transparent, // Set AppBar background to transparent
@@ -68,7 +71,7 @@ class _NavScreenState extends State<NavScreen> {
               size: 25.w,
             ),
             onTap: () {
-              print('Menu icon pressed!');
+              _scaffoldKey.currentState?.openDrawer();
             },
           ),
         ),

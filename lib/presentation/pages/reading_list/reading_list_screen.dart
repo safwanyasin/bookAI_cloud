@@ -1,6 +1,7 @@
 import 'package:auto_route/annotations.dart';
 import 'package:book_ai/application/reading_list/reading_list_cubit.dart';
 import 'package:book_ai/domain/book/book.dart';
+import 'package:book_ai/injection.dart';
 import 'package:book_ai/presentation/reusable_components/cards/info_card.dart';
 import 'package:book_ai/presentation/reusable_components/texts/heading.dart';
 import 'package:book_ai/presentation/reusable_components/texts/subheading.dart';
@@ -28,67 +29,66 @@ class _ReadingListScreenState extends State<ReadingListScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<ReadingListCubit, ReadingListState>(
-        builder: (context, state) {
-      print(state);
-      return SafeArea(
-        child: Container(
-          width: double.infinity,
-          margin: EdgeInsets.only(left: 20.w, right: 20.w),
-          height: MediaQuery.of(context).size.height,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const Heading(content: 'Wishlist'),
-              SizedBox(height: 2.h),
-              state.maybeMap(
-                loadSuccess: (state) {
-                  readingListItems = state.books;
-                  return Subheading(
-                    content:
-                        'Showing ${readingListItems.length} books on your wishlist',
-                  );
-                },
-                orElse: () => Container(),
-              ),
-              SizedBox(height: 10.h),
-              state.maybeMap(
-                  loading: (_) => const Expanded(
-                        child: Center(
-                          child: CircularProgressIndicator(),
+    return BlocProvider(
+      create: (context) => getIt<ReadingListCubit>(),
+      child: BlocBuilder<ReadingListCubit, ReadingListState>(
+          builder: (context, state) {
+        print(state);
+        return SafeArea(
+          child: Container(
+            width: double.infinity,
+            margin: EdgeInsets.only(left: 20.w, right: 20.w),
+            height: MediaQuery.of(context).size.height,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Heading(content: 'Reading List'),
+                SizedBox(height: 2.h),
+                state.maybeMap(
+                  loadSuccess: (state) {
+                    readingListItems = state.books;
+                    print('reading list state map');
+                    return Subheading(
+                      content:
+                          'Showing ${readingListItems.length} books on your reading list',
+                    );
+                  },
+                  orElse: () => Container(),
+                ),
+                SizedBox(height: 10.h),
+                state.maybeMap(
+                    loading: (_) => const Expanded(
+                          child: Center(
+                            child: CircularProgressIndicator(),
+                          ),
                         ),
-                      ),
-                  loadSuccess: (_) => Expanded(
-                        child: readingListItems.isNotEmpty
-                            ? ListView.builder(
-                                scrollDirection: Axis.vertical,
-                                itemCount: readingListItems.length,
-                                itemBuilder: ((context, index) {
-                                  return InfoCard(
-                                      book: readingListItems[index]);
-                                }),
-                              )
-                            : Padding(
-                                padding: EdgeInsets.only(top: 15.h),
-                                child: Text(
-                                  'Your reading list is empty. Add some items',
-                                  style: Theme.of(context).textTheme.titleSmall,
+                    loadSuccess: (_) => Expanded(
+                          child: readingListItems.isNotEmpty
+                              ? ListView.builder(
+                                  scrollDirection: Axis.vertical,
+                                  itemCount: readingListItems.length,
+                                  itemBuilder: ((context, index) {
+                                    return InfoCard(
+                                      book: readingListItems[index],
+                                      belongsToWishlist: false,
+                                    );
+                                  }),
+                                )
+                              : Padding(
+                                  padding: EdgeInsets.only(top: 15.h),
+                                  child: Text(
+                                    'Your reading list is empty. Add some items',
+                                    style:
+                                        Theme.of(context).textTheme.titleSmall,
+                                  ),
                                 ),
-                              ),
-                      ),
-                  orElse: () => Container()),
-              SingleChildScrollView(
-                scrollDirection: Axis.vertical,
-                child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      SizedBox(height: 95.h),
-                    ]),
-              ),
-            ],
+                        ),
+                    orElse: () => Container()),
+              ],
+            ),
           ),
-        ),
-      );
-    });
+        );
+      }),
+    );
   }
 }
