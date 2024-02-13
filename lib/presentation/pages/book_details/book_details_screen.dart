@@ -15,6 +15,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 @RoutePage()
+// ignore: must_be_immutable
 class BookDetailsScreen extends StatefulWidget {
   Book details;
   BookDetailsScreen({super.key, required this.details});
@@ -31,7 +32,7 @@ class _BookDetailsScreenState extends State<BookDetailsScreen>
     super.initState();
 
     // Simulate a delay of 1 second before showing content
-    Future.delayed(Duration(seconds: 1), () {
+    Future.delayed(const Duration(seconds: 1), () {
       setState(() {
         _showProgress = false;
       });
@@ -66,14 +67,14 @@ class _BookDetailsScreenState extends State<BookDetailsScreen>
           ),
         );
         return AnimatedSwitcher(
-          duration: Duration(seconds: 1),
+          duration: const Duration(seconds: 1),
           child: _showProgress
               ? FadeTransition(
                   opacity: Tween<double>(begin: 0.7, end: 1.0)
                       .animate(CurvedAnimation(
                     parent: AnimationController(
                       vsync: this,
-                      duration: Duration(seconds: 1),
+                      duration: const Duration(seconds: 1),
                     ),
                     curve: Curves.easeInOut,
                   )),
@@ -84,7 +85,7 @@ class _BookDetailsScreenState extends State<BookDetailsScreen>
                       Center(
                         child: SizedBox(
                           height: 50.h,
-                          child: LoadingIndicator(),
+                          child: const LoadingIndicator(),
                         ),
                       )
                     ],

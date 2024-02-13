@@ -5,17 +5,14 @@ import 'package:book_ai/application/book/book_actor/book_actor_cubit.dart';
 import 'package:book_ai/application/book/book_watcher/book_watcher_cubit.dart';
 import 'package:book_ai/application/story/story_actor/story_actor_cubit.dart';
 import 'package:book_ai/application/story/story_watcher/story_watcher_cubit.dart';
-import 'package:book_ai/infrastructure/core/firestore_helpers.dart';
 import 'package:book_ai/injection.dart';
 import 'package:book_ai/presentation/pages/home/home_main_carousel.dart';
 import 'package:book_ai/presentation/pages/home/home_secondary_carousel.dart';
 import 'package:book_ai/presentation/reusable_components/buttons/plain_button.dart';
-import 'package:book_ai/presentation/reusable_components/input/search_input.dart';
 import 'package:book_ai/presentation/reusable_components/input/search_placeholder.dart';
 import 'package:book_ai/presentation/reusable_components/texts/heading.dart';
 import 'package:book_ai/presentation/reusable_components/texts/section_heading.dart';
 import 'package:book_ai/presentation/routing/router/router.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -114,11 +111,11 @@ class _HomeScreenState extends State<HomeScreen> {
                           unexpected: (_) => const Text(
                               'An unexpected error occurred while deleting the story'),
                           insufficientPermissions: (_) {
-                            const Text(
+                            return const Text(
                                 'You do not have permssion to carry out this action.');
                           },
                           unableToUpdate: (_) {
-                            const Text('Unable to update.');
+                            return const Text('Unable to update.');
                           }),
                       barBlur: 20,
                       backgroundColor: Theme.of(context).disabledColor,
@@ -191,6 +188,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     PlainButton(
                       onPressed: () {
                         print('See all button pressed');
+                        AutoRouter.of(context).push(const StoryRoute());
                       },
                       buttonText: 'See all',
                     ),

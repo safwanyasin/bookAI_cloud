@@ -1,6 +1,7 @@
-import 'package:book_ai/domain/book/book.dart';
+import 'package:book_ai/domain/api_input/i_api_input_repository.dart';
 import 'package:book_ai/domain/book/i_book_repository.dart';
 import 'package:book_ai/domain/story/i_story_repository.dart';
+import 'package:book_ai/infrastructure/api_input/api_input_repository.dart';
 import 'package:book_ai/infrastructure/book/book_repository.dart';
 import 'package:book_ai/infrastructure/story/story_repository.dart';
 import 'package:book_ai/injection.dart';
@@ -39,6 +40,10 @@ abstract class InjectableModule {
 
   @lazySingleton
   IStoryRepository get storyRepository => StoryRepository(
+        getIt<FirebaseFirestore>(),
+      );
+  @lazySingleton
+  IApiInputRepository get apiInputRepository => ApiInputRepository(
         getIt<FirebaseFirestore>(),
       );
 }

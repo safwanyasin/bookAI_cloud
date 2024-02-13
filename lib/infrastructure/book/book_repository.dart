@@ -99,7 +99,7 @@ class BookRepository implements IBookRepository {
       final dio = Dio();
       // final response = await dio
       //     .get("https://www.googleapis.com/books/v1/volumes?q=$searchTerm");
-      final Response response = await Dio().get(
+      final Response response = await dio.get(
         "https://www.googleapis.com/books/v1/volumes",
         queryParameters: {
           'q': searchTerm,

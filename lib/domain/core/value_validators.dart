@@ -89,7 +89,7 @@ Either<ValueFailure<String>, String> validateOpenApiKey(String input) {
   // Example:
   if (input.isEmpty) {
     return left(ValueFailure<String>.empty(failedValue: input));
-  } else if (input.length != 64) {
+  } else if (input.length != 51) {
     return left(ValueFailure<String>.incorrectLength(failedValue: input));
   } else {
     return right(input);

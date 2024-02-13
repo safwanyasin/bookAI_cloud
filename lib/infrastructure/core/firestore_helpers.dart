@@ -18,4 +18,5 @@ extension DocumentReferenceX on DocumentReference {
   CollectionReference get readingListCollection => collection('reading-list');
   CollectionReference get wishListCollection => collection('wishlist');
   CollectionReference get storyCollection => collection('stories');
+  CollectionReference get apiInputCollection => collection('api-key');
 }

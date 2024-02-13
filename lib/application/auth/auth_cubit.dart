@@ -1,7 +1,5 @@
 import 'package:book_ai/domain/auth/login/i_login_facade.dart';
-import 'package:book_ai/domain/auth/user.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:dartz/dartz.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';

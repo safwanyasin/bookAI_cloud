@@ -1,10 +1,7 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:book_ai/application/book_details/book_details_cubit.dart';
 import 'package:book_ai/domain/book/book.dart';
-import 'package:book_ai/presentation/reusable_components/buttons/add_to_wishlist.dart';
 import 'package:book_ai/presentation/routing/router/router.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class HomescreenCard extends StatefulWidget {

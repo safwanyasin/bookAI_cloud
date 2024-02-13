@@ -8,7 +8,6 @@ class EmailAddress extends ValueObject<String> {
   final Either<ValueFailure<String>, String> value;
 
   factory EmailAddress(String input) {
-    assert(input != null);
     return EmailAddress._(
       validateEmailAddress(input),
     );
@@ -22,7 +21,6 @@ class FullName extends ValueObject<String> {
   final Either<ValueFailure<String>, String> value;
 
   factory FullName(String input) {
-    assert(input != null);
     return FullName._(
       validateFullName(input),
     );
@@ -36,7 +34,6 @@ class Password extends ValueObject<String> {
   final Either<ValueFailure<String>, String> value;
 
   factory Password(String input) {
-    assert(input != null);
     return Password._(
       validatePassword(input),
     );
@@ -50,7 +47,6 @@ class LoginPassword extends ValueObject<String> {
   final Either<ValueFailure<String>, String> value;
 
   factory LoginPassword(String input) {
-    assert(input != null);
     return LoginPassword._(
       validateLoginPassword(input),
     );
@@ -64,7 +60,6 @@ class ConfirmPassword extends ValueObject<String> {
   final Either<ValueFailure<String>, String> value;
 
   factory ConfirmPassword(String input, String pass) {
-    assert(input != null);
     return ConfirmPassword._(
       validateConfirmPassword(input, pass),
     );
@@ -78,7 +73,6 @@ class ParameterInput extends ValueObject<String> {
   final Either<ValueFailure<String>, String> value;
 
   factory ParameterInput(String input) {
-    assert(input != null);
     return ParameterInput._(
       validateParameterInput(input),
     );
@@ -105,13 +99,10 @@ class ApiInput extends ValueObject<String> {
   final Either<ValueFailure<String>, String> value;
 
   factory ApiInput(String input) {
-    assert(input != null);
     return ApiInput._(
-      validateParameterInput(input),
+      validateOpenApiKey(input),
     );
   }
 
   const ApiInput._(this.value);
 }
-
-

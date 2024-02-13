@@ -27,6 +27,12 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const AiGenerateScreen(),
       );
     },
+    ApiInputRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const ApiInputScreen(),
+      );
+    },
     BookDetailsRoute.name: (routeData) {
       final args = routeData.argsAs<BookDetailsRouteArgs>();
       return AutoRoutePage<dynamic>(
@@ -126,6 +132,20 @@ class AiGenerateRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'AiGenerateRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [ApiInputScreen]
+class ApiInputRoute extends PageRouteInfo<void> {
+  const ApiInputRoute({List<PageRouteInfo>? children})
+      : super(
+          ApiInputRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'ApiInputRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }

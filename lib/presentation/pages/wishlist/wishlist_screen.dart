@@ -2,7 +2,6 @@ import 'package:auto_route/annotations.dart';
 import 'package:book_ai/application/wishlist/wishlist_cubit.dart';
 import 'package:book_ai/domain/book/book.dart';
 import 'package:book_ai/injection.dart';
-import 'package:book_ai/presentation/pages/ai_generate/widgets/ai_generate_form.dart';
 import 'package:book_ai/presentation/reusable_components/cards/info_card.dart';
 import 'package:book_ai/presentation/reusable_components/texts/heading.dart';
 import 'package:book_ai/presentation/reusable_components/texts/subheading.dart';
@@ -19,7 +18,6 @@ class WishlistScreen extends StatefulWidget {
 }
 
 class _WishlistScreenState extends State<WishlistScreen> {
-  @override
   List<Book> wishlistItems = [];
   @override
   Widget build(BuildContext context) {
@@ -47,8 +45,9 @@ class _WishlistScreenState extends State<WishlistScreen> {
                   loadSuccess: (state) {
                     wishlistItems = state.books;
                     return Subheading(
-                      content:
-                          'Showing ${wishlistItems.length} books on your wishlist',
+                      content: wishlistItems.length == 1
+                          ? 'Showing ${wishlistItems.length} book on your wishlist'
+                          : 'Showing ${wishlistItems.length} books on your wishlist',
                     );
                   },
                   orElse: () => Container(),

@@ -1,3 +1,4 @@
+import 'package:book_ai/application/api_input/api_input_cubit.dart';
 import 'package:book_ai/application/book_details/book_details_cubit.dart';
 import 'package:book_ai/application/reading_list/reading_list_cubit.dart';
 import 'package:book_ai/application/search/advanced_search/advanced_search_cubit.dart';
@@ -41,6 +42,9 @@ class AppWidget extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => getIt<BookDetailsCubit>(),
+        ),
+        BlocProvider(
+          create: (context) => getIt<ApiInputCubit>(),
         ),
       ],
       child: MaterialApp.router(

@@ -3,8 +3,6 @@ import 'package:book_ai/application/search/search_cubit.dart';
 import 'package:book_ai/injection.dart';
 import 'package:book_ai/presentation/pages/search/widgets/search_form.dart';
 import 'package:book_ai/presentation/reusable_components/backgrounds/animatied_background.dart';
-import 'package:book_ai/presentation/reusable_components/input/search_input.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

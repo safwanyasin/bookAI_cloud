@@ -1,4 +1,3 @@
-import 'package:book_ai/domain/book/book_failure.dart';
 import 'package:book_ai/domain/book/value_objects.dart';
 import 'package:book_ai/domain/core/failures.dart';
 import 'package:book_ai/domain/core/value_objects.dart';

@@ -1,16 +1,10 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:book_ai/application/book_details/book_details_cubit.dart';
 import 'package:book_ai/domain/book/book.dart';
-import 'package:book_ai/domain/book/book_failure.dart';
-import 'package:book_ai/domain/book/i_book_repository.dart';
 import 'package:book_ai/infrastructure/book/book_repository.dart';
-import 'package:book_ai/presentation/reusable_components/buttons/remove.dart';
 import 'package:book_ai/presentation/reusable_components/cards/star_rating.dart';
 import 'package:book_ai/presentation/routing/router/router.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class InfoCard extends StatelessWidget {

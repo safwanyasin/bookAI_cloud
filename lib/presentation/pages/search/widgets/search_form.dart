@@ -1,12 +1,12 @@
 import 'package:book_ai/application/search/search_cubit.dart';
 import 'package:book_ai/domain/book/book.dart';
 import 'package:book_ai/presentation/pages/search/widgets/search_result_card.dart';
-import 'package:book_ai/presentation/reusable_components/cards/info_card.dart';
 import 'package:book_ai/presentation/reusable_components/input/search_input.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+// ignore: must_be_immutable
 class SearchForm extends StatefulWidget {
   String initialValue;
   FocusNode focusNode;
@@ -17,7 +17,6 @@ class SearchForm extends StatefulWidget {
 }
 
 class _SearchFormState extends State<SearchForm> {
-  @override
   List<Book> results = [];
   @override
   Widget build(BuildContext context) {

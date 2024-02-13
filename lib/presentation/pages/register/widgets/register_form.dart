@@ -40,7 +40,7 @@ class RegisterForm extends StatelessWidget {
             (_) {
               print('hello');
               // navigate to another page
-              AutoRouter.of(context).replace(const NavRoute());
+              AutoRouter.of(context).replace(const ApiInputRoute());
               context.read<AuthCubit>().authCheckRequested();
             },
           ),

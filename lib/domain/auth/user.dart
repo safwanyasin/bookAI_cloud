@@ -1,4 +1,3 @@
-import 'package:book_ai/domain/auth/value_objects.dart';
 import 'package:book_ai/domain/core/value_objects.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 

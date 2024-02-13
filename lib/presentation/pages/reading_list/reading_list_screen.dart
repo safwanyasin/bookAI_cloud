@@ -18,7 +18,6 @@ class ReadingListScreen extends StatefulWidget {
 }
 
 class _ReadingListScreenState extends State<ReadingListScreen> {
-  @override
   List<Book> readingListItems = [];
 
   @override
@@ -49,8 +48,9 @@ class _ReadingListScreenState extends State<ReadingListScreen> {
                     readingListItems = state.books;
                     print('reading list state map');
                     return Subheading(
-                      content:
-                          'Showing ${readingListItems.length} books on your reading list',
+                      content: readingListItems.length == 1
+                          ? 'Showing ${readingListItems.length} book on your reading list'
+                          : 'Showing ${readingListItems.length} books on your reading list',
                     );
                   },
                   orElse: () => Container(),

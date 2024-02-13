@@ -2,13 +2,14 @@ import 'dart:ui';
 
 import 'package:auto_route/auto_route.dart';
 import 'package:book_ai/application/auth/auth_cubit.dart';
-import 'package:book_ai/domain/auth/login/i_login_facade.dart';
-import 'package:book_ai/infrastructure/auth/login/firebase_login_facade.dart';
 import 'package:book_ai/presentation/routing/router/router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SidebarMenu extends StatelessWidget {
+  const SidebarMenu({super.key});
+
   @override
   Widget build(BuildContext context) {
     return BlocListener<AuthCubit, AuthState>(
@@ -30,7 +31,7 @@ class SidebarMenu extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Container(
-                    padding: EdgeInsets.all(20),
+                    padding: EdgeInsets.all(20.w),
                     child: Text(
                       'TaleTuner',
                       style: TextStyle(
@@ -92,7 +93,7 @@ class SidebarMenu extends StatelessWidget {
 class MenuItem extends StatelessWidget {
   final String title;
   final VoidCallback onPressed;
-  const MenuItem({required this.title, required this.onPressed});
+  const MenuItem({super.key, required this.title, required this.onPressed});
 
   @override
   Widget build(BuildContext context) {

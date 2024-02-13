@@ -1,5 +1,4 @@
 import 'package:book_ai/application/story/story_watcher/story_watcher_cubit.dart';
-import 'package:book_ai/presentation/classes/prev_stories.dart';
 import 'package:book_ai/presentation/reusable_components/cards/previous_stories_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

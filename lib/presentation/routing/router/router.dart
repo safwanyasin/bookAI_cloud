@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:book_ai/domain/book/book.dart';
 import 'package:book_ai/presentation/pages/advanced_search/advance_search_screen.dart';
+import 'package:book_ai/presentation/pages/api_input_screen/api_input_screen.dart';
 import 'package:book_ai/presentation/pages/book_details/book_details_screen.dart';
 import 'package:book_ai/presentation/pages/login/login.dart';
 import 'package:book_ai/presentation/pages/reading_list/reading_list_screen.dart';
@@ -12,6 +13,7 @@ import 'package:book_ai/presentation/pages/test.dart';
 import 'package:book_ai/presentation/splash/splash_screen.dart';
 import 'package:book_ai/presentation/pages/ai_generate/ai_generate_screen.dart';
 import 'package:book_ai/presentation/pages/wishlist/wishlist_screen.dart';
+import 'package:book_ai/presentation/story/story_screen.dart';
 import 'package:flutter/foundation.dart';
 // import 'package:book_ai/presentation/router/router.dart';
 
@@ -66,5 +68,9 @@ class AppRouter extends _$AppRouter {
           page: StoryRoute.page,
           transitionsBuilder: TransitionsBuilders.fadeIn,
         ),
+        CustomRoute(
+          page: ApiInputRoute.page,
+          transitionsBuilder: TransitionsBuilders.fadeIn,
+        )
       ];
 }
