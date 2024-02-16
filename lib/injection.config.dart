@@ -8,27 +8,29 @@
 // coverage:ignore-file
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'package:book_ai/application/ai_generate/ai_generate_cubit.dart' as _i21;
-import 'package:book_ai/application/api_input/api_input_cubit.dart' as _i22;
-import 'package:book_ai/application/auth/auth_cubit.dart' as _i23;
+import 'package:book_ai/application/ai_generate/ai_generate_cubit.dart' as _i22;
+import 'package:book_ai/application/api_input/api_input_cubit.dart' as _i23;
+import 'package:book_ai/application/auth/auth_cubit.dart' as _i24;
 import 'package:book_ai/application/auth/login/login_cubit.dart' as _i12;
 import 'package:book_ai/application/auth/register/register_cubit.dart' as _i14;
 import 'package:book_ai/application/book/book_actor/book_actor_cubit.dart'
-    as _i24;
-import 'package:book_ai/application/book/book_watcher/book_watcher_cubit.dart'
-    as _i27;
-import 'package:book_ai/application/book_details/book_details_cubit.dart'
     as _i25;
+import 'package:book_ai/application/book/book_watcher/book_watcher_cubit.dart'
+    as _i28;
+import 'package:book_ai/application/book_details/book_details_cubit.dart'
+    as _i26;
 import 'package:book_ai/application/reading_list/reading_list_cubit.dart'
     as _i13;
 import 'package:book_ai/application/search/advanced_search/advanced_search_cubit.dart'
-    as _i20;
+    as _i21;
 import 'package:book_ai/application/search/search_cubit.dart' as _i15;
 import 'package:book_ai/application/story/story_actor/story_actor_cubit.dart'
     as _i16;
 import 'package:book_ai/application/story/story_watcher/story_watcher_cubit.dart'
-    as _i18;
-import 'package:book_ai/application/wishlist/wishlist_cubit.dart' as _i19;
+    as _i19;
+import 'package:book_ai/application/story_history/story_history_cubit.dart'
+    as _i17;
+import 'package:book_ai/application/wishlist/wishlist_cubit.dart' as _i20;
 import 'package:book_ai/domain/api_input/i_api_input_repository.dart' as _i8;
 import 'package:book_ai/domain/auth/login/i_login_facade.dart' as _i10;
 import 'package:book_ai/domain/book/i_book_repository.dart' as _i9;
@@ -36,10 +38,10 @@ import 'package:book_ai/domain/story/i_story_repository.dart' as _i11;
 import 'package:book_ai/infrastructure/api_input/api_input_repository.dart'
     as _i3;
 import 'package:book_ai/infrastructure/auth/login/firebase_login_facade.dart'
-    as _i28;
-import 'package:book_ai/infrastructure/book/book_repository.dart' as _i26;
-import 'package:book_ai/infrastructure/injectable_module.dart' as _i29;
-import 'package:book_ai/infrastructure/story/story_repository.dart' as _i17;
+    as _i29;
+import 'package:book_ai/infrastructure/book/book_repository.dart' as _i27;
+import 'package:book_ai/infrastructure/injectable_module.dart' as _i30;
+import 'package:book_ai/infrastructure/story/story_repository.dart' as _i18;
 import 'package:cloud_firestore/cloud_firestore.dart' as _i6;
 import 'package:dio/dio.dart' as _i4;
 import 'package:firebase_auth/firebase_auth.dart' as _i5;
@@ -81,30 +83,32 @@ extension GetItInjectableX on _i1.GetIt {
         () => _i15.SearchCubit(gh<_i9.IBookRepository>()));
     gh.factory<_i16.StoryActorCubit>(
         () => _i16.StoryActorCubit(gh<_i11.IStoryRepository>()));
-    gh.lazySingleton<_i17.StoryRepository>(() => _i17.StoryRepository(
+    gh.factory<_i17.StoryHistoryCubit>(
+        () => _i17.StoryHistoryCubit(gh<_i11.IStoryRepository>()));
+    gh.lazySingleton<_i18.StoryRepository>(() => _i18.StoryRepository(
           gh<_i6.FirebaseFirestore>(),
           gh<_i8.IApiInputRepository>(),
         ));
-    gh.factory<_i18.StoryWatcherCubit>(
-        () => _i18.StoryWatcherCubit(gh<_i11.IStoryRepository>()));
-    gh.factory<_i19.WishlistCubit>(
-        () => _i19.WishlistCubit(gh<_i9.IBookRepository>()));
-    gh.factory<_i20.AdvancedSearchCubit>(
-        () => _i20.AdvancedSearchCubit(gh<_i9.IBookRepository>()));
-    gh.factory<_i21.AiGenerateCubit>(
-        () => _i21.AiGenerateCubit(gh<_i17.StoryRepository>()));
-    gh.factory<_i22.ApiInputCubit>(
-        () => _i22.ApiInputCubit(gh<_i8.IApiInputRepository>()));
-    gh.factory<_i23.AuthCubit>(() => _i23.AuthCubit(gh<_i10.ILoginFacade>()));
-    gh.factory<_i24.BookActorCubit>(
-        () => _i24.BookActorCubit(gh<_i9.IBookRepository>()));
-    gh.factory<_i25.BookDetailsCubit>(
-        () => _i25.BookDetailsCubit(gh<_i9.IBookRepository>()));
-    gh.lazySingleton<_i26.BookRepository>(
-        () => _i26.BookRepository(gh<_i6.FirebaseFirestore>()));
-    gh.factory<_i27.BookWatcherCubit>(
-        () => _i27.BookWatcherCubit(gh<_i9.IBookRepository>()));
-    gh.lazySingleton<_i28.FirebaseLoginFacade>(() => _i28.FirebaseLoginFacade(
+    gh.factory<_i19.StoryWatcherCubit>(
+        () => _i19.StoryWatcherCubit(gh<_i11.IStoryRepository>()));
+    gh.factory<_i20.WishlistCubit>(
+        () => _i20.WishlistCubit(gh<_i9.IBookRepository>()));
+    gh.factory<_i21.AdvancedSearchCubit>(
+        () => _i21.AdvancedSearchCubit(gh<_i9.IBookRepository>()));
+    gh.factory<_i22.AiGenerateCubit>(
+        () => _i22.AiGenerateCubit(gh<_i18.StoryRepository>()));
+    gh.factory<_i23.ApiInputCubit>(
+        () => _i23.ApiInputCubit(gh<_i8.IApiInputRepository>()));
+    gh.factory<_i24.AuthCubit>(() => _i24.AuthCubit(gh<_i10.ILoginFacade>()));
+    gh.factory<_i25.BookActorCubit>(
+        () => _i25.BookActorCubit(gh<_i9.IBookRepository>()));
+    gh.factory<_i26.BookDetailsCubit>(
+        () => _i26.BookDetailsCubit(gh<_i9.IBookRepository>()));
+    gh.lazySingleton<_i27.BookRepository>(
+        () => _i27.BookRepository(gh<_i6.FirebaseFirestore>()));
+    gh.factory<_i28.BookWatcherCubit>(
+        () => _i28.BookWatcherCubit(gh<_i9.IBookRepository>()));
+    gh.lazySingleton<_i29.FirebaseLoginFacade>(() => _i29.FirebaseLoginFacade(
           gh<_i5.FirebaseAuth>(),
           gh<_i7.GoogleSignIn>(),
         ));
@@ -112,4 +116,4 @@ extension GetItInjectableX on _i1.GetIt {
   }
 }
 
-class _$InjectableModule extends _i29.InjectableModule {}
+class _$InjectableModule extends _i30.InjectableModule {}
