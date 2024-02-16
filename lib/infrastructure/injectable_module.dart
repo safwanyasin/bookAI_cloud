@@ -41,9 +41,8 @@ abstract class InjectableModule {
   @lazySingleton
   IStoryRepository get storyRepository => StoryRepository(
         getIt<FirebaseFirestore>(),
+        getIt<IApiInputRepository>(),
       );
   @lazySingleton
-  IApiInputRepository get apiInputRepository => ApiInputRepository(
-        getIt<FirebaseFirestore>(),
-      );
+  IApiInputRepository get apiInputRepository => ApiInputRepository();
 }

@@ -96,20 +96,24 @@ class BookRepository implements IBookRepository {
       searchTerm = searchTerm.trim();
       searchTerm = searchTerm.replaceAll(RegExp(r'\s+'), ' ');
       searchTerm = searchTerm.replaceAll(' ', '+');
+      print(
+          'putting in dio: https://www.googleapis.com/books/v1/volumes?q=$searchTerm&maxResults=40');
       final dio = Dio();
       // final response = await dio
       //     .get("https://www.googleapis.com/books/v1/volumes?q=$searchTerm");
       final Response response = await dio.get(
-        "https://www.googleapis.com/books/v1/volumes",
-        queryParameters: {
-          'q': searchTerm,
-          'maxResults': 40, // Set maxResults to 40
-        },
+        "https://www.googleapis.com/books/v1/volumes?q=$searchTerm&maxResults=40",
+        // queryParameters: {
+        //   'q': searchTerm,
+        //   'maxResults': 40, // Set maxResults to 40
+        // },
       );
-      // print(response);
-      final List<Book> books = (response.data['items'] as List)
-          .map((item) => Book.fromGoogleBooksApi(item))
-          .toList();
+      print(response);
+      final bookList = response.data['items'] != null
+          ? (response.data['items'] as List)
+          : [];
+      final List<Book> books =
+          bookList.map((item) => Book.fromGoogleBooksApi(item)).toList();
       // print(books);
       return right(books);
     } on PlatformException catch (e) {

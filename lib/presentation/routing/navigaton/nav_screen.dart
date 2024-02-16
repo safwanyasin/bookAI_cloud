@@ -60,6 +60,7 @@ class _NavScreenState extends State<NavScreen> {
       // ),
       drawer: SidebarMenu(),
       appBar: AppBar(
+        scrolledUnderElevation: 0,
         backgroundColor:
             Colors.transparent, // Set AppBar background to transparent
         elevation: 0, // Remove AppBar elevation

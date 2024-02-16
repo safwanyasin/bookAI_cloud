@@ -16,16 +16,17 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$AdvancedSearchState {
-  Genre get genre => throw _privateConstructorUsedError;
-  Setting get setting => throw _privateConstructorUsedError;
-  TimePeriod get timePeriod => throw _privateConstructorUsedError;
-  MainCharacterTraits get mainCharacterTraits =>
-      throw _privateConstructorUsedError;
-  Gender get gender => throw _privateConstructorUsedError;
-  NarrativeStyle get narrativeStyle => throw _privateConstructorUsedError;
+  GeneralSearchTerm get generalSearchTerm => throw _privateConstructorUsedError;
+  Title get title => throw _privateConstructorUsedError;
+  Author get author => throw _privateConstructorUsedError;
+  Subject get subject => throw _privateConstructorUsedError;
+  Isbn get isbn => throw _privateConstructorUsedError;
+  Publisher get publisher => throw _privateConstructorUsedError;
+  OrderBy get orderBy => throw _privateConstructorUsedError;
+  PrintType get printType => throw _privateConstructorUsedError;
   bool get isSubmitting => throw _privateConstructorUsedError;
-  Option<Either<AiGenerateFailure, Unit>> get searchFailureOrSuccessOption =>
-      throw _privateConstructorUsedError;
+  Option<Either<AdvancedSearchFailure, List<Book>>>
+      get searchFailureOrSuccessOption => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $AdvancedSearchStateCopyWith<AdvancedSearchState> get copyWith =>
@@ -39,14 +40,17 @@ abstract class $AdvancedSearchStateCopyWith<$Res> {
       _$AdvancedSearchStateCopyWithImpl<$Res, AdvancedSearchState>;
   @useResult
   $Res call(
-      {Genre genre,
-      Setting setting,
-      TimePeriod timePeriod,
-      MainCharacterTraits mainCharacterTraits,
-      Gender gender,
-      NarrativeStyle narrativeStyle,
+      {GeneralSearchTerm generalSearchTerm,
+      Title title,
+      Author author,
+      Subject subject,
+      Isbn isbn,
+      Publisher publisher,
+      OrderBy orderBy,
+      PrintType printType,
       bool isSubmitting,
-      Option<Either<AiGenerateFailure, Unit>> searchFailureOrSuccessOption});
+      Option<Either<AdvancedSearchFailure, List<Book>>>
+          searchFailureOrSuccessOption});
 }
 
 /// @nodoc
@@ -62,40 +66,50 @@ class _$AdvancedSearchStateCopyWithImpl<$Res, $Val extends AdvancedSearchState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? genre = null,
-    Object? setting = null,
-    Object? timePeriod = null,
-    Object? mainCharacterTraits = null,
-    Object? gender = null,
-    Object? narrativeStyle = null,
+    Object? generalSearchTerm = null,
+    Object? title = null,
+    Object? author = null,
+    Object? subject = null,
+    Object? isbn = null,
+    Object? publisher = null,
+    Object? orderBy = null,
+    Object? printType = null,
     Object? isSubmitting = null,
     Object? searchFailureOrSuccessOption = null,
   }) {
     return _then(_value.copyWith(
-      genre: null == genre
-          ? _value.genre
-          : genre // ignore: cast_nullable_to_non_nullable
-              as Genre,
-      setting: null == setting
-          ? _value.setting
-          : setting // ignore: cast_nullable_to_non_nullable
-              as Setting,
-      timePeriod: null == timePeriod
-          ? _value.timePeriod
-          : timePeriod // ignore: cast_nullable_to_non_nullable
-              as TimePeriod,
-      mainCharacterTraits: null == mainCharacterTraits
-          ? _value.mainCharacterTraits
-          : mainCharacterTraits // ignore: cast_nullable_to_non_nullable
-              as MainCharacterTraits,
-      gender: null == gender
-          ? _value.gender
-          : gender // ignore: cast_nullable_to_non_nullable
-              as Gender,
-      narrativeStyle: null == narrativeStyle
-          ? _value.narrativeStyle
-          : narrativeStyle // ignore: cast_nullable_to_non_nullable
-              as NarrativeStyle,
+      generalSearchTerm: null == generalSearchTerm
+          ? _value.generalSearchTerm
+          : generalSearchTerm // ignore: cast_nullable_to_non_nullable
+              as GeneralSearchTerm,
+      title: null == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as Title,
+      author: null == author
+          ? _value.author
+          : author // ignore: cast_nullable_to_non_nullable
+              as Author,
+      subject: null == subject
+          ? _value.subject
+          : subject // ignore: cast_nullable_to_non_nullable
+              as Subject,
+      isbn: null == isbn
+          ? _value.isbn
+          : isbn // ignore: cast_nullable_to_non_nullable
+              as Isbn,
+      publisher: null == publisher
+          ? _value.publisher
+          : publisher // ignore: cast_nullable_to_non_nullable
+              as Publisher,
+      orderBy: null == orderBy
+          ? _value.orderBy
+          : orderBy // ignore: cast_nullable_to_non_nullable
+              as OrderBy,
+      printType: null == printType
+          ? _value.printType
+          : printType // ignore: cast_nullable_to_non_nullable
+              as PrintType,
       isSubmitting: null == isSubmitting
           ? _value.isSubmitting
           : isSubmitting // ignore: cast_nullable_to_non_nullable
@@ -103,7 +117,7 @@ class _$AdvancedSearchStateCopyWithImpl<$Res, $Val extends AdvancedSearchState>
       searchFailureOrSuccessOption: null == searchFailureOrSuccessOption
           ? _value.searchFailureOrSuccessOption
           : searchFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
-              as Option<Either<AiGenerateFailure, Unit>>,
+              as Option<Either<AdvancedSearchFailure, List<Book>>>,
     ) as $Val);
   }
 }
@@ -117,14 +131,17 @@ abstract class _$$AdvancedSearchStateImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {Genre genre,
-      Setting setting,
-      TimePeriod timePeriod,
-      MainCharacterTraits mainCharacterTraits,
-      Gender gender,
-      NarrativeStyle narrativeStyle,
+      {GeneralSearchTerm generalSearchTerm,
+      Title title,
+      Author author,
+      Subject subject,
+      Isbn isbn,
+      Publisher publisher,
+      OrderBy orderBy,
+      PrintType printType,
       bool isSubmitting,
-      Option<Either<AiGenerateFailure, Unit>> searchFailureOrSuccessOption});
+      Option<Either<AdvancedSearchFailure, List<Book>>>
+          searchFailureOrSuccessOption});
 }
 
 /// @nodoc
@@ -138,40 +155,50 @@ class __$$AdvancedSearchStateImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? genre = null,
-    Object? setting = null,
-    Object? timePeriod = null,
-    Object? mainCharacterTraits = null,
-    Object? gender = null,
-    Object? narrativeStyle = null,
+    Object? generalSearchTerm = null,
+    Object? title = null,
+    Object? author = null,
+    Object? subject = null,
+    Object? isbn = null,
+    Object? publisher = null,
+    Object? orderBy = null,
+    Object? printType = null,
     Object? isSubmitting = null,
     Object? searchFailureOrSuccessOption = null,
   }) {
     return _then(_$AdvancedSearchStateImpl(
-      genre: null == genre
-          ? _value.genre
-          : genre // ignore: cast_nullable_to_non_nullable
-              as Genre,
-      setting: null == setting
-          ? _value.setting
-          : setting // ignore: cast_nullable_to_non_nullable
-              as Setting,
-      timePeriod: null == timePeriod
-          ? _value.timePeriod
-          : timePeriod // ignore: cast_nullable_to_non_nullable
-              as TimePeriod,
-      mainCharacterTraits: null == mainCharacterTraits
-          ? _value.mainCharacterTraits
-          : mainCharacterTraits // ignore: cast_nullable_to_non_nullable
-              as MainCharacterTraits,
-      gender: null == gender
-          ? _value.gender
-          : gender // ignore: cast_nullable_to_non_nullable
-              as Gender,
-      narrativeStyle: null == narrativeStyle
-          ? _value.narrativeStyle
-          : narrativeStyle // ignore: cast_nullable_to_non_nullable
-              as NarrativeStyle,
+      generalSearchTerm: null == generalSearchTerm
+          ? _value.generalSearchTerm
+          : generalSearchTerm // ignore: cast_nullable_to_non_nullable
+              as GeneralSearchTerm,
+      title: null == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as Title,
+      author: null == author
+          ? _value.author
+          : author // ignore: cast_nullable_to_non_nullable
+              as Author,
+      subject: null == subject
+          ? _value.subject
+          : subject // ignore: cast_nullable_to_non_nullable
+              as Subject,
+      isbn: null == isbn
+          ? _value.isbn
+          : isbn // ignore: cast_nullable_to_non_nullable
+              as Isbn,
+      publisher: null == publisher
+          ? _value.publisher
+          : publisher // ignore: cast_nullable_to_non_nullable
+              as Publisher,
+      orderBy: null == orderBy
+          ? _value.orderBy
+          : orderBy // ignore: cast_nullable_to_non_nullable
+              as OrderBy,
+      printType: null == printType
+          ? _value.printType
+          : printType // ignore: cast_nullable_to_non_nullable
+              as PrintType,
       isSubmitting: null == isSubmitting
           ? _value.isSubmitting
           : isSubmitting // ignore: cast_nullable_to_non_nullable
@@ -179,7 +206,7 @@ class __$$AdvancedSearchStateImplCopyWithImpl<$Res>
       searchFailureOrSuccessOption: null == searchFailureOrSuccessOption
           ? _value.searchFailureOrSuccessOption
           : searchFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
-              as Option<Either<AiGenerateFailure, Unit>>,
+              as Option<Either<AdvancedSearchFailure, List<Book>>>,
     ));
   }
 }
@@ -188,36 +215,43 @@ class __$$AdvancedSearchStateImplCopyWithImpl<$Res>
 
 class _$AdvancedSearchStateImpl extends _AdvancedSearchState {
   const _$AdvancedSearchStateImpl(
-      {required this.genre,
-      required this.setting,
-      required this.timePeriod,
-      required this.mainCharacterTraits,
-      required this.gender,
-      required this.narrativeStyle,
+      {required this.generalSearchTerm,
+      required this.title,
+      required this.author,
+      required this.subject,
+      required this.isbn,
+      required this.publisher,
+      required this.orderBy,
+      required this.printType,
       required this.isSubmitting,
       required this.searchFailureOrSuccessOption})
       : super._();
 
   @override
-  final Genre genre;
+  final GeneralSearchTerm generalSearchTerm;
   @override
-  final Setting setting;
+  final Title title;
   @override
-  final TimePeriod timePeriod;
+  final Author author;
   @override
-  final MainCharacterTraits mainCharacterTraits;
+  final Subject subject;
   @override
-  final Gender gender;
+  final Isbn isbn;
   @override
-  final NarrativeStyle narrativeStyle;
+  final Publisher publisher;
+  @override
+  final OrderBy orderBy;
+  @override
+  final PrintType printType;
   @override
   final bool isSubmitting;
   @override
-  final Option<Either<AiGenerateFailure, Unit>> searchFailureOrSuccessOption;
+  final Option<Either<AdvancedSearchFailure, List<Book>>>
+      searchFailureOrSuccessOption;
 
   @override
   String toString() {
-    return 'AdvancedSearchState(genre: $genre, setting: $setting, timePeriod: $timePeriod, mainCharacterTraits: $mainCharacterTraits, gender: $gender, narrativeStyle: $narrativeStyle, isSubmitting: $isSubmitting, searchFailureOrSuccessOption: $searchFailureOrSuccessOption)';
+    return 'AdvancedSearchState(generalSearchTerm: $generalSearchTerm, title: $title, author: $author, subject: $subject, isbn: $isbn, publisher: $publisher, orderBy: $orderBy, printType: $printType, isSubmitting: $isSubmitting, searchFailureOrSuccessOption: $searchFailureOrSuccessOption)';
   }
 
   @override
@@ -225,15 +259,17 @@ class _$AdvancedSearchStateImpl extends _AdvancedSearchState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$AdvancedSearchStateImpl &&
-            (identical(other.genre, genre) || other.genre == genre) &&
-            (identical(other.setting, setting) || other.setting == setting) &&
-            (identical(other.timePeriod, timePeriod) ||
-                other.timePeriod == timePeriod) &&
-            (identical(other.mainCharacterTraits, mainCharacterTraits) ||
-                other.mainCharacterTraits == mainCharacterTraits) &&
-            (identical(other.gender, gender) || other.gender == gender) &&
-            (identical(other.narrativeStyle, narrativeStyle) ||
-                other.narrativeStyle == narrativeStyle) &&
+            (identical(other.generalSearchTerm, generalSearchTerm) ||
+                other.generalSearchTerm == generalSearchTerm) &&
+            (identical(other.title, title) || other.title == title) &&
+            (identical(other.author, author) || other.author == author) &&
+            (identical(other.subject, subject) || other.subject == subject) &&
+            (identical(other.isbn, isbn) || other.isbn == isbn) &&
+            (identical(other.publisher, publisher) ||
+                other.publisher == publisher) &&
+            (identical(other.orderBy, orderBy) || other.orderBy == orderBy) &&
+            (identical(other.printType, printType) ||
+                other.printType == printType) &&
             (identical(other.isSubmitting, isSubmitting) ||
                 other.isSubmitting == isSubmitting) &&
             (identical(other.searchFailureOrSuccessOption,
@@ -245,12 +281,14 @@ class _$AdvancedSearchStateImpl extends _AdvancedSearchState {
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      genre,
-      setting,
-      timePeriod,
-      mainCharacterTraits,
-      gender,
-      narrativeStyle,
+      generalSearchTerm,
+      title,
+      author,
+      subject,
+      isbn,
+      publisher,
+      orderBy,
+      printType,
       isSubmitting,
       searchFailureOrSuccessOption);
 
@@ -264,33 +302,40 @@ class _$AdvancedSearchStateImpl extends _AdvancedSearchState {
 
 abstract class _AdvancedSearchState extends AdvancedSearchState {
   const factory _AdvancedSearchState(
-      {required final Genre genre,
-      required final Setting setting,
-      required final TimePeriod timePeriod,
-      required final MainCharacterTraits mainCharacterTraits,
-      required final Gender gender,
-      required final NarrativeStyle narrativeStyle,
+      {required final GeneralSearchTerm generalSearchTerm,
+      required final Title title,
+      required final Author author,
+      required final Subject subject,
+      required final Isbn isbn,
+      required final Publisher publisher,
+      required final OrderBy orderBy,
+      required final PrintType printType,
       required final bool isSubmitting,
-      required final Option<Either<AiGenerateFailure, Unit>>
+      required final Option<Either<AdvancedSearchFailure, List<Book>>>
           searchFailureOrSuccessOption}) = _$AdvancedSearchStateImpl;
   const _AdvancedSearchState._() : super._();
 
   @override
-  Genre get genre;
+  GeneralSearchTerm get generalSearchTerm;
   @override
-  Setting get setting;
+  Title get title;
   @override
-  TimePeriod get timePeriod;
+  Author get author;
   @override
-  MainCharacterTraits get mainCharacterTraits;
+  Subject get subject;
   @override
-  Gender get gender;
+  Isbn get isbn;
   @override
-  NarrativeStyle get narrativeStyle;
+  Publisher get publisher;
+  @override
+  OrderBy get orderBy;
+  @override
+  PrintType get printType;
   @override
   bool get isSubmitting;
   @override
-  Option<Either<AiGenerateFailure, Unit>> get searchFailureOrSuccessOption;
+  Option<Either<AdvancedSearchFailure, List<Book>>>
+      get searchFailureOrSuccessOption;
   @override
   @JsonKey(ignore: true)
   _$$AdvancedSearchStateImplCopyWith<_$AdvancedSearchStateImpl> get copyWith =>

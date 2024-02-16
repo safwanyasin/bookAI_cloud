@@ -88,6 +88,7 @@ class _HomescreenCardState extends State<HomescreenCard> {
                             Text(
                               widget.bookDetails.authorName.getOrCrash(),
                               style: Theme.of(context).textTheme.labelSmall,
+                              overflow: TextOverflow.ellipsis,
                             ),
                           ],
                         ),

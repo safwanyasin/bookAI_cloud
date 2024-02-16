@@ -89,7 +89,7 @@ Either<ValueFailure<String>, String> validateOpenApiKey(String input) {
   // Example:
   if (input.isEmpty) {
     return left(ValueFailure<String>.empty(failedValue: input));
-  } else if (input.length != 51) {
+  } else if (input.length != 39) {
     return left(ValueFailure<String>.incorrectLength(failedValue: input));
   } else {
     return right(input);
@@ -160,15 +160,36 @@ Either<ValueFailure<String>, String> validateBookId(String bookId) {
 }
 
 Either<ValueFailure<String>, String> validateGender(String gender) {
-  if (gender == 'male' || gender == 'female' || gender == 'prefer not to say') {
+  if (gender == 'Male' || gender == 'Female' || gender == 'Unspecified') {
     return right(gender);
   } else {
     return left(ValueFailure<String>.invalidValue(failedValue: gender));
   }
 }
 
+Either<ValueFailure<String>, String> validatePrintType(String printType) {
+  if (printType == 'All' || printType == 'Books' || printType == 'Magazines') {
+    return right(printType.toLowerCase());
+  } else {
+    return left(ValueFailure<String>.invalidValue(failedValue: printType));
+  }
+}
+
+Either<ValueFailure<String>, String> validateOrderBy(String printType) {
+  if (printType == 'None' ||
+      printType == 'Relevance' ||
+      printType == 'Publish Date') {
+    return right(printType.toLowerCase());
+  } else {
+    return left(ValueFailure<String>.invalidValue(failedValue: printType));
+  }
+}
+
 Either<ValueFailure<String>, String> validateNarrativeStyle(String style) {
-  if (style == 'male' || style == 'female' || style == 'prefer not to say') {
+  if (style == 'First Person' ||
+      style == 'Second Person' ||
+      style == 'Third Person' ||
+      style == 'Unspecified') {
     return right(style);
   } else {
     return left(ValueFailure<String>.invalidValue(failedValue: style));

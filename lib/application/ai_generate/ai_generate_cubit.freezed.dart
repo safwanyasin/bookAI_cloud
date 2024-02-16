@@ -24,8 +24,8 @@ mixin _$AiGenerateState {
   Gender get gender => throw _privateConstructorUsedError;
   NarrativeStyle get narrativeStyle => throw _privateConstructorUsedError;
   bool get isSubmitting => throw _privateConstructorUsedError;
-  Option<Either<AiGenerateFailure, Unit>> get generateFailureOrSuccessOption =>
-      throw _privateConstructorUsedError;
+  Option<Either<AiGenerateFailure, StoryDto>>
+      get generateFailureOrSuccessOption => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $AiGenerateStateCopyWith<AiGenerateState> get copyWith =>
@@ -46,7 +46,8 @@ abstract class $AiGenerateStateCopyWith<$Res> {
       Gender gender,
       NarrativeStyle narrativeStyle,
       bool isSubmitting,
-      Option<Either<AiGenerateFailure, Unit>> generateFailureOrSuccessOption});
+      Option<Either<AiGenerateFailure, StoryDto>>
+          generateFailureOrSuccessOption});
 }
 
 /// @nodoc
@@ -103,7 +104,7 @@ class _$AiGenerateStateCopyWithImpl<$Res, $Val extends AiGenerateState>
       generateFailureOrSuccessOption: null == generateFailureOrSuccessOption
           ? _value.generateFailureOrSuccessOption
           : generateFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
-              as Option<Either<AiGenerateFailure, Unit>>,
+              as Option<Either<AiGenerateFailure, StoryDto>>,
     ) as $Val);
   }
 }
@@ -124,7 +125,8 @@ abstract class _$$AiGenerateStateImplCopyWith<$Res>
       Gender gender,
       NarrativeStyle narrativeStyle,
       bool isSubmitting,
-      Option<Either<AiGenerateFailure, Unit>> generateFailureOrSuccessOption});
+      Option<Either<AiGenerateFailure, StoryDto>>
+          generateFailureOrSuccessOption});
 }
 
 /// @nodoc
@@ -179,7 +181,7 @@ class __$$AiGenerateStateImplCopyWithImpl<$Res>
       generateFailureOrSuccessOption: null == generateFailureOrSuccessOption
           ? _value.generateFailureOrSuccessOption
           : generateFailureOrSuccessOption // ignore: cast_nullable_to_non_nullable
-              as Option<Either<AiGenerateFailure, Unit>>,
+              as Option<Either<AiGenerateFailure, StoryDto>>,
     ));
   }
 }
@@ -213,7 +215,8 @@ class _$AiGenerateStateImpl extends _AiGenerateState {
   @override
   final bool isSubmitting;
   @override
-  final Option<Either<AiGenerateFailure, Unit>> generateFailureOrSuccessOption;
+  final Option<Either<AiGenerateFailure, StoryDto>>
+      generateFailureOrSuccessOption;
 
   @override
   String toString() {
@@ -271,7 +274,7 @@ abstract class _AiGenerateState extends AiGenerateState {
       required final Gender gender,
       required final NarrativeStyle narrativeStyle,
       required final bool isSubmitting,
-      required final Option<Either<AiGenerateFailure, Unit>>
+      required final Option<Either<AiGenerateFailure, StoryDto>>
           generateFailureOrSuccessOption}) = _$AiGenerateStateImpl;
   const _AiGenerateState._() : super._();
 
@@ -290,7 +293,8 @@ abstract class _AiGenerateState extends AiGenerateState {
   @override
   bool get isSubmitting;
   @override
-  Option<Either<AiGenerateFailure, Unit>> get generateFailureOrSuccessOption;
+  Option<Either<AiGenerateFailure, StoryDto>>
+      get generateFailureOrSuccessOption;
   @override
   @JsonKey(ignore: true)
   _$$AiGenerateStateImplCopyWith<_$AiGenerateStateImpl> get copyWith =>

@@ -10,21 +10,30 @@ class AiGenerateState with _$AiGenerateState {
     required Gender gender,
     required NarrativeStyle narrativeStyle,
     required bool isSubmitting,
-    required Option<Either<AiGenerateFailure, Unit>>
+    required Option<Either<AiGenerateFailure, StoryDto>>
         generateFailureOrSuccessOption,
     // can add a userdialog over here to show the error messages
   }) = _AiGenerateState;
 
   const AiGenerateState._();
 
+  Option<Either<AiGenerateFailure, StoryDto>> get result {
+    return generateFailureOrSuccessOption;
+  }
+
   factory AiGenerateState.initial() => AiGenerateState(
         genre: Genre(''),
         setting: Setting(''),
         timePeriod: TimePeriod(''),
         mainCharacterTraits: MainCharacterTraits(''),
-        gender: Gender(''),
-        narrativeStyle: NarrativeStyle(''),
+        gender: Gender('Unspecified'),
+        narrativeStyle: NarrativeStyle('Unspecified'),
         isSubmitting: false,
         generateFailureOrSuccessOption: none(),
       );
+  // const factory AiGenerateState.loading() = _Loading;
+  // const factory AiGenerateState.generateFailure(AiGenerateFailure failure) =
+  //     _GenerateFailure;
+  // const factory AiGenerateState.generateSuccess(StoryItem story) =
+  //     _GenerateSuccess;
 }

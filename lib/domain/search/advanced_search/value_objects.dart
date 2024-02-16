@@ -3,80 +3,106 @@ import 'package:book_ai/domain/core/value_objects.dart';
 import 'package:book_ai/domain/core/value_validators.dart';
 import 'package:dartz/dartz.dart';
 
-class Genre extends ValueObject<String> {
+class GeneralSearchTerm extends ValueObject<String> {
   @override
   final Either<ValueFailure<String>, String> value;
 
-  factory Genre(String input) {
-    return Genre._(
+  factory GeneralSearchTerm(String input) {
+    return GeneralSearchTerm._(
       right(input),
     );
   }
 
-  const Genre._(this.value);
+  const GeneralSearchTerm._(this.value);
 }
 
-class Setting extends ValueObject<String> {
+class Title extends ValueObject<String> {
   @override
   final Either<ValueFailure<String>, String> value;
 
-  factory Setting(String input) {
-    return Setting._(
+  factory Title(String input) {
+    return Title._(
       right(input),
     );
   }
 
-  const Setting._(this.value);
+  const Title._(this.value);
 }
 
-class TimePeriod extends ValueObject<String> {
+class Author extends ValueObject<String> {
   @override
   final Either<ValueFailure<String>, String> value;
 
-  factory TimePeriod(String input) {
-    return TimePeriod._(
+  factory Author(String input) {
+    return Author._(
       right(input),
     );
   }
 
-  const TimePeriod._(this.value);
+  const Author._(this.value);
 }
 
-class MainCharacterTraits extends ValueObject<String> {
+class Publisher extends ValueObject<String> {
   @override
   final Either<ValueFailure<String>, String> value;
 
-  factory MainCharacterTraits(String input) {
-    return MainCharacterTraits._(
+  factory Publisher(String input) {
+    return Publisher._(
       right(input),
     );
   }
 
-  const MainCharacterTraits._(this.value);
+  const Publisher._(this.value);
 }
 
-class Gender extends ValueObject<String> {
+class Subject extends ValueObject<String> {
   @override
   final Either<ValueFailure<String>, String> value;
 
-  factory Gender(String input) {
-    return Gender._(
-      validateGender(input),
+  factory Subject(String input) {
+    return Subject._(
+      right(input),
     );
   }
 
-  const Gender._(this.value);
+  const Subject._(this.value);
 }
 
-class NarrativeStyle extends ValueObject<String> {
+class PrintType extends ValueObject<String> {
   @override
   final Either<ValueFailure<String>, String> value;
 
-  factory NarrativeStyle(String input) {
-    return NarrativeStyle._(
-      validateNarrativeStyle(input),
+  factory PrintType(String input) {
+    return PrintType._(
+      validatePrintType(input),
     );
   }
 
-  const NarrativeStyle._(this.value);
+  const PrintType._(this.value);
+}
+
+class Isbn extends ValueObject<String> {
+  @override
+  final Either<ValueFailure<String>, String> value;
+
+  factory Isbn(String input) {
+    return Isbn._(
+      right(input),
+    );
+  }
+
+  const Isbn._(this.value);
+}
+
+class OrderBy extends ValueObject<String> {
+  @override
+  final Either<ValueFailure<String>, String> value;
+
+  factory OrderBy(String input) {
+    return OrderBy._(
+      validateOrderBy(input),
+    );
+  }
+
+  const OrderBy._(this.value);
 }

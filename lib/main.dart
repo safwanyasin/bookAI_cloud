@@ -1,6 +1,8 @@
 import 'package:book_ai/injection.dart';
 import 'package:book_ai/presentation/core/app_widget.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter_gemini/flutter_gemini.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'firebase_options.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -13,6 +15,13 @@ void main() async {
   );
   await ScreenUtil.ensureScreenSize();
   configureInjection(Environment.prod);
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  String? apiKey = prefs.getString('apiKey');
+  // print('apiKey AIzaSyC44aaTTEG1l5Y8_lH57Tn9DySE21S4AEY');'
+  print('apikey $apiKey');
+  if (apiKey != null) {
+    Gemini.init(apiKey: apiKey!);
+  }
 
   runApp(AppWidget());
 }

@@ -3,14 +3,16 @@ part of 'advanced_search_cubit.dart';
 @freezed
 class AdvancedSearchState with _$AdvancedSearchState {
   const factory AdvancedSearchState({
-    required Genre genre,
-    required Setting setting,
-    required TimePeriod timePeriod,
-    required MainCharacterTraits mainCharacterTraits,
-    required Gender gender,
-    required NarrativeStyle narrativeStyle,
+    required GeneralSearchTerm generalSearchTerm,
+    required Title title,
+    required Author author,
+    required Subject subject,
+    required Isbn isbn,
+    required Publisher publisher,
+    required OrderBy orderBy,
+    required PrintType printType,
     required bool isSubmitting,
-    required Option<Either<AiGenerateFailure, Unit>>
+    required Option<Either<AdvancedSearchFailure, List<Book>>>
         searchFailureOrSuccessOption,
     // can add a userdialog over here to show the error messages
   }) = _AdvancedSearchState;
@@ -18,15 +20,15 @@ class AdvancedSearchState with _$AdvancedSearchState {
   const AdvancedSearchState._();
 
   factory AdvancedSearchState.initial() => AdvancedSearchState(
-        genre: Genre(''),
-        setting: Setting(''),
-        timePeriod: TimePeriod(''),
-        mainCharacterTraits: MainCharacterTraits(''),
-        gender: Gender(''),
-        narrativeStyle: NarrativeStyle(''),
+        generalSearchTerm: GeneralSearchTerm(''),
+        title: Title(''),
+        author: Author(''),
+        subject: Subject(''),
+        isbn: Isbn(''),
+        publisher: Publisher(''),
+        orderBy: OrderBy('None'),
+        printType: PrintType('All'),
         isSubmitting: false,
         searchFailureOrSuccessOption: none(),
       );
 }
-
-

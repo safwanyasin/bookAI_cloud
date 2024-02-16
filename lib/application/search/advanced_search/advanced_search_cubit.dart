@@ -1,5 +1,7 @@
-import 'package:book_ai/domain/ai_generate/ai_generate_failure.dart';
-import 'package:book_ai/domain/ai_generate/value_objects.dart';
+import 'package:book_ai/domain/book/book.dart';
+import 'package:book_ai/domain/book/i_book_repository.dart';
+import 'package:book_ai/domain/search/advanced_search/advanced_search_failure.dart';
+import 'package:book_ai/domain/search/advanced_search/value_objects.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -12,62 +14,184 @@ part 'advanced_search_state.dart';
 
 @injectable
 class AdvancedSearchCubit extends Cubit<AdvancedSearchState> {
-  AdvancedSearchCubit() : super(AdvancedSearchState.initial());
+  final IBookRepository _bookRepository;
+  AdvancedSearchCubit(this._bookRepository)
+      : super(AdvancedSearchState.initial());
 
-  void updateGenre(String typedGenre) {
+  void updateGeneralSearchTerm(String typedSearchTerm) {
     emit(
       state.copyWith(
-        genre: Genre(typedGenre),
+        generalSearchTerm: GeneralSearchTerm(typedSearchTerm),
         searchFailureOrSuccessOption: none(),
       ),
     );
   }
 
-  void updateSetting(String typedSetting) {
+  void updateTitle(String typedTitle) {
     emit(
       state.copyWith(
-        setting: Setting(typedSetting),
+        title: Title(typedTitle),
         searchFailureOrSuccessOption: none(),
       ),
     );
   }
 
-  void updateTimePeriod(String typedTimePeriod) {
+  void updateAuthor(String typedAuthor) {
     emit(
       state.copyWith(
-        timePeriod: TimePeriod(typedTimePeriod),
+        author: Author(typedAuthor),
         searchFailureOrSuccessOption: none(),
       ),
     );
   }
 
-  void updateMainCharacterTraits(String typedMainCharacterTraits) {
+  void updatePublisher(String typedPublisher) {
     emit(
       state.copyWith(
-        mainCharacterTraits: MainCharacterTraits(typedMainCharacterTraits),
+        publisher: Publisher(typedPublisher),
         searchFailureOrSuccessOption: none(),
       ),
     );
   }
 
-  void updateGender(String typedGender) {
+  void updateSubject(String typedSubject) {
     emit(
       state.copyWith(
-        gender: Gender(typedGender),
+        subject: Subject(typedSubject),
         searchFailureOrSuccessOption: none(),
       ),
     );
   }
 
-  void updateNarrativeStyle(String typedNarrativeStyle) {
+  void updateIsbn(String typedIsbn) {
     emit(
       state.copyWith(
-        narrativeStyle: NarrativeStyle(typedNarrativeStyle),
+        isbn: Isbn(typedIsbn),
         searchFailureOrSuccessOption: none(),
       ),
     );
   }
 
-  // do the call to openapi from here
-  Future<void> search() async {}
+  void updatePrintType(String typedPrintType) {
+    emit(
+      state.copyWith(
+        printType: PrintType(typedPrintType),
+        searchFailureOrSuccessOption: none(),
+      ),
+    );
+  }
+
+  void updateOrderBy(String typedOrderBy) {
+    emit(
+      state.copyWith(
+        orderBy: OrderBy(typedOrderBy),
+        searchFailureOrSuccessOption: none(),
+      ),
+    );
+  }
+
+  void reset() {
+    print('resetting advanced search state');
+    emit(AdvancedSearchState.initial());
+  }
+
+  Future<void> search() async {
+    emit(
+      state.copyWith(
+        isSubmitting: true,
+      ),
+    );
+    String searchQuery = state.generalSearchTerm.getOrCrash();
+    final titleParameter = state.title.getOrCrash().isNotEmpty
+        ? '+intitle:${state.title.getOrCrash()}'
+        : '';
+    final authorParameter = state.author.getOrCrash().isNotEmpty
+        ? '+inauthor:${state.author.getOrCrash()}'
+        : '';
+    final publisherParameter = state.publisher.getOrCrash().isNotEmpty
+        ? '+inpublisher:${state.publisher.getOrCrash()}'
+        : '';
+    final subjectParameter = state.subject.getOrCrash().isNotEmpty
+        ? '+subject:${state.subject.getOrCrash()}'
+        : '';
+    final isbnParameter = state.isbn.getOrCrash().isNotEmpty
+        ? '+isbn:${state.isbn.getOrCrash()}'
+        : '';
+    final printTypeParameter = state.printType.getOrCrash().isNotEmpty
+        ? '&printType=${state.printType.getOrCrash()}'
+        : '';
+        print(state.orderBy.getOrCrash());
+    String orderByParameter =
+        state.orderBy.getOrCrash() == 'publish date'
+            ? 'newest'
+            : state.orderBy.getOrCrash();
+    orderByParameter = orderByParameter != 'none'
+        ? '&orderBy=$orderByParameter'
+        : '';
+        print(orderByParameter);
+    String filters = titleParameter +
+        authorParameter +
+        publisherParameter +
+        subjectParameter +
+        isbnParameter +
+        printTypeParameter +
+        orderByParameter;
+    if (state.generalSearchTerm.getOrCrash().isEmpty) {
+      filters = filters.substring(1, filters.length);
+    }
+    searchQuery = searchQuery + filters;
+    print('the search query $searchQuery');
+    final possibleFailure = await _bookRepository.get(searchQuery);
+    // emit(possibleFailure.fold(
+    //   (f) => const SearchState.searchFailure(SearchFailure.otherFailure(
+    //       "An unexpected error occurred. Couldn't get results")),
+    //   (books) => SearchState.searchSuccess(books),
+    // ));
+
+    if (possibleFailure.isLeft()) {
+      return possibleFailure.fold((failure) {
+        failure.maybeWhen(
+          unexpected: () => emit(
+            state.copyWith(
+                isSubmitting: false,
+                searchFailureOrSuccessOption: some(
+                  left(const AdvancedSearchFailure.unexpected()),
+                )),
+          ),
+          unableToUpdate: () => emit(
+            state.copyWith(
+                isSubmitting: false,
+                searchFailureOrSuccessOption: some(
+                  left(const AdvancedSearchFailure.unableToUpdate()),
+                )),
+          ),
+          insufficientPermissions: () => emit(
+            state.copyWith(
+                isSubmitting: false,
+                searchFailureOrSuccessOption: some(
+                  left(const AdvancedSearchFailure.insufficientPermissions()),
+                )),
+          ),
+          orElse: () => emit(
+            state.copyWith(
+                isSubmitting: false,
+                searchFailureOrSuccessOption: some(
+                  left(const AdvancedSearchFailure.otherFailure(
+                      'An unexpected error occurred')),
+                )),
+          ),
+        );
+      }, (books) {});
+    } else {
+      possibleFailure.fold((_) {}, (books) {
+        print(books);
+        emit(state.copyWith(
+          isSubmitting: false,
+          searchFailureOrSuccessOption: some(right(books)),
+        ));
+        print(state.isSubmitting);
+        print(state.searchFailureOrSuccessOption);
+      });
+    }
+  }
 }

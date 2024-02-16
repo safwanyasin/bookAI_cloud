@@ -2,7 +2,7 @@ import 'package:another_flushbar/flushbar.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:book_ai/application/api_input/api_input_cubit.dart';
 import 'package:book_ai/application/auth/auth_cubit.dart';
-import 'package:book_ai/application/auth/login/login_cubit.dart';
+import 'package:book_ai/presentation/reusable_components/buttons/filter_button.dart';
 import 'package:book_ai/presentation/reusable_components/buttons/plain_button_small.dart';
 import 'package:book_ai/presentation/reusable_components/buttons/primary_button.dart';
 import 'package:book_ai/presentation/reusable_components/input/input_fields.dart';
@@ -79,7 +79,7 @@ class ApiInputForm extends StatelessWidget {
               SizedBox(height: 15.h),
               PrimaryButton(
                 onPressed: () {
-                  context.read<ApiInputCubit>().addApi();
+                  context.read<ApiInputCubit>().addApi(false);
                   // AutoRouter.of(context).popAndPush(const NavRoute());
                 },
                 text: 'Continue',
@@ -107,6 +107,20 @@ class ApiInputForm extends StatelessWidget {
                   ),
                 ],
               ),
+              SizedBox(height: 10.h),
+              FilterButton(
+                text: 'Skip for now',
+                active: false,
+                onPressed: () {
+                  context.read<ApiInputCubit>().addApi(true);
+                },
+              ),
+              // Expanded(
+              //   child: Container(),
+              // ),
+              Text(
+                  "Note: Your API key would be stored in your device's local storage for privacy purposes",
+                  style: Theme.of(context).textTheme.labelSmall),
               // if (state.isSubmitting) ...[
               //   SizedBox(height: 5.h),
               //   const LinearProgressIndicator(),

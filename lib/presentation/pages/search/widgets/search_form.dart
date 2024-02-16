@@ -57,14 +57,13 @@ class _SearchFormState extends State<SearchForm> {
                     child: Center(child: CircularProgressIndicator())),
                 searchSuccess: (_) => Expanded(
                   child: results.isNotEmpty
-                      ? ListView.builder(
-                          scrollDirection: Axis.vertical,
-                          itemCount: results.length + 1,
-                          itemBuilder: ((context, index) {
-                            if (index == 0) {
-                              return Padding(
+                      ? Expanded(
+                          child: Column(
+                            children: [
+                              Padding(
                                 padding: EdgeInsets.only(top: 5.h),
                                 child: RichText(
+                                  textAlign: TextAlign.start,
                                     text: TextSpan(children: <TextSpan>[
                                   TextSpan(
                                     text: 'Showing ',
@@ -82,12 +81,20 @@ class _SearchFormState extends State<SearchForm> {
                                         Theme.of(context).textTheme.bodyLarge,
                                   ),
                                 ])),
-                              );
-                            } else {
-                              return SearchResultCard(book: results[index - 1]);
-                            }
-                            // return Divider();
-                          }),
+                              ),
+                              Expanded(
+                                child: ListView.builder(
+                                  scrollDirection: Axis.vertical,
+                                  itemCount: results.length,
+                                  itemBuilder: ((context, index) {
+                                    return SearchResultCard(book: results[index]);
+                                
+                                    // return Divider();
+                                  }),
+                                ),
+                              ),
+                            ],
+                          ),
                         )
                       : Padding(
                           padding: EdgeInsets.only(top: 15.h),

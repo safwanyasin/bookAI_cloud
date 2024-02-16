@@ -188,7 +188,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     PlainButton(
                       onPressed: () {
                         print('See all button pressed');
-                        AutoRouter.of(context).push(const StoryRoute());
+                        // AutoRouter.of(context).push(const StoryRoute());
                       },
                       buttonText: 'See all',
                     ),
@@ -227,7 +227,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 //   onChanged: (_) {},
                 //   validator: (_) {},
                 // ),
-                SizedBox(height: 90.h)
+                SizedBox(height: 60.h)
               ],
             ),
           ),

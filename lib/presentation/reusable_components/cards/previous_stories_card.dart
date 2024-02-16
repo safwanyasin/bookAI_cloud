@@ -1,11 +1,13 @@
 import 'dart:ui';
+import 'package:auto_route/auto_route.dart';
 import 'package:book_ai/domain/story/story.dart';
+import 'package:book_ai/infrastructure/story/story_dtos.dart';
+import 'package:book_ai/presentation/routing/router/router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class PreviousStoriesCard extends StatelessWidget {
   final StoryItem previousStory;
-
   const PreviousStoriesCard({Key? key, required this.previousStory});
 
   @override
@@ -13,7 +15,10 @@ class PreviousStoriesCard extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.only(right: 10.w),
       child: GestureDetector(
-        onTap: () {},
+        onTap: () {
+          final StoryDto storyDto = StoryDto.fromDomain(previousStory);
+          AutoRouter.of(context).push(StoryRoute(story: storyDto));
+        },
         child: SizedBox(
           // height: 120.w,
           width: 100.w,

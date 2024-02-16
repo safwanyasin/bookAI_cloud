@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:book_ai/domain/book/book.dart';
-import 'package:book_ai/presentation/pages/advanced_search/advance_search_screen.dart';
+import 'package:book_ai/infrastructure/story/story_dtos.dart';
+import 'package:book_ai/presentation/pages/search/advanced_search/advanced_search_screen.dart';
 import 'package:book_ai/presentation/pages/api_input_screen/api_input_screen.dart';
 import 'package:book_ai/presentation/pages/book_details/book_details_screen.dart';
 import 'package:book_ai/presentation/pages/login/login.dart';
@@ -67,6 +68,7 @@ class AppRouter extends _$AppRouter {
         CustomRoute(
           page: StoryRoute.page,
           transitionsBuilder: TransitionsBuilders.fadeIn,
+          durationInMilliseconds: 1000,
         ),
         CustomRoute(
           page: ApiInputRoute.page,

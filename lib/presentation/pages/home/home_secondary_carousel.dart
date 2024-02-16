@@ -40,7 +40,7 @@ class _HomeSecondaryCarouselState extends State<HomeSecondaryCarousel> {
           loadSuccess: (state) {
             return state.story.isNotEmpty
                 ? SizedBox(
-                    height: 140.h,
+                    height: 170.h,
                     child: ListView.builder(
                         scrollDirection: Axis.horizontal,
                         itemCount: state.story.length,
@@ -49,7 +49,13 @@ class _HomeSecondaryCarouselState extends State<HomeSecondaryCarousel> {
                           if (storyItem.failureOption.isSome()) {
                             print('error');
                             // return error card
-                            return Container();
+                            return SizedBox(
+                              height: 140.h,
+                              child: const Center(
+                                child: Text('Unable to load items'),
+                                // possible additions: create a try again button
+                              ),
+                            );
                           } else {
                             return PreviousStoriesCard(
                                 previousStory: storyItem);
@@ -59,8 +65,7 @@ class _HomeSecondaryCarouselState extends State<HomeSecondaryCarousel> {
                 : SizedBox(
                     height: 30.h,
                     child: const Center(
-                      child: Text(
-                          'No stories generated'),
+                      child: Text('No stories generated'),
                     ));
           },
           loadFailure: (state) {

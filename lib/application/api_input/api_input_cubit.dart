@@ -24,15 +24,16 @@ class ApiInputCubit extends Cubit<ApiInputState> {
     );
   }
 
-  Future<void> addApi() async {
+  Future<void> addApi(bool empty) async {
     final apiKey = state.apiKey;
     emit(
       state.copyWith(
         isSubmitting: true,
       ),
     );
-    final submitResult = await _apiInputRepository.create(apiKey);
-    
+    final submitResult = empty
+        ? await _apiInputRepository.createEmpty()
+        : await _apiInputRepository.create(apiKey);
 
     if (submitResult.isLeft()) {
       return submitResult.fold((failure) {
@@ -58,7 +59,7 @@ class ApiInputCubit extends Cubit<ApiInputState> {
                         left(const ApiInputFailure.insufficientPermissions())),
                   ),
                 ),
-            orElse: () => print('some unknow error'));
+            orElse: () => print('some unknown error'));
       }, (_) {});
     } else {
       emit(state.copyWith(

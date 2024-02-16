@@ -56,6 +56,7 @@ class _DropdownMenuInputState<T> extends State<DropdownMenuInput<T>> {
                   padding: EdgeInsets.symmetric(horizontal: 16.w),
                   child: DropdownButtonFormField<T>(
                     value: widget.value,
+                    dropdownColor: Theme.of(context).focusColor,
                     items: widget.items.map((item) {
                       return DropdownMenuItem<T>(
                         value: item,
