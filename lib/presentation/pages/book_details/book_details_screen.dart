@@ -78,18 +78,21 @@ class _BookDetailsScreenState extends State<BookDetailsScreen>
                     ),
                     curve: Curves.easeInOut,
                   )),
-                  child: Expanded(
-                      child: Stack(
-                    children: [
-                      const AnimatedBackground(),
-                      Center(
-                        child: SizedBox(
-                          height: 50.h,
-                          child: const LoadingIndicator(),
-                        ),
-                      )
-                    ],
-                  )),
+                  child: Container(
+                    height: MediaQuery.of(context).size.height,
+                    width: MediaQuery.of(context).size.width,
+                    child: Stack(
+                      children: [
+                        const AnimatedBackground(),
+                        Center(
+                          child: SizedBox(
+                            height: 50.h,
+                            child: const LoadingIndicator(),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
                 )
               : Scaffold(
                   resizeToAvoidBottomInset: false,
@@ -97,7 +100,7 @@ class _BookDetailsScreenState extends State<BookDetailsScreen>
                     backgroundColor: Colors
                         .transparent, // Set AppBar background to transparent
                     elevation: 0, // Remove AppBar elevation
-
+                    scrolledUnderElevation: 0,
                     actions: [
                       Padding(
                         padding: EdgeInsets.only(right: 20.w),

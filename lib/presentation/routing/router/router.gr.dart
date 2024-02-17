@@ -15,6 +15,12 @@ abstract class _$AppRouter extends RootStackRouter {
 
   @override
   final Map<String, PageFactory> pagesMap = {
+    AboutRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: AboutScreen(),
+      );
+    },
     AdvancedSearchRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -22,9 +28,11 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
     AiGenerateRoute.name: (routeData) {
+      final args = routeData.argsAs<AiGenerateRouteArgs>(
+          orElse: () => const AiGenerateRouteArgs());
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const AiGenerateScreen(),
+        child: AiGenerateScreen(key: args.key),
       );
     },
     ApiInputRoute.name: (routeData) {
@@ -43,6 +51,18 @@ abstract class _$AppRouter extends RootStackRouter {
         ),
       );
     },
+    EmailVerificationRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const EmailVerificationScreen(),
+      );
+    },
+    FullWishlistRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const FullWishlistScreen(),
+      );
+    },
     LoginRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -53,6 +73,20 @@ abstract class _$AppRouter extends RootStackRouter {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const NavScreen(),
+      );
+    },
+    PrivacyPolicyRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: PrivacyPolicyScreen(),
+      );
+    },
+    ProfileRouteRoute.name: (routeData) {
+      final args = routeData.argsAs<ProfileRouteRouteArgs>(
+          orElse: () => const ProfileRouteRouteArgs());
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: ProfilePageScreen(key: args.key),
       );
     },
     ReadingListRoute.name: (routeData) {
@@ -119,6 +153,20 @@ abstract class _$AppRouter extends RootStackRouter {
 }
 
 /// generated route for
+/// [AboutScreen]
+class AboutRoute extends PageRouteInfo<void> {
+  const AboutRoute({List<PageRouteInfo>? children})
+      : super(
+          AboutRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'AboutRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
 /// [AdvancedSearchScreen]
 class AdvancedSearchRoute extends PageRouteInfo<void> {
   const AdvancedSearchRoute({List<PageRouteInfo>? children})
@@ -134,16 +182,31 @@ class AdvancedSearchRoute extends PageRouteInfo<void> {
 
 /// generated route for
 /// [AiGenerateScreen]
-class AiGenerateRoute extends PageRouteInfo<void> {
-  const AiGenerateRoute({List<PageRouteInfo>? children})
-      : super(
+class AiGenerateRoute extends PageRouteInfo<AiGenerateRouteArgs> {
+  AiGenerateRoute({
+    Key? key,
+    List<PageRouteInfo>? children,
+  }) : super(
           AiGenerateRoute.name,
+          args: AiGenerateRouteArgs(key: key),
           initialChildren: children,
         );
 
   static const String name = 'AiGenerateRoute';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static const PageInfo<AiGenerateRouteArgs> page =
+      PageInfo<AiGenerateRouteArgs>(name);
+}
+
+class AiGenerateRouteArgs {
+  const AiGenerateRouteArgs({this.key});
+
+  final Key? key;
+
+  @override
+  String toString() {
+    return 'AiGenerateRouteArgs{key: $key}';
+  }
 }
 
 /// generated route for
@@ -199,6 +262,34 @@ class BookDetailsRouteArgs {
 }
 
 /// generated route for
+/// [EmailVerificationScreen]
+class EmailVerificationRoute extends PageRouteInfo<void> {
+  const EmailVerificationRoute({List<PageRouteInfo>? children})
+      : super(
+          EmailVerificationRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'EmailVerificationRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [FullWishlistScreen]
+class FullWishlistRoute extends PageRouteInfo<void> {
+  const FullWishlistRoute({List<PageRouteInfo>? children})
+      : super(
+          FullWishlistRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'FullWishlistRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
 /// [LoginScreen]
 class LoginRoute extends PageRouteInfo<void> {
   const LoginRoute({List<PageRouteInfo>? children})
@@ -224,6 +315,49 @@ class NavRoute extends PageRouteInfo<void> {
   static const String name = 'NavRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [PrivacyPolicyScreen]
+class PrivacyPolicyRoute extends PageRouteInfo<void> {
+  const PrivacyPolicyRoute({List<PageRouteInfo>? children})
+      : super(
+          PrivacyPolicyRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'PrivacyPolicyRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [ProfilePageScreen]
+class ProfileRouteRoute extends PageRouteInfo<ProfileRouteRouteArgs> {
+  ProfileRouteRoute({
+    Key? key,
+    List<PageRouteInfo>? children,
+  }) : super(
+          ProfileRouteRoute.name,
+          args: ProfileRouteRouteArgs(key: key),
+          initialChildren: children,
+        );
+
+  static const String name = 'ProfileRouteRoute';
+
+  static const PageInfo<ProfileRouteRouteArgs> page =
+      PageInfo<ProfileRouteRouteArgs>(name);
+}
+
+class ProfileRouteRouteArgs {
+  const ProfileRouteRouteArgs({this.key});
+
+  final Key? key;
+
+  @override
+  String toString() {
+    return 'ProfileRouteRouteArgs{key: $key}';
+  }
 }
 
 /// generated route for

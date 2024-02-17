@@ -10,6 +10,7 @@ import 'package:book_ai/presentation/routing/router/router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 // ignore: must_be_immutable
 class ApiInputForm extends StatelessWidget {
@@ -95,11 +96,18 @@ class ApiInputForm extends StatelessWidget {
                   ),
                   // SizedBox(width: 2.w),
                   PlainButtonSmall(
-                      onPressed: () {
-                        AutoRouter.of(context)
-                            .popAndPush(const RegisterRoute());
-                      },
-                      buttonText: "how "),
+                    onPressed: () async {
+                      const url =
+                          'https://ai.google.dev/tutorials/setup'; // Replace with your URL
+                      Uri uri = Uri.parse(url);
+                      try {
+                        await launchUrl(uri);
+                      } catch (e) {
+                        throw 'Could not launch $url';
+                      }
+                    },
+                    buttonText: "how ",
+                  ),
                   SizedBox(width: 2.w),
                   Text(
                     "to get one",
@@ -109,7 +117,7 @@ class ApiInputForm extends StatelessWidget {
               ),
               SizedBox(height: 10.h),
               FilterButton(
-                text: 'Skip for now',
+                text: 'Add later',
                 active: false,
                 onPressed: () {
                   context.read<ApiInputCubit>().addApi(true);

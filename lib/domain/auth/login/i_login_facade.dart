@@ -1,3 +1,4 @@
+import 'package:book_ai/domain/auth/email_verification/email_verification_failure.dart';
 import 'package:book_ai/domain/auth/login/login_failure.dart';
 import 'package:book_ai/domain/auth/register/register_failure.dart';
 import 'package:book_ai/domain/auth/user.dart';
@@ -23,5 +24,7 @@ abstract class ILoginFacade {
   Future<Either<RegisterFailure, Unit>> registerWithGoogle();
   // Future<Either<ValueFailure, DocumentSnapshot>> getUser();
   Future<DocumentSnapshot> getUser();
+  Future<bool> checkIfVerified();
+  Future<Either<EmailVerificationFailure, Unit>> sendEmailverification();
   Future<void> signOut();
 }

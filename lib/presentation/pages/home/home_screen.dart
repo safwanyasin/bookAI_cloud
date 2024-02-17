@@ -16,7 +16,6 @@ import 'package:book_ai/presentation/routing/router/router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:dio/dio.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -26,58 +25,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  // List<Book> items = [
-  //   Book(
-  //       author: 'Roald Dahl',
-  //       name: 'Matilda',
-  //       description: 'this book is about a girl named matilda',
-  //       pageCount: 300,
-  //       reviewCount: 5000,
-  //       liked: true,
-  //       imageUrl:
-  //           "http://books.google.com/books/content?id=ggbLDwAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
-  //       onPressed: () {},
-  //       rating: 4.4,
-  //       language: 'English'),
-  //   Book(
-  //       author: 'Adolf Hitler',
-  //       name: 'Mein Kampf',
-  //       description: 'this is the autobiography of Adolf Hitler',
-  //       pageCount: 300,
-  //       reviewCount: 5000,
-  //       liked: false,
-  //       imageUrl:
-  //           "http://books.google.com/books/content?id=B7QkEAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
-  //       onPressed: () {},
-  //       rating: 4.4,
-  //       language: 'English'),
-  //   Book(
-  //       author: 'Jeff Kinney',
-  //       name: 'Diary of a wimpy kid',
-  //       description: 'this book is about a dumb kid made for dumb kids to read',
-  //       pageCount: 300,
-  //       reviewCount: 5000,
-  //       liked: true,
-  //       imageUrl:
-  //           "http://books.google.com/books/content?id=8MXK_KrHOZYC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
-  //       onPressed: () {},
-  //       rating: 4.4,
-  //       language: 'English'),
-  // ];
-
-  // List<PreviousStory> previousStoriesList = [
-  //   PreviousStory(
-  //     title: 'The happy prince',
-  //     content: 'This is the description of the story',
-  //     creationDate: DateTime.now(),
-  //   ),
-  //   PreviousStory(
-  //     title: 'Football is great',
-  //     content: 'This is the description of the story',
-  //     creationDate: DateTime.now(),
-  //   ),
-  // ];
-
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
@@ -99,6 +46,9 @@ class _HomeScreenState extends State<HomeScreen> {
             state.maybeMap(
                 unauthenticated: (_) => AutoRouter.of(context).replace(
                       const LoginRoute(),
+                    ),
+                unverified: (_) => AutoRouter.of(context).replace(
+                      const EmailVerificationRoute(),
                     ),
                 orElse: () {});
           }),
@@ -139,6 +89,7 @@ class _HomeScreenState extends State<HomeScreen> {
               children: [
                 SizedBox(height: 95.h),
                 BlocBuilder<AuthCubit, AuthState>(builder: (context, state) {
+                  print(state);
                   return state.maybeMap(authenticated: (value) {
                     return RichText(
                         text: TextSpan(children: <TextSpan>[
@@ -151,8 +102,11 @@ class _HomeScreenState extends State<HomeScreen> {
                         style: Theme.of(context).textTheme.labelMedium,
                       ),
                     ]));
-                  }, orElse: () {
-                    return Text('Hi there!');
+                  }, unverified: (_) {
+                    AutoRouter.of(context).replace(const EmailVerificationRoute());
+                    return const Text('Hi there!');
+                  },orElse: () {
+                    return const Text('Hi there!');
                   });
                 }),
                 SizedBox(height: 2.h),
@@ -183,12 +137,11 @@ class _HomeScreenState extends State<HomeScreen> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     const SectionHeading(
-                      content: 'Top picks for you',
+                      content: "Some books you'd like to read",
                     ),
                     PlainButton(
                       onPressed: () {
-                        print('See all button pressed');
-                        // AutoRouter.of(context).push(const StoryRoute());
+                        AutoRouter.of(context).push(const FullWishlistRoute());
                       },
                       buttonText: 'See all',
                     ),
@@ -204,13 +157,8 @@ class _HomeScreenState extends State<HomeScreen> {
                       content: 'Read stories you have generated',
                     ),
                     PlainButton(
-                      onPressed: () async {
-                        final dio = Dio();
-
-                        final response = await dio.get(
-                            'https://www.googleapis.com/books/v1/volumes?q=mein+kampf');
-                        print(response);
-                        print(response.runtimeType);
+                      onPressed: () {
+                        AutoRouter.of(context).push(const StoryHistoryRoute());
                         print('see all button pressed');
                       },
                       buttonText: 'See all',

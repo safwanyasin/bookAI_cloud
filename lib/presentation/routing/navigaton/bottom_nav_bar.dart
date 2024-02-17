@@ -19,6 +19,14 @@ class BottomNavBar extends StatefulWidget {
 class _BottomNavBarState extends State<BottomNavBar> {
   int _selectedTab = 0;
 
+  // add init state
+
+  @override
+  void initState() {
+    super.initState();
+    // Set the icon with index 0 to be active when the page renders
+  }
+
   void _onRiveIconInit(Artboard artboard, index) {
     final controller = StateMachineController.fromArtboard(
         artboard, bottomNavItems[index].rive.stateMachineName);

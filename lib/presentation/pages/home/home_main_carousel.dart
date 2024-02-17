@@ -62,7 +62,7 @@ class _HomeMainCarouselState extends State<HomeMainCarousel> {
                     height: 50.h,
                     child: const Center(
                       child: Text(
-                          'Add some items to your reading list to receive recommendations'),
+                          'Add some items to your wish list'),
                     ));
           },
           loadFailure: (state) {

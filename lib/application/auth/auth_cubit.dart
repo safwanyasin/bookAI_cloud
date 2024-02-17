@@ -15,14 +15,22 @@ class AuthCubit extends Cubit<AuthState> {
 
   void authCheckRequested() async {
     final userOption = await _loginFacade.getSignedInUser();
-    DocumentSnapshot? userDoc;
+    dynamic userDoc;
+    bool isVerified = false;
     if (userOption.isSome()) {
-      userDoc = await _loginFacade.getUser();
+      isVerified = await _loginFacade.checkIfVerified();
+      if (isVerified) {
+        userDoc = await _loginFacade.getUser();
+      }
     }
     emit(userOption.fold(
       () => const AuthState.unauthenticated(),
       (a) {
-        return AuthState.authenticated(userDoc!);
+        if (isVerified) {
+          return AuthState.authenticated(userDoc!);
+        } else {
+          return const AuthState.unverified();
+        }
       },
     ));
   }

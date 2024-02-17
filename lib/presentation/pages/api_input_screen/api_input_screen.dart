@@ -37,7 +37,7 @@ class ApiInputScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Text(
-                  'Enter your OpenAI API key',
+                  'Enter your Gemini AI API key',
                   style: Theme.of(context).textTheme.headlineLarge,
                 ),
                 BlocProvider(

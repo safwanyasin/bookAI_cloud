@@ -68,6 +68,19 @@ class ConfirmPassword extends ValueObject<String> {
   const ConfirmPassword._(this.value);
 }
 
+class Otp extends ValueObject<String> {
+  @override
+  final Either<ValueFailure<String>, String> value;
+
+  factory Otp(String input) {
+    return Otp._(
+      right(input),
+    );
+  }
+
+  const Otp._(this.value);
+}
+
 class ParameterInput extends ValueObject<String> {
   @override
   final Either<ValueFailure<String>, String> value;
@@ -105,4 +118,17 @@ class ApiInput extends ValueObject<String> {
   }
 
   const ApiInput._(this.value);
+}
+
+class ApiKey extends ValueObject<String> {
+  @override
+  final Either<ValueFailure<String>, String> value;
+
+  factory ApiKey(String input) {
+    return ApiKey._(
+      validateOpenApiKey(input),
+    );
+  }
+
+  const ApiKey._(this.value);
 }

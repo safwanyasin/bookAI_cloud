@@ -52,7 +52,7 @@ class PreviousStoriesCard extends StatelessWidget {
                     // initial
                     Text(
                       previousStory.storyTitle.getOrCrash()[0],
-                      style: Theme.of(context).textTheme.headlineLarge,
+                      style: Theme.of(context).textTheme.displayLarge,
                     ),
                   ],
                 ),

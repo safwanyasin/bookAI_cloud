@@ -144,7 +144,7 @@ class StoryRepository extends IStoryRepository {
       final userDoc = await _firestore.userDocument();
       final storyId = story.storyId.getOrCrash();
 
-      await userDoc.wishListCollection.doc(storyId).delete();
+      await userDoc.storyCollection.doc(storyId).delete();
       return right(unit);
     } on PlatformException catch (e) {
       if (e.message!.contains('PERMISSION_DENIED')) {

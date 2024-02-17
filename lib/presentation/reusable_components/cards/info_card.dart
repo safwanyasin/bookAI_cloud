@@ -17,7 +17,7 @@ class InfoCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(top: 13.w, bottom: 13.w),
+      margin: EdgeInsets.only(top: 10.h, bottom: 10.h),
       child: Dismissible(
         direction: DismissDirection.endToStart,
         background: Container(

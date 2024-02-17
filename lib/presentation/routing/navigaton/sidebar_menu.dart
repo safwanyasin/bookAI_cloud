@@ -21,7 +21,7 @@ class SidebarMenu extends StatelessWidget {
             orElse: () {});
       },
       child: Drawer(
-        backgroundColor: Colors.transparent,
+        backgroundColor: const Color.fromARGB(120, 0, 0, 0),
         child: BackdropFilter(
           filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
           child: Container(
@@ -31,17 +31,13 @@ class SidebarMenu extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Container(
-                    padding: EdgeInsets.all(20.w),
-                    child: Text(
+                    padding: EdgeInsets.only(top: 20.w, left: 10.w, bottom:20.w),
+                    child:  Text(
                       'TaleTuner',
-                      style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
-                      ),
+                      style: Theme.of(context).textTheme.headlineLarge,
                     ),
                   ),
-                  Divider(
+                  const Divider(
                     color: Colors.white,
                   ),
                   // Add your menu items here
@@ -49,21 +45,17 @@ class SidebarMenu extends StatelessWidget {
                     child: Column(
                       children: [
                         MenuItem(
-                          title: 'Item 1',
-                          onPressed: () {},
+                          title: 'About',
+                          onPressed: () {AutoRouter.of(context).push(const AboutRoute());},
                         ),
                         MenuItem(
-                          title: 'Item 2',
-                          onPressed: () {},
-                        ),
-                        MenuItem(
-                          title: 'Item 3',
-                          onPressed: () {},
+                          title: 'Privacy Policy',
+                          onPressed: () { AutoRouter.of(context).push(const PrivacyPolicyRoute());},
                         ),
                       ],
                     ),
                   ),
-                  Divider(
+                  const Divider(
                     color: Colors.white,
                   ),
                   // BlocBuilder<AuthCubit, AuthState>(builder: (context, state) {
@@ -100,10 +92,7 @@ class MenuItem extends StatelessWidget {
     return ListTile(
       title: Text(
         title,
-        style: TextStyle(
-          fontSize: 16,
-          color: Colors.white,
-        ),
+        style: Theme.of(context).textTheme.headlineMedium,
       ),
       onTap: () {
         // Handle menu item click

@@ -20,7 +20,7 @@ class BookWatcherCubit extends Cubit<BookWatcherState> {
 
   BookWatcherCubit(this._bookRepository)
       : super(const BookWatcherState.initial()) {
-    watchReadingListStarted();
+    // watchReadingListStarted();
     watchWishListStarted();
   }
 

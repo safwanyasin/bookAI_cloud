@@ -27,6 +27,7 @@ class _StoryScreenState extends State<StoryScreen> {
         toolbarHeight: 50.h,
         backgroundColor: Colors.transparent,
         elevation: 0,
+        scrolledUnderElevation: 0,
         centerTitle: true,
         title: Column(
           children: [

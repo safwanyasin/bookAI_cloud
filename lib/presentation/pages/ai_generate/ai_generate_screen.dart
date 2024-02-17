@@ -5,10 +5,32 @@ import 'package:book_ai/presentation/pages/ai_generate/widgets/ai_generate_form.
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 @RoutePage()
-class AiGenerateScreen extends StatelessWidget {
-  const AiGenerateScreen({super.key});
+class AiGenerateScreen extends StatefulWidget {
+  AiGenerateScreen({super.key});
+
+  @override
+  State<AiGenerateScreen> createState() => _AiGenerateScreenState();
+}
+
+class _AiGenerateScreenState extends State<AiGenerateScreen> {
+  String? apiKeyString = '';
+
+  late Future<String?> apiKey;
+
+  Future<String?> getApiKey() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    apiKeyString = prefs.getString('apiKey');
+    return prefs.getString('apiKey');
+  }
+  // add init state
+  @override
+  void initState() {
+    super.initState();
+    apiKey = getApiKey();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -17,8 +39,19 @@ class AiGenerateScreen extends StatelessWidget {
       margin: EdgeInsets.only(left: 20.w, right: 20.w),
       height: MediaQuery.of(context).size.height,
       child: BlocProvider<AiGenerateCubit>(
-          create: (context) => getIt<AiGenerateCubit>(),
-          child: const AiGenerateForm(),),
+        create: (context) => getIt<AiGenerateCubit>(),
+        child: FutureBuilder(
+            future: apiKey,
+            builder: (context, snapshot) {
+              if (snapshot.connectionState == ConnectionState.done) {
+                return apiKey != ''
+                    ? AiGenerateForm(keyPresent: true)
+                    : AiGenerateForm(keyPresent: false);
+              } else {
+                return Container();
+              }
+            }),
+      ),
       // SingleChildScrollView(
       //   scrollDirection: Axis.vertical,
       //   child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [

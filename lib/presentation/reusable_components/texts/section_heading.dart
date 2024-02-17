@@ -9,6 +9,7 @@ class SectionHeading extends StatelessWidget {
     return Text(
       content,
       style: Theme.of(context).textTheme.headlineMedium,
+      overflow: TextOverflow.ellipsis,
     );
   }
 }

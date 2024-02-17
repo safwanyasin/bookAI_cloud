@@ -27,6 +27,11 @@ class AppTheme {
       ),
       textTheme: TextTheme(
         // button: GoogleFonts.quicksand(fontSize:15, fontWeight: FontWeight.w600, color: AppColors.primaryColor,),
+        displayLarge: GoogleFonts.quicksand(
+          fontSize: 30.w,
+          fontWeight: FontWeight.w800, // Semibold
+          color: AppColors.secondaryColor,
+        ),
         headlineLarge: GoogleFonts.quicksand(
           fontSize: 20.w,
           fontWeight: FontWeight.w600, // Semibold

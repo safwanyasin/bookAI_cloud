@@ -21,6 +21,7 @@ mixin _$AuthState {
     required TResult Function() initial,
     required TResult Function(DocumentSnapshot<Object?> user) authenticated,
     required TResult Function() unauthenticated,
+    required TResult Function() unverified,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -28,6 +29,7 @@ mixin _$AuthState {
     TResult? Function()? initial,
     TResult? Function(DocumentSnapshot<Object?> user)? authenticated,
     TResult? Function()? unauthenticated,
+    TResult? Function()? unverified,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -35,6 +37,7 @@ mixin _$AuthState {
     TResult Function()? initial,
     TResult Function(DocumentSnapshot<Object?> user)? authenticated,
     TResult Function()? unauthenticated,
+    TResult Function()? unverified,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -43,6 +46,7 @@ mixin _$AuthState {
     required TResult Function(Initial value) initial,
     required TResult Function(Authenticated value) authenticated,
     required TResult Function(Unauthenticated value) unauthenticated,
+    required TResult Function(Unverified value) unverified,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -50,6 +54,7 @@ mixin _$AuthState {
     TResult? Function(Initial value)? initial,
     TResult? Function(Authenticated value)? authenticated,
     TResult? Function(Unauthenticated value)? unauthenticated,
+    TResult? Function(Unverified value)? unverified,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -57,6 +62,7 @@ mixin _$AuthState {
     TResult Function(Initial value)? initial,
     TResult Function(Authenticated value)? authenticated,
     TResult Function(Unauthenticated value)? unauthenticated,
+    TResult Function(Unverified value)? unverified,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -120,6 +126,7 @@ class _$InitialImpl implements Initial {
     required TResult Function() initial,
     required TResult Function(DocumentSnapshot<Object?> user) authenticated,
     required TResult Function() unauthenticated,
+    required TResult Function() unverified,
   }) {
     return initial();
   }
@@ -130,6 +137,7 @@ class _$InitialImpl implements Initial {
     TResult? Function()? initial,
     TResult? Function(DocumentSnapshot<Object?> user)? authenticated,
     TResult? Function()? unauthenticated,
+    TResult? Function()? unverified,
   }) {
     return initial?.call();
   }
@@ -140,6 +148,7 @@ class _$InitialImpl implements Initial {
     TResult Function()? initial,
     TResult Function(DocumentSnapshot<Object?> user)? authenticated,
     TResult Function()? unauthenticated,
+    TResult Function()? unverified,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -154,6 +163,7 @@ class _$InitialImpl implements Initial {
     required TResult Function(Initial value) initial,
     required TResult Function(Authenticated value) authenticated,
     required TResult Function(Unauthenticated value) unauthenticated,
+    required TResult Function(Unverified value) unverified,
   }) {
     return initial(this);
   }
@@ -164,6 +174,7 @@ class _$InitialImpl implements Initial {
     TResult? Function(Initial value)? initial,
     TResult? Function(Authenticated value)? authenticated,
     TResult? Function(Unauthenticated value)? unauthenticated,
+    TResult? Function(Unverified value)? unverified,
   }) {
     return initial?.call(this);
   }
@@ -174,6 +185,7 @@ class _$InitialImpl implements Initial {
     TResult Function(Initial value)? initial,
     TResult Function(Authenticated value)? authenticated,
     TResult Function(Unauthenticated value)? unauthenticated,
+    TResult Function(Unverified value)? unverified,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -254,6 +266,7 @@ class _$AuthenticatedImpl implements Authenticated {
     required TResult Function() initial,
     required TResult Function(DocumentSnapshot<Object?> user) authenticated,
     required TResult Function() unauthenticated,
+    required TResult Function() unverified,
   }) {
     return authenticated(user);
   }
@@ -264,6 +277,7 @@ class _$AuthenticatedImpl implements Authenticated {
     TResult? Function()? initial,
     TResult? Function(DocumentSnapshot<Object?> user)? authenticated,
     TResult? Function()? unauthenticated,
+    TResult? Function()? unverified,
   }) {
     return authenticated?.call(user);
   }
@@ -274,6 +288,7 @@ class _$AuthenticatedImpl implements Authenticated {
     TResult Function()? initial,
     TResult Function(DocumentSnapshot<Object?> user)? authenticated,
     TResult Function()? unauthenticated,
+    TResult Function()? unverified,
     required TResult orElse(),
   }) {
     if (authenticated != null) {
@@ -288,6 +303,7 @@ class _$AuthenticatedImpl implements Authenticated {
     required TResult Function(Initial value) initial,
     required TResult Function(Authenticated value) authenticated,
     required TResult Function(Unauthenticated value) unauthenticated,
+    required TResult Function(Unverified value) unverified,
   }) {
     return authenticated(this);
   }
@@ -298,6 +314,7 @@ class _$AuthenticatedImpl implements Authenticated {
     TResult? Function(Initial value)? initial,
     TResult? Function(Authenticated value)? authenticated,
     TResult? Function(Unauthenticated value)? unauthenticated,
+    TResult? Function(Unverified value)? unverified,
   }) {
     return authenticated?.call(this);
   }
@@ -308,6 +325,7 @@ class _$AuthenticatedImpl implements Authenticated {
     TResult Function(Initial value)? initial,
     TResult Function(Authenticated value)? authenticated,
     TResult Function(Unauthenticated value)? unauthenticated,
+    TResult Function(Unverified value)? unverified,
     required TResult orElse(),
   }) {
     if (authenticated != null) {
@@ -368,6 +386,7 @@ class _$UnauthenticatedImpl implements Unauthenticated {
     required TResult Function() initial,
     required TResult Function(DocumentSnapshot<Object?> user) authenticated,
     required TResult Function() unauthenticated,
+    required TResult Function() unverified,
   }) {
     return unauthenticated();
   }
@@ -378,6 +397,7 @@ class _$UnauthenticatedImpl implements Unauthenticated {
     TResult? Function()? initial,
     TResult? Function(DocumentSnapshot<Object?> user)? authenticated,
     TResult? Function()? unauthenticated,
+    TResult? Function()? unverified,
   }) {
     return unauthenticated?.call();
   }
@@ -388,6 +408,7 @@ class _$UnauthenticatedImpl implements Unauthenticated {
     TResult Function()? initial,
     TResult Function(DocumentSnapshot<Object?> user)? authenticated,
     TResult Function()? unauthenticated,
+    TResult Function()? unverified,
     required TResult orElse(),
   }) {
     if (unauthenticated != null) {
@@ -402,6 +423,7 @@ class _$UnauthenticatedImpl implements Unauthenticated {
     required TResult Function(Initial value) initial,
     required TResult Function(Authenticated value) authenticated,
     required TResult Function(Unauthenticated value) unauthenticated,
+    required TResult Function(Unverified value) unverified,
   }) {
     return unauthenticated(this);
   }
@@ -412,6 +434,7 @@ class _$UnauthenticatedImpl implements Unauthenticated {
     TResult? Function(Initial value)? initial,
     TResult? Function(Authenticated value)? authenticated,
     TResult? Function(Unauthenticated value)? unauthenticated,
+    TResult? Function(Unverified value)? unverified,
   }) {
     return unauthenticated?.call(this);
   }
@@ -422,6 +445,7 @@ class _$UnauthenticatedImpl implements Unauthenticated {
     TResult Function(Initial value)? initial,
     TResult Function(Authenticated value)? authenticated,
     TResult Function(Unauthenticated value)? unauthenticated,
+    TResult Function(Unverified value)? unverified,
     required TResult orElse(),
   }) {
     if (unauthenticated != null) {
@@ -433,4 +457,118 @@ class _$UnauthenticatedImpl implements Unauthenticated {
 
 abstract class Unauthenticated implements AuthState {
   const factory Unauthenticated() = _$UnauthenticatedImpl;
+}
+
+/// @nodoc
+abstract class _$$UnverifiedImplCopyWith<$Res> {
+  factory _$$UnverifiedImplCopyWith(
+          _$UnverifiedImpl value, $Res Function(_$UnverifiedImpl) then) =
+      __$$UnverifiedImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$UnverifiedImplCopyWithImpl<$Res>
+    extends _$AuthStateCopyWithImpl<$Res, _$UnverifiedImpl>
+    implements _$$UnverifiedImplCopyWith<$Res> {
+  __$$UnverifiedImplCopyWithImpl(
+      _$UnverifiedImpl _value, $Res Function(_$UnverifiedImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$UnverifiedImpl implements Unverified {
+  const _$UnverifiedImpl();
+
+  @override
+  String toString() {
+    return 'AuthState.unverified()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$UnverifiedImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(DocumentSnapshot<Object?> user) authenticated,
+    required TResult Function() unauthenticated,
+    required TResult Function() unverified,
+  }) {
+    return unverified();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function(DocumentSnapshot<Object?> user)? authenticated,
+    TResult? Function()? unauthenticated,
+    TResult? Function()? unverified,
+  }) {
+    return unverified?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(DocumentSnapshot<Object?> user)? authenticated,
+    TResult Function()? unauthenticated,
+    TResult Function()? unverified,
+    required TResult orElse(),
+  }) {
+    if (unverified != null) {
+      return unverified();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Initial value) initial,
+    required TResult Function(Authenticated value) authenticated,
+    required TResult Function(Unauthenticated value) unauthenticated,
+    required TResult Function(Unverified value) unverified,
+  }) {
+    return unverified(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Initial value)? initial,
+    TResult? Function(Authenticated value)? authenticated,
+    TResult? Function(Unauthenticated value)? unauthenticated,
+    TResult? Function(Unverified value)? unverified,
+  }) {
+    return unverified?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Initial value)? initial,
+    TResult Function(Authenticated value)? authenticated,
+    TResult Function(Unauthenticated value)? unauthenticated,
+    TResult Function(Unverified value)? unverified,
+    required TResult orElse(),
+  }) {
+    if (unverified != null) {
+      return unverified(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class Unverified implements AuthState {
+  const factory Unverified() = _$UnverifiedImpl;
 }

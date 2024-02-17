@@ -1,5 +1,6 @@
 // this facade is in infrastructure layer because it deals with third parties
 
+import 'package:book_ai/domain/auth/email_verification/email_verification_failure.dart';
 import 'package:book_ai/domain/auth/login/i_login_facade.dart';
 import 'package:book_ai/domain/auth/login/login_failure.dart';
 import 'package:book_ai/domain/auth/register/register_failure.dart';
@@ -11,6 +12,7 @@ import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:injectable/injectable.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import './firebase_user_mapper.dart';
 
 @lazySingleton
@@ -26,6 +28,17 @@ class FirebaseLoginFacade implements ILoginFacade {
   @override
   Future<Option<AppUser>> getSignedInUser() async =>
       optionOf(_firebaseAuth.currentUser?.toDomain());
+
+  @override
+  Future<bool> checkIfVerified() async {
+    final isVerified = _firebaseAuth.currentUser?.emailVerified;
+    print('from firebase isVerified: $isVerified');
+    if (isVerified == true) {
+      return true;
+    } else {
+      return false;
+    }
+  }
   // Future<Option<AppUser>> getSignedInUser() async {
   // some(
   //   User(
@@ -155,6 +168,16 @@ class FirebaseLoginFacade implements ILoginFacade {
     }
   }
 
+  @override
+  Future<Either<EmailVerificationFailure, Unit>> sendEmailverification() async {
+    try {
+      await _firebaseAuth.currentUser?.sendEmailVerification();
+      return right(unit);
+    } on FirebaseAuthException catch (_) {
+      return left(const EmailVerificationFailure.serverError());
+    }
+  }
+
   // @override
   // Future<Either<ValueFailure, DocumentSnapshot>> getUser() async {
   //   final userDoc = await FirebaseFirestore.instance.userDocument();
@@ -169,10 +192,14 @@ class FirebaseLoginFacade implements ILoginFacade {
   }
 
   @override
-  Future<void> signOut() {
-    return Future.wait([
-      _firebaseAuth.signOut(),
-      _googleSignIn.signOut(),
-    ]);
+  Future<void> signOut() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.remove('apiKey');
+    await _firebaseAuth.signOut();
+    await _googleSignIn.signOut();
+    // return Future.wait([
+    //   _firebaseAuth.signOut(),
+    //   _googleSignIn.signOut(),
+    // ]);
   }
 }

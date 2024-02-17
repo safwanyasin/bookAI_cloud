@@ -17,8 +17,6 @@ void main() async {
   configureInjection(Environment.prod);
   SharedPreferences prefs = await SharedPreferences.getInstance();
   String? apiKey = prefs.getString('apiKey');
-  // print('apiKey AIzaSyC44aaTTEG1l5Y8_lH57Tn9DySE21S4AEY');'
-  print('apikey $apiKey');
   if (apiKey != null) {
     Gemini.init(apiKey: apiKey!);
   }
