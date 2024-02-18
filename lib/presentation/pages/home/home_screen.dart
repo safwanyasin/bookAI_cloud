@@ -89,7 +89,7 @@ class _HomeScreenState extends State<HomeScreen> {
               children: [
                 SizedBox(height: 95.h),
                 BlocBuilder<AuthCubit, AuthState>(builder: (context, state) {
-                  print(state);
+                  // print(state);
                   return state.maybeMap(authenticated: (value) {
                     return RichText(
                         text: TextSpan(children: <TextSpan>[
@@ -159,7 +159,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     PlainButton(
                       onPressed: () {
                         AutoRouter.of(context).push(const StoryHistoryRoute());
-                        print('see all button pressed');
+                        // print('see all button pressed');
                       },
                       buttonText: 'See all',
                     ),

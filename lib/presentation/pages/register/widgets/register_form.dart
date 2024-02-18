@@ -38,7 +38,7 @@ class RegisterForm extends StatelessWidget {
               ).show(context);
             },
             (_) {
-              print('hello');
+              // print('hello');
               // navigate to another page
               AutoRouter.of(context).replace(const EmailVerificationRoute());
               context.read<AuthCubit>().authCheckRequested();
@@ -59,6 +59,7 @@ class RegisterForm extends StatelessWidget {
                 validator: (_) =>
                     context.read<RegisterCubit>().state.nickName.value.fold(
                           (f) => f.maybeMap(
+                            empty: (_) => "Nickname cannot be empty",
                             shortLength: (_) {
                               return 'Nickname should have at least 3 characters';
                             },
@@ -150,12 +151,12 @@ class RegisterForm extends StatelessWidget {
                 text: 'Sign Up',
               ),
               SizedBox(height: 15.h),
-              ContinueWithGoogleButton(
-                onPressed: () {
-                  withGoogle = true;
-                  context.read<RegisterCubit>().register(false);
-                },
-              ),
+              // ContinueWithGoogleButton(
+              //   onPressed: () {
+              //     withGoogle = true;
+              //     context.read<RegisterCubit>().register(false);
+              //   },
+              // ),
               SizedBox(height: 15.h),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,

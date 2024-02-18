@@ -11,7 +11,6 @@ import 'package:book_ai/presentation/routing/router/router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class AiGenerateForm extends StatefulWidget {
   bool keyPresent;
@@ -67,7 +66,7 @@ class _AiGenerateFormState extends State<AiGenerateForm> {
                 }));
       },
       builder: (context, state) {
-        print(state.generateFailureOrSuccessOption);
+        // print(state.generateFailureOrSuccessOption);
         if (state.generateFailureOrSuccessOption.isNone() &&
             state.isSubmitting == false) {
           return SingleChildScrollView(

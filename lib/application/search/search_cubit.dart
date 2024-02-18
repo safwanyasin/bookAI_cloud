@@ -16,6 +16,7 @@ class SearchCubit extends Cubit<SearchState> {
 
   SearchCubit(this._bookRepository) : super(const SearchState.initial());
 
+  // updates the state when user input is updates. also calls the search after every two characters have been entered so user gets responses while typing
   void updateSearchQuery(String typedQuery) async {
     // if (state is _Searching) {
     //   emit(

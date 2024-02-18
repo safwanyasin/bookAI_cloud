@@ -24,46 +24,25 @@ class FirebaseLoginFacade implements ILoginFacade {
     this._firebaseAuth,
     this._googleSignIn,
   );
-
+  // gets the details of the signed in user
   @override
   Future<Option<AppUser>> getSignedInUser() async =>
       optionOf(_firebaseAuth.currentUser?.toDomain());
 
+  // checks if firebase user has done email verification
   @override
   Future<bool> checkIfVerified() async {
+    await _firebaseAuth.currentUser?.reload();
     final isVerified = _firebaseAuth.currentUser?.emailVerified;
-    print('from firebase isVerified: $isVerified');
+    // print('from firebase isVerified: $isVerified');
     if (isVerified == true) {
       return true;
     } else {
       return false;
     }
   }
-  // Future<Option<AppUser>> getSignedInUser() async {
-  // some(
-  //   User(
-  //     id: UniqueId.fromUniqueString(
-  //       _firebaseAuth.currentUser!.uid,
-  //     ),
-  //   ),
-  // );
-  // return optionOf(_firebaseAuth.currentUser?.toDomain());
 
-  // try {
-  //   User? user = _firebaseAuth.currentUser;
-
-  //   if (user == null) {
-  //     return none();
-  //   }
-
-  //   AppUser appUser = user.toDomain();
-  //   return some(appUser);
-  // } catch (e) {
-  //   print('error getting signed in user');
-  //   return none();
-  // }
-  // }
-
+  // handles user registration with email in firebase
   @override
   Future<Either<RegisterFailure, Unit>> registerWithEmailAndPassword(
       {required NickName nickName,
@@ -100,6 +79,7 @@ class FirebaseLoginFacade implements ILoginFacade {
     }
   }
 
+  // handles user login with email in firebase
   @override
   Future<Either<LoginFailure, Unit>> signInWithEmailAndPassword(
       {required EmailAddress emailAddress,
@@ -124,6 +104,7 @@ class FirebaseLoginFacade implements ILoginFacade {
     }
   }
 
+  // handles user login with google
   @override
   Future<Either<LoginFailure, Unit>> signInWithGoogle() async {
     try {
@@ -146,6 +127,7 @@ class FirebaseLoginFacade implements ILoginFacade {
     }
   }
 
+  // handles user registration with google
   @override
   Future<Either<RegisterFailure, Unit>> registerWithGoogle() async {
     try {
@@ -168,6 +150,7 @@ class FirebaseLoginFacade implements ILoginFacade {
     }
   }
 
+  // sends verification email to the user
   @override
   Future<Either<EmailVerificationFailure, Unit>> sendEmailverification() async {
     try {
@@ -184,13 +167,14 @@ class FirebaseLoginFacade implements ILoginFacade {
   //   final user = await userDoc.get();
   //   return right(user);
   // }
+  // gets snapshot of the user
   @override
   Future<DocumentSnapshot> getUser() async {
     final userDetails = await FirebaseFirestore.instance.userDocument();
     final snapshot = await userDetails.get();
     return snapshot;
   }
-
+  // signs out the user
   @override
   Future<void> signOut() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();

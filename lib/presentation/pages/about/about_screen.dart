@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:book_ai/presentation/reusable_components/backgrounds/animatied_background.dart';
+import 'package:book_ai/presentation/reusable_components/logo.dart';
 import 'package:book_ai/presentation/reusable_components/texts/heading.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -39,11 +40,17 @@ class AboutScreen extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Heading(content: 'TaleTuner'),
-                    SizedBox(height: 16.h),
-                    Text(
-                      'Version: 1.0.0',
-                      style: Theme.of(context).textTheme.bodyLarge,
+                    const SizedBox(height: 100, child: Logo()),
+                    SizedBox(height: 10.h),
+                    const Align(
+                        alignment: Alignment.center,
+                        child: Heading(content: 'Tale Tuner')),
+                    Align(
+                      alignment: Alignment.center,
+                      child: Text(
+                        'v1.0.0',
+                        style: Theme.of(context).textTheme.labelSmall,
+                      ),
                     ),
                     SizedBox(height: 16.h),
                     Text(
@@ -82,7 +89,8 @@ class AboutScreen extends StatelessWidget {
                         GestureDetector(
                           onTap: () => _launchUrl(
                               'https://www.linkedin.com/in/safwanyasin'),
-                          child: Image.asset('assets/images/linkedin.png', width: 20.w),
+                          child: Image.asset('assets/images/linkedin.png',
+                              width: 20.w),
                         ),
                         SizedBox(
                           width: 10.w,
@@ -90,7 +98,10 @@ class AboutScreen extends StatelessWidget {
                         GestureDetector(
                           onTap: () =>
                               _launchUrl('https://www.github.com/safwanyasin'),
-                          child: Image.asset('assets/images/github.png', width: 20.w,),
+                          child: Image.asset(
+                            'assets/images/github.png',
+                            width: 20.w,
+                          ),
                         ),
                       ],
                     ),
@@ -108,7 +119,7 @@ class AboutScreen extends StatelessWidget {
     Uri uri = Uri.parse(url);
     try {
       await launchUrl(uri);
-    }catch (e) {
+    } catch (e) {
       throw 'Could not launch $url';
     }
   }

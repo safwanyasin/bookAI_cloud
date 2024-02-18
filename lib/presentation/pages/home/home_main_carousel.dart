@@ -47,7 +47,7 @@ class _HomeMainCarouselState extends State<HomeMainCarousel> {
                       itemBuilder: ((context, index) {
                         final bookItem = state.book[index];
                         if (bookItem.failureOption.isSome()) {
-                          print('error');
+                          // print('error');
                           //  return error card
                           return Container();
                         } else {

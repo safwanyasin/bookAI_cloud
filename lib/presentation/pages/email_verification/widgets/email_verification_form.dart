@@ -1,17 +1,13 @@
 import 'package:another_flushbar/flushbar.dart';
 import 'package:auto_route/auto_route.dart';
-import 'package:book_ai/application/api_input/api_input_cubit.dart';
 import 'package:book_ai/application/auth/auth_cubit.dart';
 import 'package:book_ai/application/auth/email_verification/email_verification_cubit.dart';
-import 'package:book_ai/presentation/reusable_components/buttons/filter_button.dart';
 import 'package:book_ai/presentation/reusable_components/buttons/plain_button_small.dart';
 import 'package:book_ai/presentation/reusable_components/buttons/primary_button.dart';
-import 'package:book_ai/presentation/reusable_components/input/input_fields.dart';
 import 'package:book_ai/presentation/routing/router/router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 // ignore: must_be_immutable
 class EmailVerificationForm extends StatelessWidget {
@@ -76,7 +72,9 @@ class EmailVerificationForm extends StatelessWidget {
                   ),
                   // SizedBox(width: 2.w),
                   PlainButtonSmall(
-                    onPressed: () async {},
+                    onPressed: () async {
+                      context.read<EmailVerificationCubit>().verify();
+                    },
                     buttonText: "Resend",
                   ),
                 ],

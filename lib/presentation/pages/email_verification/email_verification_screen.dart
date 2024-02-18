@@ -1,9 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:book_ai/application/auth/auth_cubit.dart';
-import 'package:book_ai/application/api_input/api_input_cubit.dart';
 import 'package:book_ai/application/auth/email_verification/email_verification_cubit.dart';
 import 'package:book_ai/injection.dart';
-import 'package:book_ai/presentation/pages/api_input_screen/widgets/api_input_form.dart';
 import 'package:book_ai/presentation/pages/email_verification/widgets/email_verification_form.dart';
 import 'package:book_ai/presentation/reusable_components/backgrounds/animatied_background.dart';
 import 'package:book_ai/presentation/routing/router/router.dart';
@@ -39,7 +37,7 @@ class EmailVerificationScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Text(
-                  'Enter the otp sent to you at the email you provided',
+                  'Verify your email through the link sent to your email.',
                   style: Theme.of(context).textTheme.headlineLarge,
                 ),
                 BlocProvider(

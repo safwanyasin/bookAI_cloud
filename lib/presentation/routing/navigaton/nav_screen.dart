@@ -96,7 +96,7 @@ class _NavScreenState extends State<NavScreen> {
                       listener: (context, state) {
                         state.maybeMap(
                             unauthenticated: (_) =>
-                                AutoRouter.of(context).popAndPush(
+                                AutoRouter.of(context).replace(
                                   const LoginRoute(),
                                 ),
                             orElse: () {});

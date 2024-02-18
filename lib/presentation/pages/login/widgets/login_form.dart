@@ -46,7 +46,7 @@ class LoginForm extends StatelessWidget {
             },
             (_) {
               // navigate to another page
-              print('hello');
+              // print('hello');
               AutoRouter.of(context).replace(const NavRoute());
               context.read<AuthCubit>().authCheckRequested();
             },
@@ -100,12 +100,12 @@ class LoginForm extends StatelessWidget {
                 text: 'Login',
               ),
               SizedBox(height: 15.h),
-              ContinueWithGoogleButton(
-                onPressed: () {
-                  withGoogle = true;
-                  context.read<LoginCubit>().login(false);
-                },
-              ),
+              // ContinueWithGoogleButton(
+              //   onPressed: () {
+              //     withGoogle = true;
+              //     context.read<LoginCubit>().login(false);
+              //   },
+              // ),
               SizedBox(height: 15.h),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,

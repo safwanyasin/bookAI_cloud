@@ -81,6 +81,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
               color: Theme.of(context).disabledColor,
               child: Container(
                 height: 65.h,
+                width: MediaQuery.of(context).size.width,
                 child: Padding(
                   padding: EdgeInsets.only(right: 20.w, left: 20.w),
                   child: Row(
@@ -94,8 +95,8 @@ class _BottomNavBarState extends State<BottomNavBar> {
                         },
                         child: Container(
                           child: SizedBox(
-                            height: 40.h,
-                            width: 40.h,
+                            height: 40.w,
+                            width: 40.w,
                             child: RiveAnimation.asset(
                               item.rive.src,
                               stateMachines: [item.rive.stateMachineName],

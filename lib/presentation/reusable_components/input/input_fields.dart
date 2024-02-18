@@ -74,7 +74,7 @@ class _SearchInputState extends State<InputField> {
       SizedBox(
         height: 3.h,
       ),
-      if (widget.validator != null && widget.showError)
+      if (widget.validator(null) != null && widget.showError)
         Align(
           alignment: Alignment.bottomLeft,
           child: Text(

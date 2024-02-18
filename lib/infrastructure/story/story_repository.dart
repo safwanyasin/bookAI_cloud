@@ -1,4 +1,3 @@
-import 'dart:convert';
 
 import 'package:book_ai/domain/api_input/i_api_input_repository.dart';
 import 'package:book_ai/domain/core/value_objects.dart';
@@ -7,15 +6,12 @@ import 'package:book_ai/domain/story/story.dart';
 import 'package:book_ai/domain/story/story_failure.dart';
 import 'package:book_ai/infrastructure/core/firestore_helpers.dart';
 import 'package:book_ai/infrastructure/story/story_dtos.dart';
-import 'package:chat_gpt_flutter/chat_gpt_flutter.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
-import 'package:dio/dio.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_gemini/flutter_gemini.dart';
 import 'package:injectable/injectable.dart';
 import 'package:rxdart/rxdart.dart';
-import 'package:http/http.dart' as http;
 
 @lazySingleton
 class StoryRepository extends IStoryRepository {
@@ -57,50 +53,30 @@ class StoryRepository extends IStoryRepository {
       (r) => apiKey = r,
     );
     try {
-      final bool useHttp = true;
       // make the openai api call here
-      print('trying to get a story');
-      print(apiKey);
+      // print('trying to get a story');
+      // print(apiKey);
       late var response, secondResponse;
-      if (!useHttp) {
-        // ignore: dead_code
-        final response = await Dio().post(apiUrl,
-            options: Options(
-              headers: {
-                'Authorization': 'Bearer $apiKey',
-                'Content-Type': 'application/json',
-              },
-            ),
-            data: {
-              'model': 'gpt-3.5-turbo',
-              'messages': [
-                {
-                  'role': 'user',
-                  'content': searchParams,
-                },
-                {'role': 'user', 'content': 'Suggest a title for the story'}
-              ]
-            });
-      } else {
-        print('trying gemini');
-        print(searchParams);
-        final gemini = Gemini.instance;
-        response = await gemini.text(searchParams);
-        // print(response.content.parts.last.text);
-        // formattedResponse =
-        // body = json.decode(response);
-        // print(body);
-        secondResponse = await gemini.text(
-            'Create a short title for the story. only include the title in the response and dont format it in any way');
-        // // gemini.text(searchParams).then(
-        //   (value) {
-        //     response = value;
-        //     // print(response.content);
-        //   },
-        // ).catchError(
-        //   (e) => print('error $e'),
-        // );
-      }
+
+      // print('trying gemini');
+      // print(searchParams);
+      final gemini = Gemini.instance;
+      response = await gemini.text(searchParams);
+      // print(response.content.parts.last.text);
+      // formattedResponse =
+      // body = json.decode(response);
+      // print(body);
+      secondResponse = await gemini.text(
+          'Create a short title for the story. only include the title in the response and dont format it in any way');
+      // // gemini.text(searchParams).then(
+      //   (value) {
+      //     response = value;
+      //     // print(response.content);
+      //   },
+      // ).catchError(
+      //   (e) => print('error $e'),
+      // );
+
       // final responseContent = response.data['choices'][0]['message']['content'];
       // final repsonseTitle = response.data['choices'][1]['message']['content'];
       // final responseId = response.data['id'];

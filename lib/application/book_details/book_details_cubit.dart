@@ -21,6 +21,7 @@ class BookDetailsCubit extends Cubit<BookDetailsState> {
   BookDetailsCubit(this._bookRepository)
       : super(const BookDetailsState.initial());
 
+  // checks if a book exists in the reading list or the wish list and handles the response
   Future<void> findInLists(Book book) async {
     emit(const BookDetailsState.loading());
     // await _bookStreamSubscription?.cancel();
@@ -31,8 +32,8 @@ class BookDetailsCubit extends Cubit<BookDetailsState> {
         await _bookRepository.findInReadingList(book);
     Either<BookFailure, bool> checkIfExistsInWish =
         await _bookRepository.findInWishlist(book);
-    print(checkIfExistsInWish);
-    print(checkIfExistsInReading);
+    // print(checkIfExistsInWish);
+    // print(checkIfExistsInReading);
     emit(
       checkIfExistsInReading.fold(
           (f) => BookDetailsState.loadFailure(f),
@@ -43,6 +44,7 @@ class BookDetailsCubit extends Cubit<BookDetailsState> {
     );
   }
 
+  // adds a book to the wishlist
   void addToWishlist(Book book) async {
     emit(const BookDetailsState.loading());
     Either<BookFailure, Unit> add = await _bookRepository.create(book, true);
@@ -56,6 +58,7 @@ class BookDetailsCubit extends Cubit<BookDetailsState> {
     );
   }
 
+  // adds a book the reading list
   void addToReadingList(Book book) async {
     emit(const BookDetailsState.loading());
     Either<BookFailure, Unit> add = await _bookRepository.create(book, false);
@@ -67,6 +70,7 @@ class BookDetailsCubit extends Cubit<BookDetailsState> {
     );
   }
 
+  // removes a book the reading list
   void removeFromWishlist(Book book) async {
     emit(const BookDetailsState.loading());
     Either<BookFailure, Unit> remove = await _bookRepository.delete(book, true);
@@ -78,6 +82,7 @@ class BookDetailsCubit extends Cubit<BookDetailsState> {
     );
   }
 
+  // removes a book the reading list
   void removeFromReadingList(Book book) async {
     emit(const BookDetailsState.loading());
     Either<BookFailure, Unit> remove =
@@ -100,7 +105,4 @@ class BookDetailsCubit extends Cubit<BookDetailsState> {
   //     ),
   //   );
   // }
-
-  // login successful
-  // can build user session here
 }

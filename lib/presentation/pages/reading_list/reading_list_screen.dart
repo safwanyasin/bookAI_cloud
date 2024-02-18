@@ -23,7 +23,7 @@ class _ReadingListScreenState extends State<ReadingListScreen> {
   @override
   void initState() {
     super.initState();
-    print('rendering the reading list');
+    // print('rendering the reading list');
   }
 
   @override
@@ -32,7 +32,7 @@ class _ReadingListScreenState extends State<ReadingListScreen> {
       create: (context) => getIt<ReadingListCubit>(),
       child: BlocBuilder<ReadingListCubit, ReadingListState>(
           builder: (context, state) {
-        print(state);
+        // print(state);
         return SafeArea(
           child: Container(
             width: double.infinity,
@@ -46,7 +46,7 @@ class _ReadingListScreenState extends State<ReadingListScreen> {
                 state.maybeMap(
                   loadSuccess: (state) {
                     readingListItems = state.books;
-                    print('reading list state map');
+                    // print('reading list state map');
                     return Subheading(
                       content: readingListItems.length == 1
                           ? 'Showing ${readingListItems.length} book on your reading list'

@@ -15,6 +15,7 @@ class StoryActorCubit extends Cubit<StoryActorState> {
   StoryActorCubit(this._storyRepository)
       : super(const StoryActorState.initial());
 
+  // delets the ai generated story
   Future<void> delete(StoryItem story) async {
     emit(const StoryActorState.actionInProgress());
     final possibleFailure = await _storyRepository.delete(story);

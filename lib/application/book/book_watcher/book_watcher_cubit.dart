@@ -24,6 +24,7 @@ class BookWatcherCubit extends Cubit<BookWatcherState> {
     watchWishListStarted();
   }
 
+  // streams watch for changes made to the wishlist or the reading list and handles the responses
   void watchWishListStarted() async {
     emit(const BookWatcherState.loading());
     await _bookStreamSubscription?.cancel();
@@ -49,6 +50,7 @@ class BookWatcherCubit extends Cubit<BookWatcherState> {
     );
   }
 
+  // ends stream subscription
   @override
   Future<void> close() async {
     await _bookStreamSubscription?.cancel();

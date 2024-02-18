@@ -13,6 +13,7 @@ class AuthCubit extends Cubit<AuthState> {
 
   AuthCubit(this._loginFacade) : super(const AuthState.initial());
 
+  // checks the users authentication status and updates the state accordingly
   void authCheckRequested() async {
     final userOption = await _loginFacade.getSignedInUser();
     dynamic userDoc;

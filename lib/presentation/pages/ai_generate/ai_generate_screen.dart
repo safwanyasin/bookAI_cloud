@@ -22,9 +22,10 @@ class _AiGenerateScreenState extends State<AiGenerateScreen> {
 
   Future<String?> getApiKey() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    apiKeyString = prefs.getString('apiKey');
+    apiKeyString = prefs.getString('apiKey') ?? '';
     return prefs.getString('apiKey');
   }
+
   // add init state
   @override
   void initState() {
@@ -44,7 +45,7 @@ class _AiGenerateScreenState extends State<AiGenerateScreen> {
             future: apiKey,
             builder: (context, snapshot) {
               if (snapshot.connectionState == ConnectionState.done) {
-                return apiKey != ''
+                return apiKeyString != ''
                     ? AiGenerateForm(keyPresent: true)
                     : AiGenerateForm(keyPresent: false);
               } else {

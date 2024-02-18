@@ -36,10 +36,3 @@ class BookPictureFrame extends StatelessWidget {
     );
   }
 }
-
- // child: Image.network(
-            //   imageUrl,
-            //   width: 190.w,
-            //   height: 280.h,
-            //   fit: BoxFit.cover,
-            // ),

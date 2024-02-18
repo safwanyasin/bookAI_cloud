@@ -14,6 +14,7 @@ class BookActorCubit extends Cubit<BookActorState> {
 
   BookActorCubit(this._bookRepository) : super(const BookActorState.initial());
 
+  // deletes a book by calling the relevant function from the repository in the infrastructure layer and handles the response
   Future<void> delete(Book book, bool fromWishlist) async {
     emit(const BookActorState.actionInProgress());
     final possibleFailure = await _bookRepository.delete(book, fromWishlist);

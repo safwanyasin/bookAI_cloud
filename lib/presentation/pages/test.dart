@@ -103,7 +103,7 @@ class _TestScreenState extends State<TestingScreen> {
                       ]),
                       PlainButton(
                           onPressed: () {
-                            print('See all button pressed');
+                            // print('See all button pressed');
                           },
                           buttonText: 'See All'),
                       SizedBox(height: 30.h)

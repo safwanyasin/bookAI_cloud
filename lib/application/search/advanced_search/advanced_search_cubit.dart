@@ -18,6 +18,7 @@ class AdvancedSearchCubit extends Cubit<AdvancedSearchState> {
   AdvancedSearchCubit(this._bookRepository)
       : super(AdvancedSearchState.initial());
 
+  // gets chnages in user input and updates the state accordingly
   void updateGeneralSearchTerm(String typedSearchTerm) {
     emit(
       state.copyWith(
@@ -90,11 +91,13 @@ class AdvancedSearchCubit extends Cubit<AdvancedSearchState> {
     );
   }
 
+  // resets the state to its initial state
   void reset() {
-    print('resetting advanced search state');
+    // print('resetting advanced search state');
     emit(AdvancedSearchState.initial());
   }
 
+  // creates a search term with the queries that would be passed to the infrastructure layer and used in the api call. then handles the response
   Future<void> search() async {
     emit(
       state.copyWith(
@@ -120,7 +123,7 @@ class AdvancedSearchCubit extends Cubit<AdvancedSearchState> {
     final printTypeParameter = state.printType.getOrCrash().isNotEmpty
         ? '&printType=${state.printType.getOrCrash()}'
         : '';
-        print(state.orderBy.getOrCrash());
+        // print(state.orderBy.getOrCrash());
     String orderByParameter =
         state.orderBy.getOrCrash() == 'publish date'
             ? 'newest'
@@ -128,7 +131,7 @@ class AdvancedSearchCubit extends Cubit<AdvancedSearchState> {
     orderByParameter = orderByParameter != 'none'
         ? '&orderBy=$orderByParameter'
         : '';
-        print(orderByParameter);
+        // print(orderByParameter);
     String filters = titleParameter +
         authorParameter +
         publisherParameter +
@@ -140,7 +143,7 @@ class AdvancedSearchCubit extends Cubit<AdvancedSearchState> {
       filters = filters.substring(1, filters.length);
     }
     searchQuery = searchQuery + filters;
-    print('the search query $searchQuery');
+    // print('the search query $searchQuery');
     final possibleFailure = await _bookRepository.get(searchQuery);
     // emit(possibleFailure.fold(
     //   (f) => const SearchState.searchFailure(SearchFailure.otherFailure(
@@ -184,13 +187,13 @@ class AdvancedSearchCubit extends Cubit<AdvancedSearchState> {
       }, (books) {});
     } else {
       possibleFailure.fold((_) {}, (books) {
-        print(books);
+        // print(books);
         emit(state.copyWith(
           isSubmitting: false,
           searchFailureOrSuccessOption: some(right(books)),
         ));
-        print(state.isSubmitting);
-        print(state.searchFailureOrSuccessOption);
+        // print(state.isSubmitting);
+        // print(state.searchFailureOrSuccessOption);
       });
     }
   }

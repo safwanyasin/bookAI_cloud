@@ -40,7 +40,21 @@ abstract class Book implements _$Book {
         publishDate: PublishDate('-'),
       );
 
+  // receives the response from the google books api and converts it into data transfer object that is later converted to the domain object
   factory Book.fromGoogleBooksApi(Map<String, dynamic> data) {
+    final String publishDate = data['volumeInfo']['publishedDate'] ?? '-';
+
+    String convertDateFormat(String inputDate) {
+      if (inputDate == '-' || inputDate.length != 10)
+        return '-'; // If the date is not available, return '-'
+      final DateTime dateTime = DateTime.parse(inputDate);
+      final String formattedDate = '${dateTime.day.toString().padLeft(2, '0')}.'
+          '${dateTime.month.toString().padLeft(2, '0')}.'
+          '${dateTime.year.toString()}';
+
+      return formattedDate;
+    }
+
     final BookDto bookData = BookDto(
       bookId: data['id'],
       bookName: data['volumeInfo']['title'],
@@ -62,7 +76,7 @@ abstract class Book implements _$Book {
           ? 'None'
           : data['volumeInfo']['categories'].join(','),
       publisher: data['volumeInfo']['publisher'] ?? 'none',
-      publishDate: data['volumeInfo']['publishedDate'] ?? '-',
+      publishDate: convertDateFormat(publishDate),
     );
     return bookData.toDomain();
     // return Book(
@@ -87,5 +101,4 @@ abstract class Book implements _$Book {
                     rating.failureOrUnit.andThen(imageUrl.failureOrUnit)))))))
         .fold((f) => some(f), (_) => none());
   }
-
 }

@@ -21,13 +21,15 @@ class EmailVerificationCubit extends Cubit<EmailVerificationState> {
     _performVerification();
   }
 
+  // calls the perforVerification() function that sends an email to the user to get verified
   Future<void> verify() async {
     await _performVerification();
   }
 
+  // checks if a user has been verified by email
   Future<void> checkIfVerified() async {
     final isVerified = await _loginFacade.checkIfVerified();
-    print(isVerified);
+    // print(isVerified);
     if (isVerified == true) {
       emit(state.copyWith(
         verificationFailureOrSuccessOption: some(right(unit)),
@@ -67,65 +69,5 @@ class EmailVerificationCubit extends Cubit<EmailVerificationState> {
         checkIfVerified();
       },
     );
-
-    // final email = state.otp;
-    // emit(
-    //   state.copyWith(
-    //     isSubmitting: true,
-    //   ),
-    // );
-
-    // final registerResult = withEmail
-    //     ? await _loginFacade.registerWithEmailAndPassword(
-    //         nickName: nickName,
-    //         emailAddress: email,
-    //         password: password,
-    //         confirmPassword: confirmPassword)
-    //     : await _loginFacade.registerWithGoogle();
-
-    // if (registerResult.isLeft()) {
-    //   return registerResult.fold((failure) {
-    //     failure.maybeWhen(
-    //         cancelledByUser: () => emit(
-    //               state.copyWith(
-    //                 isSubmitting: false,
-    //                 registerFailureOrSuccessOption:
-    //                     some(left(const RegisterFailure.cancelledByUser())),
-    //               ),
-    //             ),
-    //         serverError: () => emit(
-    //               state.copyWith(
-    //                 isSubmitting: false,
-    //                 registerFailureOrSuccessOption:
-    //                     some(left(const RegisterFailure.serverError())),
-    //               ),
-    //             ),
-    //         emailAlreadyInUse: () => emit(
-    //               state.copyWith(
-    //                 isSubmitting: false,
-    //                 registerFailureOrSuccessOption:
-    //                     some(left(const RegisterFailure.emailAlreadyInUse())),
-    //               ),
-    //             ),
-    //         otherFailure: (m) => emit(
-    //               state.copyWith(
-    //                 isSubmitting: false,
-    //                 registerFailureOrSuccessOption:
-    //                     some(left(RegisterFailure.otherFailure(m))),
-    //               ),
-    //             ),
-    //         orElse: () => print("some unknown error occurred"));
-    //   }, (_) => {});
-    // } else {
-    //   emit(
-    //     state.copyWith(
-    //       isSubmitting: false,
-    //       registerFailureOrSuccessOption: some(right(unit)),
-    //     ),
-    //   );
-    // }
-
-    // login successful
-    // can build user session here
   }
 }

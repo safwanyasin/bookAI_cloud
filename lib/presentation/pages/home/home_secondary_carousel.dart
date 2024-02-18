@@ -47,7 +47,7 @@ class _HomeSecondaryCarouselState extends State<HomeSecondaryCarousel> {
                         itemBuilder: (context, index) {
                           final storyItem = state.story[index];
                           if (storyItem.failureOption.isSome()) {
-                            print('error');
+                            // print('error');
                             // return error card
                             return SizedBox(
                               height: 140.h,

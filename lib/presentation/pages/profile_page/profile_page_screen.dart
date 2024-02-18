@@ -11,7 +11,6 @@ import 'package:book_ai/presentation/reusable_components/buttons/filter_button.d
 import 'package:book_ai/presentation/reusable_components/buttons/primary_button.dart';
 import 'package:book_ai/presentation/reusable_components/cards/info_box.dart';
 import 'package:book_ai/presentation/reusable_components/input/input_fields.dart';
-import 'package:book_ai/presentation/reusable_components/texts/heading.dart';
 import 'package:book_ai/presentation/routing/router/router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -102,7 +101,7 @@ class _ProfilePageScreenState extends State<ProfilePageScreen> {
                                 alignment: Alignment.center,
                                 child: BlocBuilder<AuthCubit, AuthState>(
                                     builder: (context, state) {
-                                  print(state);
+                                  // print(state);
                                   return state.maybeMap(authenticated: (value) {
                                     return RichText(
                                         text: TextSpan(children: <TextSpan>[

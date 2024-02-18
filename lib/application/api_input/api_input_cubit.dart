@@ -16,6 +16,7 @@ class ApiInputCubit extends Cubit<ApiInputState> {
   final IApiInputRepository _apiInputRepository;
   ApiInputCubit(this._apiInputRepository) : super(ApiInputState.initial());
 
+  // updating user input as it is typed
   void updateApi(String typedApi) {
     emit(
       state.copyWith(
@@ -24,6 +25,7 @@ class ApiInputCubit extends Cubit<ApiInputState> {
     );
   }
 
+  // retrieves the entered API from state, passes it to the relevant repository
   Future<void> addApi(bool empty) async {
     final apiKey = state.apiKey;
     emit(

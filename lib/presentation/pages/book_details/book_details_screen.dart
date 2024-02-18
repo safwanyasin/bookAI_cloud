@@ -51,8 +51,8 @@ class _BookDetailsScreenState extends State<BookDetailsScreen>
             loadSuccess: (values) {
               isInWishList = values.existsInWish;
               isInReadingList = values.existsInReading;
-              print('wish $isInWishList');
-              print('reading $isInReadingList');
+              // print('wish $isInWishList');
+              // print('reading $isInReadingList');
               return Container();
             },
             initial: (_) {

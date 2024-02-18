@@ -1,6 +1,7 @@
 import 'package:book_ai/injection.dart';
 import 'package:book_ai/presentation/core/app_widget.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_gemini/flutter_gemini.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'firebase_options.dart';
@@ -20,6 +21,8 @@ void main() async {
   if (apiKey != null) {
     Gemini.init(apiKey: apiKey!);
   }
-
-  runApp(AppWidget());
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
+      .then((_) {
+    runApp(AppWidget());
+  });
 }

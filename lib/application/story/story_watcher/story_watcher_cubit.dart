@@ -22,11 +22,12 @@ class StoryWatcherCubit extends Cubit<StoryWatcherState> {
       : super(const StoryWatcherState.initial()) {
     watchStoriesStarted();
   }
-
+  
+  // watches for changes in the generated story
   void watchStoriesStarted() async {
     emit(const StoryWatcherState.loading());
     await _storyStreamSubscription?.cancel();
-    print('hello there');
+    // print('hello there');
     _storyStreamSubscription = _storyRepository.watchAll().listen(
           (failureOrStory) => _onStoryReceived(failureOrStory),
         );

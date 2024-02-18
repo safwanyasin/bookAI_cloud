@@ -21,7 +21,7 @@ class BookRepository implements IBookRepository {
   Stream<Either<BookFailure, List<Book>>> watchReadingList() async* {
     // users/{user ID}/reading_list/{book ID}
     final userDoc = await _firestore.userDocument();
-    print(userDoc.id);
+    // print(userDoc.id);
     yield* userDoc.readingListCollection
         // .orderBy('serverTimestamp', descending: true)
         .snapshots()
@@ -72,6 +72,7 @@ class BookRepository implements IBookRepository {
     }
   }
 
+  // finds a book in the reading list
   @override
   Future<Either<BookFailure, bool>> findInReadingList(Book book) async {
     try {
@@ -90,14 +91,13 @@ class BookRepository implements IBookRepository {
     }
   }
 
+  // makes an api call to google books
   @override
   Future<Either<BookFailure, List<Book>>> get(String searchTerm) async {
     try {
       searchTerm = searchTerm.trim();
       searchTerm = searchTerm.replaceAll(RegExp(r'\s+'), ' ');
       searchTerm = searchTerm.replaceAll(' ', '+');
-      print(
-          'putting in dio: https://www.googleapis.com/books/v1/volumes?q=$searchTerm&maxResults=40');
       final dio = Dio();
       // final response = await dio
       //     .get("https://www.googleapis.com/books/v1/volumes?q=$searchTerm");
@@ -108,7 +108,6 @@ class BookRepository implements IBookRepository {
         //   'maxResults': 40, // Set maxResults to 40
         // },
       );
-      print(response);
       final bookList = response.data['items'] != null
           ? (response.data['items'] as List)
           : [];
@@ -117,11 +116,11 @@ class BookRepository implements IBookRepository {
       // print(books);
       return right(books);
     } on PlatformException catch (e) {
-      print(e.message);
       return left(const BookFailure.unexpected());
     }
   }
 
+  // adds a book to the the wishlist or reading list
   @override
   Future<Either<BookFailure, Unit>> create(Book book, bool toWishlist) async {
     try {
@@ -145,6 +144,7 @@ class BookRepository implements IBookRepository {
     }
   }
 
+  // updates the book details on the wishlist or reading list
   @override
   Future<Either<BookFailure, Unit>> update(Book book, bool toWishlist) async {
     try {
@@ -170,6 +170,7 @@ class BookRepository implements IBookRepository {
     }
   }
 
+  // removes a book from the wishlist or reading list
   @override
   Future<Either<BookFailure, Unit>> delete(Book book, bool fromWishlist) async {
     try {

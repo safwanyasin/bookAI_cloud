@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:book_ai/application/auth/auth_cubit.dart';
 import 'package:book_ai/presentation/reusable_components/backgrounds/animatied_background.dart';
 import 'package:book_ai/presentation/reusable_components/loading_indicators/loading_indicator.dart';
+import 'package:book_ai/presentation/reusable_components/logo.dart';
 import 'package:book_ai/presentation/routing/router/router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -17,17 +18,20 @@ class SplashScreen extends StatelessWidget {
       listener: (context, state) {
         state.map(
           initial: (_) {},
-          authenticated: (_) {
+          authenticated: (_) async {
+            await Future.delayed(const Duration(seconds: 3));
             AutoRouter.of(context).replace(
               const NavRoute(),
             );
           },
-          unverified: (_) {
+          unverified: (_) async {
+            await Future.delayed(const Duration(seconds: 3));
             AutoRouter.of(context).replace(
               const EmailVerificationRoute(),
             );
           },
-          unauthenticated: (_) {
+          unauthenticated: (_) async {
+            await Future.delayed(const Duration(seconds: 3));
             AutoRouter.of(context).replace(
               const LoginRoute(),
             );
@@ -42,7 +46,8 @@ class SplashScreen extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  SizedBox(height: 50.h, child: const LoadingIndicator()),
+                  SizedBox(height: 100.h, child: const Logo()),
+                  SizedBox(height: 5.h),
                   Text(
                     'Tale Tuner',
                     style: Theme.of(context).textTheme.headlineLarge,

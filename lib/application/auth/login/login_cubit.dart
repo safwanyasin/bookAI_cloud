@@ -20,6 +20,7 @@ class LoginCubit extends Cubit<LoginState> {
     this._loginFacade,
   ) : super(LoginState.initial());
 
+  // reflecting the updated user input in the state as it it typed
   void updateEmail(String typedEmail) {
     emit(
       state.copyWith(
@@ -38,6 +39,7 @@ class LoginCubit extends Cubit<LoginState> {
     );
   }
 
+  // calls the perform login function that calls the appropriate sign in functions from the Facade and handles the responses
   Future<void> login(bool withEmail) async {
     await _performLogin(withEmail);
   }
@@ -98,8 +100,5 @@ class LoginCubit extends Cubit<LoginState> {
         ),
       );
     }
-
-    // login successful
-    // can build user session here
   }
 }

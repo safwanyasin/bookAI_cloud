@@ -20,10 +20,11 @@ class ReadingListCubit extends Cubit<ReadingListState> {
 
   ReadingListCubit(this._bookRepository)
       : super(const ReadingListState.initial()) {
-    print('initating reading list cubit');
+    // print('initating reading list cubit');
     watchReadingListStarted();
   }
 
+  // looks for changes in the reading list
   void watchReadingListStarted() async {
     emit(const ReadingListState.loading());
     await _bookStreamSubscription?.cancel();
@@ -41,6 +42,7 @@ class ReadingListCubit extends Cubit<ReadingListState> {
     );
   }
 
+  // ends stream subscription
   @override
   Future<void> close() async {
     await _bookStreamSubscription?.cancel();

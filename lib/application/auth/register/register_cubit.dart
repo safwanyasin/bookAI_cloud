@@ -54,7 +54,6 @@ class RegisterCubit extends Cubit<RegisterState> {
         registerFailureOrSuccessOption: none(),
       ),
     );
-    print(state.confirmPassword);
   }
 
   Future<void> register(bool withEmail) async {

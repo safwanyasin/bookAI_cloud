@@ -13,6 +13,7 @@ class ApiInputRepository extends IApiInputRepository {
   ApiInputRepository();
   @override
   Future<Either<ApiInputFailure, Unit>> create(ApiInput apikey) async {
+    // code that can be used if apikey needs to be stored in firebase
     // try {
     //   final userDoc = await _firestore.userDocument();
     //   final apiKeyStr = apikey.getOrCrash();
@@ -30,16 +31,17 @@ class ApiInputRepository extends IApiInputRepository {
       SharedPreferences prefs = await SharedPreferences.getInstance();
       // Store the API key
       await prefs.setString('apiKey', apikey.getOrCrash());
-      print('API key stored successfully');
+      // print('API key stored successfully');
       return right(unit);
     } catch (e) {
-      print('Error storing API key: $e');
+      // print('Error storing API key: $e');
       return left(const ApiInputFailure.unexpected());
     }
   }
 
   @override
   Future<Either<ApiInputFailure, Unit>> createEmpty() async {
+    // code that can be used if apikey needs to be stored in firebase
     // try {
     //   final userDoc = await _firestore.userDocument();
     //   await userDoc.update({'api-key': ''});
@@ -56,10 +58,10 @@ class ApiInputRepository extends IApiInputRepository {
       SharedPreferences prefs = await SharedPreferences.getInstance();
       // Store the API key
       await prefs.setString('apiKey', '');
-      print('API key stored successfully');
+      // print('API key stored successfully');
       return right(unit);
     } catch (e) {
-      print('Error storing API key: $e');
+      // print('Error storing API key: $e');
       return left(const ApiInputFailure.unexpected());
     }
   }
@@ -73,7 +75,7 @@ class ApiInputRepository extends IApiInputRepository {
       String? apiKey = prefs.getString('apiKey');
       return right(apiKey!);
     } catch (e) {
-      print('Error retrieving API key: $e');
+      // print('Error retrieving API key: $e');
       // Handle errors as needed
       return left(const ApiInputFailure.unexpected());
     }
@@ -88,7 +90,7 @@ class ApiInputRepository extends IApiInputRepository {
       await prefs.remove('apiKey');
       return right(unit);
     } catch (e) {
-      print('Error deleting API key: $e');
+      // print('Error deleting API key: $e');
       return left(const ApiInputFailure.unexpected());
     }
   }

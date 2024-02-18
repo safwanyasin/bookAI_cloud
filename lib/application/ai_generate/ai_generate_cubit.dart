@@ -5,7 +5,6 @@ import 'package:book_ai/infrastructure/story/story_repository.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-// import 'package:book_ai/application/auth/login/login_state.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
@@ -17,6 +16,7 @@ class AiGenerateCubit extends Cubit<AiGenerateState> {
   final StoryRepository _storyRepository;
   AiGenerateCubit(this._storyRepository) : super(AiGenerateState.initial());
 
+  // reflecting the updated user input in the state as it it typed
   void updateGenre(String typedGenre) {
     emit(
       state.copyWith(
@@ -75,7 +75,7 @@ class AiGenerateCubit extends Cubit<AiGenerateState> {
     emit(AiGenerateState.initial());
   }
 
-  // do the call to openapi from here
+  // creates a prompt for the AI, passes it the the infrastructure layer and handles the response
   Future<void> generate() async {
     emit(
       state.copyWith(
@@ -106,27 +106,31 @@ class AiGenerateCubit extends Cubit<AiGenerateState> {
     if (submitResult.isLeft()) {
       return submitResult.fold((failure) {
         failure.maybeWhen(
-            unexpected: () => emit(
-                  state.copyWith(
-                    isSubmitting: false,
-                    generateFailureOrSuccessOption: some(
-                      left(
-                        const AiGenerateFailure.otherFailure(
-                            'An unexpected error occurred'),
-                      ),
-                    ),
-                  ),
+          unexpected: () => emit(
+            state.copyWith(
+              isSubmitting: false,
+              generateFailureOrSuccessOption: some(
+                left(
+                  const AiGenerateFailure.otherFailure(
+                      'An unexpected error occurred'),
                 ),
-            insufficientPermissions: () => emit(
-                  state.copyWith(
-                    isSubmitting: false,
-                    generateFailureOrSuccessOption: some(
-                      left(const AiGenerateFailure.otherFailure(
-                          'You do not have sufficient permissions to carry out this action')),
-                    ),
-                  ),
-                ),
-            orElse: () => print('an uknown error occurred'));
+              ),
+            ),
+          ),
+          insufficientPermissions: () => emit(
+            state.copyWith(
+              isSubmitting: false,
+              generateFailureOrSuccessOption: some(
+                left(const AiGenerateFailure.otherFailure(
+                    'You do not have sufficient permissions to carry out this action')),
+              ),
+            ),
+          ),
+          orElse: () => left(
+            const AiGenerateFailure.otherFailure(
+                'An unexpected error occurred'),
+          ),
+        );
       }, (_) {});
     } else {
       submitResult.fold((_) {}, (story) {

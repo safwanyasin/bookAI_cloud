@@ -1,8 +1,6 @@
-import 'package:auto_route/annotations.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:book_ai/application/ai_generate/ai_generate_cubit.dart';
 import 'package:book_ai/injection.dart';
-import 'package:book_ai/presentation/pages/ai_generate/widgets/ai_generate_form.dart';
 import 'package:book_ai/presentation/reusable_components/buttons/filter_button.dart';
 import 'package:book_ai/presentation/reusable_components/buttons/primary_button.dart';
 import 'package:book_ai/presentation/reusable_components/cards/info_box.dart';
@@ -28,7 +26,7 @@ class _ProfilePageScreenState extends State<ProfilePageScreen> {
   Future<String?> getApiKey() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     apiKey = prefs.getString('apiKey');
-    print('returning $apiKey');
+    // print('returning $apiKey');
     return apiKey;
   }
 
@@ -112,24 +110,6 @@ class _ProfilePageScreenState extends State<ProfilePageScreen> {
               }
             }),
       ),
-      // SingleChildScrollView(
-      //   scrollDirection: Axis.vertical,
-      //   child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-      //     SizedBox(height: 95.h),
-      //     const Heading(content: 'AI Generate'),
-      //     SizedBox(height: 2.h),
-      //     const Subheading(
-      //       content: 'Generate your own custom story',
-      //     ),
-      //     SizedBox(height: 10.h),
-      //     Text(
-      //       'To add multiple values in a parameter, separate each with a comma',
-      //       style: Theme.of(context).textTheme.labelSmall,
-      //     ),
-      //     SizedBox(height: 15.h),
-      //     const AiGenerateForm(),
-      //   ]),
-      // ),
     );
   }
 }

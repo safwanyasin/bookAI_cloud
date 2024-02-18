@@ -22,7 +22,7 @@ class WishlistCubit extends Cubit<WishlistState> {
       : super(const WishlistState.initial()) {
     watchWishListStarted();
   }
-
+  // watches the wishlist and looks for changes
   void watchWishListStarted() async {
     emit(const WishlistState.loading());
     await _bookStreamSubscription?.cancel();

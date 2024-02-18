@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:another_flushbar/flushbar.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:book_ai/application/api_input/api_input_cubit.dart';
@@ -44,7 +46,8 @@ class ApiInputForm extends StatelessWidget {
             },
             (_) {
               // navigate to another page
-              print('hello');
+              _showBlurredSnackbar(context,
+                  'Please restart the application for changes to take effect');
               AutoRouter.of(context).replace(const NavRoute());
               context.read<AuthCubit>().authCheckRequested();
             },
@@ -68,7 +71,7 @@ class ApiInputForm extends StatelessWidget {
                               return 'API Key cannot be empty';
                             },
                             incorrectLength: (_) {
-                              print('invalid character');
+                              // print('invalid character');
                               return 'Your API key should be 51 characters long';
                             },
                             orElse: () => null,
@@ -138,5 +141,38 @@ class ApiInputForm extends StatelessWidget {
         );
       },
     );
+  }
+
+  void _showBlurredSnackbar(BuildContext context, String text) {
+    final snackBar = SnackBar(
+      content: Container(
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(8.w),
+        ),
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(8.w),
+          child: BackdropFilter(
+            filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10), // Blur effect
+            child: Container(
+              color: Theme.of(context).disabledColor,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(
+                    horizontal: 16.0, vertical: 10.0),
+                child: Text(
+                  text,
+                  textAlign: TextAlign.center,
+                  style: Theme.of(context).textTheme.labelSmall,
+                ),
+              ),
+            ),
+          ),
+        ),
+      ),
+      backgroundColor: Colors.transparent,
+      elevation: 0,
+      duration: const Duration(seconds: 5),
+    );
+
+    ScaffoldMessenger.of(context).showSnackBar(snackBar);
   }
 }
