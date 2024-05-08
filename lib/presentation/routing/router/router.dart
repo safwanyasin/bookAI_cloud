@@ -30,15 +30,20 @@ part 'router.gr.dart';
 class AppRouter extends _$AppRouter {
   @override
   List<AutoRoute> get routes => [
-        AutoRoute(
+        CustomRoute(
           page: SplashRoute.page,
           initial: true,
+          transitionsBuilder: TransitionsBuilders.fadeIn,
         ),
-        AutoRoute(
+        CustomRoute(
           page: LoginRoute.page,
+          transitionsBuilder: TransitionsBuilders.fadeIn,
+          durationInMilliseconds: 1000,
         ),
-        AutoRoute(
+        CustomRoute(
           page: RegisterRoute.page,
+          transitionsBuilder: TransitionsBuilders.fadeIn,
+          durationInMilliseconds: 1000,
         ),
         CustomRoute(
           page: NavRoute.page,

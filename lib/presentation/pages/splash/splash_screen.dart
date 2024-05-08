@@ -19,19 +19,19 @@ class SplashScreen extends StatelessWidget {
         state.map(
           initial: (_) {},
           authenticated: (_) async {
-            await Future.delayed(const Duration(seconds: 3));
+            await Future.delayed(const Duration(seconds: 2));
             AutoRouter.of(context).replace(
               const NavRoute(),
             );
           },
           unverified: (_) async {
-            await Future.delayed(const Duration(seconds: 3));
+            await Future.delayed(const Duration(seconds: 2));
             AutoRouter.of(context).replace(
               const EmailVerificationRoute(),
             );
           },
           unauthenticated: (_) async {
-            await Future.delayed(const Duration(seconds: 3));
+            await Future.delayed(const Duration(seconds: 2));
             AutoRouter.of(context).replace(
               const LoginRoute(),
             );

@@ -12,7 +12,7 @@ import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:injectable/injectable.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+// import 'package:shared_preferences/shared_preferences.dart';
 import './firebase_user_mapper.dart';
 
 @lazySingleton
@@ -177,8 +177,8 @@ class FirebaseLoginFacade implements ILoginFacade {
   // signs out the user
   @override
   Future<void> signOut() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    prefs.remove('apiKey');
+    // SharedPreferences prefs = await SharedPreferences.getInstance();
+    // prefs.remove('apiKey');
     await _firebaseAuth.signOut();
     await _googleSignIn.signOut();
     // return Future.wait([

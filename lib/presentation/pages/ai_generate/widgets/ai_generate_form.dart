@@ -119,7 +119,7 @@ class _AiGenerateFormState extends State<AiGenerateForm> {
                             SizedBox(height: 10.h),
                             InputField(
                               labelText: 'Main Character Traits',
-                              hintText: 'Jacked, Nerdy, Flirty etc.',
+                              hintText: 'Ambitious, Evil, Humble etc.',
                               onChanged: (characterTraits) => context
                                   .read<AiGenerateCubit>()
                                   .updateMainCharacterTraits(characterTraits),
