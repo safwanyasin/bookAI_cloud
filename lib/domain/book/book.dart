@@ -42,41 +42,24 @@ abstract class Book implements _$Book {
 
   // receives the response from the google books api and converts it into data transfer object that is later converted to the domain object
   factory Book.fromGoogleBooksApi(Map<String, dynamic> data) {
-    final String publishDate = data['volumeInfo']['publishedDate'] ?? '-';
-
-    String convertDateFormat(String inputDate) {
-      if (inputDate == '-' || inputDate.length != 10)
-        return '-'; // If the date is not available, return '-'
-      final DateTime dateTime = DateTime.parse(inputDate);
-      final String formattedDate = '${dateTime.day.toString().padLeft(2, '0')}.'
-          '${dateTime.month.toString().padLeft(2, '0')}.'
-          '${dateTime.year.toString()}';
-
-      return formattedDate;
-    }
+    print(data);
+    print(data['rating']);
 
     final BookDto bookData = BookDto(
-      bookId: data['id'],
-      bookName: data['volumeInfo']['title'],
-      authorName: data['volumeInfo']['authors']?.join(', ') ?? 'Unknown Author',
-      description: data['volumeInfo']['description'] ?? 'No Description',
-      language: data['volumeInfo']['language'] ?? 'Unknown Language',
-      pageCount: data['volumeInfo']['pageCount'] ?? 0,
-      reviewCount: data['volumeInfo']['ratingsCount'] ?? 0,
-      rating: data['volumeInfo']['averageRating'] == null
-          ? 0
-          : data['volumeInfo']['averageRating'].toDouble(),
+      bookId: data['bookId'],
+      bookName: data['bookName'],
+      authorName: data['authorName'],
+      description: data['description'],
+      language: data['language'],
+      pageCount: data['pageCount'],
+      reviewCount: data['reviewCount'],
+      rating: data['rating'].toDouble(),
       // imageUrl: data['volumeInfo']['imageLinks']['thumbnail'] ??
       //     'https://placehold.co/190x280',
-      imageUrl: data['volumeInfo']['imageLinks'] == null
-          ? 'https://placehold.co/190x280.png'
-          : data['volumeInfo']['imageLinks']['thumbnail'] ??
-              'https://placehold.co/190x280.png',
-      category: data['volumeInfo']['categories'] == null
-          ? 'None'
-          : data['volumeInfo']['categories'].join(','),
-      publisher: data['volumeInfo']['publisher'] ?? 'none',
-      publishDate: convertDateFormat(publishDate),
+      imageUrl: data['imageUrl'],
+      category: data['category'],
+      publisher: data['publisher'],
+      publishDate: data['publishDate'],
     );
     return bookData.toDomain();
     // return Book(

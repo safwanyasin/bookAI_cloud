@@ -102,14 +102,14 @@ class BookRepository implements IBookRepository {
       // final response = await dio
       //     .get("https://www.googleapis.com/books/v1/volumes?q=$searchTerm");
       final Response response = await dio.get(
-        "https://www.googleapis.com/books/v1/volumes?q=$searchTerm&maxResults=40",
+        "https://europe-west3-taletuner-cloud.cloudfunctions.net/search?query=$searchTerm",
         // queryParameters: {
         //   'q': searchTerm,
         //   'maxResults': 40, // Set maxResults to 40
         // },
       );
-      final bookList = response.data['items'] != null
-          ? (response.data['items'] as List)
+      final bookList = response.data != null
+          ? (response.data as List)
           : [];
       final List<Book> books =
           bookList.map((item) => Book.fromGoogleBooksApi(item)).toList();
