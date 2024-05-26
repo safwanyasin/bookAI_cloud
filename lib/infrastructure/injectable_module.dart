@@ -10,13 +10,13 @@ import 'package:dio/dio.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:injectable/injectable.dart';
-import 'package:book_ai/infrastructure/auth/login/firebase_login_facade.dart';
+import 'package:book_ai/infrastructure/auth/login/cloud_login_facade.dart';
 import 'package:book_ai/domain/auth/login/i_login_facade.dart';
 
 @module
 abstract class InjectableModule {
-  @lazySingleton
-  FirebaseAuth get firebaseAuth => FirebaseAuth.instance;
+  // @lazySingleton
+  // FirebaseAuth get firebaseAuth => FirebaseAuth.instance;
 
   @lazySingleton
   GoogleSignIn get googleSignIn => GoogleSignIn();
@@ -24,18 +24,18 @@ abstract class InjectableModule {
   @lazySingleton
   Dio get dio => Dio();
 
-  @lazySingleton
-  FirebaseFirestore get firebaseFirestore => FirebaseFirestore.instance;
+  // @lazySingleton
+  // FirebaseFirestore get firebaseFirestore => FirebaseFirestore.instance;
 
   @lazySingleton
-  ILoginFacade get loginFacade => FirebaseLoginFacade(
-        getIt<FirebaseAuth>(),
-        getIt<GoogleSignIn>(),
+  ILoginFacade get loginFacade => CloudLoginFacade(
+      // getIt<FirebaseAuth>(),
+      // getIt<GoogleSignIn>(),
       );
 
   @lazySingleton
   IBookRepository get bookRepository => BookRepository(
-        getIt<FirebaseFirestore>(),
+        getIt<ApiService>(),
       );
 
   @lazySingleton

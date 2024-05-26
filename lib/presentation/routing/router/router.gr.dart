@@ -51,12 +51,6 @@ abstract class _$AppRouter extends RootStackRouter {
         ),
       );
     },
-    EmailVerificationRoute.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const EmailVerificationScreen(),
-      );
-    },
     FullWishlistRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -259,20 +253,6 @@ class BookDetailsRouteArgs {
   String toString() {
     return 'BookDetailsRouteArgs{key: $key, details: $details}';
   }
-}
-
-/// generated route for
-/// [EmailVerificationScreen]
-class EmailVerificationRoute extends PageRouteInfo<void> {
-  const EmailVerificationRoute({List<PageRouteInfo>? children})
-      : super(
-          EmailVerificationRoute.name,
-          initialChildren: children,
-        );
-
-  static const String name = 'EmailVerificationRoute';
-
-  static const PageInfo<void> page = PageInfo<void>(name);
 }
 
 /// generated route for

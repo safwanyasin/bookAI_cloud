@@ -12,11 +12,13 @@ part of 'user.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$AppUser {
   UniqueId get id => throw _privateConstructorUsedError;
+  NickName get nickname => throw _privateConstructorUsedError;
+  EmailAddress get email => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $AppUserCopyWith<AppUser> get copyWith => throw _privateConstructorUsedError;
@@ -27,7 +29,7 @@ abstract class $AppUserCopyWith<$Res> {
   factory $AppUserCopyWith(AppUser value, $Res Function(AppUser) then) =
       _$AppUserCopyWithImpl<$Res, AppUser>;
   @useResult
-  $Res call({UniqueId id});
+  $Res call({UniqueId id, NickName nickname, EmailAddress email});
 }
 
 /// @nodoc
@@ -44,12 +46,22 @@ class _$AppUserCopyWithImpl<$Res, $Val extends AppUser>
   @override
   $Res call({
     Object? id = null,
+    Object? nickname = null,
+    Object? email = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as UniqueId,
+      nickname: null == nickname
+          ? _value.nickname
+          : nickname // ignore: cast_nullable_to_non_nullable
+              as NickName,
+      email: null == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as EmailAddress,
     ) as $Val);
   }
 }
@@ -61,7 +73,7 @@ abstract class _$$AppUserImplCopyWith<$Res> implements $AppUserCopyWith<$Res> {
       __$$AppUserImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({UniqueId id});
+  $Res call({UniqueId id, NickName nickname, EmailAddress email});
 }
 
 /// @nodoc
@@ -76,12 +88,22 @@ class __$$AppUserImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = null,
+    Object? nickname = null,
+    Object? email = null,
   }) {
     return _then(_$AppUserImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as UniqueId,
+      nickname: null == nickname
+          ? _value.nickname
+          : nickname // ignore: cast_nullable_to_non_nullable
+              as NickName,
+      email: null == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as EmailAddress,
     ));
   }
 }
@@ -89,14 +111,19 @@ class __$$AppUserImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$AppUserImpl implements _AppUser {
-  const _$AppUserImpl({required this.id});
+  const _$AppUserImpl(
+      {required this.id, required this.nickname, required this.email});
 
   @override
   final UniqueId id;
+  @override
+  final NickName nickname;
+  @override
+  final EmailAddress email;
 
   @override
   String toString() {
-    return 'AppUser(id: $id)';
+    return 'AppUser(id: $id, nickname: $nickname, email: $email)';
   }
 
   @override
@@ -104,11 +131,14 @@ class _$AppUserImpl implements _AppUser {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$AppUserImpl &&
-            (identical(other.id, id) || other.id == id));
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.nickname, nickname) ||
+                other.nickname == nickname) &&
+            (identical(other.email, email) || other.email == email));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, id);
+  int get hashCode => Object.hash(runtimeType, id, nickname, email);
 
   @JsonKey(ignore: true)
   @override
@@ -118,10 +148,17 @@ class _$AppUserImpl implements _AppUser {
 }
 
 abstract class _AppUser implements AppUser {
-  const factory _AppUser({required final UniqueId id}) = _$AppUserImpl;
+  const factory _AppUser(
+      {required final UniqueId id,
+      required final NickName nickname,
+      required final EmailAddress email}) = _$AppUserImpl;
 
   @override
   UniqueId get id;
+  @override
+  NickName get nickname;
+  @override
+  EmailAddress get email;
   @override
   @JsonKey(ignore: true)
   _$$AppUserImplCopyWith<_$AppUserImpl> get copyWith =>

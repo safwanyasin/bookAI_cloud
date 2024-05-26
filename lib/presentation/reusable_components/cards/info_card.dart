@@ -33,8 +33,8 @@ class InfoCard extends StatelessWidget {
           ),
         ),
         onDismissed: (_) async {
-          FirebaseFirestore _firestore = FirebaseFirestore.instance;
-          BookRepository repo = BookRepository(_firestore);
+          ApiService _apiService = ApiService();
+          BookRepository repo = BookRepository(_apiService);
           await repo.delete(book, belongsToWishlist);
         },
         key: UniqueKey(),

@@ -11,16 +11,16 @@ import 'package:injectable/injectable.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
+  // await Firebase.initializeApp(
+  //   options: DefaultFirebaseOptions.currentPlatform,
+  // );
   await ScreenUtil.ensureScreenSize();
   configureInjection(Environment.prod);
-  SharedPreferences prefs = await SharedPreferences.getInstance();
-  String? apiKey = prefs.getString('apiKey');
-  if (apiKey != null) {
-    Gemini.init(apiKey: apiKey!);
-  }
+  // SharedPreferences prefs = await SharedPreferences.getInstance();
+  // String? apiKey = prefs.getString('apiKey');
+  // if (apiKey != null) {
+  //   Gemini.init(apiKey: apiKey!);
+  // }
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp])
       .then((_) {
     runApp(AppWidget());

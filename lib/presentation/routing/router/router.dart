@@ -101,9 +101,9 @@ class AppRouter extends _$AppRouter {
           page: AboutRoute.page,
           transitionsBuilder: TransitionsBuilders.fadeIn,
         ),
-        CustomRoute(
-          page: EmailVerificationRoute.page,
-          transitionsBuilder: TransitionsBuilders.fadeIn,
-        )
+        // CustomRoute(
+        //   page: EmailVerificationRoute.page,
+        //   transitionsBuilder: TransitionsBuilders.fadeIn,
+        // )
       ];
 }

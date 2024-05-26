@@ -47,9 +47,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 unauthenticated: (_) => AutoRouter.of(context).replace(
                       const LoginRoute(),
                     ),
-                unverified: (_) => AutoRouter.of(context).replace(
-                      const EmailVerificationRoute(),
-                    ),
+                // unverified: (_) => AutoRouter.of(context).replace(
+                //       const EmailVerificationRoute(),
+                //     ),
                 orElse: () {});
           }),
           BlocListener<StoryActorCubit, StoryActorState>(
@@ -98,14 +98,17 @@ class _HomeScreenState extends State<HomeScreen> {
                         style: Theme.of(context).textTheme.headlineMedium,
                       ),
                       TextSpan(
-                        text: value.user['nickname'],
+                        text: value.user.nickname.toString(),
                         style: Theme.of(context).textTheme.labelMedium,
                       ),
                     ]));
-                  }, unverified: (_) {
-                    AutoRouter.of(context).replace(const EmailVerificationRoute());
-                    return const Text('Hi there!');
-                  },orElse: () {
+                  },
+                      // unverified: (_) {
+                      //   AutoRouter.of(context)
+                      //       .replace(const EmailVerificationRoute());
+                      //   return const Text('Hi there!');
+                      // },
+                      orElse: () {
                     return const Text('Hi there!');
                   });
                 }),

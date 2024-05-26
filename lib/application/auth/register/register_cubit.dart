@@ -71,13 +71,11 @@ class RegisterCubit extends Cubit<RegisterState> {
       ),
     );
 
-    final registerResult = withEmail
-        ? await _loginFacade.registerWithEmailAndPassword(
-            nickName: nickName,
-            emailAddress: email,
-            password: password,
-            confirmPassword: confirmPassword)
-        : await _loginFacade.registerWithGoogle();
+    final registerResult = await _loginFacade.registerWithEmailAndPassword(
+        nickName: nickName,
+        emailAddress: email,
+        password: password,
+        confirmPassword: confirmPassword);
 
     if (registerResult.isLeft()) {
       return registerResult.fold((failure) {

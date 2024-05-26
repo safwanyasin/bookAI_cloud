@@ -33,7 +33,7 @@ class _HomeMainCarouselState extends State<HomeMainCarousel> {
     return BlocBuilder<BookWatcherCubit, BookWatcherState>(
         builder: (context, state) {
       return state.map(
-          initial: (_) => Container(child: Text('init')),
+          initial: (_) => Container(child: const Text('init')),
           loading: (_) => const Center(
                 child: CircularProgressIndicator(),
               ),

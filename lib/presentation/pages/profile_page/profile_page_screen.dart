@@ -106,7 +106,7 @@ class _ProfilePageScreenState extends State<ProfilePageScreen> {
                                     return RichText(
                                         text: TextSpan(children: <TextSpan>[
                                       TextSpan(
-                                        text: '@${value.user['nickname']}',
+                                        text: '@${value.user.nickname.toString()}',
                                         style: Theme.of(context)
                                             .textTheme
                                             .headlineLarge,

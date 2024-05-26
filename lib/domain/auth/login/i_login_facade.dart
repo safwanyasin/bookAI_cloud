@@ -20,11 +20,11 @@ abstract class ILoginFacade {
     required EmailAddress emailAddress,
     required LoginPassword password,
   });
-  Future<Either<LoginFailure, Unit>> signInWithGoogle();
-  Future<Either<RegisterFailure, Unit>> registerWithGoogle();
+  // Future<Either<LoginFailure, Unit>> signInWithGoogle();
+  // Future<Either<RegisterFailure, Unit>> registerWithGoogle();
   // Future<Either<ValueFailure, DocumentSnapshot>> getUser();
-  Future<DocumentSnapshot> getUser();
-  Future<bool> checkIfVerified();
-  Future<Either<EmailVerificationFailure, Unit>> sendEmailverification();
+  // Future<DocumentSnapshot> getUser();
+  // Future<bool> checkIfVerified();
+  // Future<Either<EmailVerificationFailure, Unit>> sendEmailverification();
   Future<void> signOut();
 }

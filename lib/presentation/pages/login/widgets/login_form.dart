@@ -48,7 +48,7 @@ class LoginForm extends StatelessWidget {
               // navigate to another page
               // print('hello');
               AutoRouter.of(context).replace(const NavRoute());
-              context.read<AuthCubit>().authCheckRequested();
+              //context.read<AuthCubit>().authCheckRequested();
             },
           ),
         );

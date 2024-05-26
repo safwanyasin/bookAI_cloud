@@ -54,10 +54,8 @@ class LoginCubit extends Cubit<LoginState> {
       ),
     );
 
-    final loginResult = withEmail
-        ? await _loginFacade.signInWithEmailAndPassword(
-            emailAddress: email, password: password)
-        : await _loginFacade.signInWithGoogle();
+    final loginResult = await _loginFacade.signInWithEmailAndPassword(
+        emailAddress: email, password: password);
 
     if (loginResult.isLeft()) {
       return loginResult.fold((failure) {

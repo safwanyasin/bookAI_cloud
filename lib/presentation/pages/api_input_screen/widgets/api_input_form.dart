@@ -49,7 +49,7 @@ class ApiInputForm extends StatelessWidget {
               _showBlurredSnackbar(context,
                   'Please restart the application for changes to take effect');
               AutoRouter.of(context).replace(const NavRoute());
-              context.read<AuthCubit>().authCheckRequested();
+             // context.read<AuthCubit>().authCheckRequested();
             },
           ),
         );

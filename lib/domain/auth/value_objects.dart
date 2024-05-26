@@ -107,6 +107,19 @@ class NickName extends ValueObject<String> {
   const NickName._(this.value);
 }
 
+class JwtToken extends ValueObject<String> {
+  @override
+  final Either<ValueFailure<String>, String> value;
+
+  factory JwtToken(String input) {
+    return JwtToken._(
+      validateNickName(input),
+    );
+  }
+
+  const JwtToken._(this.value);
+}
+
 class ApiInput extends ValueObject<String> {
   @override
   final Either<ValueFailure<String>, String> value;
