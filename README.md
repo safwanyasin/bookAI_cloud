@@ -1,6 +1,6 @@
-# book_ai
+# TaleTuner
 
-A new Flutter project.
+This is the front-end of the TaleTuner application. The backend can be found on https://github.com/safwanyasin/bookai_cloud_server
 
 ## Getting Started
 
