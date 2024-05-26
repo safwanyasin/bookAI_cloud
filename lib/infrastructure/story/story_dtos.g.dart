@@ -8,14 +8,14 @@ part of 'story_dtos.dart';
 
 _$StoryDtoImpl _$$StoryDtoImplFromJson(Map<String, dynamic> json) =>
     _$StoryDtoImpl(
-      storyId: json['storyId'] as String,
-      storyTitle: json['storyTitle'] as String,
+      story_id: json['story_id'] as String,
+      title: json['title'] as String,
       content: json['content'] as String,
     );
 
 Map<String, dynamic> _$$StoryDtoImplToJson(_$StoryDtoImpl instance) =>
     <String, dynamic>{
-      'storyId': instance.storyId,
-      'storyTitle': instance.storyTitle,
+      'story_id': instance.story_id,
+      'title': instance.title,
       'content': instance.content,
     };

@@ -32,7 +32,7 @@ class _StoryScreenState extends State<StoryScreen> {
         title: Column(
           children: [
             Text(
-              widget.story.storyTitle,
+              widget.story.title,
               style: Theme.of(context).textTheme.headlineLarge,
             ),
             Text(

@@ -13,23 +13,23 @@ abstract class StoryDto implements _$StoryDto {
 
   const factory StoryDto({
     // @JsonKey(includeToJson: true) String bookId, // check if this is needed
-    required String storyId,
-    required String storyTitle,
+    required String story_id,
+    required String title,
     required String content,
   }) = _StoryDto;
 
   factory StoryDto.fromDomain(StoryItem story) {
     return StoryDto(
-      storyId: story.storyId.getOrCrash(),
-      storyTitle: story.storyTitle.getOrCrash(),
+      story_id: story.storyId.getOrCrash(),
+      title: story.storyTitle.getOrCrash(),
       content: story.content.getOrCrash(),
     );
   }
 
   StoryItem toDomain() {
     return StoryItem(
-      storyId: UniqueId.fromUniqueString(storyId),
-      storyTitle: StoryTitle(storyTitle),
+      storyId: UniqueId.fromUniqueString(story_id),
+      storyTitle: StoryTitle(title),
       content: Content(content),
     );
   }

@@ -21,8 +21,8 @@ StoryDto _$StoryDtoFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$StoryDto {
 // @JsonKey(includeToJson: true) String bookId, // check if this is needed
-  String get storyId => throw _privateConstructorUsedError;
-  String get storyTitle => throw _privateConstructorUsedError;
+  String get story_id => throw _privateConstructorUsedError;
+  String get title => throw _privateConstructorUsedError;
   String get content => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -36,7 +36,7 @@ abstract class $StoryDtoCopyWith<$Res> {
   factory $StoryDtoCopyWith(StoryDto value, $Res Function(StoryDto) then) =
       _$StoryDtoCopyWithImpl<$Res, StoryDto>;
   @useResult
-  $Res call({String storyId, String storyTitle, String content});
+  $Res call({String story_id, String title, String content});
 }
 
 /// @nodoc
@@ -52,18 +52,18 @@ class _$StoryDtoCopyWithImpl<$Res, $Val extends StoryDto>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? storyId = null,
-    Object? storyTitle = null,
+    Object? story_id = null,
+    Object? title = null,
     Object? content = null,
   }) {
     return _then(_value.copyWith(
-      storyId: null == storyId
-          ? _value.storyId
-          : storyId // ignore: cast_nullable_to_non_nullable
+      story_id: null == story_id
+          ? _value.story_id
+          : story_id // ignore: cast_nullable_to_non_nullable
               as String,
-      storyTitle: null == storyTitle
-          ? _value.storyTitle
-          : storyTitle // ignore: cast_nullable_to_non_nullable
+      title: null == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
               as String,
       content: null == content
           ? _value.content
@@ -81,7 +81,7 @@ abstract class _$$StoryDtoImplCopyWith<$Res>
       __$$StoryDtoImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String storyId, String storyTitle, String content});
+  $Res call({String story_id, String title, String content});
 }
 
 /// @nodoc
@@ -95,18 +95,18 @@ class __$$StoryDtoImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? storyId = null,
-    Object? storyTitle = null,
+    Object? story_id = null,
+    Object? title = null,
     Object? content = null,
   }) {
     return _then(_$StoryDtoImpl(
-      storyId: null == storyId
-          ? _value.storyId
-          : storyId // ignore: cast_nullable_to_non_nullable
+      story_id: null == story_id
+          ? _value.story_id
+          : story_id // ignore: cast_nullable_to_non_nullable
               as String,
-      storyTitle: null == storyTitle
-          ? _value.storyTitle
-          : storyTitle // ignore: cast_nullable_to_non_nullable
+      title: null == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
               as String,
       content: null == content
           ? _value.content
@@ -120,7 +120,7 @@ class __$$StoryDtoImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$StoryDtoImpl extends _StoryDto {
   const _$StoryDtoImpl(
-      {required this.storyId, required this.storyTitle, required this.content})
+      {required this.story_id, required this.title, required this.content})
       : super._();
 
   factory _$StoryDtoImpl.fromJson(Map<String, dynamic> json) =>
@@ -128,15 +128,15 @@ class _$StoryDtoImpl extends _StoryDto {
 
 // @JsonKey(includeToJson: true) String bookId, // check if this is needed
   @override
-  final String storyId;
+  final String story_id;
   @override
-  final String storyTitle;
+  final String title;
   @override
   final String content;
 
   @override
   String toString() {
-    return 'StoryDto(storyId: $storyId, storyTitle: $storyTitle, content: $content)';
+    return 'StoryDto(story_id: $story_id, title: $title, content: $content)';
   }
 
   @override
@@ -144,15 +144,15 @@ class _$StoryDtoImpl extends _StoryDto {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$StoryDtoImpl &&
-            (identical(other.storyId, storyId) || other.storyId == storyId) &&
-            (identical(other.storyTitle, storyTitle) ||
-                other.storyTitle == storyTitle) &&
+            (identical(other.story_id, story_id) ||
+                other.story_id == story_id) &&
+            (identical(other.title, title) || other.title == title) &&
             (identical(other.content, content) || other.content == content));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, storyId, storyTitle, content);
+  int get hashCode => Object.hash(runtimeType, story_id, title, content);
 
   @JsonKey(ignore: true)
   @override
@@ -170,8 +170,8 @@ class _$StoryDtoImpl extends _StoryDto {
 
 abstract class _StoryDto extends StoryDto {
   const factory _StoryDto(
-      {required final String storyId,
-      required final String storyTitle,
+      {required final String story_id,
+      required final String title,
       required final String content}) = _$StoryDtoImpl;
   const _StoryDto._() : super._();
 
@@ -179,9 +179,9 @@ abstract class _StoryDto extends StoryDto {
       _$StoryDtoImpl.fromJson;
 
   @override // @JsonKey(includeToJson: true) String bookId, // check if this is needed
-  String get storyId;
+  String get story_id;
   @override
-  String get storyTitle;
+  String get title;
   @override
   String get content;
   @override

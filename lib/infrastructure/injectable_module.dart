@@ -17,6 +17,11 @@ import 'package:book_ai/domain/auth/login/i_login_facade.dart';
 abstract class InjectableModule {
   // @lazySingleton
   // FirebaseAuth get firebaseAuth => FirebaseAuth.instance;
+  @lazySingleton
+  StoryApiService get storyApiService => StoryApiService();
+
+  @lazySingleton
+  ApiService get apiService => ApiService();
 
   @lazySingleton
   GoogleSignIn get googleSignIn => GoogleSignIn();
@@ -40,8 +45,9 @@ abstract class InjectableModule {
 
   @lazySingleton
   IStoryRepository get storyRepository => StoryRepository(
-        getIt<FirebaseFirestore>(),
-        getIt<IApiInputRepository>(),
+        // getIt<FirebaseFirestore>(),
+        // getIt<IApiInputRepository>(),
+        getIt<StoryApiService>(),
       );
   @lazySingleton
   IApiInputRepository get apiInputRepository => ApiInputRepository();
