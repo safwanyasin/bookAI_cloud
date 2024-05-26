@@ -21,18 +21,18 @@ BookDto _$BookDtoFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$BookDto {
 // @JsonKey(includeToJson: true) String bookId, // check if this is needed
-  String get bookId => throw _privateConstructorUsedError;
-  String get bookName => throw _privateConstructorUsedError;
-  String get authorName => throw _privateConstructorUsedError;
+  String get book_id => throw _privateConstructorUsedError; // String user_id,
+  String get book_name => throw _privateConstructorUsedError;
+  String get author_name => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
   String get language => throw _privateConstructorUsedError;
-  int get pageCount => throw _privateConstructorUsedError;
-  int get reviewCount => throw _privateConstructorUsedError;
+  int get page_count => throw _privateConstructorUsedError;
+  int get review_count => throw _privateConstructorUsedError;
   double get rating => throw _privateConstructorUsedError;
-  String get imageUrl => throw _privateConstructorUsedError;
+  String get image_url => throw _privateConstructorUsedError;
   String get category => throw _privateConstructorUsedError;
   String get publisher => throw _privateConstructorUsedError;
-  String get publishDate =>
+  String get publish_date =>
       throw _privateConstructorUsedError; // @ServerTimestampConverter() required FieldValue serverTimestamp,
   bool get liked => throw _privateConstructorUsedError;
 
@@ -47,18 +47,18 @@ abstract class $BookDtoCopyWith<$Res> {
       _$BookDtoCopyWithImpl<$Res, BookDto>;
   @useResult
   $Res call(
-      {String bookId,
-      String bookName,
-      String authorName,
+      {String book_id,
+      String book_name,
+      String author_name,
       String description,
       String language,
-      int pageCount,
-      int reviewCount,
+      int page_count,
+      int review_count,
       double rating,
-      String imageUrl,
+      String image_url,
       String category,
       String publisher,
-      String publishDate,
+      String publish_date,
       bool liked});
 }
 
@@ -75,32 +75,32 @@ class _$BookDtoCopyWithImpl<$Res, $Val extends BookDto>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? bookId = null,
-    Object? bookName = null,
-    Object? authorName = null,
+    Object? book_id = null,
+    Object? book_name = null,
+    Object? author_name = null,
     Object? description = null,
     Object? language = null,
-    Object? pageCount = null,
-    Object? reviewCount = null,
+    Object? page_count = null,
+    Object? review_count = null,
     Object? rating = null,
-    Object? imageUrl = null,
+    Object? image_url = null,
     Object? category = null,
     Object? publisher = null,
-    Object? publishDate = null,
+    Object? publish_date = null,
     Object? liked = null,
   }) {
     return _then(_value.copyWith(
-      bookId: null == bookId
-          ? _value.bookId
-          : bookId // ignore: cast_nullable_to_non_nullable
+      book_id: null == book_id
+          ? _value.book_id
+          : book_id // ignore: cast_nullable_to_non_nullable
               as String,
-      bookName: null == bookName
-          ? _value.bookName
-          : bookName // ignore: cast_nullable_to_non_nullable
+      book_name: null == book_name
+          ? _value.book_name
+          : book_name // ignore: cast_nullable_to_non_nullable
               as String,
-      authorName: null == authorName
-          ? _value.authorName
-          : authorName // ignore: cast_nullable_to_non_nullable
+      author_name: null == author_name
+          ? _value.author_name
+          : author_name // ignore: cast_nullable_to_non_nullable
               as String,
       description: null == description
           ? _value.description
@@ -110,21 +110,21 @@ class _$BookDtoCopyWithImpl<$Res, $Val extends BookDto>
           ? _value.language
           : language // ignore: cast_nullable_to_non_nullable
               as String,
-      pageCount: null == pageCount
-          ? _value.pageCount
-          : pageCount // ignore: cast_nullable_to_non_nullable
+      page_count: null == page_count
+          ? _value.page_count
+          : page_count // ignore: cast_nullable_to_non_nullable
               as int,
-      reviewCount: null == reviewCount
-          ? _value.reviewCount
-          : reviewCount // ignore: cast_nullable_to_non_nullable
+      review_count: null == review_count
+          ? _value.review_count
+          : review_count // ignore: cast_nullable_to_non_nullable
               as int,
       rating: null == rating
           ? _value.rating
           : rating // ignore: cast_nullable_to_non_nullable
               as double,
-      imageUrl: null == imageUrl
-          ? _value.imageUrl
-          : imageUrl // ignore: cast_nullable_to_non_nullable
+      image_url: null == image_url
+          ? _value.image_url
+          : image_url // ignore: cast_nullable_to_non_nullable
               as String,
       category: null == category
           ? _value.category
@@ -134,9 +134,9 @@ class _$BookDtoCopyWithImpl<$Res, $Val extends BookDto>
           ? _value.publisher
           : publisher // ignore: cast_nullable_to_non_nullable
               as String,
-      publishDate: null == publishDate
-          ? _value.publishDate
-          : publishDate // ignore: cast_nullable_to_non_nullable
+      publish_date: null == publish_date
+          ? _value.publish_date
+          : publish_date // ignore: cast_nullable_to_non_nullable
               as String,
       liked: null == liked
           ? _value.liked
@@ -154,18 +154,18 @@ abstract class _$$BookDtoImplCopyWith<$Res> implements $BookDtoCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {String bookId,
-      String bookName,
-      String authorName,
+      {String book_id,
+      String book_name,
+      String author_name,
       String description,
       String language,
-      int pageCount,
-      int reviewCount,
+      int page_count,
+      int review_count,
       double rating,
-      String imageUrl,
+      String image_url,
       String category,
       String publisher,
-      String publishDate,
+      String publish_date,
       bool liked});
 }
 
@@ -180,32 +180,32 @@ class __$$BookDtoImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? bookId = null,
-    Object? bookName = null,
-    Object? authorName = null,
+    Object? book_id = null,
+    Object? book_name = null,
+    Object? author_name = null,
     Object? description = null,
     Object? language = null,
-    Object? pageCount = null,
-    Object? reviewCount = null,
+    Object? page_count = null,
+    Object? review_count = null,
     Object? rating = null,
-    Object? imageUrl = null,
+    Object? image_url = null,
     Object? category = null,
     Object? publisher = null,
-    Object? publishDate = null,
+    Object? publish_date = null,
     Object? liked = null,
   }) {
     return _then(_$BookDtoImpl(
-      bookId: null == bookId
-          ? _value.bookId
-          : bookId // ignore: cast_nullable_to_non_nullable
+      book_id: null == book_id
+          ? _value.book_id
+          : book_id // ignore: cast_nullable_to_non_nullable
               as String,
-      bookName: null == bookName
-          ? _value.bookName
-          : bookName // ignore: cast_nullable_to_non_nullable
+      book_name: null == book_name
+          ? _value.book_name
+          : book_name // ignore: cast_nullable_to_non_nullable
               as String,
-      authorName: null == authorName
-          ? _value.authorName
-          : authorName // ignore: cast_nullable_to_non_nullable
+      author_name: null == author_name
+          ? _value.author_name
+          : author_name // ignore: cast_nullable_to_non_nullable
               as String,
       description: null == description
           ? _value.description
@@ -215,21 +215,21 @@ class __$$BookDtoImplCopyWithImpl<$Res>
           ? _value.language
           : language // ignore: cast_nullable_to_non_nullable
               as String,
-      pageCount: null == pageCount
-          ? _value.pageCount
-          : pageCount // ignore: cast_nullable_to_non_nullable
+      page_count: null == page_count
+          ? _value.page_count
+          : page_count // ignore: cast_nullable_to_non_nullable
               as int,
-      reviewCount: null == reviewCount
-          ? _value.reviewCount
-          : reviewCount // ignore: cast_nullable_to_non_nullable
+      review_count: null == review_count
+          ? _value.review_count
+          : review_count // ignore: cast_nullable_to_non_nullable
               as int,
       rating: null == rating
           ? _value.rating
           : rating // ignore: cast_nullable_to_non_nullable
               as double,
-      imageUrl: null == imageUrl
-          ? _value.imageUrl
-          : imageUrl // ignore: cast_nullable_to_non_nullable
+      image_url: null == image_url
+          ? _value.image_url
+          : image_url // ignore: cast_nullable_to_non_nullable
               as String,
       category: null == category
           ? _value.category
@@ -239,9 +239,9 @@ class __$$BookDtoImplCopyWithImpl<$Res>
           ? _value.publisher
           : publisher // ignore: cast_nullable_to_non_nullable
               as String,
-      publishDate: null == publishDate
-          ? _value.publishDate
-          : publishDate // ignore: cast_nullable_to_non_nullable
+      publish_date: null == publish_date
+          ? _value.publish_date
+          : publish_date // ignore: cast_nullable_to_non_nullable
               as String,
       liked: null == liked
           ? _value.liked
@@ -255,18 +255,18 @@ class __$$BookDtoImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$BookDtoImpl extends _BookDto {
   const _$BookDtoImpl(
-      {required this.bookId,
-      required this.bookName,
-      required this.authorName,
+      {required this.book_id,
+      required this.book_name,
+      required this.author_name,
       required this.description,
       required this.language,
-      required this.pageCount,
-      required this.reviewCount,
+      required this.page_count,
+      required this.review_count,
       required this.rating,
-      required this.imageUrl,
+      required this.image_url,
       required this.category,
       required this.publisher,
-      required this.publishDate,
+      required this.publish_date,
       this.liked = false})
       : super._();
 
@@ -275,29 +275,30 @@ class _$BookDtoImpl extends _BookDto {
 
 // @JsonKey(includeToJson: true) String bookId, // check if this is needed
   @override
-  final String bookId;
+  final String book_id;
+// String user_id,
   @override
-  final String bookName;
+  final String book_name;
   @override
-  final String authorName;
+  final String author_name;
   @override
   final String description;
   @override
   final String language;
   @override
-  final int pageCount;
+  final int page_count;
   @override
-  final int reviewCount;
+  final int review_count;
   @override
   final double rating;
   @override
-  final String imageUrl;
+  final String image_url;
   @override
   final String category;
   @override
   final String publisher;
   @override
-  final String publishDate;
+  final String publish_date;
 // @ServerTimestampConverter() required FieldValue serverTimestamp,
   @override
   @JsonKey()
@@ -305,7 +306,7 @@ class _$BookDtoImpl extends _BookDto {
 
   @override
   String toString() {
-    return 'BookDto(bookId: $bookId, bookName: $bookName, authorName: $authorName, description: $description, language: $language, pageCount: $pageCount, reviewCount: $reviewCount, rating: $rating, imageUrl: $imageUrl, category: $category, publisher: $publisher, publishDate: $publishDate, liked: $liked)';
+    return 'BookDto(book_id: $book_id, book_name: $book_name, author_name: $author_name, description: $description, language: $language, page_count: $page_count, review_count: $review_count, rating: $rating, image_url: $image_url, category: $category, publisher: $publisher, publish_date: $publish_date, liked: $liked)';
   }
 
   @override
@@ -313,28 +314,28 @@ class _$BookDtoImpl extends _BookDto {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$BookDtoImpl &&
-            (identical(other.bookId, bookId) || other.bookId == bookId) &&
-            (identical(other.bookName, bookName) ||
-                other.bookName == bookName) &&
-            (identical(other.authorName, authorName) ||
-                other.authorName == authorName) &&
+            (identical(other.book_id, book_id) || other.book_id == book_id) &&
+            (identical(other.book_name, book_name) ||
+                other.book_name == book_name) &&
+            (identical(other.author_name, author_name) ||
+                other.author_name == author_name) &&
             (identical(other.description, description) ||
                 other.description == description) &&
             (identical(other.language, language) ||
                 other.language == language) &&
-            (identical(other.pageCount, pageCount) ||
-                other.pageCount == pageCount) &&
-            (identical(other.reviewCount, reviewCount) ||
-                other.reviewCount == reviewCount) &&
+            (identical(other.page_count, page_count) ||
+                other.page_count == page_count) &&
+            (identical(other.review_count, review_count) ||
+                other.review_count == review_count) &&
             (identical(other.rating, rating) || other.rating == rating) &&
-            (identical(other.imageUrl, imageUrl) ||
-                other.imageUrl == imageUrl) &&
+            (identical(other.image_url, image_url) ||
+                other.image_url == image_url) &&
             (identical(other.category, category) ||
                 other.category == category) &&
             (identical(other.publisher, publisher) ||
                 other.publisher == publisher) &&
-            (identical(other.publishDate, publishDate) ||
-                other.publishDate == publishDate) &&
+            (identical(other.publish_date, publish_date) ||
+                other.publish_date == publish_date) &&
             (identical(other.liked, liked) || other.liked == liked));
   }
 
@@ -342,18 +343,18 @@ class _$BookDtoImpl extends _BookDto {
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      bookId,
-      bookName,
-      authorName,
+      book_id,
+      book_name,
+      author_name,
       description,
       language,
-      pageCount,
-      reviewCount,
+      page_count,
+      review_count,
       rating,
-      imageUrl,
+      image_url,
       category,
       publisher,
-      publishDate,
+      publish_date,
       liked);
 
   @JsonKey(ignore: true)
@@ -372,47 +373,47 @@ class _$BookDtoImpl extends _BookDto {
 
 abstract class _BookDto extends BookDto {
   const factory _BookDto(
-      {required final String bookId,
-      required final String bookName,
-      required final String authorName,
+      {required final String book_id,
+      required final String book_name,
+      required final String author_name,
       required final String description,
       required final String language,
-      required final int pageCount,
-      required final int reviewCount,
+      required final int page_count,
+      required final int review_count,
       required final double rating,
-      required final String imageUrl,
+      required final String image_url,
       required final String category,
       required final String publisher,
-      required final String publishDate,
+      required final String publish_date,
       final bool liked}) = _$BookDtoImpl;
   const _BookDto._() : super._();
 
   factory _BookDto.fromJson(Map<String, dynamic> json) = _$BookDtoImpl.fromJson;
 
   @override // @JsonKey(includeToJson: true) String bookId, // check if this is needed
-  String get bookId;
+  String get book_id;
+  @override // String user_id,
+  String get book_name;
   @override
-  String get bookName;
-  @override
-  String get authorName;
+  String get author_name;
   @override
   String get description;
   @override
   String get language;
   @override
-  int get pageCount;
+  int get page_count;
   @override
-  int get reviewCount;
+  int get review_count;
   @override
   double get rating;
   @override
-  String get imageUrl;
+  String get image_url;
   @override
   String get category;
   @override
   String get publisher;
   @override
-  String get publishDate;
+  String get publish_date;
   @override // @ServerTimestampConverter() required FieldValue serverTimestamp,
   bool get liked;
   @override

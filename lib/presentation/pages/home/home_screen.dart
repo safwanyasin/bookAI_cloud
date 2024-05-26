@@ -98,7 +98,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         style: Theme.of(context).textTheme.headlineMedium,
                       ),
                       TextSpan(
-                        text: value.user.nickname.toString(),
+                        text: value.user.nickname.getOrCrash(),
                         style: Theme.of(context).textTheme.labelMedium,
                       ),
                     ]));

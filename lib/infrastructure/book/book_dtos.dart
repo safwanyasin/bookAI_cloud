@@ -13,59 +13,75 @@ abstract class BookDto implements _$BookDto {
 
   const factory BookDto({
     // @JsonKey(includeToJson: true) String bookId, // check if this is needed
-    required String bookId,
-    required String bookName,
-    required String authorName,
+    required String book_id,
+    // String user_id,
+    required String book_name,
+    required String author_name,
     required String description,
     required String language,
-    required int pageCount,
-    required int reviewCount,
+    required int page_count,
+    required int review_count,
     required double rating,
-    required String imageUrl,
+    required String image_url,
     required String category,
     required String publisher,
-    required String publishDate,
+    required String publish_date,
     // @ServerTimestampConverter() required FieldValue serverTimestamp,
     @Default(false) bool liked,
   }) = _BookDto;
 
   factory BookDto.fromDomain(Book book) {
     return BookDto(
-      bookId: book.bookId.getOrCrash(),
-      bookName: book.bookName.getOrCrash(),
-      authorName: book.authorName.getOrCrash(),
+      book_id: book.bookId.getOrCrash(),
+      book_name: book.bookName.getOrCrash(),
+      author_name: book.authorName.getOrCrash(),
       description: book.description.getOrCrash(),
       language: book.language.getOrCrash(),
-      pageCount: book.pageCount.getOrCrash(),
-      reviewCount: book.reviewCount.getOrCrash(),
+      page_count: book.pageCount.getOrCrash(),
+      review_count: book.reviewCount.getOrCrash(),
       rating: book.rating.getOrCrash(),
-      imageUrl: book.imageUrl.getOrCrash(),
+      image_url: book.imageUrl.getOrCrash(),
       category: book.category.getOrCrash(),
       publisher: book.publisher.getOrCrash(),
-      publishDate: book.publishDate.getOrCrash(),
+      publish_date: book.publishDate.getOrCrash(),
       // serverTimestamp: FieldValue.serverTimestamp(),
     );
   }
 
   Book toDomain() {
     return Book(
-      bookId: UniqueId.fromUniqueString(bookId),
-      bookName: BookName(bookName),
-      authorName: AuthorName(authorName),
+      bookId: UniqueId.fromUniqueString(book_id),
+      bookName: BookName(book_name),
+      authorName: AuthorName(author_name),
       description: Description(description),
       language: Language(language),
-      pageCount: PageCount(pageCount),
-      reviewCount: ReviewCount(reviewCount),
+      pageCount: PageCount(page_count),
+      reviewCount: ReviewCount(review_count),
       rating: Rating(rating),
-      imageUrl: ImageUrl(imageUrl),
+      imageUrl: ImageUrl(image_url),
       category: Category(category),
       publisher: Publisher(publisher),
-      publishDate: PublishDate(publishDate),
+      publishDate: PublishDate(publish_date),
     );
   }
 
-  factory BookDto.fromJson(Map<String, dynamic> json) =>
-      _$BookDtoFromJson(json);
+  factory BookDto.fromJson(Map<String, dynamic> json) {
+    final BookDto object = BookDto(
+      author_name: json["author_name"],
+      book_id: json["book_id"],
+      book_name: json["book_name"],
+      description: json["description"],
+      language: json["language"],
+      page_count: json["page_count"],
+      review_count: json["review_count"],
+      rating: double.parse(json["rating"]),
+      image_url: json["image_url"],
+      category: json["category"],
+      publisher: json["publisher"],
+      publish_date: json["publish_date"],
+    );
+    return object;
+  }
 
   factory BookDto.fromFirestore(DocumentSnapshot doc) {
     final data = doc.data() as Map<String, dynamic>;

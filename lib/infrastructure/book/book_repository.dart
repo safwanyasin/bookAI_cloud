@@ -15,7 +15,8 @@ import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 
 class ApiService {
-  final String apiUrl = 'https://europe-west3-taletuner-cloud.cloudfunctions.net';
+  final String apiUrl =
+      'https://europe-west3-taletuner-cloud.cloudfunctions.net';
 
   Future<List<Book>> fetchReadingList(String token) async {
     final response = await http.get(
@@ -25,10 +26,11 @@ class ApiService {
         'Content-Type': 'application/json',
       },
     );
-
     if (response.statusCode == 200) {
       final List<dynamic> data = jsonDecode(response.body)['data'];
-      return data.map((item) => BookDto.fromJson(item).toDomain()).toList();
+      return data.map((item) {
+        return BookDto.fromJson(item).toDomain();
+      }).toList();
     } else {
       throw Exception('Failed to load reading list');
     }
@@ -83,12 +85,13 @@ class ApiService {
     } else {
       throw Exception('Failed to load wishlist');
     }
-  }  
+  }
 
   Future<void> add(BookDto bookDto, String token, bool toWishlist) async {
-    final String completeUrl = toWishlist ? '$apiUrl/wishlist/add' : '$apiUrl/reading-list/add';
+    final String completeUrl =
+        toWishlist ? '$apiUrl/wishlist/add' : '$apiUrl/reading-list/add';
     final response = await http.post(
-      Uri.parse(completeUrl), 
+      Uri.parse(completeUrl),
       headers: {
         'Authorization': token,
         'Content-Type': 'application/json',
@@ -97,21 +100,28 @@ class ApiService {
     );
 
     if (response.statusCode != 200) {
-      toWishlist ? throw Exception('Failed to add book to wishlist') : throw Exception('Failed to add book to reading list');
+      toWishlist
+          ? throw Exception('Failed to add book to wishlist')
+          : throw Exception('Failed to add book to reading list');
     }
   }
 
   Future<void> delete(String bookId, String token, bool fromWishlist) async {
-    final String completeUrl = fromWishlist ? '$apiUrl/wishlist/delete' : '$apiUrl/reading-list/delete';
+    print('$bookId $token');
+    final String completeUrl = fromWishlist
+        ? '$apiUrl/wishlist/delete/$bookId'
+        : '$apiUrl/reading-list/delete/$bookId';
     final response = await http.delete(
       Uri.parse(completeUrl),
       headers: {
         'Authorization': token,
       },
     );
-
+    print(response.body);
     if (response.statusCode != 200) {
-      fromWishlist ? throw Exception('Failed to delete book from wishlist') : throw Exception('Failed to delete book from reading list');
+      fromWishlist
+          ? throw Exception('Failed to delete book from wishlist')
+          : throw Exception('Failed to delete book from reading list');
     }
   }
 }
@@ -125,7 +135,6 @@ class BookRepository implements IBookRepository {
   // the async* means that it is an asynchronous generator. we use it since we are not using a future function but a stream
   @override
   Stream<Either<BookFailure, List<Book>>> watchReadingList() async* {
-
     SharedPreferences prefs = await SharedPreferences.getInstance();
     String? token = prefs.getString('token');
 
@@ -189,7 +198,8 @@ class BookRepository implements IBookRepository {
     }
     try {
       final bookId = book.bookId.getOrCrash();
-      final isInReadingList = await _apiService.findInReadingList(bookId, token);
+      final isInReadingList =
+          await _apiService.findInReadingList(bookId, token);
       return right(isInReadingList);
     } on Exception catch (e) {
       return left(const BookFailure.unexpected());
@@ -213,9 +223,7 @@ class BookRepository implements IBookRepository {
         //   'maxResults': 40, // Set maxResults to 40
         // },
       );
-      final bookList = response.data != null
-          ? (response.data as List)
-          : [];
+      final bookList = response.data != null ? (response.data as List) : [];
       final List<Book> books =
           bookList.map((item) => Book.fromGoogleBooksApi(item)).toList();
       // print(books);
@@ -228,7 +236,7 @@ class BookRepository implements IBookRepository {
   // adds a book to the the wishlist or reading list
   @override
   Future<Either<BookFailure, Unit>> create(Book book, bool toWishlist) async {
-   try {
+    try {
       SharedPreferences prefs = await SharedPreferences.getInstance();
       String? token = prefs.getString('token');
 
@@ -250,7 +258,7 @@ class BookRepository implements IBookRepository {
   // updates the book details on the wishlist or reading list
   @override
   Future<Either<BookFailure, Unit>> update(Book book, bool toWishlist) async {
-   try {
+    try {
       SharedPreferences prefs = await SharedPreferences.getInstance();
       String? token = prefs.getString('token');
 
@@ -272,6 +280,7 @@ class BookRepository implements IBookRepository {
   // removes a book from the wishlist or reading list
   @override
   Future<Either<BookFailure, Unit>> delete(Book book, bool fromWishlist) async {
+    print('trying to delete');
     try {
       SharedPreferences prefs = await SharedPreferences.getInstance();
       String? token = prefs.getString('token');
@@ -281,9 +290,8 @@ class BookRepository implements IBookRepository {
       }
 
       final bookId = book.bookId.getOrCrash();
-
+      print('calling api to delete');
       await _apiService.delete(bookId, token, fromWishlist);
-      
 
       return right(unit);
     } catch (e) {

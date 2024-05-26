@@ -46,20 +46,20 @@ abstract class Book implements _$Book {
     print(data['rating']);
 
     final BookDto bookData = BookDto(
-      bookId: data['bookId'],
-      bookName: data['bookName'],
-      authorName: data['authorName'],
+      book_id: data['bookId'],
+      book_name: data['bookName'],
+      author_name: data['authorName'],
       description: data['description'],
       language: data['language'],
-      pageCount: data['pageCount'],
-      reviewCount: data['reviewCount'],
+      page_count: data['pageCount'],
+      review_count: data['reviewCount'],
       rating: data['rating'].toDouble(),
       // imageUrl: data['volumeInfo']['imageLinks']['thumbnail'] ??
       //     'https://placehold.co/190x280',
-      imageUrl: data['imageUrl'],
+      image_url: data['imageUrl'],
       category: data['category'],
       publisher: data['publisher'],
-      publishDate: data['publishDate'],
+      publish_date: data['publishDate'],
     );
     return bookData.toDomain();
     // return Book(
