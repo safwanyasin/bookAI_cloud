@@ -106,7 +106,8 @@ class _ProfilePageScreenState extends State<ProfilePageScreen> {
                                     return RichText(
                                         text: TextSpan(children: <TextSpan>[
                                       TextSpan(
-                                        text: '@${value.user.nickname.toString()}',
+                                        text:
+                                            '@${value.user.nickname.getOrCrash()}',
                                         style: Theme.of(context)
                                             .textTheme
                                             .headlineLarge,
@@ -149,81 +150,81 @@ class _ProfilePageScreenState extends State<ProfilePageScreen> {
                                 });
                               }),
                               SizedBox(height: 25.h),
-                              BlocBuilder<ProfilePageCubit, ProfilePageState>(
-                                  builder: (context, state) {
-                                return Form(
-                                    child: apiKeyString != ''
-                                        ? Column(
-                                            children: [
-                                              InputField(
-                                                showError: state.isSubmitting,
-                                                labelText:
-                                                    'Your Gemini AI API key',
-                                                onChanged: (api) => context
-                                                    .read<ProfilePageCubit>()
-                                                    .updateApiKey(api),
-                                                validator: (_) => context
-                                                    .read<ProfilePageCubit>()
-                                                    .state
-                                                    .apiKey
-                                                    .value
-                                                    .fold(
-                                                        (f) => f.maybeMap(
-                                                              empty: (_) =>
-                                                                  'API key cannot be empty!',
-                                                              incorrectLength:
-                                                                  (_) {
-                                                                return 'Your API key should be 51 characters long';
-                                                              },
-                                                              orElse: () =>
-                                                                  null,
-                                                            ),
-                                                        (_) => null),
-                                                hintText: apiKeyString!,
-                                              ),
-                                              SizedBox(height: 10.h),
-                                              Row(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.center,
-                                                children: [
-                                                  FilterButton(
-                                                    onPressed: () => context
-                                                        .read<
-                                                            ProfilePageCubit>()
-                                                        .update(),
-                                                    text: 'Update',
-                                                    active: true,
-                                                  ),
-                                                  SizedBox(width: 10.w),
-                                                  FilterButton(
-                                                      text: 'Delete',
-                                                      active: false,
-                                                      onPressed: () {
-                                                        _showDeleteConfirmationDialog(
-                                                            context);
-                                                      }),
-                                                ],
-                                              ),
-                                            ],
-                                          )
-                                        : Column(
-                                            children: [
-                                              Text(
-                                                "You haven't added your API key yet. Add your API key to be able to generate stories",
-                                                style: Theme.of(context)
-                                                    .textTheme
-                                                    .titleSmall,
-                                              ),
-                                              SizedBox(height: 20.h),
-                                              PrimaryButton(
-                                                  onPressed: () {
-                                                    AutoRouter.of(context).push(
-                                                        const ApiInputRoute());
-                                                  },
-                                                  text: 'Add API Key'),
-                                            ],
-                                          ));
-                              }),
+                              // BlocBuilder<ProfilePageCubit, ProfilePageState>(
+                              //     builder: (context, state) {
+                              //   return Form(
+                              //       child: apiKeyString != ''
+                              //           ? Column(
+                              //               children: [
+                              //                 InputField(
+                              //                   showError: state.isSubmitting,
+                              //                   labelText:
+                              //                       'Your Gemini AI API key',
+                              //                   onChanged: (api) => context
+                              //                       .read<ProfilePageCubit>()
+                              //                       .updateApiKey(api),
+                              //                   validator: (_) => context
+                              //                       .read<ProfilePageCubit>()
+                              //                       .state
+                              //                       .apiKey
+                              //                       .value
+                              //                       .fold(
+                              //                           (f) => f.maybeMap(
+                              //                                 empty: (_) =>
+                              //                                     'API key cannot be empty!',
+                              //                                 incorrectLength:
+                              //                                     (_) {
+                              //                                   return 'Your API key should be 51 characters long';
+                              //                                 },
+                              //                                 orElse: () =>
+                              //                                     null,
+                              //                               ),
+                              //                           (_) => null),
+                              //                   hintText: apiKeyString!,
+                              //                 ),
+                              //                 SizedBox(height: 10.h),
+                              //                 Row(
+                              //                   mainAxisAlignment:
+                              //                       MainAxisAlignment.center,
+                              //                   children: [
+                              //                     FilterButton(
+                              //                       onPressed: () => context
+                              //                           .read<
+                              //                               ProfilePageCubit>()
+                              //                           .update(),
+                              //                       text: 'Update',
+                              //                       active: true,
+                              //                     ),
+                              //                     SizedBox(width: 10.w),
+                              //                     FilterButton(
+                              //                         text: 'Delete',
+                              //                         active: false,
+                              //                         onPressed: () {
+                              //                           _showDeleteConfirmationDialog(
+                              //                               context);
+                              //                         }),
+                              //                   ],
+                              //                 ),
+                              //               ],
+                              //             )
+                              //           : Column(
+                              //               children: [
+                              //                 Text(
+                              //                   "You haven't added your API key yet. Add your API key to be able to generate stories",
+                              //                   style: Theme.of(context)
+                              //                       .textTheme
+                              //                       .titleSmall,
+                              //                 ),
+                              //                 SizedBox(height: 20.h),
+                              //                 PrimaryButton(
+                              //                     onPressed: () {
+                              //                       AutoRouter.of(context).push(
+                              //                           const ApiInputRoute());
+                              //                     },
+                              //                     text: 'Add API Key'),
+                              //               ],
+                              //             ));
+                              // }),
                             ],
                           ),
                         );
