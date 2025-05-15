@@ -2,6 +2,8 @@
 
 This is the front-end of the TaleTuner application. All the backend is deployed on GCP using a microservice architecture. The code for the backend can be found on [bookai_cloud_server](https://github.com/safwanyasin/bookai_cloud_server).
 
+This application was developed by M Safwan Yasin
+
 ## Description
 
 The frontend of the application has been written using the Flutter framework. Domain Driven Design (DDD) has been used as the primary architecture for the entire application. The primary features in the application are the following:
